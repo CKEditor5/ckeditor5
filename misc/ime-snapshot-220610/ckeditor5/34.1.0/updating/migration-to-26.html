@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Migration to v26.x - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:52 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Migration to v26.x - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/updating/migration-to-26.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Migration to v26.x - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/updating/migration-to-26.html">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../index.html">CKEditor 5</a></li>
+          <li><a href="../installation/index.html">Installation</a></li>
+          <li><a href="../features/index.html">Features</a></li>
+          <li><a href="../examples/index.html">Examples</a></li>
+          <li><a class="top__menu__item--active" href="index.html">Updating</a></li>
+          <li><a href="../support/index.html">Support</a></li>
+          <li><a href="../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="index.html">Updating</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="updating.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating your editor</span>
+                              </div></a></li>
+                          <li><a href="changelog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Recent release changelog</span>
+                              </div></a></li>
+                          <li><a href="migration-to-34.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v34.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-33.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v33.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-32.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v32.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-31.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v31.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-30.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v30.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-29.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v29.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-28.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v28.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-27.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v27.x</span>
+                              </div></a></li>
+                          <li><a href="">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migration to v26.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-25.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v25.x</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="support"><a href="../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/updating/migration-to-26.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="index.html">Updating</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../assets/2.1.3/img/book.svg" alt="guide">Migration to CKEditor 5 v26.0.0
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#soft-requirements">Soft requirements</a><ol><li><a href="#list-of-known-soft-requirements">List of known soft requirements</a></li><li><a href="#upgrade-method">Upgrade method</a></li></ol></li><li><a href="#keystrokes-for-macos">Keystrokes for macOS</a></li><li><a href="#unified-button-and-command-naming-convention">Unified button and command naming convention</a></li></ol></nav><div class="info-box notice"><p>When updating your CKEditor 5 installation, make sure <strong>all the packages are the same version</strong> to avoid errors.</p><p>For custom builds, you may try removing the <code>package-lock.json</code> or <code>yarn.lock</code> files (if applicable) and reinstalling all packages before rebuilding the editor. For best results, make sure you use the most recent package versions.</p></div>
+
+<p>For the entire list of changes introduced in version 26.0.0, see the <a href="https://github.com/ckeditor/ckeditor5/blob/master/CHANGELOG.md#2600-2021-03-01" target="_blank" rel="noopener">changelog for CKEditor 5 v26.0.0</a>.</p>
+<p>Listed below are the most important changes that require your attention when upgrading to CKEditor 5 v26.0.0.</p>
+<h2 id="soft-requirements"><a class="headerlink" href="#soft-requirements">#</a> Soft requirements</h2>
+<p>While <a href="https://github.com/ckeditor/ckeditor5/issues/8395" target="_blank" rel="noopener">allowing to extend builds</a> with additional plugins without rebuilding the bundle (a concept also called <a href="../installation/advanced/alternative-setups/dll-builds.html">&#x201C;DLLs&#x201D;</a>), certain sets of plugins had to be decoupled. This has lead to the introduction of the &#x201C;soft requirements&#x201D;.</p>
+<p>Before, each plugin had its direct requirements that would be automatically loaded by the editor before the plugin is loaded. These plugins were specified in the <code>static get() {}</code> callback of a plugin class in the form of plugin constructors (dependencies).</p>
+<p>Starting from v26.0.0 not all plugins can be directly imported by other plugins. However, a plugin can define that it requires another plugin (called for example <code>&apos;Foo&apos;</code>) by returning a string from <code>static get() {}</code>. This tells the editor that such a plugin must be provided by the integrator (you) either prior to building (via <a href="../api/module_core_editor_editor-Editor.html#static-member-builtinPlugins"><code>Editor.builtinPlugins</code></a>) or when creating a new instance of the editor (e.g. via <a href="../api/module_core_editor_editorconfig-EditorConfig.html#member-plugins"><code>config.plugins</code></a>).</p>
+<p>Therefore, when upgrading to version 26.0.0, you may stumble upon the <a href="../support/error-codes.html#error-plugincollection-soft-required"><code>plugincollection-soft-required</code></a> error. This tells you that some dependencies are now missing and you need to provide them.</p>
+<h3 id="list-of-known-soft-requirements"><a class="headerlink" href="#list-of-known-soft-requirements">#</a> List of known soft requirements</h3>
+<ul>
+<li>Make sure to add <a href="../api/module_cloud-services_cloudservices-CloudServices.html"><code>CloudServices</code></a> to the editor plugins when using the <code>CloudServicesUploadAdapter</code> or <code>EasyImage</code> features.</li>
+<li>Make sure to add <a href="../api/module_image_image-Image.html"><code>Image</code></a> and <a href="../api/module_image_imageupload-ImageUpload.html"><code>ImageUpload</code></a> to the editor plugins when using the <code>EasyImage</code> feature.</li>
+<li>Make sure to add <a href="../api/module_adapter-ckfinder_uploadadapter-UploadAdapter.html"><code>CKFinderUploadAdapter</code></a>, <a href="../api/module_image_image-Image.html"><code>Image</code></a>, and <a href="../api/module_link_link-Link.html"><code>Link</code></a> features to the editor plugins when using the <code>CKFinder</code> feature.</li>
+<li>Make sure to add <a href="../api/module_paragraph_paragraph-Paragraph.html"><code>Paragraph</code></a> to the editor plugins when using the <code>Title</code> feature.</li>
+<li>Make sure to add <a href="../api/module_paragraph_paragraph-Paragraph.html"><code>Paragraph</code></a> to the editor plugins when using the <code>List</code> feature.</li>
+<li>Make sure to add <a href="../api/module_image_image-Image.html"><code>Image</code></a> to the editor plugins when using the <code>LinkImage</code> feature.</li>
+<li>Make sure to add <a href="../api/module_cloud-services_cloudservices-CloudServices.html"><code>CloudServices</code></a> to the editor plugins when using the <code>ExportPdf</code> or <code>ExportWord</code> features.</li>
+</ul>
+<h3 id="upgrade-method"><a class="headerlink" href="#upgrade-method">#</a> Upgrade method</h3>
+<p>Before, when you were passing plugins directly to <code>Editor.create()</code> via <code>config.plugins</code>, this would be your setup:</p>
+<pre class="highlight"><code class="js">import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import EssentialsPlugin from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import UploadAdapterPlugin from &apos;@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter&apos;;
+import AutoformatPlugin from &apos;@ckeditor/ckeditor5-autoformat/src/autoformat&apos;;
+import BoldPlugin from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import ItalicPlugin from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+import BlockQuotePlugin from &apos;@ckeditor/ckeditor5-block-quote/src/blockquote&apos;;
+import EasyImagePlugin from &apos;@ckeditor/ckeditor5-easy-image/src/easyimage&apos;;
+import HeadingPlugin from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import ImagePlugin from &apos;@ckeditor/ckeditor5-image/src/image&apos;;
+import ImageCaptionPlugin from &apos;@ckeditor/ckeditor5-image/src/imagecaption&apos;;
+import ImageStylePlugin from &apos;@ckeditor/ckeditor5-image/src/imagestyle&apos;;
+import ImageToolbarPlugin from &apos;@ckeditor/ckeditor5-image/src/imagetoolbar&apos;;
+import LinkPlugin from &apos;@ckeditor/ckeditor5-link/src/link&apos;;
+import ListPlugin from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import ParagraphPlugin from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos;), {
+        plugins: [
+            EssentialsPlugin,
+            AutoformatPlugin,
+            BoldPlugin,
+            ItalicPlugin,
+            BlockQuotePlugin,
+            HeadingPlugin,
+            ImagePlugin,
+            ImageCaptionPlugin,
+            ImageStylePlugin,
+            ImageToolbarPlugin,
+            EasyImagePlugin,
+            ImageUploadPlugin,
+            LinkPlugin,
+            ListPlugin,
+            ParagraphPlugin
+        ],
+        toolbar: [
+            &apos;heading&apos;,
+            &apos;bold&apos;,
+            &apos;italic&apos;,
+            &apos;link&apos;,
+            &apos;bulletedList&apos;,
+            &apos;numberedList&apos;,
+            &apos;uploadImage&apos;,
+            &apos;blockQuote&apos;,
+            &apos;undo&apos;,
+            &apos;redo&apos;
+        ],
+        image: {
+            toolbar: [
+                &apos;imageStyle:full&apos;,
+                &apos;imageStyle:side&apos;,
+                &apos;|&apos;,
+                &apos;imageTextAlternative&apos;
+            ]
+        }
+    } )
+    .then( editor =&gt; {
+        console.log( editor );
+    } )
+    .catch( error =&gt; {
+        console.error( error );
+    } );
+</code></pre>
+<p>Based on the list above (or the error being thrown when you upgraded your packages), you can check that you need to add:</p>
+<ul>
+<li><code>ImageUpload</code> because you use <code>EasyImage</code>,</li>
+<li><code>CloudServices</code> because you use <code>EasyImage</code>.</li>
+</ul>
+<p>After the upgrade, the setup should therefore look like this:</p>
+<pre class="highlight"><code class="js">import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import EssentialsPlugin from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import UploadAdapterPlugin from &apos;@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter&apos;;
+import AutoformatPlugin from &apos;@ckeditor/ckeditor5-autoformat/src/autoformat&apos;;
+import BoldPlugin from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import ItalicPlugin from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+import BlockQuotePlugin from &apos;@ckeditor/ckeditor5-block-quote/src/blockquote&apos;;
+import EasyImagePlugin from &apos;@ckeditor/ckeditor5-easy-image/src/easyimage&apos;;
+import HeadingPlugin from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import ImagePlugin from &apos;@ckeditor/ckeditor5-image/src/image&apos;;
+import ImageCaptionPlugin from &apos;@ckeditor/ckeditor5-image/src/imagecaption&apos;;
+import ImageStylePlugin from &apos;@ckeditor/ckeditor5-image/src/imagestyle&apos;;
+import ImageToolbarPlugin from &apos;@ckeditor/ckeditor5-image/src/imagetoolbar&apos;;
+import LinkPlugin from &apos;@ckeditor/ckeditor5-link/src/link&apos;;
+import ListPlugin from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import ParagraphPlugin from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+
+// ADDED
+import ImageUploadPlugin from &apos;@ckeditor/ckeditor5-image/src/imageupload&apos;;
+import CloudServicesPlugin from &apos;@ckeditor/ckeditor5-cloud-services/src/cloudservices&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos;), {
+        plugins: [
+            EssentialsPlugin,
+            AutoformatPlugin,
+            BoldPlugin,
+            ItalicPlugin,
+            BlockQuotePlugin,
+            HeadingPlugin,
+            ImagePlugin,
+            ImageCaptionPlugin,
+            ImageStylePlugin,
+            ImageToolbarPlugin,
+            EasyImagePlugin,
+            ImageUploadPlugin,
+            LinkPlugin,
+            ListPlugin,
+            ParagraphPlugin,
+
+            // ADDED
+            ImageUploadPlugin,
+            CloudServicesPlugin
+        ],
+        toolbar: [
+            &apos;heading&apos;,
+            &apos;bold&apos;,
+            &apos;italic&apos;,
+            &apos;link&apos;,
+            &apos;bulletedList&apos;,
+            &apos;numberedList&apos;,
+            &apos;uploadImage&apos;,
+            &apos;blockQuote&apos;,
+            &apos;undo&apos;,
+            &apos;redo&apos;
+        ],
+        image: {
+            toolbar: [
+                &apos;imageStyle:full&apos;,
+                &apos;imageStyle:side&apos;,
+                &apos;|&apos;,
+                &apos;imageTextAlternative&apos;
+            ]
+        }
+    } )
+    .then( editor =&gt; {
+        console.log( editor );
+    } )
+    .catch( error =&gt; {
+        console.error( error );
+    } );
+</code></pre>
+<h2 id="keystrokes-for-macos"><a class="headerlink" href="#keystrokes-for-macos">#</a> Keystrokes for macOS</h2>
+<p>Starting from v26.0.0, the <a href="../api/module_utils_keystrokehandler-KeystrokeHandler.html"><code>KeystrokeHandler</code></a> is not automatically binding to both <kbd>Ctrl</kbd> and <kbd>Cmd</kbd> keys on macOS as before. Instead, it is translating the <kbd>Ctrl</kbd> key to the <kbd>Cmd</kbd> key and handling this keystroke only.</p>
+<p>For example, a registered keystroke <code>Ctrl+A</code> will now be translated to <code>Cmd+A</code> on macOS. To disable the translation of some keystroke, use the forced modifier: <code>Ctrl!+A</code> (note the exclamation mark).</p>
+<h2 id="unified-button-and-command-naming-convention"><a class="headerlink" href="#unified-button-and-command-naming-convention">#</a> Unified button and command naming convention</h2>
+<p>The naming conventions for both buttons and commands have been reviewed and unified to maintain maximum consistency and provide sane rules that match real-life cases.</p>
+<p>All buttons follow the <strong>verb + noun</strong> (i.e. <code>insertTable</code>, <code>selectAll</code>) or the <strong>noun</strong> (i.e. <code>bold</code>, <code>mediaEmbed</code>) convention.</p>
+<p>It was trickier for commands, because there are more possible name combinations than there are for buttons. For commands, the proper name should in most cases start with the <strong>action</strong> followed by the <strong>feature</strong> name (i.e. <code>checkTodoList</code>, <code>insertTable</code>).</p>
+<p>Toolbar button name changes (before &#x2192; after):</p>
+<ul>
+<li><code>imageUpload</code> &#x2192; <code>uploadImage</code></li>
+<li><code>imageResize</code> &#x2192; <code>resizeImage</code></li>
+<li><code>imageInsert</code> &#x2192; <code>insertImage</code></li>
+<li><code>imageResize:*</code> &#x2192; <code>resizeImage:*</code></li>
+</ul>
+<p>Command name changes (before &#x2192; after):</p>
+<ul>
+<li><code>imageInsert</code> &#x2192; <code>insertImage</code></li>
+<li><code>imageUpload</code> &#x2192; <code>uploadImage</code></li>
+<li><code>imageResize</code> &#x2192; <code>resizeImage</code></li>
+<li><code>forwardDelete</code> &#x2192; <code>deleteForward</code></li>
+<li><code>todoListCheck</code> &#x2192; <code>checkTodoList</code></li>
+</ul>
+<p>The <code>TodoListCheckCommand</code> module was moved to <a href="../api/module_list_todolist_checktodolistcommand-CheckTodoListCommand.html"><code>CheckTodoListCommand</code></a>.</p>
+<p>The <code>ImageInsertCommand</code> module was moved to <a href="../api/module_image_image_insertimagecommand-InsertImageCommand.html"><code>InsertImageCommand</code></a>.</p>
+<p>The <code>ImageResizeCommand</code> module was moved to <a href="../api/module_image_imageresize_resizeimagecommand-ResizeImageCommand.html"><code>ResizeImageCommand</code></a>.</p>
+<p>The <code>ImageUploadCommand</code> module was moved to <a href="../api/module_image_imageupload_uploadimagecommand-UploadImageCommand.html"><code>UploadImageCommand</code></a>.</p>
+<p>The old names are still available as aliases.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22updating%2Fmigration-to-26.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li><a href="updating.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating your editor</span>
+                              </div></a></li>
+                          <li><a href="changelog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Recent release changelog</span>
+                              </div></a></li>
+                          <li><a href="migration-to-34.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v34.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-33.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v33.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-32.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v32.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-31.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v31.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-30.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v30.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-29.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v29.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-28.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v28.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-27.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v27.x</span>
+                              </div></a></li>
+                          <li><a href="">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migration to v26.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-25.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v25.x</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'updating' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'updating' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'updating' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'updating' ] );tags.forEach( function( tag ) {if ( tag !== 'updating' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

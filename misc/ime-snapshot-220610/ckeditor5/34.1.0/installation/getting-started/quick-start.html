@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quick start - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:57 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Quick start - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/quick-start.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Quick start - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/quick-start.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Installation</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a href="../../updating/index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../index.html">Installation</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="configuration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                      </div></a></li>
+                                  <li><a href="installing-plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                      </div></a></li>
+                                  <li><a href="basic-api.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="frameworks/overview.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="frameworks/angular.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                              </div></a></li>
+                                          <li><a href="frameworks/react.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                              </div></a></li>
+                                          <li><a href="frameworks/vuejs-v2.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                              </div></a></li>
+                                          <li><a href="frameworks/vuejs-v3.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                              </div></a></li>
+                                          <li><a href="frameworks/css.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="migration-from-ckeditor-4.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="maintenance.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../advanced/using-two-editors.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                      </div></a></li>
+                                  <li><a href="../advanced/saving-data.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                      </div></a></li>
+                                  <li><a href="../advanced/content-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                      </div></a></li>
+                                  <li><a href="../advanced/csp.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                      </div></a></li>
+                                  <li><a href="../advanced/plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                      </div></a></li>
+                                  <li><a href="../advanced/features-html-output-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../advanced/alternative-setups/integrating-from-source.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                              </div></a></li>
+                                          <li><a href="../advanced/alternative-setups/dll-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                              </div></a></li>
+                                          <li><a href="../advanced/alternative-setups/dll-builds-collaboration-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                              </div></a></li>
+                                          <li><a href="../advanced/alternative-setups/predefined-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/installation/getting-started/quick-start.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Installation</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../assets/2.1.3/img/book.svg" alt="guide">Quick start
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#introduction">Introduction</a></li><li><a href="#creating-custom-builds-with-online-builder">Creating custom builds with online builder</a><ol><li><a href="#choosing-the-editor-type">Choosing the editor type</a></li><li><a href="#choosing-plugins">Choosing plugins</a></li><li><a href="#toolbar-composition">Toolbar composition</a></li><li><a href="#choosing-the-default-language">Choosing the default language</a></li><li><a href="#download-the-customized-build">Download the customized build</a></li></ol></li><li><a href="#building-the-editor-from-source">Building the editor from source</a><ol><li><a href="#setting-up-the-environment">Setting up the environment</a></li><li><a href="#creating-an-editor">Creating an editor</a></li><li><a href="#running-the-editor">Running the editor</a></li></ol></li></ol></nav>
+<h2 id="introduction"><a class="headerlink" href="#introduction">#</a> Introduction</h2>
+<p>CKEditor 5 can provide any WYSIWYG editor type. From online editors similar to Google Docs and Medium, to Slack or Twitter like applications, the CKEditor 5 editing framework provides solutions for every user, both customized and out-of-the-box. This modern JavaScript rich text editor with MVC architecture, custom data model and virtual DOM was written from scratch in ES6 with excellent webpack support.</p>
+<p>In this guide, you will learn how to run your own CKEditor 5 instance. Below you can find two unique paths describing the installation process. Choose one (or both!) and start your CKEditor 5 journey!</p>
+<p>Available paths:</p>
+<ul>
+<li><a href="#creating-custom-builds-with-online-builder">Online builder path</a> &#x2013; The most beginners-friendly and quickest path.</li>
+<li><a href="#building-the-editor-from-source">Building from the source path</a> &#x2013; An advanced path including using <code>npm</code> and webpack.</li>
+</ul>
+<h2 id="creating-custom-builds-with-online-builder"><a class="headerlink" href="#creating-custom-builds-with-online-builder">#</a> Creating custom builds with online builder</h2>
+<p>Although the CKEditor 5 WYSIWYG editor comes with handy <a href="../advanced/alternative-setups/predefined-builds.html">predefined builds</a>, sometimes these predefined bundled versions are not enough and a need for more customized  builds arises. Some of the reasons for creating custom builds are:</p>
+<ul>
+<li>Adding <a href="../advanced/plugins.html">plugin-driven features</a> which are not included in the existing builds.</li>
+<li>Removing unnecessary features present in a build.</li>
+<li>Designing a <a href="configuration.html#toolbar-setup">customized toolbar experience</a>.</li>
+<li>Changing the <a href="../advanced/alternative-setups/predefined-builds.html#available-builds">editor type build</a>.</li>
+<li>Changing the <a href="../../features/ui-language.html">localization language</a> of the editor.</li>
+</ul>
+<p>This is where the online builder comes to help you.</p>
+<p>The <a href="https://ckeditor.com/ckeditor-5/online-builder/">online builder</a> is an application that lets you design and download custom CKEditor 5 builds. It allows you to create your own bundles with your desired editor type, toolbar and set of plugins in a few easy steps, through a simple and intuitive UI.</p>
+<h3 id="choosing-the-editor-type"><a class="headerlink" href="#choosing-the-editor-type">#</a> Choosing the editor type</h3>
+<p>The following editor types are currently available to choose from:</p>
+<ul>
+<li><a href="../advanced/alternative-setups/predefined-builds.html#classic-editor">Classic editor</a></li>
+<li><a href="../advanced/alternative-setups/predefined-builds.html#inline-editor">Inline editor</a></li>
+<li><a href="../advanced/alternative-setups/predefined-builds.html#balloon-editor">Balloon editor</a></li>
+<li><a href="../advanced/alternative-setups/predefined-builds.html#balloon-block-editor">Balloon block editor</a></li>
+<li><a href="../advanced/alternative-setups/predefined-builds.html#document-editor">Document editor</a></li>
+</ul>
+<p>Refer to the predefined builds documentation and <a href="../../examples/index.html">examples</a> to check what kind of WYSIWYG editor suits your needs best. Once you choose the desired editor type, select it to move to the next step.</p>
+<p>For the sake of clarity, this guide will use the classic build as an example.</p>
+<p><img src="../../assets/img/online-builder-01-editor-type-choice.png" data-lightbox="true" alt="Editor type selection." width="778"></p>
+<h3 id="choosing-plugins"><a class="headerlink" href="#choosing-plugins">#</a> Choosing plugins</h3>
+<p>The basic build comes with a predefined set of plugins grouped in a bar at the top of the page. Take a moment to check these options out. You can freely remove the ones that will not be used in your build.</p>
+<p><img src="../../assets/img/online-builder-02-predefined-plugins.png" data-lightbox="true" alt="Predefined plugins. Feel free to remove unneeded ones." width="778"></p>
+<p>Below the top bar with preselected plugins you will find a large collection of features that can be added to the custom build. Choose the ones that best suit your needs.</p>
+<p><img src="../../assets/img/online-builder-03-plugin-choice.png" data-lightbox="true" alt="Predefined plugins. Some of the plugins to choose from." width="778"></p>
+<div class="info-box notice notice__hint"><p>Note that some of the plugins require other plugins to work. These dependencies are mentioned in the <strong>Requires plugins</strong> section of the description box for each plugin. If this section is not present, the plugin does not need any other plugin to work.</p><p>Some of these plugins are <strong>premium features</strong> which require an additional license to run. They are marked with an appropriate <span class="tree__item__badge tree__item__badge_premium"><span class="tree__item__badge__text">Premium feature</span></span> badge.</p></div>
+<p>Once you have chosen all the desired plugins, press the <strong>Next step</strong> button on the top right.</p>
+<h3 id="toolbar-composition"><a class="headerlink" href="#toolbar-composition">#</a> Toolbar composition</h3>
+<p>Next step allows you to compose the toolbar. A simple drag-and-drop workspace allows for adding buttons (representing the plugins chosen in the previous step) to the toolbar. You may also change the order of the buttons and dropdowns and group them accordingly. Note that online builder allows you to create a multiline toolbar layout, too &#x2014; just drag any button below the already placed ones to create a new toolbar line.</p>
+<p><img src="../../assets/img/online-builder-04-toolbar-configurator.gif" data-lightbox="true" alt="The toolbar drag-and-drop configurator." width="753"></p>
+<p>Some of the buttons are pre-placed on the layout and thus grayed out in the workspace with available toolbar items. If you want to remove any buttons from your toolbar setup, drag them back to the upper workspace.</p>
+<p>Once you finish designing the toolbar, press the <strong>Next step</strong> button on the top right.</p>
+<h3 id="choosing-the-default-language"><a class="headerlink" href="#choosing-the-default-language">#</a> Choosing the default language</h3>
+<p>Scroll the list of available languages and check the one you want to be the main language of your editor build.</p>
+<p><img src="../../assets/img/online-builder-05-language-selection.png" data-lightbox="true" alt="Language selector list." width="367"></p>
+<div class="info-box notice notice__hint"><p>All other languages will still be available in the <code>translations</code> folder.</p></div>
+<h3 id="download-the-customized-build"><a class="headerlink" href="#download-the-customized-build">#</a> Download the customized build</h3>
+<p>This is as simple as it gets: just press the <strong>Start</strong> button to download your customized package.</p>
+<p>Refer to the <em>What&#x2019;s next?</em> note at the end of this page for further steps in your CKEditor 5 journey!</p>
+<h2 id="building-the-editor-from-source"><a class="headerlink" href="#building-the-editor-from-source">#</a> Building the editor from source</h2>
+<p>This scenario allows you to fully control the building process of CKEditor 5. This means that you will not actually use the builds introduced in the previous path, but instead build CKEditor from source directly into your project. This integration method gives you full control over which features will be included and how webpack will be configured.</p>
+<p>This is an advanced path that assumes that you are familiar with npm and your project uses npm already. If not, see the <a href="https://docs.npmjs.com/getting-started/what-is-npm" target="_blank" rel="noopener">npm documentation</a> or call <code>npm init</code> in an empty directory and check the result.</p>
+<h3 id="setting-up-the-environment"><a class="headerlink" href="#setting-up-the-environment">#</a> Setting up the environment</h3>
+<p>Before moving to the integration, you need to prepare three files that will be filled with code presented in this guide. Create the <code>webpack.config.js</code>, <code>app.js</code> and <code>index.html</code> files.</p>
+<p>Then, install packages needed to build CKEditor 5:</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    css-loader@5 \
+    postcss-loader@4 \
+    raw-loader@4 \
+    style-loader@2 \
+    webpack@5 \
+    webpack-cli@4
+</code></pre>
+<p>The minimal webpack configuration needed to enable building CKEditor 5 is:</p>
+<pre class="highlight"><code class="js">// webpack.config.js
+
+&apos;use strict&apos;;
+
+const path = require( &apos;path&apos; );
+const { styles } = require( &apos;@ckeditor/ckeditor5-dev-utils&apos; );
+
+module.exports = {
+    // https://webpack.js.org/configuration/entry-context/
+    entry: &apos;./app.js&apos;,
+
+    // https://webpack.js.org/configuration/output/
+    output: {
+        path: path.resolve( __dirname, &apos;dist&apos; ),
+        filename: &apos;bundle.js&apos;
+    },
+
+    module: {
+        rules: [
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+
+                use: [ &apos;raw-loader&apos; ]
+            },
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
+
+                use: [
+                    {
+                        loader: &apos;style-loader&apos;,
+                        options: {
+                            injectType: &apos;singletonStyleTag&apos;,
+                            attributes: {
+                                &apos;data-cke&apos;: true
+                            }
+                        }
+                    },
+                    &apos;css-loader&apos;,
+                    {
+                        loader: &apos;postcss-loader&apos;,
+                        options: {
+                            postcssOptions: styles.getPostCssConfig( {
+                                themeImporter: {
+                                    themePath: require.resolve( &apos;@ckeditor/ckeditor5-theme-lark&apos; )
+                                },
+                                minify: true
+                            } )
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    // Useful for debugging.
+    devtool: &apos;source-map&apos;,
+
+    // By default webpack logs warnings if the bundle is bigger than 200kb.
+    performance: { hints: false }
+};
+</code></pre>
+<div class="info-box notice"><p>If you cannot use the latest webpack (at the moment of writing this guide, it is 5), the provided configuration will also work with webpack 4.</p></div>
+<h3 id="creating-an-editor"><a class="headerlink" href="#creating-an-editor">#</a> Creating an editor</h3>
+<p>You can now install some of the CKEditor 5 Framework packages which will allow you to initialize a simple rich-text editor. Keep in mind, however, that all packages (excluding <code>@ckeditor/ckeditor5-dev-*</code>) <a href="installing-plugins.html#requirements">must have the same version as the base editor package</a>.</p>
+<p>You can start with the <a href="../../examples/builds/classic-editor.html">classic editor</a> with a small set of features.</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    @ckeditor/ckeditor5-dev-utils \
+    @ckeditor/ckeditor5-editor-classic \
+    @ckeditor/ckeditor5-essentials \
+    @ckeditor/ckeditor5-paragraph \
+    @ckeditor/ckeditor5-basic-styles \
+    @ckeditor/ckeditor5-theme-lark
+</code></pre>
+<p>Based on these packages you can create a simple application.</p>
+<div class="info-box notice"><p>This guide is using the ES6 modules syntax. If you are not familiar with it, check out <a href="http://exploringjs.com/es6/ch_modules.html" target="_blank" rel="noopener">this article</a>.</p></div>
+<div class="info-box notice notice__warning"><p>Note that in this guide, the editor class is used directly (i.e. you use <code>@ckeditor/ckeditor5-editor-classic</code> instead of <code>@ckeditor/ckeditor5-build-classic</code>).</p><p>No <a href="../advanced/alternative-setups/predefined-builds.html">predefined editor builds</a> are used, because adding new plugins to these requires rebuilding them anyway. This can be done by <a href="installing-plugins.html">customizing a build</a> or by including the CKEditor 5 source into your application (like in this guide).</p></div>
+<pre class="highlight"><code class="js">// app.js
+
+import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Essentials, Paragraph, Bold, Italic ],
+        toolbar: [ &apos;bold&apos;, &apos;italic&apos; ]
+    } )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+    } )
+    .catch( error =&gt; {
+        console.error( error.stack );
+    } );
+</code></pre>
+<p>You can now run webpack to build the application. To do that, call the <code>webpack</code> executable:</p>
+<pre class="highlight"><code class="bash">./node_modules/.bin/webpack --mode development
+</code></pre>
+<p>You can also install <code>webpack-cli</code> globally (using <code>npm install -g</code>) and run it via a globally available <code>webpack</code>.</p>
+<p>Alternatively, you can add it as an <a href="https://docs.npmjs.com/misc/scripts" target="_blank" rel="noopener">npm script</a>:</p>
+<pre class="highlight"><code class="js">&quot;scripts&quot;: {
+    &quot;build&quot;: &quot;webpack --mode development&quot;
+}
+</code></pre>
+<p>And use it with:</p>
+<pre class="highlight"><code class="bash">yarn run build
+</code></pre>
+<p>npm adds <code>./node_modules/.bin/</code> to the <code>PATH</code> automatically, so in this case you do not need to install <code>webpack-cli</code> globally.</p>
+<div class="info-box notice"><p>Use <code>webpack --mode production</code> if you want to build a minified and optimized application. Learn more about it in the <a href="https://webpack.js.org/concepts/mode/" target="_blank" rel="noopener">webpack documentation</a>.</p><p><strong>Note:</strong> Prior to version 1.2.7, <code>uglifyjs-webpack-plugin</code> (the default minifier used by webpack) had a bug which caused webpack to crash with the following error: <code>TypeError: Assignment to constant variable</code>. If you experienced this error, make sure that your <code>node_modules</code> contain an up-to-date version of this package (and that webpack uses this version).</p><p><strong>Note:</strong> CKEditor 5 builds use <a href="https://github.com/terser/terser" target="_blank" rel="noopener"><code>Terser</code></a> instead of <code>uglifyjs-webpack-plugin</code> because <a href="https://github.com/ckeditor/ckeditor5/issues/1353" target="_blank" rel="noopener">the latter one seems to no longer be supported</a>.</p></div>
+<p>If everything worked correctly, you should see:</p>
+<pre class="highlight"><code class>p@m /workspace/quick-start&gt; ./node_modules/.bin/webpack --mode development
+Hash: c96beab038124d61568f
+Version: webpack 5.58.1
+Time: 3023ms
+Built at: 2022-03-02 17:37:38
+        Asset      Size  Chunks             Chunk Names
+    bundle.js  2.45 MiB    main  [emitted]  main
+bundle.js.map  2.39 MiB    main  [emitted]  main
+[./app.js] 638 bytes {main} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 489 bytes {main} [built]
+[./node_modules/webpack/buildin/harmony-module.js] (webpack)/buildin/harmony-module.js 573 bytes {main} [built]
+    + 491 hidden modules
+</code></pre>
+<h3 id="running-the-editor"><a class="headerlink" href="#running-the-editor">#</a> Running the editor</h3>
+<p>Finally, it is time to create an HTML page:</p>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;CKEditor 5 Quick start guide&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;editor&quot;&gt;
+            &lt;p&gt;The editor content goes here.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Open this page in your browser and you should see the simple WYSIWYG editor up and running. Make sure to check the browser console in case anything seems wrong.</p>
+<p><img src="../../assets/img/framework-quick-start-classic-editor.png" data-lightbox="true" alt="Screenshot of CKEditor 5 classic editor with bold and italic features." width="976"></p>
+<div class="info-box notice"><p>We recommend using the official <a href="../../framework/guides/development-tools.html#ckeditor-5-inspector">CKEditor 5 inspector</a> for development and debugging. It will give you tons of useful information about the state of the editor such as internal data structures, selection, commands, and many more.</p></div>
+<div class="info-box notice notice__hint"><p><strong>What&#x2019;s next?</strong></p><p>Congratulations, you have just run your first CKEditor 5 instance! Now it is time to learn more about customization, so jump in straight to the <a href="configuration.html">Configuration guide</a>.</p><p>P.S. If you use Angular, React or Vue.js and want to integrate CKEditor 5 in your application, refer to the <a href="frameworks/overview.html">Frameworks section</a>.</p></div>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22installation%2Fgetting-started%2Fquick-start.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="configuration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                        </div></a></li>
+                                    <li><a href="installing-plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                        </div></a></li>
+                                    <li><a href="basic-api.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="frameworks/overview.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="frameworks/angular.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                                  </div></a></li>
+                                              <li><a href="frameworks/react.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                                  </div></a></li>
+                                              <li><a href="frameworks/vuejs-v2.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                                  </div></a></li>
+                                              <li><a href="frameworks/vuejs-v3.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                                  </div></a></li>
+                                              <li><a href="frameworks/css.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="migration-from-ckeditor-4.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="maintenance.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../advanced/using-two-editors.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                        </div></a></li>
+                                    <li><a href="../advanced/saving-data.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                        </div></a></li>
+                                    <li><a href="../advanced/content-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                        </div></a></li>
+                                    <li><a href="../advanced/csp.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                        </div></a></li>
+                                    <li><a href="../advanced/plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                        </div></a></li>
+                                    <li><a href="../advanced/features-html-output-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../advanced/alternative-setups/integrating-from-source.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                                  </div></a></li>
+                                              <li><a href="../advanced/alternative-setups/dll-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                                  </div></a></li>
+                                              <li><a href="../advanced/alternative-setups/dll-builds-collaboration-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                                  </div></a></li>
+                                              <li><a href="../advanced/alternative-setups/predefined-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'installation' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'installation' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'installation' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'installation' ] );tags.forEach( function( tag ) {if ( tag !== 'installation' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

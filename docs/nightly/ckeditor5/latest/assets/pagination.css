@@ -1,0 +1,193 @@
+/*
+ * What you're currently looking at is the source code of a legally protected, proprietary software.
+ * CKEditor 5 Collaboration is licensed under a commercial license and protected by copyright law. Where not otherwise indicated,
+ * all CKEditor 5 Collaboration content is authored by CKSource engineers and consists of CKSource-owned intellectual property.
+ *
+ * Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
+/* Content styles */
+
+@import './pagination-fonts.css';
+
+@media print {
+	body {
+		margin: 0 !important;
+	}
+}
+
+body, html {
+	font-weight: 400;
+	line-height: 1.6;
+	font-family: "Source Sans Pro",system-ui,Roboto,"Helvetica Neue","Helvetica",Arial,sans-serif;
+	font-size: 15px;
+}
+
+.ck-content * {
+	box-sizing: border-box;
+}
+
+.ck-content > :first-child {
+	margin-top: 0 !important;
+}
+
+.ck-content > :last-child {
+	margin-bottom: 0 !important;
+}
+
+.ck-content h2 {
+	font-size: 1.68em;
+	line-height: 1.68em;
+	padding: 0.8em 0 .2em 0;
+	margin: 0 0 0.4em 0;
+	border-bottom: 1px solid hsl( 0, 0%, 90% );
+	font-weight: 400;
+}
+
+.ck-content h3 {
+	font-size: 1.36em;
+	line-height: 1.5em;
+	padding: 0.6em 0 0 0;
+	margin: 0 0 1.5em 0;
+	font-weight: 400
+}
+
+.ck-content h4 {
+	font-size: 1.2em;
+	line-height: 1.4em;
+	padding: 0.6em 0 0 0;
+	margin: 0 0 0.2em 0;
+	font-weight: 400
+}
+
+.ck-content h5 {
+	font-size: 1em;
+	line-height: 1.6em;
+	padding: 0.2em 0 0 0;
+	margin: 0 0 0.8em 0;
+	font-weight: 400
+}
+
+.ck-content strong, .ck-content b {
+	font-weight: 600;
+}
+
+.ck-content a {
+	color: hsl( 231, 89%, 53% );
+	text-decoration: none;
+}
+
+.ck-content p {
+	margin: 0 0 0.8em 0 !important;
+	padding: 0.2em 0 0 0;
+	line-height: 1.6em;
+}
+.ck-content ul,
+.ck-content ol {
+	margin-top: 0;
+	margin-left: 2.666em;
+	margin-bottom: 0.8em !important;
+	padding: 0.2em 0 0 0;
+	line-height: 1.6em;
+}
+
+.ck-content ul ul,
+.ck-content ul ol,
+.ck-content ol ul,
+.ck-content ol ol {
+	padding-top: 0;
+	margin-bottom: 0;
+}
+
+.ck-content ul ul:last-of-type,
+.ck-content ul ol:last-of-type,
+.ck-content ol ul:last-of-type,
+.ck-content ol ol:last-of-type {
+	margin-bottom: .33333em;
+}
+
+.ck-content blockquote {
+	margin-top: 0;
+	margin-bottom: 0.8em !important;
+	padding-top: 0;
+	padding-bottom: 0;
+	line-height: 1.6em;
+}
+
+.ck-content blockquote p:first-of-type {
+	margin-bottom: 1.5rem;
+}
+
+.ck-content .table thead {
+	display: table-row-group;
+}
+.ck-content .table tr {
+	break-inside: avoid;
+	break-after: auto;
+}
+
+.ck-content .table p:first-child {
+	padding-top: 0;
+}
+
+.ck-content .table table {
+	margin: 0;
+	display: table;
+}
+
+.ck-content .table td,
+.ck-content .table th {
+	vertical-align: middle;
+}
+
+.ck-content .table p:last-child,
+.ck-content .table ul:last-child,
+.ck-content .table ol:last-child {
+	margin-bottom: 0;
+}
+
+.ck-content sub {
+	vertical-align: sub;
+	font-size: smaller;
+}
+
+.ck-content sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+/* Editor styles */
+
+.document-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-height: calc( 100vh - 100px );
+	background: hsl( 0, 0%, 95% );
+}
+
+.toolbar-container {
+	width: 100%;
+}
+
+.editor-container {
+	width: 100%;
+	border: 1px solid hsl( 0, 0%, 80% );
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+.ck.ck-editor__editable_inline.test-editor {
+	/* A4 size */
+	columns: calc( 210mm + 2px ) auto;
+	width: calc( 210mm + 2px ); /* Those 2px are from border (box-sizing: border-box) */
+	height: auto;
+	padding: 20mm 12mm;
+	box-sizing: border-box;
+	background: hsl( 0, 0%, 100% );
+	border: 1px solid hsl( 0, 0%, 88% );
+	box-shadow: 0 2px 8px hsla( 0, 0%, 0%, .08 );
+	margin: 40px auto;
+	overflow: hidden;
+}

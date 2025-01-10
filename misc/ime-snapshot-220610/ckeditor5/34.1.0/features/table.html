@@ -1,0 +1,2285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tables - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:49 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Tables - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/features/table.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Tables - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/features/table.html">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../snippets/features/build-table-source/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../index.html">CKEditor 5</a></li>
+          <li><a href="../installation/index.html">Installation</a></li>
+          <li><a class="top__menu__item--active" href="index.html">Features</a></li>
+          <li><a href="../examples/index.html">Examples</a></li>
+          <li><a href="../updating/index.html">Updating</a></li>
+          <li><a href="../support/index.html">Support</a></li>
+          <li><a href="../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="index.html">Features</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="autoformat.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="text-transformation.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="basic-styles.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="indent.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="block-quote.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="code-blocks.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="collaboration/collaboration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="collaboration/comments/comments.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-only-mode.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-outside-editor.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="collaboration/track-changes/track-changes.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/track-changes/track-changes-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/track-changes/track-changes-custom-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/track-changes/track-changes-data.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="collaboration/real-time-collaboration/real-time-collaboration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/real-time-collaboration/real-time-collaboration-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/real-time-collaboration/users-in-real-time-collaboration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="collaboration/users.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                      </div></a></li>
+                                  <li><a href="collaboration/context-and-collaboration-features.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="collaboration/annotations/annotations.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-display-mode.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-configuration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-theme.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-template.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-view.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="minimap.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li><a href="title.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="editor-placeholder.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li><a href="export-pdf.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="export-word.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="find-and-replace.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="font.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font</span>
+                              </div></a></li>
+                          <li><a href="general-html-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                              </div></a></li>
+                          <li><a href="headings.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="highlight.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="horizontal-line.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li><a href="html-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="images/images-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-installation.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-text-alternative.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-captions.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-resizing.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-linking.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="images/image-upload/image-upload.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/easy-image.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Easy Image</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/ckfinder.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder file manager</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/base64-upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/simple-upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/images-inserting.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="keyboard-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Keyboard support</span>
+                              </div></a></li>
+                          <li><a href="link.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="lists/lists.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                      </div></a></li>
+                                  <li><a href="lists/todo-lists.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="markdown.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="math-equations.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="media-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="mentions.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="page-break.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="pagination/pagination.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="pagination/pagination-integration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="pasting/paste-from-word.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Word</span>
+                                      </div></a></li>
+                                  <li><a href="pasting/paste-from-google-docs.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                      </div></a></li>
+                                  <li><a href="pasting/paste-plain-text.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                      </div></a></li>
+                                  <li><a href="pasting/drag-drop.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="read-only.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="remove-format.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="restricted-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="revision-history/revision-history.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="revision-history/revision-history-integration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="select-all.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="source-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="special-characters.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="spelling-and-grammar-checking.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spelling and grammar checking</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Tables</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="text-alignment.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Toolbar</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="toolbar/toolbar.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbar</span>
+                                      </div></a></li>
+                                  <li><a href="toolbar/blocktoolbar.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block toolbar</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="ui-language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                              </div></a></li>
+                          <li><a href="watchdog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="word-count.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="examples"><a href="../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/packages/ckeditor5-table/docs/features/table.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="index.html">Features</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../assets/2.1.3/img/book.svg" alt="guide">Tables
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#demos">Demos</a><ol><li><a href="#basic-table-features">Basic table features</a></li><li><a href="#table-and-cell-styling-tools">Table and cell styling tools</a></li><li><a href="#table-column-resize">Table column resize</a></li><li><a href="#table-caption">Table caption</a></li><li><a href="#nesting-tables">Nesting tables</a></li></ol></li><li><a href="#table-selection">Table selection</a></li><li><a href="#installation">Installation</a><ol><li><a href="#basic-table-features-2">Basic table features</a></li><li><a href="#default-table-headers">Default table headers</a></li><li><a href="#table-and-cell-styling-tools-2">Table and cell styling tools</a></li><li><a href="#table-column-resize-2">Table column resize</a></li><li><a href="#table-caption-2">Table caption</a></li></ol></li><li><a href="#configuring-styling-tools">Configuring styling tools</a><ol><li><a href="#customizing-color-palettes">Customizing color palettes</a></li><li><a href="#default-table-and-table-cell-styles">Default table and table cell styles</a></li></ol></li><li><a href="#block-vs-inline-content-in-table-cells">Block vs inline content in table cells</a><ol><li><a href="#inline-content">Inline content</a></li><li><a href="#block-content">Block content</a></li></ol></li><li><a href="#disallow-nesting-tables">Disallow nesting tables</a></li><li><a href="#common-api">Common API</a><ol><li><a href="#ui-components">UI components</a><ol><li><a href="#toolbars">Toolbars</a></li></ol></li><li><a href="#editor-commands">Editor commands</a></li></ol></li><li><a href="#known-issues">Known issues</a></li><li><a href="#contribute">Contribute</a></li></ol></nav>
+<p>The <a href="../api/module_table_table-Table.html"><code>Table</code></a> feature offers table creation and editing tools that help content authors bring tabular data into their documents. Tables help organize the content in a distinct, visual way that stands out from the text and is more easily readable for certain types of information. They are perfect for listing, grouping, and otherwise organizing data sets or for providing information in a clear, efficient way.</p>
+<p>Tables are great for schedules, timetables, price lists or menus; for listing terms and conditions or providing troubleshooting solutions. They also visually break and provide relief from large body texts. CKEditor 5 offers all necessary functionality to produce advanced, visually appealing and highly efficient tables.</p>
+<p>You may look for more interesting details in the <a href="https://ckeditor.com/blog/feature-of-the-month-tables-in-ckeditor-5/">Tables in CKEditor 5</a> blog post after reading this guide.</p>
+<div class="info-box notice notice__info"><p>The basic table feature feature is enabled by default in all <a href="../installation/advanced/alternative-setups/predefined-builds.html">predefined builds</a>.</p></div>
+<h2 id="demos"><a class="headerlink" href="#demos">#</a> Demos</h2>
+<h3 id="basic-table-features"><a class="headerlink" href="#basic-table-features">#</a> Basic table features</h3>
+<p>The editor bellow shows the basic set of table features focusing on the <strong>structure and semantics</strong>. Use the <strong>Insert table</strong> toolbar button <span class="editor-icon"><img src="../assets/icons/d77fa8bde7.svg" class="editor-icon__image" alt="Insert table"></span> in the editor below to create new tables. Focus any cell in the table to display the toolbar with buttons that will help you further shape the structure of the table.</p>
+<p>Click anywhere inside the table to invoke the table toolbar. The features available in there allow users to add or remove columns <span class="editor-icon"><img src="../assets/icons/3a0fe58026.svg" class="editor-icon__image" alt="Table column"></span> and rows <span class="editor-icon"><img src="../assets/icons/8ca5319ae0.svg" class="editor-icon__image" alt="Table row"></span> and merge or split cells <span class="editor-icon"><img src="../assets/icons/f248168d7d.svg" class="editor-icon__image" alt="Table cell"></span>. It is also worth noting that you will find them out&#x2013;of&#x2013;the&#x2013;box in all <a href="../installation/advanced/alternative-setups/predefined-builds.html">predefined builds</a>.</p>
+<div class="live-snippet"><div id="snippet-table">
+	<h3 style="text-align:center">The ultimate table of <a href="https://en.wikipedia.org/wiki/List_of_crewed_spacecraft">spaceflight</a>:</h3>
+	<p>Presented below is a list of the first countries to send a human into space. Listed below these are countries able to launch their own manned spacecraft (the other listed astronauts were sent to space onboard a foreign spacecraft).</p>
+
+<table cellpadding="5">
+	<tbody>
+		<tr>
+			<td colspan="4">
+			<p style="text-align:center"><strong>Countries that sent their citizen into space</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:25%">
+			<p style="text-align:center"><strong>Country</strong></p>
+			</td>
+			<td style="width:25%">
+			<p style="text-align:center"><strong>Date of launch</strong></p>
+			</td>
+			<td style="width:25%">
+			<p style="text-align:center"><strong>Name</strong></p>
+			</td>
+			<td style="width:25%">
+			<p style="text-align:center"><strong>Spacecraft</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td>USSR</td>
+			<td>1961</td>
+			<td>Yuri Gagarin</td>
+			<td>Vostok-1</td>
+		</tr>
+		<tr>
+			<td>USA</td>
+			<td>1961</td>
+			<td>Alan Shepard</td>
+			<td>Mercury-Redstone 3</td>
+		</tr>
+		<tr>
+			<td>Czechoslovakia</td>
+			<td>1978</td>
+			<td>Vladim&iacute;r Remek</td>
+			<td>Soyuz 28</td>
+		</tr>
+		<tr>
+			<td>Poland</td>
+			<td>1978</td>
+			<td>Mirosław Hermaszewski</td>
+			<td>Soyuz 30</td>
+		</tr>
+		<tr>
+			<td>East Germany</td>
+			<td>1978</td>
+			<td>Sigmund J&auml;hn</td>
+			<td>Soyuz 31</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+			<p style="text-align:center"><strong>Countries capable of sending their own manned spacecraft</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p style="text-align:center"><strong>Country</strong></p>
+			</td>
+			<td>
+			<p style="text-align:center"><strong>Capable since</strong></p>
+			</td>
+			<td>
+			<p style="text-align:center"><strong>First astronaut</strong></p>
+			</td>
+			<td>
+			<p style="text-align:center"><strong>Current spacecraft</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td>USSR/Russia</td>
+			<td>1961</td>
+			<td>Yuri Gagarin</td>
+			<td>Soyuz MS</td>
+		</tr>
+		<tr>
+			<td>USA</td>
+			<td>1961</td>
+			<td>Alan Shepard</td>
+			<td>Crew Dragon</td>
+		</tr>
+		<tr>
+			<td>China</td>
+			<td>2003</td>
+			<td>Yang Liwei</td>
+			<td>Shenzhou</td>
+		</tr>
+	</tbody>
+</table>
+
+
+	<!--	<table>
+		<thead>
+			<tr>
+				<th rowspan="2"></th>
+				<th scope="col" rowspan="2">☕️ Espresso</th>
+				<th scope="colgroup" colspan="2">🥛 Milk</th>
+				<th scope="col" rowspan="2">🚰 Water</th>
+			</tr>
+			<tr>
+				<th scope="col">Steamed</th>
+				<th scope="col">Foam</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th scope="row">Cappuccino</th>
+				<td>✅&nbsp; yes</td>
+				<td>✅&nbsp; yes</td>
+				<td>✅&nbsp; yes</td>
+				<td>❌&nbsp; no</td>
+			</tr>
+			<tr>
+				<th scope="row">Macchiato</th>
+				<td>✅&nbsp; yes</td>
+				<td>❌&nbsp; no</td>
+				<td>✅&nbsp; yes</td>
+				<td>❌&nbsp; no</td>
+			</tr>
+			<tr>
+				<th scope="row">Latte</th>
+				<td>✅&nbsp; yes</td>
+				<td>✅&nbsp; yes</td>
+				<td>❌&nbsp; no</td>
+				<td>❌&nbsp; no</td>
+			</tr>
+			<tr>
+				<th scope="row">Americano</th>
+				<td>✅&nbsp; yes</td>
+				<td>❌&nbsp; no</td>
+				<td>❌&nbsp; no</td>
+				<td>✅&nbsp; yes</td>
+			</tr>
+		</tbody>
+	</table>
+-->
+</div>
+
+</div>
+<h3 id="table-and-cell-styling-tools"><a class="headerlink" href="#table-and-cell-styling-tools">#</a> Table and cell styling tools</h3>
+<p>In addition to the default table features described in the <a href="#basic-table-features">previous section</a>, the editor below comes with some additional tools that will help you modify <strong>the look of tables and table cells</strong>, for instance, their border color and style, background color, padding, or text alignment. The table <span class="editor-icon"><img src="../assets/icons/26e112b449.svg" class="editor-icon__image" alt="Table properties"></span> and cell properties <span class="editor-icon"><img src="../assets/icons/dde569dab8.svg" class="editor-icon__image" alt="Cell properties"></span> are available from the table toolbar on click, just like basic table features.</p>
+<div class="live-snippet"><div id="snippet-table-styling">
+	<h2>The planet of robots</h2>
+	<p>Humans have always searched for new places to explore and new ways to get where they wanted. Where no human could (yet) go, we would send robots to do a job for us. Mars, one of our closest neighbours, is currently home to quite a few robotic devices, some of which are able to move around freely, roaming the wild, red sands and relaying their experience back to the mother planet.</p>
+	<figure class="table" style="width:700px;">
+		<table>
+			<tbody>
+				<tr>
+					<td style="text-align:center;" colspan="4">
+						<span class="text-small"><strong>Color coding for missions</strong></span>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(0, 0%, 90%);text-align:center;">
+						<span class="text-small"><i>Failed</i></span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);text-align:center;">
+						<span class="text-small"><i>Successful</i></span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);text-align:center;">
+						<span class="text-small"><i>In progress</i></span>
+					</td>
+					<td style="background-color:hsl(210, 75%, 60%);text-align:center;">
+						<span class="text-small"><i>Planned</i></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</figure>
+	<figure class="table" style="width:700px;">
+		<table style="background-color:rgb(248, 249, 250);border:1px solid rgb(162, 169, 177);">
+			<thead>
+				<tr>
+					<th style="background-color:hsl(0, 0%, 100%);text-align:center;vertical-align:bottom;">
+						<span class="text-small">Country/Agency</span>
+					</th>
+					<th style="background-color:hsl(0, 0%, 100%);text-align:center;vertical-align:bottom;">
+						<span class="text-small">Rover</span>
+					</th>
+					<th style="background-color:hsl(0, 0%, 100%);text-align:center;vertical-align:bottom;width:120px;">
+						<span class="text-small">Date of landing</span>
+					</th>
+					<th style="background-color:hsl(0, 0%, 100%);text-align:center;vertical-align:bottom;width:108px;">
+						<span class="text-small">Operational time</span>
+					</th>
+					<th style="background-color:hsl(0, 0%, 100%);text-align:center;vertical-align:bottom;width:120px;">
+						<span class="text-small">Distance travelled</span>
+					</th>
+					<th style="background-color:hsl(0, 0%, 100%);text-align:center;vertical-align:bottom;">
+						<span class="text-small">Notes</span>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="background-color:hsl(0, 0%, 90%);padding:0px;vertical-align:top;">
+						<figure class="image"><img src="../assets/img/Flag_of_the_Soviet_Union.png" alt="Soviet Union"></figure>
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);vertical-align:top;">
+						<span class="text-small"><strong>PROP-M rover</strong></span>
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);vertical-align:top;">
+						<span class="text-small">November 27, 1971</span>
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);text-align:right;vertical-align:top;">
+						<span class="text-small">0 days</span>
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);text-align:right;vertical-align:top;">
+						<span class="text-small">0 km</span>
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);vertical-align:top;">
+						<span class="text-small">Lost when it crash-landed on Mars</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(0, 0%, 90%);padding:0px;vertical-align:top;">
+						<figure class="image"><img src="../assets/img/Flag_of_the_Soviet_Union.png" alt="Soviet Union"></figure>
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);vertical-align:top;">
+						<span class="text-small"><strong>PROP-M rover</strong></span>
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);vertical-align:top;">
+						<span class="text-small">December 2, 1971</span>
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);text-align:right;vertical-align:top;">
+						<span class="text-small">0 days</span>
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);text-align:right;vertical-align:top;">
+						<span class="text-small">0 km</span>
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);vertical-align:top;">
+						<span class="text-small">Lost when Mars 3 lander stopped communicating about 20 seconds after landing</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(150, 75%, 60%);padding:0px;vertical-align:top;">
+						<figure class="image"><img src="../assets/img/Flag_of_the_United_States.png" alt="United States"></figure>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);vertical-align:top;">
+						<span class="text-small"><strong>Sojourner</strong></span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);vertical-align:top;">
+						<span class="text-small">July 4, 1997</span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">85 days</span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">100&nbsp;m (330&nbsp;ft)</span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);vertical-align:top;">
+						<span class="text-small">First successful rover on Mars</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(150, 75%, 60%);padding:0px;vertical-align:top;">
+						<figure class="image"><img src="../assets/img/Flag_of_the_United_States.png" alt="United States"></figure>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);vertical-align:top;">
+						<span class="text-small"><strong>Spirit</strong></span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);vertical-align:top;">
+						<span class="text-small">January 4, 2004</span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">2269 days</span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">7.73&nbsp;km (4.80&nbsp;mi)</span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);vertical-align:top;">
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(150, 75%, 60%);padding:0px;vertical-align:top;">
+						<figure class="image"><img src="../assets/img/Flag_of_the_United_States.png" alt="United States"></figure>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);vertical-align:top;">
+						<span class="text-small"><strong>Opportunity</strong></span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);vertical-align:top;">
+						<span class="text-small">January 25, 2004</span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">5498 days</span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">45.16&nbsp;km (28.06&nbsp;mi)</span>
+					</td>
+					<td style="background-color:hsl(150, 75%, 60%);vertical-align:top;">
+						<span class="text-small">The longest distance traveled by any rover and the most days operated</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(180, 75%, 60%);padding:0px;vertical-align:top;">
+						<figure class="image"><img src="../assets/img/Flag_of_the_United_States.png" alt="United States"></figure>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);vertical-align:top;">
+						<span class="text-small"><strong>Curiosity</strong></span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);vertical-align:top;">
+						<span class="text-small">January 25, 2012</span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">3214 days</span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">24.85&nbsp;km (15.44&nbsp;mi)</span><br>
+						<span class="text-small">as of 4&nbsp;March&nbsp;2021</span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);vertical-align:top;">
+						<span class="text-small">Currently active</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(180, 75%, 60%);padding:0px;vertical-align:top;">
+						<figure class="image"><img src="../assets/img/Flag_of_the_United_States.png" alt="United States"></figure>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);vertical-align:top;">
+						<span class="text-small"><strong>Perseverance</strong></span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);vertical-align:top;">
+						<span class="text-small">February 18, 2021</span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">96 days</span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">322&nbsp;m (1,056&nbsp;ft)</span><br><span class="text-small">as of 14&nbsp;May&nbsp;2021</span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);vertical-align:top;">
+						<span class="text-small">Currently active</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(180, 75%, 60%);padding:0px;vertical-align:top;">
+						<figure class="image"><img src="../assets/img/Flag_of_the_Peoples_Republic_of_China.png" alt="China"></figure>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);vertical-align:top;">
+						<span class="text-small"><strong>Zhurong</strong></span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);vertical-align:top;">
+						<span class="text-small">May 14, 2021</span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">11 days</span>
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);text-align:right;vertical-align:top;">
+						&nbsp;
+					</td>
+					<td style="background-color:hsl(180, 75%, 60%);vertical-align:top;">
+						<span class="text-small">Currently active</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(210, 75%, 60%);padding:0px;">
+						<figure class="image"><img src="../assets/img/Flag_of_Europe.png" alt="Europe"></figure>
+					</td>
+					<td style="background-color:hsl(210, 75%, 60%);">
+						<span class="text-small"><strong>Rosalind Franklin</strong></span>
+					</td>
+					<td style="background-color:hsl(210, 75%, 60%);vertical-align:top;">
+						<span class="text-small">2023 (planned)</span>
+					</td>
+					<td style="background-color:hsl(210, 75%, 60%);text-align:right;vertical-align:top;">
+						<span class="text-small">420 days (planned)</span>
+					</td>
+					<td style="background-color:hsl(210, 75%, 60%);text-align:right;vertical-align:top;">
+						&nbsp;
+					</td>
+					<td style="background-color:hsl(210, 75%, 60%);vertical-align:top;">
+						<span class="text-small">Planned to launch 2022</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<sup>Data source: Wikipedia</sup>
+	</figure>
+</div>
+</div>
+<p>Put the caret anywhere inside the table to invoke the table toolbar. Then click the <strong>&#x201C;Table properties&#x201D;</strong> button in the toolbar to open a pop&#x2013;up with multiple options that will allow you to shape the look of the entire table. If you click the <strong>&#x201C;Cell properties&#x201D;</strong> button, a similar interface will appear with styling options for individual table cells.</p>
+<p><a href="#configuring-styling-tools">Learn more</a> about configuring color palettes in the table styling pop&#x2013;up interfaces.</p>
+<div class="info-box notice"><p>By default, table styling tools are not included in the <a href="../installation/advanced/alternative-setups/predefined-builds.html">predefined builds</a> and must be installed separately. See the <a href="#table-and-cell-styling-tools-2">installation</a> section to learn how to enable them in your editor.</p></div>
+<h3 id="table-column-resize"><a class="headerlink" href="#table-column-resize">#</a> Table column resize</h3>
+<p>The <a href="../api/module_table_tablecolumnresize-TableColumnResize.html"><code>TableColumnResize</code></a> plugin adds support for resizing tables and table columns. It gives the content creator full control over the column width. It is a great tool to control both the content and the look of the table. By resizing individual columns, the authors can adjust them to their needs, depending on content inside.</p>
+<p>To resize a column, simply hover you pointer over the column edge until it gets highlighted. Just drag the column edge until you achieve the desired size and release.</p>
+<p>The column resize feature is compatible with the <a href="export-word.html">Export to Word</a> feature. The converter will respect the column width set in the editor and retain it in the effecting .DOCX file.</p>
+<div class="live-snippet"><div id="snippet-table-column-resize">
+	<h3 style="text-align:center">Dwarf planets of the Solar System</h3>
+	<figure class="table">
+		<table>
+			<thead>
+				<tr>
+					<th>
+						Name
+					</th>
+					<th>
+						Region
+					</th>
+					<th>
+						Orbital radius (AU)
+					</th>
+					<th>
+						Orbital period (years)
+					</th>
+					<th>
+						Number of moons
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>
+						Ceres
+					</th>
+					<td>
+						Asteroid belt
+					</td>
+					<td>
+						2,768
+					</td>
+					<td>
+						4,6
+					</td>
+					<td>
+						-
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Orcus
+					</th>
+					<td>
+						Kuiper belt
+					</td>
+					<td>
+						39,40
+					</td>
+					<td>
+						247,3
+					</td>
+					<td>
+						1
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Pluto
+					</th>
+					<td>
+						Kuiper belt
+					</td>
+					<td>
+						39,48
+					</td>
+					<td>
+						247,9
+					</td>
+					<td>
+						5
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Haumea
+					</th>
+					<td>
+						Kuiper belt
+					</td>
+					<td>
+						43,22
+					</td>
+					<td>
+						284,1
+					</td>
+					<td>
+						2
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Quaoar
+					</th>
+					<td>
+						Kuiper belt
+					</td>
+					<td>
+						43,69
+					</td>
+					<td>
+						288,8
+					</td>
+					<td>
+						1
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Makemake
+					</th>
+					<td>
+						Kuiper belt
+					</td>
+					<td>
+						45,56
+					</td>
+					<td>
+						307,5
+					</td>
+					<td>
+						1
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Gonggong
+					</th>
+					<td>
+						Scattered disc
+					</td>
+					<td>
+						67,38
+					</td>
+					<td>
+						553,1
+					</td>
+					<td>
+						1
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Eris
+					</th>
+					<td>
+						Scattered disc
+					</td>
+					<td>
+						67,78
+					</td>
+					<td>
+						558,0
+					</td>
+					<td>
+						1
+					</td>
+				</tr>
+				<tr>
+					<th>
+						Sedna
+					</th>
+					<td>
+						detached
+					</td>
+					<td>
+						506,8
+					</td>
+					<td>
+						11,400
+					</td>
+					<td>
+						no data
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</figure>
+</div>
+</div>
+<div class="info-box notice"><p>By default, the table column resize feature is not included in the <a href="../installation/advanced/alternative-setups/predefined-builds.html">predefined builds</a> and must be installed separately.</p></div>
+<h3 id="table-caption"><a class="headerlink" href="#table-caption">#</a> Table caption</h3>
+<p>The <a href="../api/module_table_tablecaption-TableCaption.html"><code>TableCaption</code></a> plugin adds support for table captions. These work very much like image captions &#x2014; the caption informs the reader about the content of the table. Using captions is also beneficial from the accessability point of view as they would be read by screen readers.</p>
+<p>Click on the table caption in the demo to edit it or use the table toolbar button <span class="editor-icon"><img src="../assets/icons/bda580cfae.svg" class="editor-icon__image" alt="Table caption"></span> to toggle the caption on and off.</p>
+<div class="live-snippet"><div id="snippet-table-caption">
+	<h3 style="text-align:center">Planets of the Solar System</h3>
+	<figure class="table">
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Mass (10<sup>24</sup>kg)</th>
+					<th>Diameter (km)</th>
+					<th>Gravity (m/s<sup>2</sup>)</th>
+					<th>Length of day (hours)</th>
+					<th>Distance from Sun (10<sup>6</sup>km)</th>
+					<th>Mean temperature (°C)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Mercury</th>
+					<td>0.330</td>
+					<td>4,879</td>
+					<td>3.7</td>
+					<td>4222.6</td>
+					<td>57.9</td>
+					<td>167</td>
+				</tr>
+				<tr>
+					<th>Venus</th>
+					<td>4.87</td>
+					<td>12,104</td>
+					<td>8.9</td>
+					<td>2802.0</td>
+					<td>108.2</td>
+					<td>464</td>
+				</tr>
+				<tr>
+					<th>Earth</th>
+					<td>5.97</td>
+					<td>12,756</td>
+					<td>9.8</td>
+					<td>24.0</td>
+					<td>149.6</td>
+					<td>15</td>
+				</tr>
+				<tr>
+					<th>Mars</th>
+					<td>0.642</td>
+					<td>6,792</td>
+					<td>3.7</td>
+					<td>24.7</td>
+					<td>227.9</td>
+					<td>-65</td>
+				</tr>
+				<tr>
+					<th>Jupiter</th>
+					<td>1898</td>
+					<td>142,984</td>
+					<td>23.1</td>
+					<td>9.9</td>
+					<td>778.6</td>
+					<td>-110</td>
+				</tr>
+				<tr>
+					<th>Saturn</th>
+					<td>568</td>
+					<td>120,536</td>
+					<td>9.0</td>
+					<td>10.7</td>
+					<td>1433.5</td>
+					<td>-140</td>
+				</tr>
+				<tr>
+					<th>Uranus</th>
+					<td>86.8</td>
+					<td>51,118</td>
+					<td>8.7</td>
+					<td>17.2</td>
+					<td>2872.5</td>
+					<td>-195</td>
+				</tr>
+				<tr>
+					<th>Neptune</th>
+					<td>102</td>
+					<td>49,528</td>
+					<td>11.0</td>
+					<td>16.1</td>
+					<td>4495.1</td>
+					<td>-200</td>
+				</tr>
+			</tbody>
+		</table>
+		<figcaption>
+			Planetary facts taken from
+			<a href="http://nssdc.gsfc.nasa.gov/planetary/factsheet/">Nasa's Planetary Fact Sheet - Metric</a>.
+		</figcaption>
+	</figure>
+</div>
+</div>
+<div class="info-box notice"><p>By default, the table caption feature is not included in the <a href="../installation/advanced/alternative-setups/predefined-builds.html">predefined builds</a> and must be installed separately. See the <a href="#table-caption-2">installation</a> section to learn how to enable it in your editor.</p></div>
+<p>By default, the table caption is placed above the table. You can change the placement by setting <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side" target="_blank" rel="noopener"><code>caption-side</code></a> in your <a href="../installation/advanced/content-styles.html">content styles</a> for the <code>.ck-content .table &gt; figcaption</code> style. Changing it to <code>caption-side: bottom</code> will display the caption below the table.</p>
+<h3 id="nesting-tables"><a class="headerlink" href="#nesting-tables">#</a> Nesting tables</h3>
+<p>Starting from version 27.1.0 CKEditor 5 allows nesting tables inside other table&#x2019;s cells. This may be used for creating advanced charts or layouts based on tables. The nested table can be formatted just like a regular one.</p>
+<p>You can test this feature in the demo below by adding a table in the <em>&#x201C;abandoned&#x201D;</em> section that was left blank at the bottom of the main table. To nest a table, simply click in the selected cell and use the <strong>&#x201C;Insert table&#x201D;</strong> button in the toolbar to insert a new, nested table into an existing one.</p>
+<div class="live-snippet"><div id="snippet-table-nesting">
+	<h3 style="text-align:center">American spacecraft</h3>
+	<figure class="table">
+		<table cellpadding="1" cellspacing="1" style="width:500px">
+			<thead>
+				<tr>
+					<td style="width:200px">Status</td>
+					<td style="text-align:center;width:300px">Name and service time</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="width:200px;background-color:hsl(0,0%,90%)">discontinued</td>
+					<td style="width:300px">
+					<table cellpadding="1" cellspacing="1" style="width:250px">
+						<tbody>
+							<tr>
+								<td style="width:125px"><strong>Mercury</strong></td>
+								<td style="text-align:center; width:125px">1961-1963</td>
+							</tr>
+							<tr>
+								<td style="width:125px"><strong>Gemini</strong></td>
+								<td style="text-align:center; width:125px">1965-1966</td>
+							</tr>
+							<tr>
+								<td style="width:125px"><strong>Apollo</strong></td>
+								<td style="text-align:center; width:125px">1968-1975</td>
+							</tr>
+							<tr>
+								<td style="width:125px"><strong>Space shuttle</strong></td>
+								<td style="text-align:center; width:125px">1981-2011</td>
+							</tr>
+						</tbody>
+					</table>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:200px;background-color:hsl(200, 100%, 80%)">in use</td>
+					<td style="width:300px">
+					<table cellpadding="1" cellspacing="1" style="width:250px">
+						<tbody>
+							<tr>
+								<td style="width:125px;background-color: hsl(0, 0%, 99%);"><strong>Crew Dragon</strong></td>
+								<td style="text-align:center; width:125px">since 2020</td>
+							</tr>
+						</tbody>
+					</table>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:200px;background-color:hsl(112, 100%, 80%)">planned</td>
+					<td style="width:300px">
+					<table cellpadding="1" cellspacing="1" style="width:250px">
+						<tbody>
+							<tr>
+								<td style="width:125px"><strong>Boeing Starliner</strong></td>
+								<td style="text-align:center; width:125px">planned 2022</td>
+							</tr>
+							<tr>
+								<td style="width:125px"><strong>Orion</strong></td>
+								<td style="text-align:center; width:125px">planned 2023</td>
+							</tr>
+						</tbody>
+					</table>
+					</td>
+				</tr>
+				</tr>
+				<tr>
+				<td style="width:200px;background-color:hsl(0,100%,89%)">abandoned</td>
+				<td style="width:300px"></td>
+				</tr>
+			</tbody>
+		</table>
+	</figure>
+</div>
+
+</div>
+<div class="info-box notice"><p>If you would like to block the possibility to nest tables in your editor, see the <a href="#disallow-nesting-tables">Disallow nesting tables</a> section to learn how to disable this functionality.</p></div>
+<h2 id="table-selection"><a class="headerlink" href="#table-selection">#</a> Table selection</h2>
+<p>The <a href="../api/module_table_tableselection-TableSelection.html"><code>TableSelection</code></a> plugin introduces support for the custom selection system for tables that lets you:</p>
+<ul>
+<li>Select an arbitrary rectangular table fragment &#x2014; a few cells from different rows, a column (or a few of them) or a row (or multiple rows).</li>
+<li>Apply formatting or add a link to all selected cells at once.</li>
+</ul>
+<p>The table selection plugin is loaded automatically by the <code>Table</code> plugin and can be tested in the <a href="#demos">demos above</a>.</p>
+<h2 id="installation"><a class="headerlink" href="#installation">#</a> Installation</h2>
+<h3 id="basic-table-features-2"><a class="headerlink" href="#basic-table-features-2">#</a> Basic table features</h3>
+<div class="info-box notice notice__info"><p>The basic table features are enabled by default in all predefined builds. The installation instructions are for developers interested in building their own, custom rich text editor.</p></div>
+<p>To add only the basic table features to your editor, install the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-table" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-table</code></a> package:</p>
+<pre class="highlight"><code class>npm install --save @ckeditor/ckeditor5-table
+</code></pre>
+<p>Then add the <code>Table</code> and <code>TableToolbar</code> plugins to your plugin list and configure the table toolbar:</p>
+<pre class="highlight"><code class="js">import Table from &apos;@ckeditor/ckeditor5-table/src/table&apos;;
+import TableToolbar from &apos;@ckeditor/ckeditor5-table/src/tabletoolbar&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Table, TableToolbar, Bold, ... ],
+        toolbar: [ &apos;insertTable&apos;, ... ],
+        table: {
+            contentToolbar: [ &apos;tableColumn&apos;, &apos;tableRow&apos;, &apos;mergeTableCells&apos; ]
+        }
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<h3 id="default-table-headers"><a class="headerlink" href="#default-table-headers">#</a> Default table headers</h3>
+<p>In order to make every inserted table to have <code>n</code> number of rows and columns as table headers by default, set an optional table config property <code>defaultHeadings</code> as follows:</p>
+<pre class="highlight"><code class="js">import Table from &apos;@ckeditor/ckeditor5-table/src/table&apos;;
+import TableToolbar from &apos;@ckeditor/ckeditor5-table/src/tabletoolbar&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Table, TableToolbar, Bold, ... ],
+        toolbar: [ &apos;insertTable&apos;, ... ],
+        table: {
+            defaultHeadings: { rows: 1, columns: 1 }
+        }
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<p>Check the table with default headers applied to both the first row and the first column in the demo below. Click on the table and use the column properties <span class="editor-icon"><img src="../assets/icons/3a0fe58026.svg" class="editor-icon__image" alt="Table column"></span> or the row properties <span class="editor-icon"><img src="../assets/icons/8ca5319ae0.svg" class="editor-icon__image" alt="Table row"></span> UI button to toggle the respective headers.</p>
+<div class="live-snippet"><div id="snippet-table-default-headings">
+	<h3 style="text-align:center">Financial report</h3>
+	<p style="text-align:center">Main product line for Q4.</p>
+
+	<table cellpadding="5">
+		<tbody>
+			<thead>
+				<tr>
+					<th>
+						<p style="text-align:center">&nbsp;</p>
+					</th>
+					<th>
+						<p style="text-align:center">Sales</p>
+					</th>
+					<th>
+						<p style="text-align:center">Income</p>
+					</th>
+					<th>
+						<p style="text-align:center">Revenue</p>
+					</th>
+				</tr>
+			</thead>
+			<tr>
+				<th style="width:25%">
+					<p style="text-align:center">Walker</p>
+				</th>
+				<td style="width:25%">
+					<p style="text-align:center">1050</p>
+				</td>
+				<td style="width:25%">
+					<p style="text-align:center">$104.000</p>
+				</td>
+				<td style="width:25%">
+					<p style="text-align:center">15%</p>
+				</td>
+			</tr>
+			<tr>
+				<th style="width:25%">
+					<p style="text-align:center">Stroller</p>
+				</th>
+				<td style="width:25%">
+					<p style="text-align:center">24</p>
+				</td>
+				<td style="width:25%">
+					<p style="text-align:center">$12.000</p>
+				</td>
+				<td style="width:25%">
+					<p style="text-align:center">10%</p>
+				</td>
+			</tr>
+			<tr>
+				<th style="width:25%">
+					<p style="text-align:center">Walker 3</p>
+				</th>
+				<td style="width:25%">
+					<p style="text-align:center">980</p>
+				</td>
+				<td style="width:25%">
+					<p style="text-align:center">$97.000</p>
+				</td>
+				<td style="width:25%">
+					<p style="text-align:center">15%</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</div>
+<h3 id="table-and-cell-styling-tools-2"><a class="headerlink" href="#table-and-cell-styling-tools-2">#</a> Table and cell styling tools</h3>
+<p>To enable not only the <a href="#basic-table-features-2">basic table features</a> but also the rich table and cell styling tools in your editor, you need to have the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-table" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-table</code></a> package installed (it is already present in the predefined builds):</p>
+<pre class="highlight"><code class>npm install --save @ckeditor/ckeditor5-table
+</code></pre>
+<p>Then add the <code>Table</code>, <code>TableToolbar</code>, <strong><code>TableProperties</code></strong>, and <strong><code>TableCellProperties</code></strong> plugins to your plugin list and configure the table toolbar:</p>
+<pre class="highlight"><code class="js">import Table from &apos;@ckeditor/ckeditor5-table/src/table&apos;;
+import TableToolbar from &apos;@ckeditor/ckeditor5-table/src/tabletoolbar&apos;;
+import TableProperties from &apos;@ckeditor/ckeditor5-table/src/tableproperties&apos;;
+import TableCellProperties from &apos;@ckeditor/ckeditor5-table/src/tablecellproperties&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Table, TableToolbar, TableProperties, TableCellProperties, Bold, ... ],
+        toolbar: [ &apos;insertTable&apos;, ... ],
+        table: {
+            contentToolbar: [
+                &apos;tableColumn&apos;, &apos;tableRow&apos;, &apos;mergeTableCells&apos;,
+                &apos;tableProperties&apos;, &apos;tableCellProperties&apos;
+            ],
+
+            // Configuration of the TableProperties plugin.
+            tableProperties: {
+                // ...
+            },
+
+            // Configuration of the TableCellProperties plugin.
+            tableCellProperties: {
+                // ...
+            }
+        }
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<div class="info-box notice notice__info"><p>Learn more about <a href="#configuring-styling-tools">configuring color palettes</a> in the table and table cell property pop&#x2013;ups.</p></div>
+<h3 id="table-column-resize-2"><a class="headerlink" href="#table-column-resize-2">#</a> Table column resize</h3>
+<p>To enable the table column resize feature in your editor, you need to have the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-table" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-table</code></a> package installed (it is already present in the predefined builds):</p>
+<pre class="highlight"><code class>npm install --save @ckeditor/ckeditor5-table
+</code></pre>
+<p>Then add the <code>Table</code> and <strong><code>TableColumnResize</code></strong> plugins to your plugin list and configure the table toolbar:</p>
+<pre class="highlight"><code class="js">import Table from &apos;@ckeditor/ckeditor5-table/src/table&apos;;
+import TableColumnResize from &apos;@ckeditor/ckeditor5-table/src/tablecolumnresize&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Table, TableColumnResize, ... ],
+        toolbar: [ &apos;insertTable&apos;, ... ],
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<h3 id="table-caption-2"><a class="headerlink" href="#table-caption-2">#</a> Table caption</h3>
+<p>To enable the table caption feature in your editor, you need to have the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-table" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-table</code></a> package installed (it is already present in the predefined builds):</p>
+<pre class="highlight"><code class>npm install --save @ckeditor/ckeditor5-table
+</code></pre>
+<p>Then add the <code>Table</code>, <code>TableToolbar</code>, and <strong><code>TableCaption</code></strong> plugins to your plugin list and configure the table toolbar:</p>
+<pre class="highlight"><code class="js">import Table from &apos;@ckeditor/ckeditor5-table/src/table&apos;;
+import TableToolbar from &apos;@ckeditor/ckeditor5-table/src/tabletoolbar&apos;;
+import TableCaption from &apos;@ckeditor/ckeditor5-table/src/tablecaption&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Table, TableToolbar, TableCaption, Bold, ... ],
+        toolbar: [ &apos;insertTable&apos;, ... ],
+        table: {
+            contentToolbar: [
+                &apos;toggleTableCaption&apos;
+            ]
+        }
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<div class="info-box notice notice__info"><p>Read more about <a href="../installation/getting-started/installing-plugins.html">installing plugins</a>.</p></div>
+<h2 id="configuring-styling-tools"><a class="headerlink" href="#configuring-styling-tools">#</a> Configuring styling tools</h2>
+<div class="info-box notice"><p>By default, table styling tools are not included in any <a href="../installation/advanced/alternative-setups/predefined-builds.html">predefined editor builds</a> and must be installed separately. See the <a href="#table-and-cell-styling-tools-2">installation</a> section to learn how to enable them in your editor.</p></div>
+<p>Among other formatting options, table and cell styling tools allow users to create tables with colorful backgrounds and borders. These colors can be easily picked using color palettes in the <strong>&#x201C;Table properties&#x201D;</strong> and <strong>&#x201C;Cell properties&#x201D;</strong> pop&#x2013;ups. To help users choose the right colors for the content, the color palettes can be pre&#x2013;configured, like in the editor below:</p>
+<div class="live-snippet"><div id="snippet-table-styling-colors">
+	<h3>A beautiful color palette</h3>
+	<figure class="table">
+		<table>
+			<tbody>
+				<tr>
+					<td style="width:120px;text-align:center;background-color:hsl(4,90%,58%)">Red</td>
+					<td style="width:120px;text-align:center;background-color:hsl(340,82%,52%)">Pink</td>
+					<td style="width:120px;text-align:center;background-color:hsl(291,64%,42%)">Purple</td>
+					<td style="width:120px;text-align:center;background-color:hsl(262,52%,47%)">Deep Purple</td>
+				</tr>
+				<tr>
+					<td style="width:120px;text-align:center;background-color:hsl(231,48%,48%)">Indigo</td>
+					<td style="width:120px;text-align:center;background-color:hsl(207,90%,54%)">Blue</td>
+					<td style="width:120px;text-align:center;background-color:hsl(199,98%,48%)">Light Blue</td>
+					<td style="width:120px;text-align:center;background-color:hsl(187,100%,42%)">Cyan</td>
+				</tr>
+				<tr>
+					<td style="width:120px;text-align:center;background-color:hsl(174,100%,29%)">Teal</td>
+					<td style="width:120px;text-align:center;background-color:hsl(122,39%,49%)">Green</td>
+					<td style="width:120px;text-align:center;background-color:hsl(88,50%,53%)">Light Green</td>
+					<td style="width:120px;text-align:center;background-color:hsl(66,70%,54%)">Lime</td>
+				</tr>
+				<tr>
+					<td style="width:120px;text-align:center;background-color:hsl(49,98%,60%)">Yellow</td>
+					<td style="width:120px;text-align:center;background-color:hsl(45,100%,51%)">Amber</td>
+					<td style="width:120px;text-align:center;background-color:hsl(36,100%,50%)">Orange</td>
+					<td style="width:120px;text-align:center;background-color:hsl(14,91%,54%)">Deep Orange</td>
+				</tr>
+				<tr>
+					<td style="width:120px;text-align:center;background-color:hsl(15,25%,34%)">Brown</td>
+					<td style="width:120px;text-align:center;background-color:hsl(0,0%,62%)">Grey</td>
+					<td style="width:120px;text-align:center;background-color:hsl(200,18%,46%)">Blue Grey</td>
+					<td style="width:120px;text-align:center;background-color:hsl(200,18%,100%)">White</td>
+				</tr>
+			</tbody>
+		</table>
+	</figure>
+</div>
+
+</div>
+<p>With the selection inside any table cell, use the <strong>&#x201C;Table properties&#x201D;</strong> and <strong>&#x201C;Cell properties&#x201D;</strong> buttons in the toolbar to inspect available styling and color options.</p>
+<h3 id="customizing-color-palettes"><a class="headerlink" href="#customizing-color-palettes">#</a> Customizing color palettes</h3>
+<p>You can use these specific configuration options to define customized color palettes for background and border colors to match your document:</p>
+<ul>
+<li><a href="../api/module_table_table-TableConfig.html#member-tableProperties"><code>tableProperties.borderColors</code></a> &#x2013; Defines the color palette for table borders.</li>
+<li><a href="../api/module_table_table-TableConfig.html#member-tableProperties"><code>tableProperties.backgroundColors</code></a> &#x2013; Defines the color palette for table background.</li>
+<li><a href="../api/module_table_table-TableConfig.html#member-tableCellProperties"><code>tableCellProperties.borderColors</code></a> &#x2013; Defines the color palette for cell borders.</li>
+<li><a href="../api/module_table_table-TableConfig.html#member-tableCellProperties"><code>tableCellProperties.backgroundColors</code></a> &#x2013; Defines the color palette for cell background.</li>
+</ul>
+<div class="info-box notice"><p>The above configurations <strong>do not</strong> impact the <a href="../installation/getting-started/basic-api.html#setting-the-editor-data">data loaded into the editor</a>, i.e. they do not limit or filter the colors in the data. They are used only in the user interface allowing users to pick colors in a more convenient way.</p></div>
+<p>For instance, to define the same color palette for all border and background configurations, use the following code snippet:</p>
+<pre class="highlight"><code class="js">const customColorPalette = [
+    {
+        color: &apos;hsl(4, 90%, 58%)&apos;,
+        label: &apos;Red&apos;
+    },
+    {
+        color: &apos;hsl(340, 82%, 52%)&apos;,
+        label: &apos;Pink&apos;
+    },
+    {
+        color: &apos;hsl(291, 64%, 42%)&apos;,
+        label: &apos;Purple&apos;
+    },
+    {
+        color: &apos;hsl(262, 52%, 47%)&apos;,
+        label: &apos;Deep Purple&apos;
+    },
+    {
+        color: &apos;hsl(231, 48%, 48%)&apos;,
+        label: &apos;Indigo&apos;
+    },
+    {
+        color: &apos;hsl(207, 90%, 54%)&apos;,
+        label: &apos;Blue&apos;
+    },
+
+    // ...
+];
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Table, TableToolbar, TableProperties, TableCellProperties, Bold, ... ],
+        toolbar: [ &apos;insertTable&apos;, ... ],
+        table: {
+            contentToolbar: [
+                &apos;tableColumn&apos;, &apos;tableRow&apos;, &apos;mergeTableCells&apos;,
+                &apos;tableProperties&apos;, &apos;tableCellProperties&apos;
+            ],
+
+            // Set the palettes for tables.
+            tableProperties: {
+                borderColors: customColorPalette,
+                backgroundColors: customColorPalette
+            },
+
+            // Set the palettes for table cells.
+            tableCellProperties: {
+                borderColors: customColorPalette,
+                backgroundColors: customColorPalette
+            }
+        }
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<h3 id="default-table-and-table-cell-styles"><a class="headerlink" href="#default-table-and-table-cell-styles">#</a> Default table and table cell styles</h3>
+<p>The table styles feature allows for configuring the default look of the tables in the editor. The configuration object should be synchronized with the <a href="../installation/advanced/content-styles.html">editor content styles</a>.</p>
+<p>The <strong>&#x201C;Table properties&#x201D;</strong> and <strong>&#x201C;Table cell properties&#x201D;</strong> buttons in the toolbar will show the table and table cell properties applied to the table or table cells.</p>
+<p>The stylesheet for the editor displayed below looks as follows:</p>
+<pre class="highlight"><code class="css">.ck-content .table {
+    float: left;
+    width: 550px;
+    height: 450px;
+}
+
+.ck-content .table table {
+    border-style: dashed;
+    border-color: &apos;hsl(90, 75%, 60%)&apos;;
+    border-width: 3px;
+}
+
+.ck-content .table table td {
+    text-align: center;
+    vertical-align: bottom;
+    padding: 10px
+}
+</code></pre>
+<p>The same values must be passed to the editor configuration as:</p>
+<ul>
+<li>The <a href="../api/module_table_tableproperties-TablePropertiesOptions.html"><code>table.tableProperties.defaultProperties</code></a> object for the table properties.</li>
+<li>The <a href="../api/module_table_tablecellproperties-TableCellPropertiesOptions.html"><code>table.tableCellProperties.defaultProperties</code></a> object for the table cell properties.</li>
+</ul>
+<pre class="highlight"><code class="js">const tableConfig = {
+    table: {
+        tableProperties: {
+            // The default styles for tables in the editor.
+            // They should be synchronized with the content styles.
+            defaultProperties: {
+                borderStyle: &apos;dashed&apos;,
+                borderColor: &apos;hsl(90, 75%, 60%)&apos;,
+                borderWidth: &apos;3px&apos;,
+                alignment: &apos;left&apos;,
+                width: &apos;550px&apos;,
+                height: &apos;450px&apos;
+            },
+            // The default styles for table cells in the editor.
+            // They should be synchronized with the content styles.
+            tableCellProperties: {
+                defaultProperties: {
+                    horizontalAlignment: &apos;center&apos;,
+                    verticalAlignment: &apos;bottom&apos;,
+                    padding: &apos;10px&apos;
+                }
+            }
+        }
+    }
+};
+</code></pre>
+<p>The table element should be aligned to the <code>left</code> side by default. Its size should be <code>550x450px</code>. The border style should be <code>dashed</code>, <code>3px</code> of its width, and the color specified as <code>Light green</code>.</p>
+<p>The content should be away about <code>10px</code> from the cell&#x2019;s edges (<code>padding</code>), vertically aligned to <code>bottom</code> and horizontally to <code>center</code>.</p>
+<p>The same will be applied for new tables and cells if they are inserted into the editor.</p>
+<div class="live-snippet"><style id="table-default-properties-styles">
+    .live-snippet .table-default-properties-container .ck.ck-content .table {
+        float: left;
+        width: 550px;
+        height: 450px;
+    }
+
+    .live-snippet .table-default-properties-container .ck.ck-content .table table {
+        border-style: dashed;
+        border-color: hsl(90, 75%, 60%);
+        border-width: 3px;
+    }
+
+    .live-snippet .table-default-properties-container .ck.ck-content .table table td {
+        text-align: center;
+        vertical-align: bottom;
+        padding: 10px
+    }
+</style>
+
+<div class="table-default-properties-container">
+    <div id="snippet-table-default-properties">
+    <p>Before people could leave the cradle of humanity and enter the cosmic void, tests were required. A number of animals risked and sometimes lost their lives to open the gates for their owners to be able to reach the stars.</p>
+    <p>The animal spaceflights started in the late 1940s. German A4 rockets were used for the initial launches, later on each country developed their own carriers. Even though these simian, canine and rodent space farers were the most important test subjects during the first stage of the space race, before launching actual human astronauts, the animal spaceflight is very much a thing even today. In 2018 a rodent crew arrived at International Space Station!</p>
+        <figure class="table">
+            <table>
+                <tbody>
+                    <tr>
+                        <td colspan="2"><strong>Animal astronauts by country of origin</strong></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>American</strong>: fruit flies, primates first flew in the 1940s.</p>
+                            <p>The most memorable was <i>Ham</i>, a chimpanzee.</p>
+                        </td>
+                        <td>
+                            <p><strong>Soviet</strong>: mostly dogs, sent to space since the 1950s.</p>
+                            <p>The most memorable was <i>Laika</i> who died during the first part of the journey.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>French</strong>: rats and cats (1960s).</p>
+                            <p>&nbsp;<i>Félicette</i> was the most notable and the only French cat to survive the landing.</p>
+                        </td>
+                        <td><strong>Chinese</strong>: mice, rats and dogs (1960s).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </figure>
+    </div>
+</div>
+</div>
+<p>Read more about all supported properties for the <a href="../api/module_table_tableproperties-TablePropertiesOptions.html">table</a> and <a href="../api/module_table_tablecellproperties-TableCellPropertiesOptions.html">table cell</a> features in their API documentation.</p>
+<div class="info-box notice"><p>The default table and table cell styles <strong>do</strong> impact the <a href="../installation/getting-started/basic-api.html#setting-the-editor-data">data loaded into the editor</a>. Default properties will not be kept in the editor model.</p></div>
+<h2 id="block-vs-inline-content-in-table-cells"><a class="headerlink" href="#block-vs-inline-content-in-table-cells">#</a> Block vs inline content in table cells</h2>
+<p>The table feature allows for creating block content (like paragraphs, lists, headings, etc.) inside table cells. However, if a table cell contains just one paragraph and this paragraph has no special attributes (like text alignment), the cell content is considered &#x201C;inline&#x201D; and the paragraph is not rendered.</p>
+<p>This means that a table cell can have two states: with inline content or with block content. The reason for this differentiation is that most tables contain only inline content (e.g. in the <a href="#demos">demo</a> above) and it is common for &#x201C;data tables&#x201D; to not contain any block content. In such a scenario, printing out <code>&lt;p&gt;</code> elements would be semantically incorrect and also unnecessary. There are, however, scenarios where the user wants to create, for example, a list inside a table cell and then the support for block content is necessary.</p>
+<div class="info-box notice"><p>&#x201C;Rendering&#x201D; here refers to the view layer. In the model, a cell is always filled with at least a <code>&lt;paragraph&gt;</code>. This is because of consistency, as &#x2014; since a cell always has some block content &#x2014; the text is never directly inside the <code>&lt;tableCell&gt;</code>. This also allows features like <kbd>Enter</kbd> support to work out of the box (since a <code>&lt;paragraph&gt;</code> exists in the model, it can be split despite the fact that it is not present in the view).</p></div>
+<h3 id="inline-content"><a class="headerlink" href="#inline-content">#</a> Inline content</h3>
+<p>The following is the model representation of table cells with inline content only (a single <code>&lt;paragraph&gt;</code> inside):</p>
+<pre class="highlight"><code class="html">&lt;table&gt;
+    &lt;tableRow&gt;
+        &lt;tableCell&gt;
+            &lt;paragraph&gt;Foo&lt;/paragraph&gt;
+        &lt;/tableCell&gt;
+        &lt;tableCell&gt;
+            &lt;paragraph&gt;Bar&lt;/paragraph&gt;
+        &lt;/tableCell&gt;
+    &lt;/tableRow&gt;
+&lt;/table&gt;
+</code></pre>
+<p>The above model structure will be rendered to the <a href="../api/module_editor-classic_classiceditor-ClassicEditor.html#function-getData">data</a> as:</p>
+<pre class="highlight"><code class="html">&lt;figure class=&quot;table&quot;&gt;
+    &lt;table&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Foo&lt;/td&gt;
+                &lt;td&gt;Bar&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/figure&gt;
+</code></pre>
+<p>In the editing view (the editable container in which the user edits the content), additional <code>&lt;span&gt;</code> elements are created to compensate for the hidden <code>&lt;paragraph&gt;</code> elements:</p>
+<pre class="highlight"><code class="html">&lt;figure class=&quot;table&quot;&gt;
+    &lt;table&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;span&gt;Foo&lt;/span&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;span&gt;Bar&lt;/span&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/figure&gt;
+</code></pre>
+<h3 id="block-content"><a class="headerlink" href="#block-content">#</a> Block content</h3>
+<p>If a table cell contains any other block content than a single <code>&lt;paragraph&gt;</code> with no attributes, these block elements will be rendered.</p>
+<p>The following is a sample table with some block content (model representation):</p>
+<pre class="highlight"><code class="html">&lt;table&gt;
+    &lt;tableRow&gt;
+        &lt;tableCell&gt;
+            &lt;paragraph&gt;Foo&lt;/paragraph&gt;
+            &lt;paragraph&gt;Bar&lt;/paragraph&gt;
+        &lt;/tableCell&gt;
+        &lt;tableCell&gt;
+            &lt;heading1&gt;Some title&lt;/heading1&gt;
+        &lt;/tableCell&gt;
+        &lt;tableCell&gt;
+            &lt;paragraph textAlign=&quot;right&quot;&gt;Baz&lt;/paragraph&gt;
+        &lt;/tableCell&gt;
+    &lt;/tableRow&gt;
+&lt;/table&gt;
+</code></pre>
+<p>The above model structure will be rendered to the data and to the editing view as:</p>
+<pre class="highlight"><code class="html">&lt;figure class=&quot;table&quot;&gt;
+    &lt;table&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;
+                    &lt;p&gt;Foo&lt;/p&gt;
+                    &lt;p&gt;Bar&lt;/p&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;h2&gt;Some title&lt;/h2&gt;
+                &lt;/td&gt;
+                &lt;td&gt;
+                    &lt;p style=&quot;text-align: right;&quot;&gt;Baz&lt;/p&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/figure&gt;
+</code></pre>
+<div class="info-box notice notice__info"><p>At the moment, it is not possible to completely disallow block content in tables. See the <a href="https://github.com/ckeditor/ckeditor5-table/issues/101" target="_blank" rel="noopener">discussion on GitHub</a> about adding a configuration option that would enable that. Feel free to upvote &#x1F44D;&#xA0; if this feature is important to you.</p></div>
+<h2 id="disallow-nesting-tables"><a class="headerlink" href="#disallow-nesting-tables">#</a> Disallow nesting tables</h2>
+<p>By default, the editor allows nesting a table inside another table&#x2019;s cell.</p>
+<p>In order to disallow nesting tables, you need to register an additional schema rule. It needs to be added before the data is loaded into the editor. Due to that, it is best to implement it as a plugin:</p>
+<pre class="highlight"><code class="js">function DisallowNestingTables( editor ) {
+    editor.model.schema.addChildCheck( ( context, childDefinition ) =&gt; {
+        if ( childDefinition.name == &apos;table&apos; &amp;&amp; Array.from( context.getNames() ).includes( &apos;table&apos; ) ) {
+            return false;
+        }
+    } );
+}
+
+// Pass it via config.extraPlugins or config.plugins:
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        extraPlugins: [ DisallowNestingTables ],
+
+        // The rest of the configuration.
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<div class="info-box notice"><p>Check the <a href="../framework/guides/plugins/creating-simple-plugin.html">plugin development guide</a> if you need more information about the technical side of this solution.</p></div>
+<h2 id="common-api"><a class="headerlink" href="#common-api">#</a> Common API</h2>
+<h3 id="ui-components"><a class="headerlink" href="#ui-components">#</a> UI components</h3>
+<p>The table plugins register the following UI components:</p>
+<table>
+	<thead>
+		<th><a href="toolbar/toolbar.html">Component</a> name</th>
+		<th>Registered by</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>The <code>&apos;insertTable&apos;</code> dropdown</td>
+			<td rowspan="4"><a href="../api/module_table_table-Table.html"><code>Table</code></a></td>
+		</tr>
+		<tr>
+			<td>The <code>&apos;tableColumn&apos;</code> dropdown</td>
+		</tr>
+		<tr>
+			<td>The <code>&apos;tableRow&apos;</code> dropdown</td>
+		</tr>
+		<tr>
+			<td>The <code>&apos;mergeTableCells&apos;</code> split button</td>
+		</tr>
+		<tr>
+			<td>The <code>&apos;tableProperties&apos;</code> button</td>
+			<td><a href="../api/module_table_tableproperties-TableProperties.html"><code>TableProperties</code></a></td>
+		</tr>
+		<tr>
+			<td>The <code>&apos;toggleTableCaption&apos;</code> button</td>
+			<td><a href="../api/module_table_tablecaption-TableCaption.html"><code>TableCaption</code></a></td>
+		</tr>
+		<tr>
+			<td>The <code>&apos;tableCellProperties&apos;</code> button</td>
+			<td><a href="../api/module_table_tablecellproperties-TableCellProperties.html"><code>TableCellProperties</code></a></td>
+		</tr>
+	</tbody>
+</table>
+<h4 id="toolbars"><a class="headerlink" href="#toolbars">#</a> Toolbars</h4>
+<p>The <a href="../api/module_table_tabletoolbar-TableToolbar.html"><code>TableToolbar</code></a> plugin introduces two balloon toolbars for tables.</p>
+<ul>
+<li>The content toolbar shows up when a table cell is selected and it is anchored to the table. It is possible to <a href="../api/module_table_table-TableConfig.html#member-contentToolbar">configure</a> its content. Normally, the toolbar contains the table-related tools such as <code>&apos;tableColumn&apos;</code> and <code>&apos;tableRow&apos;</code> dropdowns and <code>&apos;mergeTableCells&apos;</code> split button.</li>
+<li>The table toolbar shows up when the whole table is selected, for instance using the widget handler. It is possible to <a href="../api/module_table_table-TableConfig.html#member-tableToolbar">configure</a> its content.</li>
+</ul>
+<h3 id="editor-commands"><a class="headerlink" href="#editor-commands">#</a> Editor commands</h3>
+<table>
+	<thead>
+		<tr>
+			<th><a href="../framework/guides/architecture/core-editor-architecture.html#commands">Command</a> name</th>
+			<th>Command class</th>
+			<th>Belongs to (top&#x2013;level plugin)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>&apos;insertTable&apos;</code></td>
+			<td><a href="../api/module_table_commands_inserttablecommand-InsertTableCommand.html"><code>InsertTableCommand</code></a></td>
+			<td rowspan="17"><a href="../api/module_table_table-Table.html"><code>Table</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;insertTableColumnLeft&apos;</code></td>
+			<td><a href="../api/module_table_commands_insertcolumncommand-InsertColumnCommand.html"><code>InsertColumnCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;insertTableColumnRight&apos;</code></td>
+			<td><a href="../api/module_table_commands_insertcolumncommand-InsertColumnCommand.html"><code>InsertColumnCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;insertTableRowAbove&apos;</code></td>
+			<td><a href="../api/module_table_commands_insertrowcommand-InsertRowCommand.html"><code>InsertRowCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;insertTableRowBelow&apos;</code></td>
+			<td><a href="../api/module_table_commands_insertrowcommand-InsertRowCommand.html"><code>InsertRowCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;removeTableColumn&apos;</code></td>
+			<td><a href="../api/module_table_commands_removecolumncommand-RemoveColumnCommand.html"><code>RemoveColumnCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;removeTableRow&apos;</code></td>
+			<td><a href="../api/module_table_commands_removerowcommand-RemoveRowCommand.html"><code>RemoveRowCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;selectTableColumn&apos;</code></td>
+			<td><a href="../api/module_table_commands_selectcolumncommand-SelectColumnCommand.html"><code>SelectColumnCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;selectTableRow&apos;</code></td>
+			<td><a href="../api/module_table_commands_selectrowcommand-SelectRowCommand.html"><code>SelectRowCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;setTableColumnHeader&apos;</code></td>
+			<td><a href="../api/module_table_commands_setheadercolumncommand-SetHeaderColumnCommand.html"><code>SetHeaderColumnCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;setTableRowHeader&apos;</code></td>
+			<td><a href="../api/module_table_commands_setheaderrowcommand-SetHeaderRowCommand.html"><code>SetHeaderRowCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;mergeTableCellRight&apos;</code></td>
+			<td><a href="../api/module_table_commands_mergecellcommand-MergeCellCommand.html"><code>MergeCellCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;mergeTableCellLeft&apos;</code></td>
+			<td><a href="../api/module_table_commands_mergecellcommand-MergeCellCommand.html"><code>MergeCellCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;mergeTableCellUp&apos;</code></td>
+			<td><a href="../api/module_table_commands_mergecellcommand-MergeCellCommand.html"><code>MergeCellCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;mergeTableCellDown&apos;</code></td>
+			<td><a href="../api/module_table_commands_mergecellcommand-MergeCellCommand.html"><code>MergeCellCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;splitTableCellVertically&apos;</code></td>
+			<td><a href="../api/module_table_commands_splitcellcommand-SplitCellCommand.html"><code>SplitCellCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;splitTableCellHorizontally&apos;</code></td>
+			<td><a href="../api/module_table_commands_splitcellcommand-SplitCellCommand.html"><code>SplitCellCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;toggleTableCaption&apos;</code></td>
+			<td><a href="../api/module_table_tablecaption_toggletablecaptioncommand-ToggleTableCaptionCommand.html"><code>ToggleTableCaptionCommand</code></a></td>
+			<td><a href="../api/module_table_tablecaption-TableCaption.html"><code>TableCaption</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableBorderColor&apos;</code></td>
+			<td><a href="../api/module_table_tableproperties_commands_tablebordercolorcommand-TableBorderColorCommand.html"><code>TableBorderColorCommand</code></a></td>
+			<td rowspan="7"><a href="../api/module_table_tableproperties-TableProperties.html"><code>TableProperties</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableBorderStyle&apos;</code></td>
+			<td><a href="../api/module_table_tableproperties_commands_tableborderstylecommand-TableBorderStyleCommand.html"><code>TableBorderStyleCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableBorderWidth&apos;</code></td>
+			<td><a href="../api/module_table_tableproperties_commands_tableborderwidthcommand-TableBorderWidthCommand.html"><code>TableBorderWidthCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableAlignment&apos;</code></td>
+			<td><a href="../api/module_table_tableproperties_commands_tablealignmentcommand-TableAlignmentCommand.html"><code>TableAlignmentCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableWidth&apos;</code></td>
+			<td><a href="../api/module_table_tableproperties_commands_tablewidthcommand-TableWidthCommand.html"><code>TableWidthCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableHeight&apos;</code></td>
+			<td><a href="../api/module_table_tableproperties_commands_tableheightcommand-TableHeightCommand.html"><code>TableHeightCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableBackgroundColor&apos;</code></td>
+			<td><a href="../api/module_table_tableproperties_commands_tablebackgroundcolorcommand-TableBackgroundColorCommand.html"><code>TableBackgroundColorCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableCellBorderStyle&apos;</code></td>
+			<td><a href="../api/module_table_tablecellproperties_commands_tablecellborderstylecommand-TableCellBorderStyleCommand.html"><code>TableCellBorderStyleCommand</code></a></td>
+			<td rowspan="9"><a href="../api/module_table_tablecellproperties-TableCellProperties.html"><code>TableCellProperties</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableCellBorderColor&apos;</code></td>
+			<td><a href="../api/module_table_tablecellproperties_commands_tablecellbordercolorcommand-TableCellBorderColorCommand.html"><code>TableCellBorderColorCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableCellBorderWidth&apos;</code></td>
+			<td><a href="../api/module_table_tablecellproperties_commands_tablecellborderwidthcommand-TableCellBorderWidthCommand.html"><code>TableCellBorderWidthCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableCellHorizontalAlignment&apos;</code></td>
+			<td><a href="../api/module_table_tablecellproperties_commands_tablecellhorizontalalignmentcommand-TableCellHorizontalAlignmentCommand.html"><code>TableCellHorizontalAlignmentCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableCellWidth&apos;</code></td>
+			<td><a href="../api/module_table_tablecellproperties_commands_tablecellwidthcommand-TableCellWidthCommand.html"><code>TableCellWidthCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableCellHeight&apos;</code></td>
+			<td><a href="../api/module_table_tablecellproperties_commands_tablecellheightcommand-TableCellHeightCommand.html"><code>TableCellHeightCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableCellPadding&apos;</code></td>
+			<td><a href="../api/module_table_tablecellproperties_commands_tablecellpaddingcommand-TableCellPaddingCommand.html"><code>TableCellPaddingCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableCellBackgroundColor&apos;</code></td>
+			<td><a href="../api/module_table_tablecellproperties_commands_tablecellbackgroundcolorcommand-TableCellBackgroundColorCommand.html"><code>TableCellBackgroundColorCommand</code></a></td>
+		</tr>
+		<tr>
+			<td><code>&apos;tableCellVerticalAlignment&apos;</code></td>
+			<td><a href="../api/module_table_tablecellproperties_commands_tablecellverticalalignmentcommand-TableCellVerticalAlignmentCommand.html"><code>TableCellVerticalAlignmentCommand</code></a></td>
+		</tr>
+	</tbody>
+</table>
+<div class="info-box notice"><p>We recommend using the official <a href="../framework/guides/development-tools.html#ckeditor-5-inspector">CKEditor 5 inspector</a> for development and debugging. It will give you tons of useful information about the state of the editor such as internal data structures, selection, commands, and many more.</p></div>
+<h2 id="known-issues"><a class="headerlink" href="#known-issues">#</a> Known issues</h2>
+<p>While the table nesting functionality is fully functional, the Markdown code generated with the <a href="autoformat.html">Markdown output</a> feature will not properly render nested tables (<a href="https://github.com/ckeditor/ckeditor5/issues/9475" target="_blank" rel="noopener">#9475</a>). Feel free to upvote &#x1F44D;&#xA0; this issue on GitHub if it is important for you.</p>
+<h2 id="contribute"><a class="headerlink" href="#contribute">#</a> Contribute</h2>
+<p>The source code of the feature is available on GitHub in <a href="https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-table" target="_blank" rel="noopener">https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-table</a>.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22features%2Ftable.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li><a href="autoformat.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="text-transformation.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="basic-styles.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="indent.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="block-quote.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="code-blocks.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="collaboration/collaboration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="collaboration/comments/comments.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-only-mode.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-outside-editor.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="collaboration/track-changes/track-changes.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/track-changes/track-changes-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/track-changes/track-changes-custom-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/track-changes/track-changes-data.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="collaboration/real-time-collaboration/real-time-collaboration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/real-time-collaboration/real-time-collaboration-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/real-time-collaboration/users-in-real-time-collaboration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="collaboration/users.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                        </div></a></li>
+                                    <li><a href="collaboration/context-and-collaboration-features.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="collaboration/annotations/annotations.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-display-mode.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-configuration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-theme.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-template.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-view.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="minimap.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li><a href="title.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="editor-placeholder.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li><a href="export-pdf.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="export-word.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="find-and-replace.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="font.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font</span>
+                              </div></a></li>
+                          <li><a href="general-html-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                              </div></a></li>
+                          <li><a href="headings.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="highlight.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="horizontal-line.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li><a href="html-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="images/images-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-installation.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-text-alternative.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-captions.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-resizing.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-linking.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="images/image-upload/image-upload.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/easy-image.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Easy Image</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/ckfinder.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder file manager</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/base64-upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/simple-upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/images-inserting.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="keyboard-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Keyboard support</span>
+                              </div></a></li>
+                          <li><a href="link.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="lists/lists.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                        </div></a></li>
+                                    <li><a href="lists/todo-lists.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="markdown.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="math-equations.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="media-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="mentions.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="page-break.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="pagination/pagination.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="pagination/pagination-integration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="pasting/paste-from-word.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Word</span>
+                                        </div></a></li>
+                                    <li><a href="pasting/paste-from-google-docs.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                        </div></a></li>
+                                    <li><a href="pasting/paste-plain-text.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                        </div></a></li>
+                                    <li><a href="pasting/drag-drop.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="read-only.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="remove-format.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="restricted-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="revision-history/revision-history.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="revision-history/revision-history-integration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="select-all.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="source-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="special-characters.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="spelling-and-grammar-checking.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spelling and grammar checking</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Tables</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="text-alignment.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Toolbar</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="toolbar/toolbar.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbar</span>
+                                        </div></a></li>
+                                    <li><a href="toolbar/blocktoolbar.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block toolbar</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="ui-language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                              </div></a></li>
+                          <li><a href="watchdog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="word-count.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'features' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'features' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'features' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'features' ] );tags.forEach( function( tag ) {if ( tag !== 'features' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../assets/snippet.js"></script>
+    <script src="../snippets/assets.js"></script>
+    <script src="../snippets/features/build-table-source/snippet.js"></script>
+    <script src="../snippets/features/table/snippet.js"></script>
+    <script src="../snippets/features/table-styling/snippet.js"></script>
+    <script src="../snippets/features/table-column-resize/snippet.js"></script>
+    <script src="../snippets/features/table-caption/snippet.js"></script>
+    <script src="../snippets/features/table-nesting/snippet.js"></script>
+    <script src="../snippets/features/table-default-headings/snippet.js"></script>
+    <script src="../snippets/features/table-styling-colors/snippet.js"></script>
+    <script src="../snippets/features/table-default-properties/snippet.js"></script>
+    <script src="../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

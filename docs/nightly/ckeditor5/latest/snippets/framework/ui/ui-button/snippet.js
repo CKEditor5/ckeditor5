@@ -1,0 +1,5 @@
+/*!
+ * @license Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md.
+ */(()=>{const t=new Locale,e=new ButtonView;e.set({label:"Action button",withText:!0,class:"ck-button-action"}),e.render();const o=new ButtonView;o.set({label:"Rounded button",withText:!0,class:"ck-rounded-corners"}),o.render();const n=new ButtonView;n.set({label:"Bold button",withText:!0,class:"ck-button-bold"}),n.render();const c=new ButtonView;c.set({label:"Save",withText:!1,icon:checkIcon,class:"ck-button-save"}),c.render();const s=new ButtonView;s.set({label:"Italic",withText:!0,withKeystroke:!0,keystroke:"Ctrl+I"}),s.render();const l=new ButtonView;l.set({label:"Tooltip button",withText:!0,tooltip:"The content of the tooltip",tooltipPosition:"s"}),l.render();const i=[e,o,n,c,s,l],r=new ToolbarView(t);i.forEach((t=>r.items.add(t))),r.render(),document.querySelector(".ui-button").append(r.element),ClassicEditor.create(document.querySelector("#ui-button-editor"),{plugins:[Essentials],licenseKey:"GPL"}).then((t=>{new TooltipManager(t)})).catch((t=>{console.error(t.stack)}))})();
+//# sourceMappingURL=snippet.js.map

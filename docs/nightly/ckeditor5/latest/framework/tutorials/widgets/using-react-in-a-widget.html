@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Using a React component in a block widget tutorial | CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:13:03 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Using a React component in a block widget tutorial | CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/framework/tutorials/widgets/using-react-in-a-widget.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Using a React component in a block widget tutorial | CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/framework/tutorials/widgets/using-react-in-a-widget.html">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../../snippets/framework/tutorials/using-react-in-widget/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../snippets/assets.css" type="text/css" data-cke="true">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../index.html">CKEditor 5</a></li>
+          <li><a href="../../../getting-started/index.html">Getting started</a></li>
+          <li><a href="../../../features/index.html">Features</a></li>
+          <li><a href="../../../examples/index.html">Examples</a></li>
+          <li><a class="top__menu__item--active" href="../../index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../api/index.html">API</a></li>
+          <li><a href="../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="../../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../../index.html">Framework</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Tutorials</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="tutorials">
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Crash course</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="crash-course">
+                                          <li><a href="../crash-course/editor.html" title="Editor and configuration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor and configuration</span>
+                                              </div></a></li>
+                                          <li><a href="../crash-course/plugins.html" title="Plugins">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins</span>
+                                              </div></a></li>
+                                          <li><a href="../crash-course/model-and-schema.html" title="Model and schema">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model and schema</span>
+                                              </div></a></li>
+                                          <li><a href="../crash-course/data-conversion.html" title="Data conversion">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data conversion</span>
+                                              </div></a></li>
+                                          <li><a href="../crash-course/commands.html" title="Commands">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Commands</span>
+                                              </div></a></li>
+                                          <li><a href="../crash-course/view.html" title="Editor UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor UI</span>
+                                              </div></a></li>
+                                          <li><a href="../crash-course/events-and-observables.html" title="Events and observables">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Events and observables</span>
+                                              </div></a></li>
+                                          <li><a href="../crash-course/keystrokes.html" title="Handling keystrokes">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Handling keystrokes</span>
+                                              </div></a></li>
+                                          <li><a href="../crash-course/plugin-configuration.html" title="Plugin configuration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin configuration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../creating-simple-plugin-timestamp.html" title="Creating a basic plugin">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a basic plugin</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Creating an advanced plugin</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="abbreviation-plugin">
+                                          <li><a href="../abbreviation-plugin/abbreviation-plugin-level-1.html" title="Defining a model and a view">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Defining a model and a view</span>
+                                              </div></a></li>
+                                          <li><a href="../abbreviation-plugin/abbreviation-plugin-level-2.html" title="Getting user input with a custom UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting user input with a custom UI</span>
+                                              </div></a></li>
+                                          <li><a href="../abbreviation-plugin/abbreviation-plugin-level-3.html" title="Improving accessibility and adding a command">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Improving accessibility and adding a command</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Using widgets</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="widget-tutorials">
+                                          <li><a href="implementing-a-block-widget.html" title="Implementing a block widget">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                              </div></a></li>
+                                          <li><a href="implementing-an-inline-widget.html" title="Implementing an inline widget">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                              </div></a></li>
+                                          <li><a href="" title="Using a React component in a widget">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                              </div></a></li>
+                                          <li><a href="data-from-external-source.html" title="Data from an external source">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data from an external source</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../supporting-multiple-versions.html" title="Compatibility of custom plugins">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Compatibility of custom plugins</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Development tools</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="development-tools">
+                                  <li><a href="../../develpment-tools/inspector.html" title="Inspector">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inspector</span>
+                                      </div></a></li>
+                                  <li><a href="../../develpment-tools/testing-helpers.html" title="Testing helpers">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing helpers</span>
+                                      </div></a></li>
+                                  <li><a href="../../develpment-tools/mrgit.html" title="Mr. Git">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mr. Git</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Package Generator</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="package-generator">
+                                          <li><a href="../../develpment-tools/package-generator/using-package-generator.html" title="Using package generator">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                              </div></a></li>
+                                          <li><a href="../../develpment-tools/package-generator/javascript-package.html" title="JavaScript package">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">JavaScript package</span>
+                                              </div></a></li>
+                                          <li><a href="../../develpment-tools/package-generator/typescript-package.html" title="TypeScript package">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">TypeScript package</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-architecture">
+                                  <li><a href="../../architecture/intro.html" title="Introduction">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                      </div></a></li>
+                                  <li><a href="../../architecture/plugins.html" title="Plugins in CKEditor 5">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins in CKEditor 5</span>
+                                      </div></a></li>
+                                  <li><a href="../../architecture/core-editor-architecture.html" title="Core editor architecture">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                      </div></a></li>
+                                  <li><a href="../../architecture/editing-engine.html" title="Editing engine">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                      </div></a></li>
+                                  <li><a href="../../architecture/ui-library.html" title="UI library">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                      </div></a></li>
+                                  <li><a href="../../architecture/ui-components.html" title="UI components">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI components</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-deep-dive">
+                                  <li><a href="../../deep-dive/clipboard.html" title="Clipboard">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                      </div></a></li>
+                                  <li><a href="../../deep-dive/upload-adapter.html" title="Custom upload adapter">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                      </div></a></li>
+                                  <li><a href="../../deep-dive/event-system.html" title="Event system">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                      </div></a></li>
+                                  <li><a href="../../deep-dive/observables.html" title="Observables">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                      </div></a></li>
+                                  <li><a href="../../deep-dive/schema.html" title="Schema">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-conversion">
+                                          <li><a href="../../deep-dive/conversion/intro.html" title="Introduction">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                              </div></a></li>
+                                          <li><a href="../../deep-dive/conversion/downcast.html" title="Model to view (downcast)">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                              </div></a></li>
+                                          <li><a href="../../deep-dive/conversion/upcast.html" title="View to model (upcast)">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list" data-id="framework-deep-dive-conversion-helpers">
+                                                  <li><a href="../../deep-dive/conversion/helpers/intro.html" title="Introduction">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../deep-dive/conversion/helpers/downcast.html" title="Downcast helpers">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../deep-dive/conversion/helpers/upcast.html" title="Upcast helpers">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-ui">
+                                          <li><a href="../../deep-dive/ui/focus-tracking.html" title="Focus tracking">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                              </div></a></li>
+                                          <li><a href="../../deep-dive/ui/widget-internals.html" title="Widget internals">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                              </div></a></li>
+                                          <li><a href="../../deep-dive/ui/theme-customization.html" title="Theme customization">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                              </div></a></li>
+                                          <li><a href="../../deep-dive/ui/external-ui.html" title="Third-party UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third-party UI</span>
+                                              </div></a></li>
+                                          <li><a href="../../deep-dive/ui/document-editor.html" title="Document editor">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                              </div></a></li>
+                                          <li><a href="../../deep-dive/ui/custom-editor-creator.html" title="Creating custom editor">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                              </div></a></li>
+                                          <li><a href="../../deep-dive/ui/localization.html" title="Localization">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../how-tos.html" title="How-tos">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">How-tos</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-contributing">
+                                  <li><a href="../../contributing/contributing.html" title="Contributing">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                      </div></a></li>
+                                  <li><a href="../../contributing/development-environment.html" title="Development environment">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                      </div></a></li>
+                                  <li><a href="../../contributing/testing-environment.html" title="Testing environment">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                      </div></a></li>
+                                  <li><a href="../../contributing/code-style.html" title="Code style">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                      </div></a></li>
+                                  <li><a href="../../contributing/package-metadata.html" title="Package metadata">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                      </div></a></li>
+                                  <li><a href="../../contributing/git-commit-message-convention.html" title="Git commit message convention">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="api-reference"><a href="../../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/tutorials/widgets/using-react-in-a-widget.md" title="Contribute to this guide"><img src="../../../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Framework</a>
+          </div>
+          <h1 class="main__content-title">Using a React component in a block widget
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#before-you-start" title="Before you start">Before you start</a></li><li><a href="#lets-start" title="Let’s start">Let’s start</a></li><li><a href="#application-structure" title="Application structure">Application structure</a></li><li><a href="#ckeditor-classes" title="CKEditor classes">CKEditor classes</a><ol><li><a href="#editing-plugin" title="Editing plugin">Editing plugin</a></li><li><a href="#command" title="Command">Command</a></li></ol></li><li><a href="#react-components" title="React components">React components</a><ol><li><a href="#product-list" title="Product list">Product list</a></li><li><a href="#product-preview" title="Product preview">Product preview</a></li><li><a href="#main-application-component" title="Main application component">Main application component</a></li></ol></li><li><a href="#styles-and-assets" title="Styles and assets">Styles and assets</a></li><li><a href="#demo" title="Demo">Demo</a></li><li><a href="#final-solution" title="Final solution">Final solution</a></li><li><a href="#adapt-this-tutorial-to-cdn" title="Adapt this tutorial to CDN">Adapt this tutorial to CDN</a></li></ol></nav>
+<p>In this tutorial, you will learn how to implement an editor plugin that uses the power of the <a href="https://reactjs.org/">React</a> library inside the CKEditor&nbsp;5 widget ecosystem. You will build a “Product preview” feature which renders an actual React component inside the editor to display some useful information about the product.</p>
+<p>Later on, you will use the “Product preview” feature to build a simple React application that displays an editor next to the list of available products. The application will allow the user to insert the product into the editor content by clicking it on the list.</p>
+<p>If you want to see the final product of this tutorial before you plunge in, check out the <a href="#demo">demo</a>.</p>
+<div class="info-box notice"><p>If you want to use this tutorial with CDN, follow the steps in the <a href="#adapt-this-tutorial-to-cdn">Adapt this tutorial to CDN</a> section.</p></div>
+<!-- TODO: dynamic controls in React to change the appearance of the widget https://github.com/ckeditor/ckeditor5-widget/issues/81 -->
+<h2 id="before-you-start"><a class="headerlink" href="#before-you-start">#</a> Before you start</h2>
+<p>There are a couple of things you should know before you start:</p>
+<ul>
+<li>Since you are here, you probably have at least some basic understanding of what React is and how it works. But what you might not know is that CKEditor&nbsp;5 has an official <a href="../../../getting-started/installation/self-hosted/react/react-default-npm.html"><strong>rich text editor component for React</strong></a> and it will be one of the key features used in this tutorial. Learning how to use it in your project is a good place to start.</li>
+<li>In this tutorial, you are going to implement a block editor widget and that itself could give you a headache. It is recommended to at least skim through the <a href="implementing-a-block-widget.html">Implementing a block widget</a> tutorial to get a grip on editor widgets, their API, and possible use cases.</li>
+<li>Various parts of the <a href="../../architecture/intro.html">CKEditor&nbsp;5 architecture</a> section will be referenced as you go. While reading them is not necessary to finish this tutorial, it is recommended to read those guides at some point to get a better understanding of the mechanisms used in this tutorial.</li>
+</ul>
+<div class="info-box notice"><p>If you want to use your own event handler for events triggered by your React component, you must wrap it with a container that has a <code>data-cke-ignore-events</code> attribute to exclude it from the editor’s default handlers. Refer to <a href="../../deep-dive/ui/widget-internals.html#exclude-dom-events-from-default-handlers">Exclude DOM events from default handlers</a> for more details.</p></div>
+<h2 id="lets-start"><a class="headerlink" href="#lets-start">#</a> Let’s start</h2>
+<p>The easiest way to get started is to grab the starter project using the commands below.</p>
+<pre class="highlight"><code class="bash">npx -y degit ckeditor/ckeditor5-tutorials-examples/react-widget/starter-files react-widget
+cd react-widget
+
+npm install
+npm run dev
+</code></pre>
+<p>This will create a new directory called <code>react-widget</code> with the necessary files. The <code>npm install</code> command will install all the dependencies, and <code>npm run dev</code> will start the development server.</p>
+<p>The editor with some basic plugins is created in the <code>main.js</code> file.</p>
+<p>Open the URL displayed in your terminal. If everything goes well, you should see a “Hello world” application in your web browser, which might not be much, but it is a good start:</p>
+<p><img src="../../../assets/img/using-react-in-a-widget-1.png" data-lightbox="true" alt="Screenshot of the “Hello world” application in web browser."></p>
+<h2 id="application-structure"><a class="headerlink" href="#application-structure">#</a> Application structure</h2>
+<p>Nothing warms the heart of a developer like a good “Hello world!” But you probably agree that what you created is not the most useful application and it is time to change that. In the next sections, you will create some React components and CKEditor&nbsp;5 classes to bring some real logic to the application.</p>
+<p>To keep some order in the project, you will put <a href="#ckeditor-classes">CKEditor classes</a> in the <code>/ckeditor</code> directory and <a href="#react-components">React components</a> in the <code>/react</code> directory. <a href="#styles-and-assets">Images</a> will land in the <code>/public</code> directory. By the time you are finished with this tutorial, the structure of the project should look as follows:</p>
+<pre class="highlight"><code class="plain">├── public
+│    ├── fields.jpg
+│    ├── malta.jpg
+│    ├── tajmahal.jpg
+│    └── umbrellas.jpg
+├── src
+│    ├── ckeditor
+│    │&nbsp;&nbsp; ├── insertproductpreviewcommand.js
+│    │&nbsp;&nbsp; └── productpreviewediting.js
+│    ├── react
+│    │&nbsp;&nbsp; ├── productlist.jsx
+│    │&nbsp;&nbsp; └── productpreview.jsx
+│    ├── app.jsx
+│    ├── main.jsx
+│    └── styles.css
+├── index.html
+├── package.json
+└── node_modules
+</code></pre>
+<h2 id="ckeditor-classes"><a class="headerlink" href="#ckeditor-classes">#</a> CKEditor classes</h2>
+<p>Create the CKEditor–side logic that supports product preview widgets in the editor content:</p>
+<ul>
+<li>The <a href="#editing-plugin"><code>ProductPreviewEditing</code></a> plugin will extend the editor data layers to support the new kind of content.</li>
+<li>The <a href="#command"><code>InsertProductPreviewCommand</code></a> provides an easy way for the “outside world” to insert product previews into the editor content.</li>
+</ul>
+<div class="info-box notice"><p>This guide assumes you are familiar with the <a href="implementing-a-block-widget.html">Implementing a block widget</a> guide which explains the basic concepts behind data structures and widgets. If in doubt, refer to that guide for more information.</p></div>
+<h3 id="editing-plugin"><a class="headerlink" href="#editing-plugin">#</a> Editing plugin</h3>
+<p>The <code>ProductPreviewEditing</code> plugin defines the <code>productPreview</code> element in the editor <a href="../../architecture/editing-engine.html#model">model</a> and specifies the way it is converted to the editing and data <a href="../../architecture/editing-engine.html#view">views</a>.</p>
+<div class="info-box notice"><p>Read more about the <a href="../../architecture/editing-engine.html#overview">editing engine architecture</a> of CKEditor&nbsp;5.</p></div>
+<ul>
+<li>In the <strong>data view</strong>, the <code>productPreview</code> is represented as an empty <code>&lt;section class="product" data-id="..."&gt;&lt;/section&gt;</code> element with a <code>data-id</code> attribute associating it with a particular product. A semantic representation of the product saved in the database can be then consumed in the frontend by retrieving a fresh preview using the <code>data-id</code>. Since it does not carry any formatting or styling, the data representation will never get outdated, even if the layout or styles of the application change in the future.</li>
+<li>In the <strong>editing view</strong>, on the other hand, the product preview is a <a href="implementing-a-block-widget.html">block widget</a>, which acts as a self–contained piece of content the user can insert, copy, and paste as a whole but they cannot change its internal structure. Inside the widget, there is a <a href="../../../api/module_engine_view_uielement-UIElement.html"><code>UIElement</code></a> with a <code>.product__react-wrapper</code> class that hosts a React <code>&lt;ProductPreview&gt;</code> component. Each time the model element is upcasted, the rendering function specified in the <a href="../../../getting-started/setup/configuration.html">editor configuration</a> (<code>editor.config.products.productRenderer</code>) mounts a React component inside the <code>UIElement</code>.</li>
+</ul>
+<div class="info-box notice"><p>We recommend using the official <a href="../../develpment-tools/inspector.html">CKEditor&nbsp;5 inspector</a> for development and debugging. It will give you tons of useful information about the state of the editor such as internal data structures, selection, commands, and many more.</p></div>
+<p>The differences in data representations of the product preview are summarized in the following table:</p>
+<table>
+	<tbody><tr>
+		<th>Data structure</th>
+		<th>Representation</th>
+	</tr>
+	<tr>
+		<td>Model</td>
+		<td>
+			<pre><code>&lt;productPreview id="..." /&gt;</code></pre>
+		</td>
+	</tr>
+	<tr>
+		<td>Editing view</td>
+		<td>
+			<pre><code class="html">&lt;section class="product" data-id="..."&gt;
+    &lt;div class="product__react-wrapper"&gt;
+        &lt;ProductPreview /&gt; // React component
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+		</td>
+	</tr>
+	<tr>
+		<td>Data view (editor output)</td>
+		<td>
+			<pre><code>&lt;section class="product" data-id="..."&gt;&lt;/section&gt;</code></pre>
+		</td>
+	</tr>
+</tbody></table>
+<p>Here is the full source code of the <code>ProductPreviewEditing</code> editor plugin:</p>
+<pre class="highlight"><code class="js">// ckeditor/productpreviewediting.js
+
+import { Plugin, Widget, toWidget } from 'ckeditor5';
+
+import InsertProductPreviewCommand from './insertproductpreviewcommand';
+
+export default class ProductPreviewEditing extends Plugin {
+    static get requires() {
+        return [ Widget ];
+    }
+
+    init() {
+        this._defineSchema();
+        this._defineConverters();
+
+        this.editor.commands.add( 'insertProduct', new InsertProductPreviewCommand( this.editor ) );
+    }
+
+    _defineSchema() {
+        const schema = this.editor.model.schema;
+
+        schema.register( 'productPreview', {
+            // Behaves like a self-contained object (e.g. an image).
+            isObject: true,
+
+            // Allow in places where other blocks are allowed (e.g. directly in the root).
+            allowWhere: '$block',
+
+            // Each product preview has an ID. A unique ID tells the application which
+            // product it represents and makes it possible to render it inside a widget.
+            allowAttributes: [ 'id' ]
+        } );
+    }
+
+    _defineConverters() {
+        const editor = this.editor;
+        const conversion = editor.conversion;
+        const renderProduct = editor.config.get( 'products' ).productRenderer;
+
+        // &lt;productPreview&gt; converters ((data) view → model)
+        conversion.for( 'upcast' ).elementToElement( {
+            view: {
+                name: 'section',
+                classes: 'product'
+            },
+            model: ( viewElement, { writer: modelWriter } ) =&gt; {
+                // Read the "data-id" attribute from the view and set it as the "id" in the model.
+                return modelWriter.createElement( 'productPreview', {
+                    id: parseInt( viewElement.getAttribute( 'data-id' ) )
+                } );
+            }
+        } );
+
+        // &lt;productPreview&gt; converters (model → data view)
+        conversion.for( 'dataDowncast' ).elementToElement( {
+            model: 'productPreview',
+            view: ( modelElement, { writer: viewWriter } ) =&gt; {
+                // In the data view, the model &lt;productPreview&gt; corresponds to:
+                //
+                // &lt;section class="product" data-id="..."&gt;&lt;/section&gt;
+                return viewWriter.createEmptyElement( 'section', {
+                    class: 'product',
+                    'data-id': modelElement.getAttribute( 'id' )
+                } );
+            }
+        } );
+
+        // &lt;productPreview&gt; converters (model → editing view)
+        conversion.for( 'editingDowncast' ).elementToElement( {
+            model: 'productPreview',
+            view: ( modelElement, { writer: viewWriter } ) =&gt; {
+                // In the editing view, the model &lt;productPreview&gt; corresponds to:
+                //
+                // &lt;section class="product" data-id="..."&gt;
+                //     &lt;div class="product__react-wrapper"&gt;
+                //         &lt;ProductPreview /&gt; (React component)
+                //     &lt;/div&gt;
+                // &lt;/section&gt;
+                const id = modelElement.getAttribute( 'id' );
+
+                // The outermost &lt;section class="product" data-id="..."&gt;&lt;/section&gt; element.
+                const section = viewWriter.createContainerElement( 'section', {
+                    class: 'product',
+                    'data-id': id
+                } );
+
+                // The inner &lt;div class="product__react-wrapper"&gt;&lt;/div&gt; element.
+                // This element will host a React &lt;ProductPreview /&gt; component.
+                const reactWrapper = viewWriter.createRawElement( 'div', {
+                    class: 'product__react-wrapper'
+                }, function( domElement ) {
+                    // This the place where React renders the actual product preview hosted
+                    // by a UIElement in the view. You are using a function (renderer) passed as
+                    // editor.config.products#productRenderer.
+                    renderProduct( id, domElement );
+                } );
+
+                viewWriter.insert( viewWriter.createPositionAt( section, 0 ), reactWrapper );
+
+                return toWidget( section, viewWriter, { label: 'product preview widget' } );
+            }
+        } );
+    }
+}
+</code></pre>
+<h3 id="command"><a class="headerlink" href="#command">#</a> Command</h3>
+<p>The <code>InsertProductPreviewCommand</code> inserts the <code>productPreview</code> element into the model at the current selection position. It is executed by the <code>&lt;ProductPreview&gt;</code> React component in the application sidebar to insert a widget into the editor content.</p>
+<p>Learn more about widget commands in the <a href="implementing-a-block-widget.html#creating-a-command">Implementing a block widget</a> guide. You can see this command in action in the section about the <a href="#main-application-component">main application component</a>.</p>
+<pre class="highlight"><code class="js">// ckeditor/insertproductpreviewcommand.js
+
+import { Command } from 'ckeditor5';
+
+export default class InsertProductPreviewCommand extends Command {
+    execute( id ) {
+        this.editor.model.change( writer =&gt; {
+            // Insert &lt;productPreview id="..."&gt;*&lt;/productPreview&gt; at the current selection position
+            // in a way which will result in creating a valid model structure.
+            this.editor.model.insertContent( writer.createElement( 'productPreview', { id } ) );
+        } );
+    }
+
+    refresh() {
+        const model = this.editor.model;
+        const selection = model.document.selection;
+        const allowedIn = model.schema.findAllowedParent( selection.getFirstPosition(), 'productPreview' );
+
+        this.isEnabled = allowedIn !== null;
+    }
+}
+</code></pre>
+<h2 id="react-components"><a class="headerlink" href="#react-components">#</a> React components</h2>
+<p>It is time to define the React side of the application that renders the actual layout:</p>
+<ul>
+<li>The <a href="#product-list"><code>&lt;ProductList&gt;</code></a> component displays a bunch of <code>&lt;ProductPreview&gt;</code> children and allows the user to click them to insert them into the editor.</li>
+<li>The <a href="#product-preview"><code>&lt;ProductPreview&gt;</code></a> component represents a single product with its name, price tag and a background image.</li>
+<li>The <a href="#main-application-component"><code>&lt;App&gt;</code></a> component glues all the things together.</li>
+</ul>
+<h3 id="product-list"><a class="headerlink" href="#product-list">#</a> Product list</h3>
+<p>The <code>&lt;ProductList&gt;</code> React component renders instances of <code>&lt;ProductPreview&gt;</code>. When clicked, the preview executes a callback passed in <a href="https://reactjs.org/docs/components-and-props.html">“props”</a> that inserts its own copy into the editor content by executing the <a href="#command"><code>'insertProduct'</code></a> editor command. The list is displayed in the sidebar of the <a href="#main-application-component">application</a>.</p>
+<pre class="highlight"><code class="jsx html">// react/productlist.js
+
+import ProductPreview from './productpreview';
+
+export default function ProductList( props ) {
+    return (
+        &lt;div className='app__product-list'&gt;
+            &lt;h3&gt;Products&lt;/h3&gt;
+            &lt;ul&gt;
+                {props.products.map( ( product ) =&gt; {
+                    return (
+                        &lt;li key={ product.id }&gt;
+                            &lt;ProductPreview
+                                id={ product.id }
+                                onClick={ props.onClick }
+                                { ...product }
+                            /&gt;
+                        &lt;/li&gt;
+                    );
+                })}
+            &lt;/ul&gt;
+            &lt;p&gt;&lt;b&gt;Tip&lt;/b&gt;: Clicking the product will add it to the editor.&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+<h3 id="product-preview"><a class="headerlink" href="#product-preview">#</a> Product preview</h3>
+<p>The actual preview of the product, with its name, price and an image. Instances of the <code>&lt;ProductPreview&gt;</code> component populate both the <a href="#product-list"><code>&lt;ProductList&gt;</code></a> and the <a href="#editing-plugin">editor widgets</a> in the content.</p>
+<p>Clicking a preview in the sidebar executes the <a href="#command"><code>'insertProduct'</code></a> editor command and inserts the same preview into the editor content.</p>
+<pre class="highlight"><code class="jsx html">// react/productpreview.js
+
+export default function ProductPreview( props ) {
+    return (
+        &lt;div
+            className='product-preview'
+            style={ {
+                '--product-image': `url(${ props.image })`
+            } }
+        &gt;
+            &lt;button
+                className='product-preview__add'
+                onClick={ () =&gt; props.onClick( props.id ) }
+                title='Add to the offer'
+            &gt;
+                &lt;span&gt;+&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;span className='product-preview__name'&gt;{ props.name }&lt;/span&gt;
+            &lt;span className='product-preview__price'&gt;from { props.price }&lt;/span&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+<h3 id="main-application-component"><a class="headerlink" href="#main-application-component">#</a> Main application component</h3>
+<p>At the moment, you have CKEditor classes that bring the product preview into the content, a list of products, and a product component ready. It is time to glue things together in the <code>App</code> component.</p>
+<p>You are going to extend the <a href="#lets-start">main application file</a> skeleton that you created earlier in this tutorial so it renders the <a href="../../../getting-started/installation/self-hosted/react/react-default-npm.html">official <code>&lt;CKEditor&gt;</code> React component</a> on the left side, and the list of available products on the right.</p>
+<p>Have a look at the full source code of the <code>App</code> function:</p>
+<pre class="highlight"><code class="jsx html">// app.jsx
+
+// Imports necessary to run a React application.
+import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+// The official &lt;CKEditor&gt; component for React.
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+// The base editor class and features required to run the editor.
+import {
+    ClassicEditor,
+    Bold,
+    Italic,
+    Underline,
+    Essentials,
+    Heading,
+    Link,
+    Paragraph,
+    Table,
+    TableToolbar
+} from 'ckeditor5';
+// The official CKEditor 5 instance inspector. It helps understand the editor view and model.
+import CKEditorInspector from '@ckeditor/ckeditor5-inspector';
+// CKEditor plugin implementing a product widget to be used in the editor content.
+import ProductPreviewEditing from './ckeditor/productpreviewediting';
+// React components to render the list of products and the product preview.
+import ProductList from './react/productlist';
+import ProductPreview from './react/productpreview';
+
+import 'ckeditor5/ckeditor5.css';
+import './styles.css';
+
+// The React application function component. It renders the editor and the product list.
+export default function App( props ) {
+    // A place to store the reference to the editor instance created by the &lt;CKEditor&gt; component.
+    // The editor instance is created asynchronously and is only available when the editor is ready.
+    const [ editorRef, setEditorRef ] = useState( null );
+    // The initial editor data. It is bound to the editor instance and will change as
+    // the user types and modifies the content of the editor.
+    const [ editorData, setEditorData ] = useState( `&lt;h2&gt;Check our last minute deals!&lt;/h2&gt;
+
+    &lt;p&gt;Aenean erat conubia pretium libero habitant turpis vivamus dignissim molestie, phasellus libero! Curae; consequat cubilia mattis. Litora non iaculis tincidunt.&lt;/p&gt;
+    &lt;section class="product" data-id="2"&gt;&amp;nbsp;&lt;/section&gt;
+    &lt;p&gt;Mollis gravida parturient ad maecenas euismod consectetur lacus rutrum urna eget ligula. Nisi imperdiet scelerisque natoque scelerisque cubilia nulla gravida. Eleifend malesuada pharetra est commodo venenatis aenean habitasse curae; fusce elit.&lt;/p&gt;
+    &lt;section class="product" data-id="1"&gt;&amp;nbsp;&lt;/section&gt;
+
+    &lt;h3&gt;Other deals&lt;/h3&gt;
+    &lt;p&gt;Ultricies dapibus placerat orci natoque fames commodo facilisi sollicitudin. Sed hendrerit mi dis non lacinia ipsum. Luctus fames scelerisque auctor pellentesque mi nunc mattis, amet sapien.&lt;/p&gt;
+
+    &lt;figure class="table"&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Our deal&lt;/th&gt;
+                    &lt;th&gt;Why this one?&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        &lt;section class="product" data-id="3"&gt;&amp;nbsp;&lt;/section&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;Nascetur, nullam hac nibh curabitur elementum. Est ridiculus turpis adipiscing erat maecenas habitant montes. Curabitur mauris ut luctus semper. Neque orci auctor luctus accumsan quam cursus purus condimentum dis?&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        &lt;section class="product" data-id="4"&gt;&amp;nbsp;&lt;/section&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;Elementum condimentum convallis porttitor cubilia consectetur cum. In pretium neque accumsan pharetra. Magna in quisque dignissim praesent facilisi diam. Ad habitant ultricies at faucibus. Ultricies auctor sodales massa nisi eget sem porta?&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/figure&gt;` );
+
+    return (
+        // The application renders two columns:
+        // * in the left one, the &lt;CKEditor&gt; and the textarea displaying live
+        //   editor data are rendered.
+        // * in the right column, a &lt;ProductList&gt; is rendered with available &lt;ProductPreviews&gt;
+        //   to choose from.
+        &lt;div ref={ setEditorRef } className='app'&gt;
+            { editorRef &amp;&amp; &lt;&gt;
+                &lt;div className='app__offer-editor' key='offer-editor'&gt;
+                    &lt;CKEditor
+                        editor={ ClassicEditor }
+                        // The configuration of the &lt;CKEditor&gt; instance.
+                        config={ {
+                            licenseKey: 'GPL', // Or '&lt;YOUR_LICENSE_KEY&gt;'.
+                            plugins: [
+                                // A set of editor features to be enabled and made available to the user.
+                                Essentials, Heading, Bold, Italic, Underline,
+                                Link, Paragraph, Table, TableToolbar,
+                                // Your custom plugin implementing the widget is loaded here.
+                                ProductPreviewEditing
+                            ],
+                            toolbar: [
+                                'heading',
+                                '|',
+                                'bold', 'italic', 'underline',
+                                '|',
+                                'link', 'insertTable',
+                                '|',
+                                'undo', 'redo'
+                            ],
+                            table: {
+                                contentToolbar: [
+                                    'tableColumn',
+                                    'tableRow',
+                                    'mergeTableCells'
+                                ]
+                            },
+                            // The configuration of the Products plugin. It specifies a function that will allow
+                            // the editor to render a React &lt;ProductPreview&gt; component inside a product widget.
+                            products: {
+                                productRenderer: ( id, domElement ) =&gt; {
+                                    const product = props.products.find( product =&gt; product.id === id );
+                                    const root = createRoot( domElement );
+                        
+                                    root.render(
+                                        &lt;ProductPreview id={ id } { ...product } /&gt;
+                                    );
+                                }
+                            }
+                        } }
+                        data={ editorData }
+                        onReady={ ( editor ) =&gt; {
+                            // A function executed when the editor has been initialized and is ready.
+                            // It synchronizes the initial data state and saves the reference to the editor instance.
+                            setEditorRef( editor );
+                            // CKEditor&amp;nbsp;5 inspector allows you to take a peek into the editor's model and view
+                            // data layers. Use it to debug the application and learn more about the editor.
+                            CKEditorInspector.attach( editor );
+                        } }
+                        onChange={ ( evt, editor ) =&gt; {
+                            // A function executed when the user types or modifies the editor content.
+                            // It updates the state of the application.
+                            setEditorData( editor.getData() );
+                        } }
+                    /&gt;
+                &lt;/div&gt;
+                &lt;ProductList
+                    key='product-list'
+                    products={ props.products }
+                    onClick={ ( id  ) =&gt; {
+                        editorRef.execute( 'insertProduct', id );
+                        editorRef.editing.view.focus();
+                    } }
+                /&gt;
+            &lt;/&gt; }
+        &lt;/div&gt;
+    )
+}
+</code></pre>
+<p>The JavaScript code is ready, but to run the application you need to specify a couple of product definitions. Do that when mounting the <code>&lt;App&gt;</code> component:</p>
+<pre class="highlight"><code class="js">// main.jsx
+
+import ReactDOM from 'react-dom/client';
+import App from './app';
+
+// Render the &lt;App&gt; in the &lt;div class="root"&gt;&lt;/div&gt; element found in the DOM.
+ReactDOM.createRoot( document.getElementById( 'root' ) ).render(
+    &lt;App 
+        // Feeding the application with predefined products.
+        // In a real-life application, this sort of data would be loaded
+        // from a database. To keep this tutorial simple, a few
+        // hard–coded product definitions will be used.
+        products={ [
+            {
+                id: 1,
+                name: 'Colors of summer in Poland',
+                price: '$1500',
+                image: 'fields.jpg'
+            },
+            {
+                id: 2,
+                name: 'Mediterranean sun on Malta',
+                price: '$1899',
+                image: 'malta.jpg'
+            },
+            {
+                id: 3,
+                name: 'Tastes of Asia',
+                price: '$2599',
+                image: 'umbrellas.jpg'
+            },
+            {
+                id: 4,
+                name: 'Exotic India',
+                price: '$2200',
+                image: 'tajmahal.jpg'
+            }
+        ] }
+    /&gt;
+)
+</code></pre>
+<p>Each product comes with its own image (like <code>malta.jpg</code>), which should be stored in the <code>public/</code> directory to load correctly with the CSS <code>background-image</code>. Learn more about styles in the <a href="#styles-and-assets">next section</a>.</p>
+<h2 id="styles-and-assets"><a class="headerlink" href="#styles-and-assets">#</a> Styles and assets</h2>
+<p>The application needs some styling to look good. You are going to put them in the <code>src/styles.css</code> file imported in your <code>app.jsx</code> file:</p>
+<pre class="highlight"><code class="css">/* src/styles.css */
+
+/* --- General application styles --------------------------------------------------- */
+
+.app {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0 auto;
+}
+
+.app h2 {
+    font-size: 1.3em;
+}
+
+.app textarea {
+    width: 100%;
+    height: 150px;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* --- Product offer editor styles ----------------------------------------------------- */
+
+.app .app__offer-editor {
+    flex: 1 1 auto;
+    max-width: 800px;
+}
+
+/* --- Generic product preview styles --------------------------------------------------- */
+
+.app .product-preview {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: var(--product-image);
+    background-size: cover;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 1px 1px 3px hsla(0, 0%, 0%, .3);
+    min-width: 160px;
+}
+
+.app .product-preview .product-preview__name {
+    padding: 10px;
+    background: hsl(0, 0%, 100%);
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.app .product-preview .product-preview__price {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    background: hsl(346, 100%, 56%);
+    padding: 6px 10px;
+    min-width: 50px;
+    text-align: center;
+    color: hsl(0, 0%, 100%);
+    text-transform: uppercase;
+    font-size: .8em;
+}
+
+.app .product-preview .product-preview__add {
+    display: none;
+}
+
+/* --- Product list styles --------------------------------------------------- */
+
+.app .app__product-list {
+    margin-left: 20px;
+    padding: 20px;
+    min-width: 400px;
+    border-left: 1px solid hsl(0, 0%, 87%);
+}
+
+.app .app__product-list h2 {
+    margin-top: 10px;
+}
+
+.app .app__product-list ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 10px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.app .app__product-list .product-preview {
+    opacity: .7;
+}
+
+.app .app__product-list .product-preview:hover {
+    opacity: 1;
+}
+
+.app .app__product-list .product-preview:hover .product-preview__add {
+    display: block;
+}
+
+.app .app__product-list .product-preview .product-preview__add {
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 45%;
+    left: 50%;
+
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 100px;
+    background: hsl(0, 0%, 100%);
+    transform: translate(-50%, -50%);
+    box-shadow: 2px 2px 2px hsla(0, 0%, 0%, .3);
+}
+
+.app .app__product-list .product-preview .product-preview__add span {
+    font-size: 25px;
+    vertical-align: middle;
+    color: hsl(0, 0%, 24%);
+    line-height: 40px;
+    display: inline-block;
+}
+
+.app .app__product-list .product-preview .product-preview__name {
+    font-size: 10px;
+}
+
+.app .app__product-list .product-preview .product-preview__price {
+    font-size: 10px;
+}
+
+/* --- In-editor product widget styles --------------------------------------------------- */
+
+.app .ck-content .product {
+    margin: 1em;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(1em);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</code></pre>
+<p>The product preview (<code>.product-preview</code> class) uses <code>background-image: var(--product-image)</code> to set its background. It means that all images must be stored in the <code>public/</code> directory to load properly.</p>
+<h2 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h2>
+<p>You can see the entire application working below. Click the products in the sidebar to add them to the editor. You can also check out the <a href="#final-solution">full source code</a> of this tutorial if you want to extend it further or use it as base for your application.</p>
+<div class="live-snippet"><style>
+/* assets/styles.css */
+
+/* --- General application styles --------------------------------------------------- */
+
+.app {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.app textarea {
+	width: 100%;
+	height: 300px;
+	font-family: 'Courier New', Courier, monospace;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+/* --- Product offer editor styles ----------------------------------------------------- */
+
+.app .app__offer-editor {
+	flex: 1 1 auto;
+}
+
+/* --- Generic product preview styles --------------------------------------------------- */
+
+.app .product-preview {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: var(--product-image);
+	background-size: cover;
+	height: 120px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 1px 1px 3px hsla(0, 0%, 0%, .3);
+	min-width: 120px;
+}
+
+.app .product-preview .product-preview__name {
+	padding: 10px;
+	background: hsl(0, 0%, 100%);
+	font-weight: bold;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 1.5em;
+}
+
+.app .product-preview .product-preview__price {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	background: hsl(346, 100%, 56%);
+	padding: 6px 10px;
+	min-width: 50px;
+	text-align: center;
+	color: hsl(0, 0%, 100%);
+	text-transform: uppercase;
+	font-size: .8em;
+	line-height: 1.5em;
+}
+
+.app .product-preview .product-preview__add {
+	display: none;
+}
+
+/* --- Product list styles --------------------------------------------------- */
+
+.app .app__product-list {
+	margin-left: 20px;
+	padding: 0 20px;
+	border-left: 1px solid hsl(0, 0%, 87%);
+}
+
+.app .app__product-list ul {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 10px;
+	list-style-type: none;
+	margin: 1.5em 0;
+	padding: 0;
+}
+
+.app .app__product-list .product-preview {
+	opacity: .7;
+}
+
+.app .app__product-list .product-preview:hover {
+	opacity: 1;
+}
+
+.app .app__product-list .product-preview:hover .product-preview__add {
+	display: block;
+}
+
+.app .app__product-list .product-preview .product-preview__add {
+	display: none;
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 45%;
+	left: 50%;
+
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 100px;
+	background: hsl(0, 0%, 100%);
+	transform: translate(-50%, -50%);
+	box-shadow: 2px 2px 2px hsla(0, 0%, 0%, .3);
+}
+
+.app .app__product-list .product-preview .product-preview__add span {
+	font-size: 25px;
+	vertical-align: middle;
+	color: hsl(0, 0%, 24%);
+	line-height: 40px;
+	display: inline-block;
+}
+
+.app .app__product-list .product-preview .product-preview__name {
+	font-size: 10px;
+}
+
+.app .app__product-list .product-preview .product-preview__price {
+	font-size: 10px;
+}
+
+/* --- In-editor product widget styles --------------------------------------------------- */
+
+.app .ck-content .product {
+	margin: 1em;
+	animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+	0% {
+		opacity: 0;
+		transform: translateY(1em);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+</style>
+
+<div class="ck ck-content" id="snippet-react-in-widget">
+	<div class="app"></div>
+</div>
+
+<script type="text/babel">
+// react/productpreview.js
+
+class ProductPreview extends React.Component {
+	render() {
+		const style = {
+			'--product-image': `url(${ this.props.image })`
+		};
+
+		return <div
+			className="product-preview"
+			style={style}>
+				<button
+					className="product-preview__add"
+					onClick={() => this.props.onClick( this.props.id )}
+					title="Add to the offer"
+				>
+					<span>+</span>
+				</button>
+				<span className="product-preview__name">{this.props.name}</span>
+				<span className="product-preview__price">from {this.props.price}</span>
+			</div>
+	}
+}
+
+// react/productlist.js
+
+class ProductList extends React.Component {
+	render() {
+		return <div className="app__product-list">
+			<h3>Products</h3>
+			<ul>
+				{this.props.products.map( product => {
+					return <li key={product.id}>
+						<ProductPreview
+							id={product.id}
+							onClick={this.props.onClick}
+							{...product}
+						/>
+					</li>
+				})}
+			</ul>
+			<p><b>Tip</b>: Clicking the product will add it to the editor.</p>
+		</div>
+	}
+}
+
+// app.js
+
+// The React application class. It renders the editor and the product list.
+class App extends React.Component {
+    constructor( props ) {
+        super( props );
+
+        // A place to store the reference to the editor instance created by the <CKEditor> component.
+        // The editor instance is created asynchronously and is only available when the editor is ready.
+        this.editor = null;
+
+        this.state = {
+            // The initial editor data. It is bound to the editor instance and will change as
+            // the user types and modifies the content of the editor.
+            editorData: `
+                <h2>Check our last minute deals!</h2>
+
+                <p>Aenean erat conubia pretium libero habitant turpis vivamus dignissim molestie, phasellus libero! Curae; consequat cubilia mattis. Litora non iaculis tincidunt.</p>
+                <section class="product" data-id="2">&nbsp;</section>
+                <p>Mollis gravida parturient ad maecenas euismod consectetur lacus rutrum urna eget ligula. Nisi imperdiet scelerisque natoque scelerisque cubilia nulla gravida. Eleifend malesuada pharetra est commodo venenatis aenean habitasse curae; fusce elit.</p>
+                <section class="product" data-id="1">&nbsp;</section>
+
+                <h3>Other deals</h3>
+                <p>Ultricies dapibus placerat orci natoque fames commodo facilisi sollicitudin. Sed hendrerit mi dis non lacinia ipsum. Luctus fames scelerisque auctor pellentesque mi nunc mattis, amet sapien.</p>
+
+                <figure class="table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Our deal</th>
+                                <th>Why this one?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <section class="product" data-id="3">&nbsp;</section>
+                                </td>
+                                <td>Nascetur, nullam hac nibh curabitur elementum. Est ridiculus turpis adipiscing erat maecenas habitant montes. Curabitur mauris ut luctus semper. Neque orci auctor luctus accumsan quam cursus purus condimentum dis?</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <section class="product" data-id="4">&nbsp;</section>
+                                </td>
+                                <td>Elementum condimentum convallis porttitor cubilia consectetur cum. In pretium neque accumsan pharetra. Magna in quisque dignissim praesent facilisi diam. Ad habitant ultricies at faucibus. Ultricies auctor sodales massa nisi eget sem porta?</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </figure>
+            `,
+        };
+
+        // The configuration of the <CKEditor> instance.
+        this.editorConfig = {
+            plugins: [
+                // A set of editor features to be enabled and made available to the user.
+                Essentials, Heading, Bold, Italic, Underline,
+                Link, Paragraph, Table, TableToolbar,
+
+                // Your custom plugin implementing the widget is loaded here.
+                ProductPreviewEditing
+            ],
+            toolbar: [
+                'heading',
+                '|',
+                'bold', 'italic', 'underline',
+                '|',
+                'link', 'insertTable',
+                '|',
+                'undo', 'redo'
+            ],
+            table: {
+                contentToolbar: [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells'
+                ]
+            },
+            // The configuration of the Products plugin. It specifies a function that will allow
+            // the editor to render a React <ProductPreview> component inside a product widget.
+            products: {
+                productRenderer: ( id, domElement ) => {
+                    const product = this.props.products.find( product => product.id === id );
+                    const root = createRoot( domElement );
+
+                    root.render(
+                        <ProductPreview id={id} {...product} />
+                    );
+                }
+            },
+            licenseKey: 'GPL'
+        };
+
+        this.handleEditorDataChange = this.handleEditorDataChange.bind( this );
+        this.handleEditorReady = this.handleEditorReady.bind( this );
+    }
+
+    // A handler executed when the user types or modifies the editor content.
+    // It updates the state of the application.
+    handleEditorDataChange( evt, editor ) {
+        this.setState( {
+            editorData: editor.getData()
+        } );
+    }
+
+    // A handler executed when the editor has been initialized and is ready.
+    // It synchronizes the initial data state and saves the reference to the editor instance.
+    handleEditorReady( editor ) {
+        this.editor = editor;
+
+        this.setState( {
+            editorData: editor.getData()
+        } );
+    }
+
+    onClick( id ) {
+        this.editor.execute( 'insertProduct', id );
+        this.editor.editing.view.focus();
+    }
+
+    render() {
+        return [
+            // The application renders two columns:
+            // * in the left one, the <CKEditor> and the textarea displaying live
+            //   editor data are rendered.
+            // * in the right column, a <ProductList> is rendered with available <ProductPreviews>
+            //   to choose from.
+            <div className="app__offer-editor" key="offer-editor">
+                <h3>Product offer editor</h3>
+                <CKEditor
+                    editor={ClassicEditor}
+                    data={this.state.editorData}
+                    config={this.editorConfig}
+                    onChange={this.handleEditorDataChange}
+                    onReady={this.handleEditorReady}
+                />
+
+                <h3>Editor data</h3>
+                <textarea value={this.state.editorData} readOnly={true}></textarea>
+            </div>,
+            <ProductList
+                key="product-list"
+                products={this.props.products}
+                onClick={( id ) => this.onClick( id )}
+            />
+        ];
+    }
+}
+
+// Render the <App> in the <div class="app"></div> element found in the DOM.
+
+const root = createRoot( document.querySelector( '.app' ) );
+root.render(<App
+    // Feeding the application with predefined products.
+    // In a real-life application, this sort of data would be loaded
+    // from a database. To keep this tutorial simple, a few
+    //  hard–coded product definitions will be used.
+    products={ [
+        {
+            id: 1,
+            name: 'Colors of summer in Poland',
+            price: '$1500',
+            image: 'https://ckeditor.com/docs/ckeditor5/latest/assets/img/fields.jpg'
+        },
+        {
+            id: 2,
+            name: 'Mediterranean sun on Malta',
+            price: '$1899',
+            image: 'https://ckeditor.com/docs/ckeditor5/latest/assets/img/malta.jpg'
+        },
+        {
+            id: 3,
+            name: 'Tastes of Asia',
+            price: '$2599',
+            image: 'https://ckeditor.com/docs/ckeditor5/latest/assets/img/umbrellas.jpg'
+        },
+        {
+            id: 4,
+            name: 'Exotic India',
+            price: '$2200',
+            image: 'https://ckeditor.com/docs/ckeditor5/latest/assets/img/tajmahal.jpg'
+        }
+    ] }
+/>);
+</script>
+</div>
+<h2 id="final-solution"><a class="headerlink" href="#final-solution">#</a> Final solution</h2>
+<p>If you got lost at any point in the tutorial or want to go straight to the solution, there is a repository with the <a href="https://github.com/ckeditor/ckeditor5-tutorials-examples/tree/main/react-widget/final-project">final project</a> available.</p>
+<pre class="highlight"><code class="bash">npx -y degit ckeditor/ckeditor5-tutorials-examples/react-widget/final-project final-project
+cd final-project
+
+npm install
+npm run dev
+</code></pre>
+<h2 id="adapt-this-tutorial-to-cdn"><a class="headerlink" href="#adapt-this-tutorial-to-cdn">#</a> Adapt this tutorial to CDN</h2>
+<p>If you want to use the editor from CDN, you can adapt this tutorial by following these steps.</p>
+<p>First, clone the repository the same way as before. But do not install the dependencies. Instead, open the <code>index.html</code> file and add the following tags:</p>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8" /&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+        &lt;title&gt;CKEditor 5 Framework – tutorial CDN&lt;/title&gt;
+        &lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="editor"&gt;
+            &lt;p&gt;Hello world!&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;script src="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.umd.js"&gt;&lt;/script&gt;
+
+        &lt;script type="module" src="/main.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>The CSS file contains the editor and content styles. Consequentially, you do not need to import styles into your JavaScript file.</p>
+<pre class="highlight"><code class="js">// Before:
+import 'ckeditor5/ckeditor5.css';
+
+// After:
+// No need to import the styles.
+</code></pre>
+<p>The script tag loads the editor from the CDN. It exposes the global variable <code>CKEDITOR</code>. You can use it in your project to access the editor class and plugins. That is why you must change the import statements to destructuring in the JavaScript files:</p>
+<pre class="highlight"><code class="js">// Before:
+import { ClassicEditor, Essentials, Bold, Italic, Paragraph } from 'ckeditor5';
+
+// After:
+const { ClassicEditor, Essentials, Bold, Italic, Paragraph } = CKEDITOR;
+</code></pre>
+<p>After following these steps and running the <code>npm run dev</code> command, you should be able to open the editor in browser.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22framework%2Ftutorials%2Fwidgets%2Fusing-react-in-a-widget.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Tutorials</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="tutorials">
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Crash course</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="crash-course">
+                                              <li><a href="../crash-course/editor.html" title="Editor and configuration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor and configuration</span>
+                                                  </div></a></li>
+                                              <li><a href="../crash-course/plugins.html" title="Plugins">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins</span>
+                                                  </div></a></li>
+                                              <li><a href="../crash-course/model-and-schema.html" title="Model and schema">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model and schema</span>
+                                                  </div></a></li>
+                                              <li><a href="../crash-course/data-conversion.html" title="Data conversion">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data conversion</span>
+                                                  </div></a></li>
+                                              <li><a href="../crash-course/commands.html" title="Commands">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Commands</span>
+                                                  </div></a></li>
+                                              <li><a href="../crash-course/view.html" title="Editor UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor UI</span>
+                                                  </div></a></li>
+                                              <li><a href="../crash-course/events-and-observables.html" title="Events and observables">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Events and observables</span>
+                                                  </div></a></li>
+                                              <li><a href="../crash-course/keystrokes.html" title="Handling keystrokes">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Handling keystrokes</span>
+                                                  </div></a></li>
+                                              <li><a href="../crash-course/plugin-configuration.html" title="Plugin configuration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin configuration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../creating-simple-plugin-timestamp.html" title="Creating a basic plugin">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a basic plugin</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Creating an advanced plugin</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="abbreviation-plugin">
+                                              <li><a href="../abbreviation-plugin/abbreviation-plugin-level-1.html" title="Defining a model and a view">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Defining a model and a view</span>
+                                                  </div></a></li>
+                                              <li><a href="../abbreviation-plugin/abbreviation-plugin-level-2.html" title="Getting user input with a custom UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting user input with a custom UI</span>
+                                                  </div></a></li>
+                                              <li><a href="../abbreviation-plugin/abbreviation-plugin-level-3.html" title="Improving accessibility and adding a command">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Improving accessibility and adding a command</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Using widgets</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="widget-tutorials">
+                                              <li><a href="implementing-a-block-widget.html" title="Implementing a block widget">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                                  </div></a></li>
+                                              <li><a href="implementing-an-inline-widget.html" title="Implementing an inline widget">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                                  </div></a></li>
+                                              <li><a href="" title="Using a React component in a widget">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                                  </div></a></li>
+                                              <li><a href="data-from-external-source.html" title="Data from an external source">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data from an external source</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../supporting-multiple-versions.html" title="Compatibility of custom plugins">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Compatibility of custom plugins</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Development tools</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="development-tools">
+                                    <li><a href="../../develpment-tools/inspector.html" title="Inspector">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inspector</span>
+                                        </div></a></li>
+                                    <li><a href="../../develpment-tools/testing-helpers.html" title="Testing helpers">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing helpers</span>
+                                        </div></a></li>
+                                    <li><a href="../../develpment-tools/mrgit.html" title="Mr. Git">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mr. Git</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Package Generator</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="package-generator">
+                                              <li><a href="../../develpment-tools/package-generator/using-package-generator.html" title="Using package generator">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                                  </div></a></li>
+                                              <li><a href="../../develpment-tools/package-generator/javascript-package.html" title="JavaScript package">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">JavaScript package</span>
+                                                  </div></a></li>
+                                              <li><a href="../../develpment-tools/package-generator/typescript-package.html" title="TypeScript package">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">TypeScript package</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-architecture">
+                                    <li><a href="../../architecture/intro.html" title="Introduction">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                        </div></a></li>
+                                    <li><a href="../../architecture/plugins.html" title="Plugins in CKEditor 5">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins in CKEditor 5</span>
+                                        </div></a></li>
+                                    <li><a href="../../architecture/core-editor-architecture.html" title="Core editor architecture">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                        </div></a></li>
+                                    <li><a href="../../architecture/editing-engine.html" title="Editing engine">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                        </div></a></li>
+                                    <li><a href="../../architecture/ui-library.html" title="UI library">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                        </div></a></li>
+                                    <li><a href="../../architecture/ui-components.html" title="UI components">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI components</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-deep-dive">
+                                    <li><a href="../../deep-dive/clipboard.html" title="Clipboard">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                        </div></a></li>
+                                    <li><a href="../../deep-dive/upload-adapter.html" title="Custom upload adapter">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                        </div></a></li>
+                                    <li><a href="../../deep-dive/event-system.html" title="Event system">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                        </div></a></li>
+                                    <li><a href="../../deep-dive/observables.html" title="Observables">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                        </div></a></li>
+                                    <li><a href="../../deep-dive/schema.html" title="Schema">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-conversion">
+                                              <li><a href="../../deep-dive/conversion/intro.html" title="Introduction">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                  </div></a></li>
+                                              <li><a href="../../deep-dive/conversion/downcast.html" title="Model to view (downcast)">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                  </div></a></li>
+                                              <li><a href="../../deep-dive/conversion/upcast.html" title="View to model (upcast)">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list" data-id="framework-deep-dive-conversion-helpers">
+                                                        <li><a href="../../deep-dive/conversion/helpers/intro.html" title="Introduction">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../deep-dive/conversion/helpers/downcast.html" title="Downcast helpers">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../deep-dive/conversion/helpers/upcast.html" title="Upcast helpers">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-ui">
+                                              <li><a href="../../deep-dive/ui/focus-tracking.html" title="Focus tracking">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                  </div></a></li>
+                                              <li><a href="../../deep-dive/ui/widget-internals.html" title="Widget internals">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                  </div></a></li>
+                                              <li><a href="../../deep-dive/ui/theme-customization.html" title="Theme customization">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                  </div></a></li>
+                                              <li><a href="../../deep-dive/ui/external-ui.html" title="Third-party UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third-party UI</span>
+                                                  </div></a></li>
+                                              <li><a href="../../deep-dive/ui/document-editor.html" title="Document editor">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                  </div></a></li>
+                                              <li><a href="../../deep-dive/ui/custom-editor-creator.html" title="Creating custom editor">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                  </div></a></li>
+                                              <li><a href="../../deep-dive/ui/localization.html" title="Localization">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../how-tos.html" title="How-tos">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">How-tos</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-contributing">
+                                    <li><a href="../../contributing/contributing.html" title="Contributing">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                        </div></a></li>
+                                    <li><a href="../../contributing/development-environment.html" title="Development environment">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                        </div></a></li>
+                                    <li><a href="../../contributing/testing-environment.html" title="Testing environment">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                        </div></a></li>
+                                    <li><a href="../../contributing/code-style.html" title="Code style">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                        </div></a></li>
+                                    <li><a href="../../contributing/package-metadata.html" title="Package metadata">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                        </div></a></li>
+                                    <li><a href="../../contributing/git-commit-message-convention.html" title="Git commit message convention">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'framework' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'framework' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'framework' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'framework' ] );tags.forEach( function( tag ) {if ( tag !== 'framework' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../../assets/snippet.js"></script>
+    <script src="../../../snippets/assets.js"></script>
+    <script src="../../../snippets/framework/tutorials/using-react-in-widget/snippet.js"></script>
+    <script src="../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

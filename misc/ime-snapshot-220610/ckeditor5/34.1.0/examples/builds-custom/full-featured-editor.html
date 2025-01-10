@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Full-featured editor - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:55 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Full-featured editor - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/examples/builds-custom/full-featured-editor.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Full-featured editor - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/examples/builds-custom/full-featured-editor.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../snippets/examples/full-featured-editor/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../installation/index.html">Installation</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Examples</a></li>
+          <li><a href="../../updating/index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../index.html">Examples</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Predefined builds</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../builds/classic-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Classic editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds/inline-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inline editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds/balloon-block-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Balloon block editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds/balloon-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Balloon editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds/document-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Custom builds</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Full-featured editor</span>
+                                      </div></a></li>
+                                  <li><a href="bottom-toolbar-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Bottom toolbar with formatting options grouped</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Framework</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../framework/chat-with-mentions.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Chat with mentions</span>
+                                      </div></a></li>
+                                  <li><a href="../framework/theme-customization.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                      </div></a></li>
+                                  <li><a href="../framework/custom-ui.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom UI (with Bootstrap)</span>
+                                      </div></a></li>
+                                  <li><a href="../framework/multi-root-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-root editor</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="updating"><a href="../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted main__content--no-toc">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/https://github.com/docs/cksource/ckeditor5-internal/examples/builds/full-featured-editor.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Examples</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../assets/2.1.3/img/book.svg" alt="guide">Full-featured editor
+          </h1>
+<p>CKEditor 5 is a highly flexible framework that lets you build your custom editor of any type (like <a href="../builds/classic-editor.html">classic</a>, <a href="../builds/inline-editor.html">inline</a>, <a href="../builds/balloon-block-editor.html">distraction-free</a>, or <a href="../builds/document-editor.html">document-like</a>), with any set of <a href="../../features/index.html">features</a> and the <a href="../../features/toolbar/toolbar.html">toolbar</a> type that you need <a href="https://ckeditor.com/ckeditor-5/online-builder/">in no time</a>.</p>
+<p>This custom editor build contains almost all non-collaborative CKEditor 5 features. You can use it to create your own content or to paste some existing content from Microsoft Word, Google Docs, text documents or any online resources.</p>
+<p>This editor was configured specifically to allow testing as many features as possible in one demo, with a multiline toolbar that gives you easy access to all available features. It is based on classic editor, providing you with a boxed editing area with a toolbar, placed in a specific position on the page. Thanks to the <a href="../../features/autoformat.html">autoformatting</a> feature you can also use Markdown-like inline shortcodes as you type to create and format your content without using the toolbar buttons.</p>
+<p>Check out the demo of a <a href="../../features/collaboration/real-time-collaboration/real-time-collaboration.html">collaborative editor</a>, too, to try out features such as comments, track changes and real-time collaboration.</p>
+<h2 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h2>
+<div class="live-snippet"><style>
+	.ck.ck-word-count {
+		display: flex;
+		justify-content: flex-end;
+
+		background: var(--ck-color-toolbar-background);
+		padding: var(--ck-spacing-small) var(--ck-spacing-standard);
+		border: 1px solid var(--ck-color-toolbar-border);
+		border-top-width: 0;
+		border-radius: 0 0 var(--ck-border-radius);
+	}
+
+	.ck.ck-word-count .ck-word-count__words {
+		margin-right: var(--ck-spacing-standard);
+	}
+
+	.ck.ck-rounded-corners .ck.ck-editor__main > .ck-editor__editable,
+	.ck.ck-rounded-corners .ck-source-editing-area textarea {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+</style>
+
+<div id="full-featured-editor">
+	<h2>
+		Handheld emperor
+	</h2>
+	<p>
+		Nintendo, a Japanese electronics company, started as a <a href="https://en.wikipedia.org/wiki/Hanafuda"><i>hanafuda</i> cards</a> manufacturer in 1889. In the mid-1970s, they entered the early video games market and became famous for their home video and handheld game consoles. Nintendo introduced consoles like <strong>NES</strong>, <strong>SNES</strong>, and <strong>Wii</strong>. But the most revolutionary was for sure the <strong>Game Boy</strong>.
+	</p>
+	<h2>
+		A countdown of Nintendo handhelds
+	</h2>
+	<figure class="image image_resized image-style-side" style="width:17.33%;">
+		<img src="../../assets/img/game_boy.jpg" sizes="100vw" width="384">
+		<figcaption>
+			The Nintendo "flagship" - handheld Game Boy
+		</figcaption>
+	</figure>
+	<ol style="list-style-type:decimal;">
+		<li>
+			<span style="color:hsl(0, 75%, 60%);"><strong>Game &amp; Watch</strong></span> was Nintendo's first product offering out-of-home gaming. From 1980 to 1991, over a hundred games were released, gaining great popularity.
+		</li>
+		<li>
+			In 1989, &nbsp;the original <span style="color:hsl(0, 75%, 60%);"><strong>Game Boy</strong></span> was released. The new amazing machine utilized a cartridge system, allowing the users to play a multitude of games of all kinds. This was <mark class="marker-yellow">a historical game-changer</mark>. &nbsp;
+		</li>
+		<li>
+			In 2004, Nintendo introduced a new console family called the <span style="color:hsl(0, 75%, 60%);"><strong>Nintendo DS</strong></span>. It sported a dual LCD screen in a folded shell, with the lower one being a touchscreen.
+		</li>
+		<li>
+			2017 brought the hybrid experience for both couch-preferring gamers and handheld enthusiasts with the release of the <span style="color:hsl(0, 75%, 60%);"><strong>Nintendo Switch</strong></span>. It offers both a TV mode with high-definition graphics and a handheld mode using the built-in 6.2” display.&nbsp;
+		</li>
+	</ol>
+	<h2>
+		Handheld consoles' popularity
+	</h2>
+	<p>
+		While the most recent Switch is a prevalent choice nowadays, the 2DS and 3DS consoles are still popular. The king, however, is none other than the original wonder — the Game Boy.
+	</p>
+	<figure class="table">
+		<table>
+			<tbody>
+				<tr>
+					<td style="background-color:hsl(0, 0%, 60%);">
+						<span style="color:hsl(60, 75%, 60%);">Console</span>
+					</td>
+					<td style="background-color:hsl(0, 0%, 60%);">
+						<span style="color:hsl(60, 75%, 60%);">Production dates</span>
+					</td>
+					<td style="background-color:hsl(0, 0%, 60%);">
+						<span style="color:hsl(60, 75%, 60%);">Pieces sold (2021)</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(0, 0%, 90%);">
+						Game &amp; Watch
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);">
+						1980-1991, 2020-2021
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);">
+						44 million
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Game Boy
+					</td>
+					<td>
+						1989-2010
+					</td>
+					<td>
+						<span style="color:hsl(0, 75%, 60%);">201 million</span> <sup>1</sup>
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(0, 0%, 90%);">
+						Nintendo DS
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);">
+						2011-2020
+					</td>
+					<td style="background-color:hsl(0, 0%, 90%);">
+						76 million <sup>2</sup>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Switch
+					</td>
+					<td>
+						since 2017
+					</td>
+					<td>
+						93 million
+					</td>
+				</tr>
+				<tr>
+					<td style="background-color:hsl(0, 0%, 90%);" colspan="3">
+						<p>
+							<span style="font-size:10px;"><sup>1 </sup>119 million Game Boy and Game Boy Color variants, 82 million Game Boy Advance variants.</span>
+						</p>
+						<p>
+							<span style="font-size:10px;"><sup>2</sup> Including all versions: DS, DSi, 2DS, 3DS, and New 2DS/3DS variants.</span>
+						</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</figure>
+	<h2>
+		Handheld gaming experience
+	</h2>
+	<blockquote>
+		<p style="text-align:right;">
+			<span style="color:hsl(210, 75%, 60%);">It's dangerous to go alone! Take this.</span>
+			<br>
+			<span style="color:hsl(210, 75%, 60%);">“Legend of Zelda”, 1986</span>
+		</p>
+	</blockquote>
+	<p>
+		Games offered by Nintendo include multiple genres, out of which the famous platformer arcade <i>Super Mario</i> <img class="image_resized" style="width:2.3%;" src="../../assets/img/mario.png"> and the adventure roleplay <i>Legend of Zelda</i> <img class="image_resized" style="width:2.3%;" src="../../assets/img/link.png"> series are probably the most iconic.
+	</p>
+	<hr>
+	<p>
+		Games that can be played on the handheld family include (examples of games listed):
+	</p>
+	<ul>
+		<li>
+			Action &amp; adventure games
+			<ul>
+				<li>
+					The <i>Legend of Zelda</i> series
+				</li>
+				<li>
+					<i>Chrono Trigger</i>
+				</li>
+			</ul>
+		</li>
+		<li>
+			First-person action games
+			<ul>
+				<li>
+					<i>Splatoon</i>
+				</li>
+			</ul>
+		</li>
+		<li>
+			Role-playing games (RPG)
+			<ul>
+				<li>
+					The <i>Pokemon</i> series
+				</li>
+				<li>
+					The <i>Final Fantasy</i> series
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+</div>
+<p>By default, CKEditor 5 filters out any content that is unsupported by its plugins and configuration. Check out the <a href="../../features/general-html-support.html">General HTML Support (&#x201C;GHS&#x201D;)</a> feature that allows you to enable HTML features that are not explicitly supported by any other dedicated CKEditor 5 plugins.</p>
+<h2 id="editor-example-configuration"><a class="headerlink" href="#editor-example-configuration">#</a> Editor example configuration</h2>
+<details>
+<summary>View editor configuration script</summary>
+<pre class="highlight"><code class="js">
+import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import Alignment from &apos;@ckeditor/ckeditor5-alignment/src/alignment&apos;;
+import ArticlePluginSet from &apos;@ckeditor/ckeditor5-core/tests/_utils/articlepluginset&apos;;
+import AutoImage from &apos;@ckeditor/ckeditor5-image/src/autoimage&apos;;
+import AutoLink from &apos;@ckeditor/ckeditor5-link/src/autolink&apos;;
+import Code from &apos;@ckeditor/ckeditor5-basic-styles/src/code&apos;;
+import CodeBlock from &apos;@ckeditor/ckeditor5-code-block/src/codeblock&apos;;
+import EasyImage from &apos;@ckeditor/ckeditor5-easy-image/src/easyimage&apos;;
+import ExportPdf from &apos;@ckeditor/ckeditor5-export-pdf/src/exportpdf&apos;;
+import ExportWord from &apos;@ckeditor/ckeditor5-export-word/src/exportword&apos;;
+import FindAndReplace from &apos;@ckeditor/ckeditor5-find-and-replace/src/findandreplace&apos;;
+import Font from &apos;@ckeditor/ckeditor5-font/src/font&apos;;
+import Highlight from &apos;@ckeditor/ckeditor5-highlight/src/highlight&apos;;
+import HorizontalLine from &apos;@ckeditor/ckeditor5-horizontal-line/src/horizontalline&apos;;
+import HtmlEmbed from &apos;@ckeditor/ckeditor5-html-embed/src/htmlembed&apos;;
+import ImageResize from &apos;@ckeditor/ckeditor5-image/src/imageresize&apos;;
+import ImageUpload from &apos;@ckeditor/ckeditor5-image/src/imageupload&apos;;
+import IndentBlock from &apos;@ckeditor/ckeditor5-indent/src/indentblock&apos;;
+import LinkImage from &apos;@ckeditor/ckeditor5-link/src/linkimage&apos;;
+import ListProperties from &apos;@ckeditor/ckeditor5-list/src/listproperties&apos;;
+import Mention from &apos;@ckeditor/ckeditor5-mention/src/mention&apos;;
+import PageBreak from &apos;@ckeditor/ckeditor5-page-break/src/pagebreak&apos;;
+import PasteFromOffice from &apos;@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice&apos;;
+import RemoveFormat from &apos;@ckeditor/ckeditor5-remove-format/src/removeformat&apos;;
+import SourceEditing from &apos;@ckeditor/ckeditor5-source-editing/src/sourceediting&apos;;
+import SpecialCharacters from &apos;@ckeditor/ckeditor5-special-characters/src/specialcharacters&apos;;
+import SpecialCharactersEssentials from &apos;@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials&apos;;
+import Strikethrough from &apos;@ckeditor/ckeditor5-basic-styles/src/strikethrough&apos;;
+import Subscript from &apos;@ckeditor/ckeditor5-basic-styles/src/subscript&apos;;
+import Superscript from &apos;@ckeditor/ckeditor5-basic-styles/src/superscript&apos;;
+import TableCellProperties from &apos;@ckeditor/ckeditor5-table/src/tablecellproperties&apos;;
+import TableProperties from &apos;@ckeditor/ckeditor5-table/src/tableproperties&apos;;
+import TableCaption from &apos;@ckeditor/ckeditor5-table/src/tablecaption&apos;;
+import TextTransformation from &apos;@ckeditor/ckeditor5-typing/src/texttransformation&apos;;
+import TextPartLanguage from &apos;@ckeditor/ckeditor5-language/src/textpartlanguage&apos;;
+import TodoList from &apos;@ckeditor/ckeditor5-list/src/todolist&apos;;
+import Underline from &apos;@ckeditor/ckeditor5-basic-styles/src/underline&apos;;
+import WordCount from &apos;@ckeditor/ckeditor5-word-count/src/wordcount&apos;;
+import WProofreader from &apos;@webspellchecker/wproofreader-ckeditor5/src/wproofreader&apos;;
+import CloudServices from &apos;@ckeditor/ckeditor5-cloud-services/src/cloudservices&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#full-featured-editor&apos; ), {
+        cloudServices: {
+                    // PROVIDE CORRECT VALUES HERE:
+                    tokenUrl: &apos;https://example.com/cs-token-endpoint&apos;,
+                    uploadUrl: &apos;https://your-organization-id.cke-cs.com/easyimage/upload/&apos;,
+                    webSocketUrl: &apos;your-organization-id.cke-cs.com/ws/&apos;
+                },
+        ui: {
+            viewportOffset: {
+                top: window.getViewportTopOffsetConfig()
+            }
+        },
+        plugins: [
+            ArticlePluginSet, Underline, Strikethrough, Superscript, Subscript, Code, RemoveFormat,
+            FindAndReplace, Font, Highlight,
+            CodeBlock, TodoList, ListProperties, TableProperties, TableCellProperties, TableCaption,
+            EasyImage, ImageResize, LinkImage, AutoImage, HtmlEmbed,
+            AutoLink, Mention, TextTransformation,
+            Alignment, IndentBlock,
+            PasteFromOffice, PageBreak, HorizontalLine,
+            SpecialCharacters, SpecialCharactersEssentials, WordCount, WProofreader,
+            ImageUpload, CloudServices, TextPartLanguage, SourceEditing,
+            ExportPdf, ExportWord
+        ],
+        toolbar: {
+            items: [
+                &apos;undo&apos;, &apos;redo&apos;,
+                &apos;|&apos;,
+                &apos;exportPdf&apos;, &apos;exportWord&apos;,
+                &apos;|&apos;,
+                &apos;wproofreader&apos;, &apos;findAndReplace&apos;, &apos;selectAll&apos;,
+                &apos;|&apos;,
+                &apos;heading&apos;,
+                &apos;|&apos;,
+                &apos;removeFormat&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;strikethrough&apos;, &apos;underline&apos;, &apos;code&apos;, &apos;subscript&apos;, &apos;superscript&apos;,
+                &apos;|&apos;,
+                &apos;specialCharacters&apos;, &apos;horizontalLine&apos;, &apos;pageBreak&apos;,
+                &apos;|&apos;,
+                &apos;-&apos;,
+                &apos;highlight&apos;, &apos;fontSize&apos;, &apos;fontFamily&apos;, &apos;fontColor&apos;, &apos;fontBackgroundColor&apos;,
+                &apos;|&apos;,
+                &apos;link&apos;, &apos;blockQuote&apos;, &apos;insertTable&apos;, &apos;uploadImage&apos;, &apos;mediaEmbed&apos;, &apos;codeBlock&apos;, &apos;htmlEmbed&apos;,
+                &apos;|&apos;,
+                &apos;bulletedList&apos;, &apos;numberedList&apos;, &apos;todoList&apos;,
+                &apos;|&apos;,
+                &apos;outdent&apos;, &apos;indent&apos;, &apos;alignment&apos;,
+                &apos;|&apos;,
+                &apos;textPartLanguage&apos;,
+                &apos;|&apos;,
+                &apos;sourceEditing&apos;
+            ],
+            shouldNotGroupWhenFull: true
+        },
+        exportPdf: {
+            stylesheets: [
+                &apos;EDITOR_STYLES&apos;,
+                // Add your custom styles here
+                // Read more in the documentation:
+                // https://ckeditor.com/docs/ckeditor5/latest/features/export-pdf.html#plugin-option
+            ],
+            fileName: &apos;export-pdf-demo.pdf&apos;,
+            converterOptions: {
+                format: &apos;Tabloid&apos;,
+                margin_top: &apos;20mm&apos;,
+                margin_bottom: &apos;20mm&apos;,
+                margin_right: &apos;24mm&apos;,
+                margin_left: &apos;24mm&apos;,
+                page_orientation: &apos;portrait&apos;
+            },
+            // PROVIDE CORRECT VALUES HERE:
+            tokenUrl: &apos;https://example.com/cs-token-endpoint&apos;
+        },
+        exportWord: {
+            stylesheets: [ &apos;EDITOR_STYLES&apos; ],
+            fileName: &apos;export-word-demo.docx&apos;,
+            converterOptions: {
+                format: &apos;B4&apos;,
+                margin_top: &apos;20mm&apos;,
+                margin_bottom: &apos;20mm&apos;,
+                margin_right: &apos;12mm&apos;,
+                margin_left: &apos;12mm&apos;,
+                page_orientation: &apos;portrait&apos;
+            },
+            // PROVIDE CORRECT VALUES HERE:
+            tokenUrl: &apos;https://example.com/cs-token-endpoint&apos;
+        },
+        fontFamily: {
+            supportAllValues: true
+        },
+        fontSize: {
+            options: [ 10, 12, 14, &apos;default&apos;, 18, 20, 22 ],
+            supportAllValues: true
+        },
+        htmlEmbed: {
+            showPreviews: true
+        },
+        image: {
+            styles: [
+                &apos;alignCenter&apos;,
+                &apos;alignLeft&apos;,
+                &apos;alignRight&apos;
+            ],
+            resizeOptions: [
+                {
+                    name: &apos;resizeImage:original&apos;,
+                    label: &apos;Original&apos;,
+                    value: null
+                },
+                {
+                    name: &apos;resizeImage:50&apos;,
+                    label: &apos;50%&apos;,
+                    value: &apos;50&apos;
+                },
+                {
+                    name: &apos;resizeImage:75&apos;,
+                    label: &apos;75%&apos;,
+                    value: &apos;75&apos;
+                }
+            ],
+            toolbar: [
+                &apos;imageTextAlternative&apos;, &apos;toggleImageCaption&apos;, &apos;|&apos;,
+                &apos;imageStyle:inline&apos;, &apos;imageStyle:wrapText&apos;, &apos;imageStyle:breakText&apos;, &apos;imageStyle:side&apos;, &apos;|&apos;,
+                &apos;resizeImage&apos;
+            ],
+            insert: {
+                integrations: [
+                    &apos;insertImageViaUrl&apos;
+                ]
+            }
+        },
+        list: {
+            properties: {
+                styles: true,
+                startIndex: true,
+                reversed: true
+            }
+        },
+        link: {
+            decorators: {
+                addTargetToExternalLinks: true,
+                defaultProtocol: &apos;https://&apos;,
+                toggleDownloadable: {
+                    mode: &apos;manual&apos;,
+                    label: &apos;Downloadable&apos;,
+                    attributes: {
+                        download: &apos;file&apos;
+                    }
+                }
+            }
+        },
+        mention: {
+            feeds: [
+                {
+                    marker: &apos;@&apos;,
+                    feed: [
+                        &apos;@apple&apos;, &apos;@bears&apos;, &apos;@brownie&apos;, &apos;@cake&apos;, &apos;@cake&apos;, &apos;@candy&apos;, &apos;@canes&apos;, &apos;@chocolate&apos;, &apos;@cookie&apos;, &apos;@cotton&apos;, &apos;@cream&apos;,
+                        &apos;@cupcake&apos;, &apos;@danish&apos;, &apos;@donut&apos;, &apos;@drag&#xE9;e&apos;, &apos;@fruitcake&apos;, &apos;@gingerbread&apos;, &apos;@gummi&apos;, &apos;@ice&apos;, &apos;@jelly-o&apos;,
+                        &apos;@liquorice&apos;, &apos;@macaroon&apos;, &apos;@marzipan&apos;, &apos;@oat&apos;, &apos;@pie&apos;, &apos;@plum&apos;, &apos;@pudding&apos;, &apos;@sesame&apos;, &apos;@snaps&apos;, &apos;@souffl&#xE9;&apos;,
+                        &apos;@sugar&apos;, &apos;@sweet&apos;, &apos;@topping&apos;, &apos;@wafer&apos;
+                    ],
+                    minimumCharacters: 1
+                }
+            ]
+        },
+        placeholder: &apos;Type or paste your content here!&apos;,
+        table: {
+            contentToolbar: [
+                &apos;tableColumn&apos;, &apos;tableRow&apos;, &apos;mergeTableCells&apos;, &apos;tableProperties&apos;, &apos;tableCellProperties&apos;, &apos;toggleTableCaption&apos;
+            ]
+        },
+        wproofreader: {
+        // PROVIDE CORRECT VALUE HERE:
+            serviceId: &apos;service ID&apos;,
+            lang: &apos;auto&apos;,
+            srcUrl: &apos;https://svc.webspellchecker.net/spellcheck31/wscbundle/wscbundle.js&apos;
+        }
+    } )
+    .then( editor =&gt; {
+        window.editor = editor;
+        // Prevent showing a warning notification when user is pasting a content from MS Word or Google Docs.
+        window.preventPasteFromOfficeNotification = true;
+
+        document.querySelector( &apos;.ck.ck-editor__main&apos; ).appendChild( editor.plugins.get( &apos;WordCount&apos; ).wordCountContainer );
+    } )
+    .catch( err =&gt; {
+        console.error( err );
+    } );
+
+</code></pre>
+</details>
+<details>
+<summary>View editor content listing</summary>
+<pre class="highlight"><code class="html">&lt;style&gt;
+    .ck.ck-word-count {
+        display: flex;
+        justify-content: flex-end;
+
+        background: var(--ck-color-toolbar-background);
+        padding: var(--ck-spacing-small) var(--ck-spacing-standard);
+        border: 1px solid var(--ck-color-toolbar-border);
+        border-top-width: 0;
+        border-radius: 0 0 var(--ck-border-radius);
+    }
+
+    .ck.ck-word-count .ck-word-count__words {
+        margin-right: var(--ck-spacing-standard);
+    }
+
+    .ck.ck-rounded-corners .ck.ck-editor__main &gt; .ck-editor__editable,
+    .ck.ck-rounded-corners .ck-source-editing-area textarea {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+&lt;/style&gt;
+
+&lt;div id=&quot;full-featured-editor&quot;&gt;
+    &lt;h2&gt;
+        Handheld emperor
+    &lt;/h2&gt;
+    &lt;p&gt;
+        Nintendo, a Japanese electronics company, started as a &lt;a href=&quot;https://en.wikipedia.org/wiki/Hanafuda&quot;&gt;&lt;i&gt;hanafuda&lt;/i&gt; cards&lt;/a&gt; manufacturer in 1889. In the mid-1970s, they entered the early video games market and became famous for their home video and handheld game consoles. Nintendo introduced consoles like &lt;strong&gt;NES&lt;/strong&gt;, &lt;strong&gt;SNES&lt;/strong&gt;, and &lt;strong&gt;Wii&lt;/strong&gt;. But the most revolutionary was for sure the &lt;strong&gt;Game Boy&lt;/strong&gt;.
+    &lt;/p&gt;
+    &lt;h2&gt;
+        A countdown of Nintendo handhelds
+    &lt;/h2&gt;
+    &lt;figure class=&quot;image image_resized image-style-side&quot; style=&quot;width:17.33%;&quot;&gt;
+        &lt;img src=&quot;../../assets/img/game_boy.jpg&quot; sizes=&quot;100vw&quot; width=&quot;384&quot;&gt;
+        &lt;figcaption&gt;
+            The Nintendo &quot;flagship&quot; - handheld Game Boy
+        &lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;ol style=&quot;list-style-type:decimal;&quot;&gt;
+        &lt;li&gt;
+            &lt;span style=&quot;color:hsl(0, 75%, 60%);&quot;&gt;&lt;strong&gt;Game &amp;amp; Watch&lt;/strong&gt;&lt;/span&gt; was Nintendo&apos;s first product offering out-of-home gaming. From 1980 to 1991, over a hundred games were released, gaining great popularity.
+        &lt;/li&gt;
+        &lt;li&gt;
+            In 1989, &amp;nbsp;the original &lt;span style=&quot;color:hsl(0, 75%, 60%);&quot;&gt;&lt;strong&gt;Game Boy&lt;/strong&gt;&lt;/span&gt; was released. The new amazing machine utilized a cartridge system, allowing the users to play a multitude of games of all kinds. This was &lt;mark class=&quot;marker-yellow&quot;&gt;a historical game-changer&lt;/mark&gt;. &amp;nbsp;
+        &lt;/li&gt;
+        &lt;li&gt;
+            In 2004, Nintendo introduced a new console family called the &lt;span style=&quot;color:hsl(0, 75%, 60%);&quot;&gt;&lt;strong&gt;Nintendo DS&lt;/strong&gt;&lt;/span&gt;. It sported a dual LCD screen in a folded shell, with the lower one being a touchscreen.
+        &lt;/li&gt;
+        &lt;li&gt;
+            2017 brought the hybrid experience for both couch-preferring gamers and handheld enthusiasts with the release of the &lt;span style=&quot;color:hsl(0, 75%, 60%);&quot;&gt;&lt;strong&gt;Nintendo Switch&lt;/strong&gt;&lt;/span&gt;. It offers both a TV mode with high-definition graphics and a handheld mode using the built-in 6.2&#x201D; display.&amp;nbsp;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;h2&gt;
+        Handheld consoles&apos; popularity
+    &lt;/h2&gt;
+    &lt;p&gt;
+        While the most recent Switch is a prevalent choice nowadays, the 2DS and 3DS consoles are still popular. The king, however, is none other than the original wonder &#x2014; the Game Boy.
+    &lt;/p&gt;
+    &lt;figure class=&quot;table&quot;&gt;
+        &lt;table&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td style=&quot;background-color:hsl(0, 0%, 60%);&quot;&gt;
+                        &lt;span style=&quot;color:hsl(60, 75%, 60%);&quot;&gt;Console&lt;/span&gt;
+                    &lt;/td&gt;
+                    &lt;td style=&quot;background-color:hsl(0, 0%, 60%);&quot;&gt;
+                        &lt;span style=&quot;color:hsl(60, 75%, 60%);&quot;&gt;Production dates&lt;/span&gt;
+                    &lt;/td&gt;
+                    &lt;td style=&quot;background-color:hsl(0, 0%, 60%);&quot;&gt;
+                        &lt;span style=&quot;color:hsl(60, 75%, 60%);&quot;&gt;Pieces sold (2021)&lt;/span&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td style=&quot;background-color:hsl(0, 0%, 90%);&quot;&gt;
+                        Game &amp;amp; Watch
+                    &lt;/td&gt;
+                    &lt;td style=&quot;background-color:hsl(0, 0%, 90%);&quot;&gt;
+                        1980-1991, 2020-2021
+                    &lt;/td&gt;
+                    &lt;td style=&quot;background-color:hsl(0, 0%, 90%);&quot;&gt;
+                        44 million
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        Game Boy
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        1989-2010
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;span style=&quot;color:hsl(0, 75%, 60%);&quot;&gt;201 million&lt;/span&gt; &lt;sup&gt;1&lt;/sup&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td style=&quot;background-color:hsl(0, 0%, 90%);&quot;&gt;
+                        Nintendo DS
+                    &lt;/td&gt;
+                    &lt;td style=&quot;background-color:hsl(0, 0%, 90%);&quot;&gt;
+                        2011-2020
+                    &lt;/td&gt;
+                    &lt;td style=&quot;background-color:hsl(0, 0%, 90%);&quot;&gt;
+                        76 million &lt;sup&gt;2&lt;/sup&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        Switch
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        since 2017
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        93 million
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td style=&quot;background-color:hsl(0, 0%, 90%);&quot; colspan=&quot;3&quot;&gt;
+                        &lt;p&gt;
+                            &lt;span style=&quot;font-size:10px;&quot;&gt;&lt;sup&gt;1 &lt;/sup&gt;119 million Game Boy and Game Boy Color variants, 82 million Game Boy Advance variants.&lt;/span&gt;
+                        &lt;/p&gt;
+                        &lt;p&gt;
+                            &lt;span style=&quot;font-size:10px;&quot;&gt;&lt;sup&gt;2&lt;/sup&gt; Including all versions: DS, DSi, 2DS, 3DS, and New 2DS/3DS variants.&lt;/span&gt;
+                        &lt;/p&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/figure&gt;
+    &lt;h2&gt;
+        Handheld gaming experience
+    &lt;/h2&gt;
+    &lt;blockquote&gt;
+        &lt;p style=&quot;text-align:right;&quot;&gt;
+            &lt;span style=&quot;color:hsl(210, 75%, 60%);&quot;&gt;It&apos;s dangerous to go alone! Take this.&lt;/span&gt;
+            &lt;br&gt;
+            &lt;span style=&quot;color:hsl(210, 75%, 60%);&quot;&gt;&#x201C;Legend of Zelda&#x201D;, 1986&lt;/span&gt;
+        &lt;/p&gt;
+    &lt;/blockquote&gt;
+    &lt;p&gt;
+        Games offered by Nintendo include multiple genres, out of which the famous platformer arcade &lt;i&gt;Super Mario&lt;/i&gt; &lt;img class=&quot;image_resized&quot; style=&quot;width:2.3%;&quot; src=&quot;../../assets/img/mario.png&quot;&gt; and the adventure roleplay &lt;i&gt;Legend of Zelda&lt;/i&gt; &lt;img class=&quot;image_resized&quot; style=&quot;width:2.3%;&quot; src=&quot;../../assets/img/link.png&quot;&gt; series are probably the most iconic.
+    &lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;
+        Games that can be played on the handheld family include (examples of games listed):
+    &lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            Action &amp;amp; adventure games
+            &lt;ul&gt;
+                &lt;li&gt;
+                    The &lt;i&gt;Legend of Zelda&lt;/i&gt; series
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;i&gt;Chrono Trigger&lt;/i&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            First-person action games
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;i&gt;Splatoon&lt;/i&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            Role-playing games (RPG)
+            &lt;ul&gt;
+                &lt;li&gt;
+                    The &lt;i&gt;Pokemon&lt;/i&gt; series
+                &lt;/li&gt;
+                &lt;li&gt;
+                    The &lt;i&gt;Final Fantasy&lt;/i&gt; series
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+</code></pre>
+</details>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22examples%2Fbuilds-custom%2Ffull-featured-editor.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Predefined builds</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../builds/classic-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Classic editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds/inline-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inline editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds/balloon-block-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Balloon block editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds/balloon-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Balloon editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds/document-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Custom builds</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Full-featured editor</span>
+                                        </div></a></li>
+                                    <li><a href="bottom-toolbar-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Bottom toolbar with formatting options grouped</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Framework</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../framework/chat-with-mentions.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Chat with mentions</span>
+                                        </div></a></li>
+                                    <li><a href="../framework/theme-customization.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                        </div></a></li>
+                                    <li><a href="../framework/custom-ui.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom UI (with Bootstrap)</span>
+                                        </div></a></li>
+                                    <li><a href="../framework/multi-root-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-root editor</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'examples' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'examples' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'examples' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'examples' ] );tags.forEach( function( tag ) {if ( tag !== 'examples' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../assets/snippet.js"></script>
+    <script src="../../snippets/assets.js"></script>
+    <script src="../../snippets/examples/full-featured-editor/snippet.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

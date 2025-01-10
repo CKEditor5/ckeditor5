@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Migration from CKEditor 4 - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:58 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Migration from CKEditor 4 - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/migration-from-ckeditor-4.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Migration from CKEditor 4 - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/migration-from-ckeditor-4.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Installation</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a href="../../updating/index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../index.html">Installation</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="configuration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                      </div></a></li>
+                                  <li><a href="installing-plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                      </div></a></li>
+                                  <li><a href="basic-api.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="frameworks/overview.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="frameworks/angular.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                              </div></a></li>
+                                          <li><a href="frameworks/react.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                              </div></a></li>
+                                          <li><a href="frameworks/vuejs-v2.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                              </div></a></li>
+                                          <li><a href="frameworks/vuejs-v3.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                              </div></a></li>
+                                          <li><a href="frameworks/css.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="maintenance.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../advanced/using-two-editors.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                      </div></a></li>
+                                  <li><a href="../advanced/saving-data.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                      </div></a></li>
+                                  <li><a href="../advanced/content-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                      </div></a></li>
+                                  <li><a href="../advanced/csp.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                      </div></a></li>
+                                  <li><a href="../advanced/plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                      </div></a></li>
+                                  <li><a href="../advanced/features-html-output-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../advanced/alternative-setups/integrating-from-source.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                              </div></a></li>
+                                          <li><a href="../advanced/alternative-setups/dll-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                              </div></a></li>
+                                          <li><a href="../advanced/alternative-setups/dll-builds-collaboration-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                              </div></a></li>
+                                          <li><a href="../advanced/alternative-setups/predefined-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/installation/getting-started/migration-from-ckeditor-4.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Installation</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../assets/2.1.3/img/book.svg" alt="guide">Migration from CKEditor 4
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#installation-and-integration">Installation and integration</a></li><li><a href="#features">Features</a></li><li><a href="#image-upload">Image upload</a></li><li><a href="#plugins">Plugins</a></li><li><a href="#themes-skins">Themes (skins)</a></li><li><a href="#existing-data">Existing data</a></li><li><a href="#plugins-compatibility-table">Plugins compatibility table</a></li><li><a href="#configuration-options-compatibility-table">Configuration options compatibility table</a></li></ol></nav>
+<div class="info-box notice notice__hint"><p><strong>Quick recap</strong></p><p>In previous tutorials you have learned about installing, configuring and extending your editor. This guide assumes that you know a bit about CKEditor 5, so if you are completely new to CKEditor 5, check the previous articles!</p></div>
+<p>When compared to its predecessor, CKEditor 5 should be considered <strong>a totally new editor</strong>. Every single aspect of it was redesigned &#x2014; from installation, to integration, to features, to its data model, and finally to its API. Therefore, moving applications using a previous CKEditor version to version 5 cannot be simply called an &#x201C;upgrade&#x201D;. It is something bigger, so the &#x201C;migration&#x201D; term fits better.</p>
+<p>There is no &#x201C;drop in&#x201D; solution for migrating. In this guide we hope to summarize the most important aspects you need to consider before you proceed with installing CKEditor 5.</p>
+<p>Before starting, be sure that migrating is your best choice. Refer to the <a href="../advanced/alternative-setups/predefined-builds.html#when-not-to-use-predefined-builds">When NOT to use predefined CKEditor 5 builds?</a> guide for more information.</p>
+<h2 id="installation-and-integration"><a class="headerlink" href="#installation-and-integration">#</a> Installation and integration</h2>
+<p>The very first aspect that changed with CKEditor 5 is its installation procedure. It became much more modern with the introduction of modular patterns, UMD, npm, etc. Refer to <a href="quick-start.html">Installation</a> for more details.</p>
+<p>The API for integrating CKEditor with your pages also changed. It is worth checking <a href="basic-api.html">Basic API</a> for an introduction.</p>
+<h2 id="features"><a class="headerlink" href="#features">#</a> Features</h2>
+<p>When it comes to <a href="../../features/index.html">features</a>, there are two aspects that need to be taken into consideration:</p>
+<ul>
+<li>CKEditor 5 may still not have the same features available as CKEditor 4.</li>
+<li>Existing features may behave differently.</li>
+</ul>
+<p>Therefore, it is worth spending some time analyzing required features.</p>
+<p>CKEditor 5 was designed with focus on creating quality content. There are thus good reasons for it to not support some old features. You should take this chance to rethink the features available in your application and perhaps switch the approach towards a more modern reasoning.</p>
+<h2 id="image-upload"><a class="headerlink" href="#image-upload">#</a> Image upload</h2>
+<p>CKEditor 5 supports several different image upload strategies. Check out the <a href="../../features/images/image-upload/image-upload.html">comprehensive &#x201C;Image upload&#x201D; guide</a> to find out the best option for your project.</p>
+<h2 id="plugins"><a class="headerlink" href="#plugins">#</a> Plugins</h2>
+<p>The trickiest migration challenge to be faced may be related to custom plugins you have developed for CKEditor 4. Although their concept may stay the same, their implementation will certainly be different and will require rewriting them from scratch.</p>
+<p>The same may apply for third-party plugins which may not have been ported to CKEditor 5 yet.</p>
+<p>Check the <a href="../advanced/plugins.html#creating-plugins">Creating plugins</a> section for more information on the development of plugins.</p>
+<p>When it comes to official plugins compatibility between CKEditor 4 and CKEditor 5, please see the <a href="#plugins-compatibility-table">compatibility table</a> to learn more.</p>
+<h2 id="themes-skins"><a class="headerlink" href="#themes-skins">#</a> Themes (skins)</h2>
+<p>In CKEditor 5, the previous concept of &#x201C;skins&#x201D; was reviewed and is now called &#x201C;themes&#x201D;.</p>
+<p>If you have custom skins for CKEditor 4, these skins need to be recreated for CKEditor 5. Fortunately, <a href="../../framework/guides/deep-dive/ui/theme-customization.html">custom theming</a> in CKEditor 5 is much more powerful and simpler than before.</p>
+<!--
+For more information, check how to {@linkTODO create new themes in the CKEditor 5 Framework documentation}.
+-->
+<h2 id="existing-data"><a class="headerlink" href="#existing-data">#</a> Existing data</h2>
+<p>An extremely important aspect to be remembered is that &#x2014; because of the difference in features &#x2014; the <strong>data produced with CKEditor 4 may not be compatible with CKEditor 5 (which may lead to data loss)</strong>.</p>
+<p>Extensive analysis, data verification and tests should be performed on existing data. If necessary, you will need to develop conversion procedures to avoid data loss. The <a href="../../features/general-html-support.html">General HTML Support</a> feature may be used to introduce HTML markup that is present in the legacy content but is not yet fully covered by CKEditor 5 features.</p>
+<p>A relatively simple yet efficient strategy of adopting CKEditor 5 into existing systems might be using CKEditor 5 for creating new content and the old editor for editing legacy content.</p>
+<h2 id="plugins-compatibility-table"><a class="headerlink" href="#plugins-compatibility-table">#</a> Plugins compatibility table</h2>
+<p>The following table presents plugins available in CKEditor 4 and their equivalent in CKEditor 5.</p>
+<div class="live-snippet"><figure class="table">
+   <table>
+      <thead>
+         <tr>
+            <th><strong>CKEditor 4</strong></th>
+            <th><strong>CKEditor 5</strong></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/a11yhelp">a11yhelp</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/about">about</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/ajax">ajax</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/autocomplete">autocomplete</a></p>
+            </td>
+            <td>Partially covered by <a href="https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html">Mentions</a></td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/autoembed">autoembed</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/media-embed.html#automatic-media-embed-on-paste">Auto media embed</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/autogrow">autogrow</a></p>
+            </td>
+            <td>Core (see <a href="https://ckeditor.com/docs/ckeditor5/latest/examples/builds/classic-editor.html">Classic editor</a> and <a href="https://ckeditor.com/docs/ckeditor5/latest/support/faq.html#how-to-set-the-height-of-ckeditor-5">setting its height</a>)</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/autolink">autolink</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/link.html#autolink-feature">Autolink</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/balloonpanel">balloonpanel</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_panel_balloon_balloonpanelview-BalloonPanelView.html">BalloonPanelView</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/balloontoolbar">balloontoolbar</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_panel_balloon_contextualballoon-ContextualBalloon.html">Contextual balloon</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/basicstyles">basicstyles</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/basic-styles.html">Basic styles</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/bbcode">bbcode</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/bidi">bidi</a></p>
+            </td>
+            <td>Partially available <a href="https://ckeditor.com/docs/ckeditor5/latest/features/ui-language.html#righttoleft-rtl-languages-support">via configuration</a> and the <a href="https://ckeditor.com/docs/ckeditor5/latest/features/language.html">Language plugin</a></td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/blockquote">blockquote</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/block-quote.html">Blockquote</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/button">button</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_button_buttonview-ButtonView.html">Button view</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/ckfinder">ckfinder</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/ckfinder.html">CKFinder</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/clipboard">clipboard</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_clipboard_clipboard-Clipboard.html">Clipboard</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/cloudservices">cloudservices</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_cloud-services_cloudservices-CloudServices.html">Cloud Services</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/codesnippet">codesnippet</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;">Partially covered by <a href="https://ckeditor.com/docs/ckeditor5/latest/features/code-blocks.html">Code blocks</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/codesnippetgeshi">codesnippetgeshi</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/colorbutton">colorbutton</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-color-and-font-background-color-features">Font color and Font background color</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/colordialog">colordialog</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;">N/A</p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/contextmenu">contextmenu</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/copyformatting">copyformatting</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/devtools">devtools</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/dialog">dialog</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/dialogadvtab">dialogadvtab</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/dialogui">dialogui</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/div">div</a></p>
+            </td>
+            <td>Partially covered by <a href="https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html">General HTML Support</a></td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/divarea">divarea</a></p>
+            </td>
+            <td>Core (<a href="https://ckeditor.com/docs/ckeditor5/latest/examples/builds/classic-editor.html">Classic editor</a>)</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/docprops">docprops</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/easyimage">easyimage</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/easy-image.html">Easy Image</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/editorplaceholder">editorplaceholder</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html">Editor placeholder</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/elementspath">elementspath</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/embed">embed</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/media-embed.html">Media embed</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/embedbase">embedbase</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/media-embed.html#media-providers">Media embed config</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/embedsemantic">embedsemantic</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/media-embed.html#semantic-data-output-default">Media embed config</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/emoji">emoji</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/enterkey">enterkey</a></p>
+            </td>
+            <td><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_enter_enter-Enter.html">Enter</a> (except ENTER_DIV option)</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/entities">entities</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/fakeobjects">fakeobjects</a></p>
+            </td>
+            <td><a href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/tutorials/implementing-a-block-widget.html">Custom widgets</a></td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/filebrowser">filebrowser</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/filetools">filetools</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html">Image upload</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/find">find</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/find-and-replace.html">Find and replace</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/flash">flash</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/floatingspace">floatingspace</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/alternative-setups/predefined-builds.html#inline-editor">Inline editor</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/floatpanel">floatpanel</a></p>
+            </td>
+            <td>Partially covered by <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_dropdown_utils.html#function-createDropdown">createDropdown</a> util</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/font">font</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/font.html">Font size and Font family</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/format">format</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/forms">forms</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/horizontalrule">horizontalrule</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/horizontal-line.html">Horizontal line</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/htmlwriter">htmlwriter</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/iframe">iframe</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/iframedialog">iframedialog</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/image">image</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/images/images-overview.html">Images</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/image2">image2</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/images/images-overview.html">Images</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/imagebase">imagebase</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/images/images-overview.html">Images</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/indent">indent</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/indent.html#indenting-lists">Indent</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/indentblock">indentblock</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;">Introduced by <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_indent_indentblock-IndentBlock.html">IndentBlock</a>, exposed by <a href="https://ckeditor.com/docs/ckeditor5/latest/features/indent.html">Indent</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/indentlist">indentlist</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;">Introduced by <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_list_list_listediting-ListEditing.html">ListEditing</a>, exposed by <a href="https://ckeditor.com/docs/ckeditor5/latest/features/indent.html#indenting-lists">Indent</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/justify">justify</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/text-alignment.html">Text alignment</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/language">language</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/language.html">Text part language</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/lineutils">lineutils</a></p>
+            </td>
+            <td>Partially covered by <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_widget_widgettypearound-WidgetTypeAround.html">WidgetTypeAround</a></td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/link">link</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/link.html">Link</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/list">list</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/lists/lists.html">List</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/listblock">listblock</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/architecture/ui-library.html#dropdowns">Dropdowns</a> and <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_dropdown_utils.html#function-addListToDropdown">addListToDropdown</a> util</p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/liststyle">liststyle</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/lists/lists.html#list-properties">List properties</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/magicline">magicline</a></p>
+            </td>
+            <td><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_widget_widgettypearound-WidgetTypeAround.html">Widget type around</a></td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/mathjax">mathjax</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/math-equations.html">MathType</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/maximize">maximize</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/mentions">mentions</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html">Mentions</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/menu">menu</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/menubutton">menubutton</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/newpage">newpage</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/notification">notification</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_notification_notification-Notification.html">Notification</a> (provides only engine, without UI)</p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/notificationaggregator">notificationaggregator</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/pagebreak">pagebreak</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/page-break.html">Page break</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/panel">panel</a></p>
+            </td>
+            <td><a href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/architecture/ui-library.html">UI library</a></td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/panelbutton">panelbutton</a></p>
+            </td>
+            <td><a href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/architecture/ui-library.html">UI library</a></td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/pastefromgdocs">pastefromgdocs</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/pasting/paste-from-google-docs.html">Paste from Google Docs</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/pastefromlibreoffice">pastefromlibreoffice</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/pastefromword">pastefromword</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/pasting/paste-from-word.html">Paste from Word</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/pastetext">pastetext</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/pasting/paste-plain-text.html">Paste plain text</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/pastetools">pastetools</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/placeholder">placeholder</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/tutorials/implementing-an-inline-widget.html">Custom implementation</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/popup">popup</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/preview">preview</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/print">print</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/removeformat">removeformat</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/remove-format.html">Remove formatting</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/resize">resize</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/richcombo">richcombo</a></p>
+            </td>
+            <td><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_ui_dropdown_dropdownview-DropdownView.html">DropdownView</a></td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/save">save</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/saving-data.html">Saving data</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/selectall">selectall</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/select-all.html">Select all</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/sharedspace">sharedspace</a></p>
+            </td>
+            <td>Custom implementation. See <a href="https://ckeditor.com/docs/ckeditor5/latest/examples/framework/multi-root-editor.html">multi-root editor</a></td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/showblocks">showblocks</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/showborders">showborders</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/table.html">Table core</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/smiley">smiley</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/sourcearea">sourcearea</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/source-editing.html">Source editing</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/sourcedialog">sourcedialog</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/specialchar">specialchar</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html">Special characters</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/stylescombo">stylescombo</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/stylesheetparser">stylesheetparser</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/tab">tab</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/table">table</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/table.html">Table</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/tableresize">tableresize</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/tableselection">tableselection</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/table.html">Table core</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/tabletools">tabletools</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/table.html#table-and-cell-styling-tools">Table properties</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/templates">templates</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/textmatch">textmatch</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/textwatcher">textwatcher</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_typing_textwatcher-TextWatcher.html">Text watcher</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/toolbar">toolbar</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html">Editor toolbar</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/uicolor">uicolor</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/ui/theme-customization.html">Theme customization</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/undo">undo</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_undo_undo-Undo.html">Undo</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/uploadfile">uploadfile</a></p>
+            </td>
+            <td>N/A</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/uploadimage">uploadimage</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html">Image upload</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/uploadwidget">uploadwidget</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html">Image upload</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/widget">widget</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_widget_widget-Widget.html">Widget</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/widgetselection">widgetselection</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_widget_widget-Widget.html">Widget core</a></p>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/wysiwygarea">wysiwygarea</a></p>
+            </td>
+            <td>Core (there is no iframe-based editor implementation in CKEditor 5)</td>
+         </tr>
+         <tr>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/cke4/addon/xml">xml</a></p>
+            </td>
+            <td>
+               <p style="margin-left:0px;"><a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_engine_dataprocessor_xmldataprocessor-XmlDataProcessor.html">XML data processor</a></p>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</figure></div>
+<h2 id="configuration-options-compatibility-table"><a class="headerlink" href="#configuration-options-compatibility-table">#</a> Configuration options compatibility table</h2>
+<p>The following table presents configuration options available in CKEditor 4 and their equivalent in CKEditor 5.</p>
+<p>Note: The number of options was reduced on purpose. We understood that configuring CKEditor 4 was a bit too troublesome due to the number of configuration options available (over 240). Sometimes they were definitely too low-level, also many times they were so infrequently used that it did not justify the increased level of the application complexity. This is why when designing CKEditor 5 from scratch, we decided to come with a simplified editor, with well-thought default behavior, based on the results of the <a href="http://ckeditor.github.io/editor-recommendations/" target="_blank" rel="noopener">Editor Recommendations</a> project.</p>
+<style>
+/* See: https://github.com/ckeditor/ckeditor5/issues/1718. */
+.docsearch-txt {
+	table-layout: fixed;
+}
+
+.docsearch-txt tr th:nth-child( 1 ),
+.docsearch-txt tr td:nth-child( 1 ) {
+	width: 275px;
+}
+</style>
+<table class="docsearch-txt">
+	<thead>
+		<tr>
+			<th>CKEditor 4</th>
+			<th>CKEditor 5</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span id="allowedContent"><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-allowedContent">allowedContent</a></span></td>
+			<td>
+				<p>Extending the list of HTML tags or attributes that CKEditor should support can be achieved via the <a href="../../features/general-html-support.html">General HTML Support feature</a>. The GHS allows adding HTML markup not covered by official CKEditor 5 features into the editor&apos;s content. Such elements can be loaded, pasted, or output. It does not, however, provide a dedicated UI for the extended HTML markup.</p>
+				<p> Having full-fledged HTML support can be achieved by writing a plugin that (ideally) provides also means to control (insert, edit, delete) such markup. For more information on how to create plugins check the <a href="../../framework/guides/plugins/creating-simple-plugin.html">Creating a simple plugin</a> article. Looking at the source code of CKEditor 5 plugins may also give you a lot of inspiration.</p>
+				<p>Note that only content that is explicitly converted between the model and the view by the editor plugins will be preserved in CKEditor 5. Check the <a href="../../framework/guides/deep-dive/conversion/intro.html">conversion tutorials</a> to learn how to extend the conversion rules.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-autoEmbed_widget">autoEmbed_widget</a></td>
+			<td>Refer to the <a href="../../features/media-embed.html">Media embed feature</a> guide to learn more about media embedding in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-autoGrow_bottomSpace">autoGrow_bottomSpace</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-autoGrow_maxHeight">autoGrow_maxHeight</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-autoGrow_minHeight">autoGrow_minHeight</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-autoGrow_onStartup">autoGrow_onStartup</a></td>
+			<td>
+				<p>These settings are no longer needed as by default, CKEditor 5 automatically grows with content.</p>
+				<p>Classic editor (CKEditor 5) no longer encapsulates the editing area in an <code>&lt;iframe&gt;</code>, which means that the height (and similar options) of the editing area can be easily controlled with CSS. For example, the <code>minHeight</code> and <code>maxHeight</code> settings can be achieved with the following code:</p>
+				<pre><code class="language-css">.ck.ck-content:not(.ck-comment__input *) {
+    /* Note: You can use min-height and max-height instead here. */
+    height: 300px;
+    overflow-y: auto;
+}</code>
+            </pre></td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-autoUpdateElement">autoUpdateElement</a></td>
+			<td>CKEditor 5 always updates the replaced element. This behavior cannot be disabled.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-autocomplete_commitKeystrokes">autocomplete_commitKeystrokes</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-autolink_commitKeystrokes">autolink_commitKeystrokes</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-autolink_emailRegex">autolink_emailRegex</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-autolink_urlRegex">autolink_urlRegex</a></td>
+			<td>Refer to the <a href="../../features/link.html#autolink-feature">Autolink section</a> of the Link guide to learn more about support for automatic linking in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-baseFloatZIndex">baseFloatZIndex</a></td>
+			<td>N/A. There is a dedicated <a href="https://github.com/ckeditor/ckeditor5/issues/5352" target="_blank" rel="noopener">issue about z-index management</a> and making it more open for developers.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-baseHref">baseHref</a></td>
+			<td>Not supported yet, see <a href="https://github.com/ckeditor/ckeditor5/issues/665" target="_blank" rel="noopener">the relevant GitHub issue</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-basicEntities">basicEntities</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-blockedKeystrokes">blockedKeystrokes</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-bodyClass">bodyClass</a></td>
+			<td>
+				<p>Classic editor (CKEditor 5) no longer encapsulates the editing area in an <code>&lt;iframe&gt;</code>, so such setting is no longer needed. Simply wrap the editor with a <code>&lt;div class=&quot;...&quot;&gt;</code> to achieve a similar result. When using  <a href="../../examples/builds/balloon-editor.html">balloon</a>, <a href="../../examples/builds/balloon-block-editor.html">balloon block</a>, <a href="../../examples/builds/inline-editor.html">inline</a> or <a href="../../examples/builds/document-editor.html">decoupled</a> editor you may add a class to the element on which the editor is initialized.</p>
+				<p>Additionally, all editor types use <code>.ck-content</code> on their main root editable elements. This class can thus also be used to write stylesheet rules for the editor content.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-bodyId">bodyId</a></td>
+			<td>
+				<p>Classic editor (CKEditor 5) no longer encapsulates the editing area in an <code>&lt;iframe&gt;</code>, so such setting is no longer needed. Simply wrap the editor with a <code>&lt;div id=&quot;...&quot;&gt;</code> to achieve a similar result. When using balloon, balloon block, inline or decoupled editor you may add a class to the element on which the editor is initialized.</p>
+				<p>Additionally, all editor types use .ck-content</p> on their main root editable elements. This class can thus also be used to write stylesheet rules for the editor content.<p></p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-browserContextMenuOnCtrl">browserContextMenuOnCtrl</a></td>
+			<td>No longer needed as CKEditor 5 does not have its own context menu and does not block the native browser context menu.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-clipboard_defaultContentType">clipboard_defaultContentType</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-clipboard_notificationDuration">clipboard_notificationDuration</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-cloudServices_tokenUrl">cloudServices_tokenUrl</a></td>
+			<td>See <a href="../../api/module_cloud-services_cloudservices-CloudServicesConfig.html#member-tokenUrl"><code>config.cloudServices.tokenUrl</code></a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-cloudServices_uploadUrl">cloudServices_uploadUrl</a></td>
+			<td>See <a href="../../api/module_cloud-services_cloudservices-CloudServicesConfig.html#member-uploadUrl"><code>config.cloudServices.uploadUrl</code></a>. Check out the <a href="../../features/images/image-upload/image-upload.html">comprehensive &quot;Image upload&quot; guide</a> to learn more.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-codeSnippetGeshi_url">codeSnippetGeshi_url</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-codeSnippet_codeClass">codeSnippet_codeClass</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-codeSnippet_languages">codeSnippet_languages</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-codeSnippet_theme">codeSnippet_theme</a></td>
+			<td>
+				<p>Refer to the <a href="../../features/code-blocks.html">Code block feature</a> guide to learn more about support for blocks of pre&#x2013;formatted code in CKEditor 5.</p>
+				<p>A plugin adding support for the inline <code>&lt;code&gt;</code> element is included in the <a href="../../features/basic-styles.html">Basic styles</a> package.<br>
+				Note: The <a href="../../api/module_basic-styles_code-Code.html">Code feature</a> is not available by default in any build, but can be enabled in a <a href="quick-start.html#building-the-editor-from-source">custom build</a> (see the <a href="../../features/basic-styles.html">Basic styles</a> feature guide).</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-colorButton_backStyle">colorButton_backStyle</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-colorButton_colors">colorButton_colors</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-colorButton_colorsPerRow">colorButton_colorsPerRow</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-colorButton_enableAutomatic">colorButton_enableAutomatic</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-colorButton_enableMore">colorButton_enableMore</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-colorButton_foreStyle">colorButton_foreStyle</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-colorButton_historyRowLimit">colorButton_historyRowLimit</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-colorButton_normalizeBackground">colorButton_normalizeBackground</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-colorButton_renderContentColors">config.colorButton_renderContentColors</a></td>
+			<td>
+				<p>Refer to the <a href="../../features/font.html#configuring-the-font-color-and-font-background-color-features">Font feature</a> guide to learn more about configuring font and background color in CKEditor 5.</p>
+				<p>At the same time, we also provide a new highlight plugin which allows for highlighting parts of the text with the <code>&lt;mark&gt;</code> element with different CSS classes that can be easily styled. See the <a href="../../features/highlight.html">Highlight feature guide</a> for more information .</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-contentsCss">contentsCss</a></td>
+			<td>Classic editor (CKEditor 5) no longer encapsulates the editing area in an <code>&lt;iframe&gt;</code>, so such file and configuration setting is no longer needed. If for some reason you need to style the contents of the editing area differently, use the <code>.ck-content</code> selector.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-contentsLangDirection">contentsLangDirection</a></td>
+			<td>Refer to the <a href="../../features/ui-language.html#setting-the-language-of-the-content">Setting the language of the content</a> guide to learn how to set the content direction using the <a href="../../api/module_core_editor_editorconfig-EditorConfig.html#member-language"><code>config.language</code></a> configuration option.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-contentsLanguage">contentsLanguage</a></td>
+			<td>Refer to the <a href="../../features/ui-language.html#setting-the-language-of-the-content">Setting the language of the content</a> guide to learn how to set the content language using the <a href="../../api/module_core_editor_editorconfig-EditorConfig.html#member-language"><code>config.language</code></a> configuration option.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-contextmenu_contentsCss">contextmenu_contentsCss</a></td>
+			<td>No longer needed as CKEditor 5 does not have its own context menu.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-copyFormatting_allowRules">copyFormatting_allowRules</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-copyFormatting_allowedContexts">copyFormatting_allowedContexts</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-copyFormatting_disallowRules">copyFormatting_disallowRules</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-copyFormatting_keystrokeCopy">copyFormatting_keystrokeCopy</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-copyFormatting_keystrokePaste">copyFormatting_keystrokePaste</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-copyFormatting_outerCursor">copyFormatting_outerCursor</a></td>
+			<td>The copy formatting feature is <a href="https://github.com/ckeditor/ckeditor5/issues/1901" target="_blank" rel="noopener">not available yet</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-coreStyles_bold">coreStyles_bold</a></td>
+			<td>CKEditor 5 uses the <code>&lt;strong&gt;</code> element, see <a href="https://ckeditor.github.io/editor-recommendations/features/bold.html" target="_blank" rel="noopener">Editor Recommendations - Bold</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-coreStyles_italic">coreStyles_italic</a></td>
+			<td>CKEditor 5 uses the <code>&lt;i&gt;</code> element, see <a href="https://ckeditor.github.io/editor-recommendations/features/italic.html" target="_blank" rel="noopener">Editor Recommendations - Italic</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-coreStyles_strike">coreStyles_strike</a></td>
+			<td>CKEditor 5 uses the <code>&lt;s&gt;</code> element, see <a href="https://ckeditor.github.io/editor-recommendations/features/strikethrough.html" target="_blank" rel="noopener">Editor Recommendations - Strikethrough</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-coreStyles_subscript">coreStyles_subscript</a></td>
+			<td>
+				<p>CKEditor 5 uses the <code>&lt;sub&gt;</code> element.
+				</p><p>Note: The <a href="../../api/module_basic-styles_subscript-Subscript.html">Subscript feature</a> is not available by default in any build, but can be enabled in a <a href="quick-start.html#building-the-editor-from-source">custom build</a> (see the <a href="../../features/basic-styles.html">Basic styles</a> feature guide).</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-coreStyles_superscript">coreStyles_superscript</a></td>
+			<td>
+				<p>CKEditor 5 uses the <code>&lt;sup&gt;</code> element.
+				</p><p>Note: The <a href="../../api/module_basic-styles_superscript-Superscript.html">Superscript feature</a> is not available by default in any build, but can be enabled in a <a href="quick-start.html#building-the-editor-from-source">custom build</a> (see the <a href="../../features/basic-styles.html">Basic styles</a> feature guide).</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-coreStyles_underline">coreStyles_underline</a></td>
+			<td>
+				<p>CKEditor 5 uses the <code>&lt;u&gt;</code> element, see <a href="https://github.com/ckeditor/editor-recommendations/issues/4" target="_blank" rel="noopener">Editor Recommendations - Underline</a>.</p>
+				<p>Note: The <a href="../../api/module_basic-styles_underline-Underline.html">Underline feature</a> is not available by default in any build, but can be enabled in a <a href="quick-start.html#building-the-editor-from-source">custom build</a> (see the <a href="../../features/basic-styles.html">Basic styles</a> feature guide).</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-customConfig">customConfig</a></td>
+			<td>For performance reasons, CKEditor 5 no longer loads a separate configuration file. Passing configuration options inline reduces the number of HTTP requests.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-dataIndentationChars">dataIndentationChars</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><span id="defaultLanguage"><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-defaultLanguage">defaultLanguage</a></span></td>
+			<td>The support for multiple translations is handled by the translations service. See the <a href="../../features/ui-language.html">UI language</a> feature guide.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-devtools_styles">devtools_styles</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-devtools_textCallback">devtools_textCallback</a></td>
+			<td>The old CKEditor 4 Developer Tools plugin is not available for CKEditor 5. However, check out the new <a href="../../framework/guides/development-tools.html#ckeditor-5-inspector">CKEditor 5 inspector</a> which is a far more advanced tool that will give you tons of useful information about the state of the editor such as internal data structures, selection, commands, and many more.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-dialog_backgroundCoverColor">dialog_backgroundCoverColor</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-dialog_backgroundCoverOpacity">dialog_backgroundCoverOpacity</a></td>
+			<td>The use of configuration options to style selected parts of the editor was dropped in favor of much more powerful <a href="../../framework/guides/deep-dive/ui/theme-customization.html">theme customization</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-dialog_buttonsOrder">dialog_buttonsOrder</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-dialog_magnetDistance">dialog_magnetDistance</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-dialog_noConfirmCancel">dialog_noConfirmCancel</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-dialog_startupFocusTab">dialog_startupFocusTab</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-disableNativeSpellChecker">disableNativeSpellChecker</a></td>
+			<td>
+				<p>Note: An official integration of the spell and grammar checking functionality for CKEditor 5 is provided by a partner solution, <a href="../../features/spelling-and-grammar-checking.html">WProofreader</a>.</p>
+				<p>A dedicated configuration option to disable the native browser spell checker is unavailable. However, in case of inline, balloon and balloon block editors it can be done by setting the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck" target="_blank" rel="noopener"><code>spellcheck</code></a> attribute directly on the element where CKEditor should be enabled.</p>
+				<p>Additionally, for all types of editors, including the classic and decoupled ones, you can also call:</p>
+				<pre><code>editor.editing.view.change( writer =&gt; {
+    writer.setAttribute( &apos;spellcheck&apos;, &apos;false&apos;, editor.editing.view.document.getRoot() );
+} );</code></pre>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-disableNativeTableHandles">disableNativeTableHandles</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-disableObjectResizing">disableObjectResizing</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-disableReadonlyStyling">disableReadonlyStyling</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-disallowedContent">disallowedContent</a></td>
+			<td>See <a href="#allowedContent"><code>config.allowedContent</code></a>. No longer needed as CKEditor 5 removes all unwanted markup that cannot be edited with the editor. This can be controlled by adding plugins into the editor or via the <a href="../../features/general-html-support.html">General HTML Support feature</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-div_wrapTable">div_wrapTable</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-docType">docType</a></td>
+			<td>N/A. CKEditor 5 no longer encapsulates the editing area in an <code>&lt;iframe&gt;</code>, so the editor is using the same doctype as the page where it operates.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-easyimage_class">easyimage_class</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-easyimage_defaultStyle">easyimage_defaultStyle</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-easyimage_styles">easyimage_styles</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-easyimage_toolbar">easyimage_toolbar</a></td>
+			<td>Refer to the <a href="../../features/images/image-upload/easy-image.html">Easy Image</a> and <a href="../../features/images/images-overview.html">Images</a> feature guides to learn more about image-related features and Easy Image integration in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-editorplaceholder">editorplaceholder</a></td>
+			<td>Refer to the <a href="../../features/editor-placeholder.html">Editor placeholder</a> feature guide to learn more about configuring this feature in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-emailProtection">emailProtection</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-embed_provider">embed_provider</a></td>
+			<td>Refer to the <a href="../../features/media-embed.html">Media embed feature</a> guide to learn more about media embedding in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><span id="emoji"><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-emoji_emojiListUrl">emoji_emojiListUrl</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-emoji_minChars">emoji_minChars</a></span></td>
+			<td>Emoji can be pasted into CKEditor 5 as Unicode content. You can use the emoji picker of your operating system to insert emoji characters. Use the <kbd>Ctrl</kbd>+<kbd>Cmd</kbd>+<kbd>Space</kbd> keyboard shortcut on macOS, <kbd>Win</kbd>+<kbd>.</kbd> on Windows or the relevant emoji key on the touch keyboard of your device to open the picker. The <a href="../../features/text-transformation.html">Automatic text transformation feature</a> may be configured to deliver emojis with shortcodes, too.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-enableContextMenu">enableContextMenu</a></td>
+			<td>N/A. CKEditor 5 does not come with a context menu. Contextual inline toolbar is preferred instead to offer contextual actions.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-enableTabKeyTools">enableTabKeyTools</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><span id="enterMode"><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-enterMode">enterMode</a></span></td>
+			<td>
+				<p>N/A. CKEditor 5 always creates a new paragraph (<code>&lt;p&gt;</code> element) as specified by <a href="http://ckeditor.github.io/editor-recommendations/usability/enter-key.html" target="_blank" rel="noopener">Editor Recommendations - Enter key</a>.</p>
+				<p><kbd>Shift</kbd>+<kbd>Enter</kbd> can be used for creating soft line breaks.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-entities">entities</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-entities_additional">entities_additional</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-entities_greek">entities_greek</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-entities_latin">entities_latin</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-entities_processNumerical">entities_processNumerical</a></td>
+			<td>N/A</td>
+		</tr>
+				<tr>
+			<td>
+			<a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_fileName">exportPdf_fileName</a> <br><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_options">exportPdf_options</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_service">exportPdf_service</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_stylesheets">exportPdf_stylesheets</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_tokenUrl">exportPdf_tokenUrl</a> <br>
+			</td>
+			<td>
+				Refer to the <a href="https://ckeditor.com/docs/ckeditor5/latest/features/export-pdf.html">Export to PDF feature</a> guide to learn more about about configuring the HTML to PDF converter in CKEditor 5.
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-extraAllowedContent">extraAllowedContent</a></td>
+			<td>See <a href="#allowedContent"><code>config.allowedContent</code></a>. This can also be achieved via the <a href="../../features/general-html-support.html">General HTML Support feature</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-extraPlugins">extraPlugins</a></td>
+			<td>Learn how to <a href="installing-plugins.html">install plugins in CKEditor 5</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-fileTools_defaultFileName">fileTools_defaultFileName</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-fileTools_requestHeaders">fileTools_requestHeaders</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserBrowseUrl">filebrowserBrowseUrl</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserFlashBrowseUrl">filebrowserFlashBrowseUrl</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserFlashUploadUrl">filebrowserFlashUploadUrl</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserImageBrowseLinkUrl">filebrowserImageBrowseLinkUrl</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserImageBrowseUrl">filebrowserImageBrowseUrl</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserImageUploadUrl"> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserUploadMethod">filebrowserUploadMethod</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserUploadUrl">filebrowserUploadUrl</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserWindowFeatures">filebrowserWindowFeatures</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserWindowHeight">filebrowserWindowHeight</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-filebrowserWindowWidth">filebrowserWindowWidth</a></a></td>
+			<td>There is no equivalent of the file browser plugin in CKEditor 5 yet. See also <a href="#uploadUrl"><code>config.uploadUrl</code></a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-fillEmptyBlocks">fillEmptyBlocks</a></td>
+			<td>Blocks are always filled in CKEditor 5 because this ensures that the intention of the content author (who left such empty lines) will be preserved in the output data.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-find_highlight">find_highlight</a></td>
+			<td>Refer to the <a href="https://ckeditor.com/docs/ckeditor5/latest/features/find-and-replace.html">Find and replace</a> feature guide.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-flashAddEmbedTag">flashAddEmbedTag</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-flashConvertOnEdit">flashConvertOnEdit</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-flashEmbedTagOnly">flashEmbedTagOnly</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-floatSpaceDockedOffsetX">floatSpaceDockedOffsetX</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-floatSpaceDockedOffsetY">floatSpaceDockedOffsetY</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-floatSpacePinnedOffsetX">floatSpacePinnedOffsetX</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-floatSpacePinnedOffsetY">floatSpacePinnedOffsetY</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-floatSpacePreferRight">floatSpacePreferRight</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-fontSize_defaultLabel">fontSize_defaultLabel</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-fontSize_sizes">fontSize_sizes</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-fontSize_style">fontSize_style</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-font_defaultLabel">font_defaultLabel</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-font_names">font_names</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-font_style">font_style</a></td>
+			<td>Refer to the <a href="../../features/font.html">Font feature</a> guide to learn more about font size, family and color support in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-forceEnterMode">forceEnterMode</a></td>
+			<td>N/A. Se also <a href="#enterMode"><code>config.enterMode</code></a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-forcePasteAsPlainText">forcePasteAsPlainText</a></td>
+			<td>N/A. No longer needed as CKEditor 5 removes all unwanted markup that cannot be edited with the enabled editor plugins.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-forceSimpleAmpersand">forceSimpleAmpersand</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_address">format_address</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_div">format_div</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_p">format_p</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_pre">format_pre</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_h1">format_h1</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_h2">format_h2</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_h3">format_h3</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_h4">format_h4</a> <br>  <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_h5">format_h5</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_h6">format_h6</a></td>
+			<td>All headings are configurable via <a href="../../api/module_heading_heading-HeadingConfig.html#member-options"><code>config.heading.options</code></a>. See also the <a href="../../features/headings.html">Headings feature guide</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-format_tags">format_tags</a></td>
+			<td>In order to enable additional block tags in CKEditor 5, the <a href="../../features/general-html-support.html">General HTML Support feature</a> may be used. Alternatively a dedicated plugin must be provided. See also <a href="#allowedContent"><code>config.allowedContent</code></a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-fullPage">fullPage</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-grayt_autoStartup">grayt_autoStartup</a></td>
+			<td>An official integration of the spell and grammar checking functionality for CKEditor 5 is provided by a partner solution, <a href="../../features/spelling-and-grammar-checking.html">WProofreader</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-height">height</a></td>
+			<td>
+				<p>Classic editor (CKEditor 5) no longer encapsulates the editing area in an <code>&lt;iframe&gt;</code>, which means that the height (and similar options) of the editing area can be easily controlled with CSS. For example the height setting can be achieved with <code>.ck-editor__editable_inline { height:400px; }</code>.</p>
+				<p>In order to set the height dynamically (from JavaScript) use the view writer:</p>
+				<pre><code>editor.editing.view.change( writer =&gt; {
+    writer.setStyle( &apos;height&apos;, &apos;400px&apos;, editor.editing.view.document.getRoot() );
+} );</code></pre>
+				<p>See also <a href="https://stackoverflow.com/questions/46559354/how-to-set-the-height-of-ckeditor-5-classic-editor" target="_blank" rel="noopener">How to set the height of CKEditor 5 (Classic editor)</a>.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-htmlEncodeOutput">htmlEncodeOutput</a></td>
+			<td>N/A. CKEditor 5 outputs HTML markup. See also <a href="https://stackoverflow.com/questions/47555667/ckeditor-5-htmlencodeoutput-doesnt-work" target="_blank" rel="noopener">this StackOverflow question</a> and a <a href="https://github.com/ckeditor/ckeditor5/issues/698" target="_blank" rel="noopener">dedicated issue</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-ignoreEmptyParagraph">ignoreEmptyParagraph</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-image2_alignClasses">image2_alignClasses</a></td>
+			<td>Available via more powerful <a href="../../api/module_image_image-ImageConfig.html#member-styles"><code>config.image.styles</code></a>. This also allows for using custom style definitions, not only left, right and center alignment. See the <a href="https://ckeditor.com/docs/ckeditor5/latest/features/image.html#image-styles" target="_blank" rel="noopener">Image styles feature overview</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-image2_altRequired">image2_altRequired</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-image2_captionedClass">image2_captionedClass</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-image2_disableResizer">image2_disableResizer</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-image2_maxSize">image2_maxSize</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-image2_prefillDimensions">image2_prefillDimensions</a></td>
+			<td>Refer to the <a href="../../features/images/images-overview.html">Images feature</a> guide to learn more about image-related features and customization options in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-imageUploadUrl">imageUploadUrl</a></td>
+			<td>See <a href="#uploadUrl"><code>config.uploadUrl</code></a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-image_prefillDimensions">image_prefillDimensions</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-image_previewText">image_previewText</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-image_removeLinkByEmptyURL">image_removeLinkByEmptyURL</a></td>
+			<td>Refer to the <a href="../../features/images/images-overview.html">Images feature</a> guide to learn more about image-related features and customization options in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-indentClasses">indentClasses</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-indentOffset">indentOffset</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-indentUnit">indentUnit</a></td>
+			<td>Refer to the <a href="../../features/indent.html#configuring-the-block-indentation-feature">Configuring the block indentation feature</a> guide to learn how to customize the indentation behavior using offsets, units or classes.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-jqueryOverrideVal">jqueryOverrideVal</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-justifyClasses">justifyClasses</a></td>
+			<td>Refer to the <a href="../../features/text-alignment.html">Text alignment feature</a> guide.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-keystrokes">keystrokes</a></td>
+			<td>
+				<p>Keystroke handlers can be registered using <a href="../../api/module_core_editingkeystrokehandler-EditingKeystrokeHandler.html"><code>EditingKeystrokeHandler</code></a>. More information and examples can be found in a dedicated <a href="../../framework/guides/architecture/ui-library.html#keystrokes-and-focus-management">Keystrokes and focus management</a> section.</p>
+				<p>Making keystrokes overridable through <code>config.keystrokes</code> is handled in a <a href="https://github.com/ckeditor/ckeditor5-core/issues/8" target="_blank" rel="noopener">dedicated issue</a>. There is also an issue about <a href="https://github.com/ckeditor/ckeditor5-core/issues/20" target="_blank" rel="noopener">improving keystroke handling</a>.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-language">language</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-language_list">language_list</a></td>
+			<td>The support for multiple translations is handled by the translations service. See the <a href="../../features/ui-language.html">UI language</a> feature guide.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-linkDefaultProtocol">linkDefaultProtocol</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-linkJavaScriptLinksAllowed">linkJavaScriptLinksAllowed</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-linkPhoneMsg">linkPhoneMsg</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-linkPhoneRegExp">linkPhoneRegExp</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-linkShowAdvancedTab">linkShowAdvancedTab</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-linkShowTargetTab">linkShowTargetTab</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-magicline_color">magicline_color</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-magicline_everywhere">magicline_everywhere</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-magicline_holdDistance">magicline_holdDistance</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-magicline_keystrokeNext">magicline_keystrokeNext</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-magicline_keystrokePrevious">magicline_keystrokePrevious</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-magicline_tabuList">magicline_tabuList</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-magicline_triggerOffset">magicline_triggerOffset</a></td>
+            <td>This functionality is covered by the <a href="../../api/module_widget_widgettypearound-WidgetTypeAround.html"><code>WidgetTypeAround</code></a> plugin that allows users to type around widgets where normally it is impossible to place the caret due to limitations of web browsers.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-mathJaxClass">mathJaxClass</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-mathJaxLib">mathJaxLib</a></td>
+			<td>N/A. Math equation functionality for CKEditor 5 is provided by a partner solution, <a href="../../features/math-equations.html">MathType</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-mentions">mentions</a></td>
+			<td>Refer to the <a href="../../features/mentions.html">Mentions feature</a> guide to learn more about smart autocompletion based on user input in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-menu_groups">menu_groups</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-menu_subMenuDelay">menu_subMenuDelay</a></td>
+			<td>CKEditor 5 does not come with a context menu. Contextual, configurable inline toolbar is preferred instead to offer contextual actions for features such as table or image. See also <a href="../../api/module_core_editor_editorconfig-EditorConfig.html#member-toolbar"><code>toolbar</code></a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-newpage_html">newpage_html</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-notification_duration">notification_duration</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-on">on</a></td>
+			<td>
+				<p>Using the configuration file or setting to define event listeners was a bad practice so support for it was dropped.</p>
+				<p>When creating an editor, a <code>Promise</code> is returned. Use <code>then/catch()</code> to define a callback when the editor is initialized or fails to start. The promise returns the created editor instance, e.g. <a href="../../api/module_editor-classic_classiceditor-ClassicEditor.html"><code>ClassicEditor</code></a>, on which you can listen to its events.</p>
+				<p>Note: The editor instance is not the only object on which events are fired. You can also listen to e.g. <a href="../../api/module_engine_model_document-Document.html"><code>Document</code></a> events.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-pasteFilter">pasteFilter</a></td>
+			<td>Not needed as CKEditor 5 always trims the pasted content to match what the available plugins can handle. If you would like to filter the pasted content even further, please <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=type%3Afeature&amp;template=2-feature-request.md" target="_blank" rel="noopener">report a ticket</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-pasteFromWordCleanupFile">pasteFromWordCleanupFile</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-pasteFromWordNumberedHeadingToList">pasteFromWordNumberedHeadingToList</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-pasteFromWordPromptCleanup">pasteFromWordPromptCleanup</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-pasteFromWordRemoveStyles">pasteFromWordRemoveStyles</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-pasteFromWord_heuristicsEdgeList">pasteFromWord_heuristicsEdgeList</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-pasteFromWord_inlineImages">pasteFromWord_inlineImages</a></td>
+			<td>Refer to the <a href="../../features/pasting/paste-from-word.html">Paste from Word feature</a> guide to learn more about support for pasting from Microsoft Word in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-pasteTools_keepZeroMargins">pasteTools_keepZeroMargins</a></td>
+			<td>Refer to the <a href="../../features/pasting/paste-from-word.html">Paste from Word</a> and <a href="../../features/pasting/paste-from-word.html">Paste from Google Docs</a> feature guides to learn more about support for pasting from external applications in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-plugins">plugins</a></td>
+			<td>See the <a href="../../api/module_core_editor_editorconfig-EditorConfig.html#member-plugins"><code>plugins</code></a> configuration option. The way how plugins are enabled in CKEditor 5 has changed in general. Check the articles about <a href="../advanced/plugins.html">plugins</a> and <a href="quick-start.html#building-the-editor-from-source">custom builds</a> for more information.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-protectedSource">protectedSource</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-readOnly">readOnly</a></td>
+			<td>See <a href="../../api/module_core_editor_editor-Editor.html#member-isReadOnly"><code>editor.isReadOnly</code></a> and refer to the <a href="../../features/read-only.html">Read-only feature</a> guide.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-removeButtons">removeButtons</a></td>
+			<td>N/A. A similar effect can be achieved by setting the <a href="../../api/module_core_editor_editorconfig-EditorConfig.html#member-toolbar"><code>toolbar</code></a> option with fewer buttons.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-removeDialogTabs">removeDialogTabs</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-removeFormatAttributes">removeFormatAttributes</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-removeFormatTags">removeFormatTags</a></td>
+			<td>Refer to the <a href="../../features/remove-format.html">Removing text formatting feature</a> guide to learn how to quickly remove any text formatting applied using inline HTML elements and CSS styles in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-removePlugins">removePlugins</a></td>
+			<td>See <a href="../../api/module_core_editor_editorconfig-EditorConfig.html#member-removePlugins"><code>config.removePlugins</code></a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-resize_dir">resize_dir</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-resize_enabled">resize_enabled</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-resize_maxHeight">resize_maxHeight</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-resize_maxWidth">resize_maxWidth</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-resize_minHeight">resize_minHeight</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-resize_minWidth">resize_minWidth</a></td>
+			<td>No longer needed. The editor automatically grows with content. You can also limit its height with <code>min-height</code> and <code>max-height</code> or set it with <code>height</code> if you need. If you want to allow the users to manually resize the editor, you need to implement this by behavior by yourself.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_autoStartup">scayt_autoStartup</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_contextCommands">scayt_contextCommands</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_contextMenuItemsOrder">scayt_contextMenuItemsOrder</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_customDictionaryIds">scayt_customDictionaryIds</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_customPunctuation">scayt_customPunctuation</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_customerId">scayt_customerId</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_disableOptionsStorage">scayt_disableOptionsStorage</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_elementsToIgnore">scayt_elementsToIgnore</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_handleCheckDirty">scayt_handleCheckDirty</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_handleUndoRedo">scayt_handleUndoRedo</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_ignoreAllCapsWords">scayt_ignoreAllCapsWords</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_ignoreDomainNames">scayt_ignoreDomainNames</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_ignoreWordsWithMixedCases">scayt_ignoreWordsWithMixedCases</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_ignoreWordsWithNumbers">scayt_ignoreWordsWithNumbers</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_inlineModeImmediateMarkup">scayt_inlineModeImmediateMarkup</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_maxSuggestions">scayt_maxSuggestions</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_minWordLength">scayt_minWordLength</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_moreSuggestions">scayt_moreSuggestions</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_sLang">scayt_sLang</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_serviceHost">scayt_serviceHost</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_servicePath">scayt_servicePath</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_servicePort">scayt_servicePort</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_serviceProtocol">scayt_serviceProtocol</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_srcUrl">scayt_srcUrl</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_uiTabs">scayt_uiTabs</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-scayt_userDictionaryName">scayt_userDictionaryName</a></td>
+			<td>The spell and grammar checking functionality for CKEditor 5 is provided by a partner solution, <a href="../../features/spelling-and-grammar-checking.html">WProofreader</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-sharedSpaces">sharedSpaces</a></td>
+			<td>
+				<p>N/A.</p>
+				<p>The <a href="../../api/module_editor-decoupled_decouplededitor-DecoupledEditor.html">decoupled editor</a> allows configuring where should the toolbar and the editable element be inserted.</p>
+				<p>In addition to that, CKEditor 5 Framework architecture allows for writing a custom editor that contains multiple editable elements (document roots). See the <a href="../../examples/framework/multi-root-editor.html">multi-root editor example</a>.</p>
+		</td></tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-shiftEnterMode">shiftEnterMode</a></td>
+			<td>
+				<p>N/A. CKEditor 5 always creates a new paragraph (<code>&lt;p&gt;</code> element) as specified by <a href="http://ckeditor.github.io/editor-recommendations/usability/enter-key.html" target="_blank" rel="noopener">Editor Recommendations - Enter key</a>.</p>
+				<p><kbd>Shift</kbd>+<kbd>Enter</kbd> can be used for creating soft line breaks.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-skin">skin</a></td>
+			<td>
+				<p>In CKEditor 5 lots of changes to the interface can be easily made by changing the default CKEditor theme. See the <a href="../../examples/framework/theme-customization.html">Theme customization guide</a>.</p>
+				<p>For heavy UI modifications, like integrating CKEditor with a custom UI framework, building a custom editor is needed. See the <a href="../../examples/framework/theme-customization.html">Third-party UI guide</a>.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-smiley_columns">smiley_columns</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-smiley_descriptions">smiley_descriptions</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-smiley_images">smiley_images</a> <br>  <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-smiley_path">smiley_path</a></td>
+			<td>There is no dedicated smiley plugin in CKEditor 5. However, the <a href="#emoji">emoji</a> can be pasted into the rich-text editor as Unicode content. Also the <a href="../../features/text-transformation.html">Automatic text transformation feature</a> may be configured to deliver Unicode emojis with shortcodes.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-sourceAreaTabSize">sourceAreaTabSize</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-specialChars">specialChars</a></td>
+			<td>Refer to the <a href="../../features/special-characters.html">Special characters feature</a> guide to learn more about support inserting special characters in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-startupFocus">startupFocus</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-startupMode">startupMode</a></td>
+			<td>N/A. View source feature is not planned, see <a href="https://github.com/ckeditor/ckeditor5/issues/592" target="_blank" rel="noopener">the relevant GitHub issue</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-startupOutlineBlocks">startupOutlineBlocks</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-startupShowBorders">startupShowBorders</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-stylesSet">stylesSet</a></td>
+			<td>Not available yet. Refer to the <a href="https://github.com/ckeditor/ckeditor5/issues/5700" target="_blank" rel="noopener">relevant GitHub issue</a>.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-stylesheetParser_skipSelectors">stylesheetParser_skipSelectors</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-stylesheetParser_validSelectors">stylesheetParser_validSelectors</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-tabIndex">tabIndex</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-tabSpaces">tabSpaces</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-templates">templates</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-templates_files">templates_files</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-templates_replaceContent">templates_replaceContent</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-title">title</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-toolbar">toolbar</a></td>
+			<td>
+				<p>See <a href="../../api/module_core_editor_editorconfig-EditorConfig.html#member-toolbar"><code>config.toolbar</code></a>. Refer to the <a href="../../features/toolbar/toolbar.html">toolbar guide</a> to learn more about managing toolbar in CKEditor 5.</p>
+				<p>See also <a href="../../api/module_core_editor_editorconfig-EditorConfig.html#member-balloonToolbar"><code>config.balloonToolbar</code></a> to define the toolbar of a balloon editor and the <a href="../../features/toolbar/blocktoolbar.html">block toolbar</a> feature.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-toolbarCanCollapse">toolbarCanCollapse</a></td>
+			<td>N/A. The toolbar cannot be collapsed manually by the user. For distraction-free editing with the toolbar appearing when you need it, use <a href="../../examples/builds/inline-editor.html">inline</a>, <a href="../../examples/builds/balloon-editor.html">balloon</a> or <a href="../../examples/builds/balloon-block-editor.html">balloon block</a> editor.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-toolbarGroupCycling">toolbarGroupCycling</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-toolbarGroups">toolbarGroups</a></td>
+			<td>N/A. <a href="../../api/module_core_editor_editorconfig-EditorConfig.html#member-toolbar">The toolbar buttons can be grouped</a> by using <code>&apos;|&apos;</code> as a separator or divided into multiple lines by using <code>&apos;-&apos;</code>. Refer to the <a href="../../features/toolbar/toolbar.html">toolbar guide</a> to learn more about managing toolbar items behavior in CKEditor 5.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-toolbarLocation">toolbarLocation</a></td>
+			<td>N/A. Can be achieved by using the <a href="../../api/module_editor-decoupled_decouplededitor-DecoupledEditor.html">decoupled editor</a> or writing an editor with a customized UI view.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-toolbarStartupExpanded">toolbarStartupExpanded</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-uiColor">uiColor</a></td>
+			<td>CKEditor 5 comes with a concept of much more powerful themes, where almost every aspect of the UI can be styled easily. See the <a href="../../framework/guides/deep-dive/ui/theme-customization.html">Theme customization guide</a> and <a href="../../examples/framework/theme-customization.html">Theme customization example</a>. Thanks to <a href="../../framework/guides/deep-dive/ui/theme-customization.html#customization-with-css-variables">CSS variables</a> rebuilding the editor is not needed to change its styles.</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-undoStackSize">undoStackSize</a></td>
+			<td>See <a href="../../api/module_typing_typing-TypingConfig.html#member-undoStep"><code>config.typing.undoStep</code></a>.</td>
+		</tr>
+		<tr>
+			<td><span id="uploadUrl"><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-uploadUrl">uploadUrl</a></span></td>
+			<td>
+				<p>There are several image upload strategies supported by CKEditor 5. Check out the <a href="../../features/images/image-upload/image-upload.html">comprehensive &quot;Image upload&quot; guide</a> to learn more.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-useComputedState">useComputedState</a></td>
+			<td>N/A</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-width">width</a></td>
+			<td>
+				<p>Classic editor (CKEditor 5) no longer encapsulates the editing area in an <code>&lt;iframe&gt;</code>, which means that the height (and similar options) of the editing area can be easily controlled with CSS. For instance, to set the width of any of the editor types, use <code>.ck-editor__editable_inline { width:400px; }</code>.</p>
+				<p>In order to set the width dynamically (from JavaScript) use the view writer:</p>
+				<pre><code>editor.editing.view.change( writer =&gt; {
+    writer.setStyle( &apos;width&apos;, &apos;400px&apos;, editor.editing.view.document.getRoot() );
+} );</code></pre>
+				<p>See also <a href="https://stackoverflow.com/questions/46559354/how-to-set-the-height-of-ckeditor-5-classic-editor" target="_blank" rel="noopener">How to set the height of CKEditor 5 (Classic editor)</a>.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-wsc_cmd">wsc_cmd</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-wsc_customDictionaryIds">wsc_customDictionaryIds</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-wsc_customLoaderScript">wsc_customLoaderScript</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-wsc_customerId">wsc_customerId</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-wsc_height">wsc_height</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-wsc_lang">wsc_lang</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-wsc_left">wsc_left</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-wsc_top">wsc_top</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-wsc_userDictionaryName">wsc_userDictionaryName</a> <br> <a href="/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-wsc_width">wsc_width</a></td>
+			<td>The spell and grammar checking functionality for CKEditor 5 is provided by a partner solution, <a href="../../features/spelling-and-grammar-checking.html">WProofreader</a>.</td>
+		</tr>
+	</tbody>
+</table>
+<p>If you are missing any particular features or settings, feel free to <a href="../../support/reporting-issues.html#reporting-issues-2">report an issue</a>. Search the <a href="https://github.com/ckeditor/ckeditor5/issues" target="_blank" rel="noopener">issues section in the repository</a> first, as the feature you are after may have already been reported &#x2014; you can support it by upvoting the issue with &#xA0;&#x1F44D;&#xA0;. Please be as precise as possible, explaining the exact use case, the context where the editor is used, and the expected behavior.</p>
+<div class="info-box notice notice__hint"><p><strong>What&#x2019;s next?</strong></p><p>You should now have the basic knowledge about differences between CKEditor 4 and CKEditor 5. Feel free to explore our <a href="../../features/index.html">features page</a> to compare the available plugins to your needs.</p><p>It&#x2019;s time to move to the last article in the <strong>Getting started</strong> path. <a href="maintenance.html">See you there</a>!</p></div>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22installation%2Fgetting-started%2Fmigration-from-ckeditor-4.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="configuration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                        </div></a></li>
+                                    <li><a href="installing-plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                        </div></a></li>
+                                    <li><a href="basic-api.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="frameworks/overview.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="frameworks/angular.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                                  </div></a></li>
+                                              <li><a href="frameworks/react.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                                  </div></a></li>
+                                              <li><a href="frameworks/vuejs-v2.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                                  </div></a></li>
+                                              <li><a href="frameworks/vuejs-v3.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                                  </div></a></li>
+                                              <li><a href="frameworks/css.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="maintenance.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../advanced/using-two-editors.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                        </div></a></li>
+                                    <li><a href="../advanced/saving-data.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                        </div></a></li>
+                                    <li><a href="../advanced/content-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                        </div></a></li>
+                                    <li><a href="../advanced/csp.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                        </div></a></li>
+                                    <li><a href="../advanced/plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                        </div></a></li>
+                                    <li><a href="../advanced/features-html-output-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../advanced/alternative-setups/integrating-from-source.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                                  </div></a></li>
+                                              <li><a href="../advanced/alternative-setups/dll-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                                  </div></a></li>
+                                              <li><a href="../advanced/alternative-setups/dll-builds-collaboration-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                                  </div></a></li>
+                                              <li><a href="../advanced/alternative-setups/predefined-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'installation' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'installation' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'installation' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'installation' ] );tags.forEach( function( tag ) {if ( tag !== 'installation' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../assets/snippet.js"></script>
+    <script src="../../snippets/assets.js"></script>
+    <script src="../../snippets/installation/plugins-mapping/plugins-mapping/snippet.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

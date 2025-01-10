@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Integration with Export to PDF/Word - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:46 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Integration with Export to PDF/Word - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/features/pagination/pagination-integration.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Integration with Export to PDF/Word - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/features/pagination/pagination-integration.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../snippets/features/pagination-integration/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../installation/index.html">Installation</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a href="../../updating/index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../index.html">Features</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../autoformat.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="../text-transformation.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="../basic-styles.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="../indent.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="../block-quote.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="../code-blocks.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../collaboration/collaboration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../collaboration/comments/comments.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/comments/comments-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/comments/comments-only-mode.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/comments/comments-outside-editor.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../collaboration/track-changes/track-changes.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/track-changes/track-changes-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/track-changes/track-changes-custom-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/track-changes/track-changes-data.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../collaboration/real-time-collaboration/real-time-collaboration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/real-time-collaboration/real-time-collaboration-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/real-time-collaboration/users-in-real-time-collaboration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../collaboration/users.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                      </div></a></li>
+                                  <li><a href="../collaboration/context-and-collaboration-features.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../collaboration/annotations/annotations.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/annotations/annotations-display-mode.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/annotations/annotations-custom-configuration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/annotations/annotations-custom-theme.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/annotations/annotations-custom-template.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                              </div></a></li>
+                                          <li><a href="../collaboration/annotations/annotations-custom-view.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../minimap.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li><a href="../title.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="../editor-placeholder.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li><a href="../export-pdf.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../export-word.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../find-and-replace.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="../font.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font</span>
+                              </div></a></li>
+                          <li><a href="../general-html-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                              </div></a></li>
+                          <li><a href="../headings.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="../highlight.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="../horizontal-line.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li><a href="../html-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../images/images-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../images/images-installation.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                      </div></a></li>
+                                  <li><a href="../images/images-text-alternative.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                      </div></a></li>
+                                  <li><a href="../images/images-captions.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                      </div></a></li>
+                                  <li><a href="../images/images-resizing.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                      </div></a></li>
+                                  <li><a href="../images/images-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                      </div></a></li>
+                                  <li><a href="../images/images-linking.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../images/image-upload/image-upload.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../images/image-upload/easy-image.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Easy Image</span>
+                                              </div></a></li>
+                                          <li><a href="../images/image-upload/ckfinder.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder file manager</span>
+                                              </div></a></li>
+                                          <li><a href="../images/image-upload/base64-upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../images/image-upload/simple-upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../images/image-upload/images-inserting.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../keyboard-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Keyboard support</span>
+                              </div></a></li>
+                          <li><a href="../link.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../lists/lists.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                      </div></a></li>
+                                  <li><a href="../lists/todo-lists.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../markdown.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="../math-equations.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../media-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="../mentions.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="../page-break.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="pagination.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../pasting/paste-from-word.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Word</span>
+                                      </div></a></li>
+                                  <li><a href="../pasting/paste-from-google-docs.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                      </div></a></li>
+                                  <li><a href="../pasting/paste-plain-text.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                      </div></a></li>
+                                  <li><a href="../pasting/drag-drop.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../read-only.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="../remove-format.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="../restricted-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../revision-history/revision-history.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../revision-history/revision-history-integration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../select-all.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="../source-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="../special-characters.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="../spelling-and-grammar-checking.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spelling and grammar checking</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../table.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Tables</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="../text-alignment.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="../language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Toolbar</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../toolbar/toolbar.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbar</span>
+                                      </div></a></li>
+                                  <li><a href="../toolbar/blocktoolbar.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block toolbar</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../ui-language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                              </div></a></li>
+                          <li><a href="../watchdog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="../word-count.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted main__content--no-toc">
+        <div class="main__content-inner">
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Features</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../assets/2.1.3/img/book.svg" alt="guide">Integration with Export to PDF/Word
+          </h1><p>This guide is meant to be a point of reference for anyone integrating the <code><a href="pagination.html">Pagination</a></code>, <code><a href="../export-pdf.html">Export to PDF</a></code> and <code><a href="../export-word.html">Export to Word</a></code> features together. It describes the whole process from creating a custom editor and configuring it, up to the point of having a working solution.</p>
+<p>We strongly advise you to get familiar with all three mentioned plugins&#x2019; user guides before reading this guide.</p>
+<h2 id="before-you-start"><a class="headerlink" href="#before-you-start">#</a> Before you start</h2>
+<div class="info-box notice"><p>Pagination, Export to PDF and Export to Word are premium features. Please <a href="https://ckeditor.com/contact/">contact us</a> if you would like to purchase a license. Let us know if you have any feedback or questions!</p><p>You can also sign up for the <a href="https://orders.ckeditor.com/trial/premium-features" target="_blank" rel="noopener">CKEditor Premium Features 30-day free trial</a>.</p></div>
+<h3 id="accessing-authorization-data"><a class="headerlink" href="#accessing-authorization-data">#</a> Accessing authorization data</h3>
+<p>Assuming you have signed up for the <a href="https://orders.ckeditor.com/trial/premium-features" target="_blank" rel="noopener">CKEditor Premium Features 30-day free trial</a> or you already are a licensed user, you now need to get the authorization data from the <a href="https://dashboard.ckeditor.com/login" target="_blank" rel="noopener">CKEditor Ecosystem Dashboard</a>.</p>
+<p>To use the pagination feature you will need a license key to enable it in the editor. If this feature is used without it, the editor will initialize in a read-only mode, which prevents user from editing any content. Log in to your CKEditor Ecosystem Dashboard account and <a href="https://ckeditor.com/docs/trial/latest/guides/pagination/quick-start.html#account-dashboard">follow the guide on getting the license key</a>.</p>
+<p>For the export plugins you will need is a special <a href="https://ckeditor.com/docs/cs/latest/guides/security/token-endpoint.html">token endpoint</a>. In order to get it, log into your CKEditor Ecosystem Dashboard account and <a href="https://ckeditor.com/docs/trial/latest/guides/export-to-pdf/quick-start.html#account-dashboard">follow the guide on creating token URL</a>. When export features are used without this token, all generated documents will contain a watermark at the bottom of every page.</p>
+<p>After you have successfully obtained all the credentials needed, let&#x2019;s create a custom editor and configure it.</p>
+<h3 id="creating-a-custom-editor"><a class="headerlink" href="#creating-a-custom-editor">#</a> Creating a custom editor</h3>
+<p>For the purpose of this guide, we will create a simple editor from scratch. We will base the whole process on the <a href="../../framework/guides/quick-start.html">quick start</a> guide, but we will use a decoupled editor instead of classic. This guide assumes that you are familiar with npm and your project uses npm already.</p>
+<p>First, install the packages needed to build CKEditor 5:</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    postcss-loader@3 \
+    raw-loader@3 \
+    style-loader@1 \
+    webpack@4 \
+    webpack-cli@3
+</code></pre>
+<p>Next, create <code>webpack.config.js</code> file with the following content:</p>
+<pre class="highlight"><code class="js">// webpack.config.js
+
+&apos;use strict&apos;;
+
+const path = require( &apos;path&apos; );
+const { styles } = require( &apos;@ckeditor/ckeditor5-dev-utils&apos; );
+
+module.exports = {
+    // https://webpack.js.org/configuration/entry-context/
+    entry: &apos;./app.js&apos;,
+
+    // https://webpack.js.org/configuration/output/
+    output: {
+        path: path.resolve( __dirname, &apos;dist&apos; ),
+        filename: &apos;bundle.js&apos;
+    },
+
+    module: {
+        rules: [
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+
+                use: [ &apos;raw-loader&apos; ]
+            },
+            {
+                test: /\.css$/,
+
+                use: [
+                    {
+                        loader: &apos;style-loader&apos;,
+                        options: {
+                            injectType: &apos;singletonStyleTag&apos;,
+                            attributes: {
+                                &apos;data-cke&apos;: true
+                            }
+                        }
+                    },
+                    {
+                        loader: &apos;postcss-loader&apos;,
+                        options: styles.getPostCssConfig( {
+                            themeImporter: {
+                                themePath: require.resolve( &apos;@ckeditor/ckeditor5-theme-lark&apos; )
+                            },
+                            minify: true
+                        } )
+                    }
+                ]
+            }
+        ]
+    },
+
+    // Useful for debugging.
+    devtool: &apos;source-map&apos;,
+
+    // By default webpack logs warnings if the bundle is bigger than 200kb.
+    performance: { hints: false }
+};
+</code></pre>
+<p>Now let&#x2019;s install all packages needed to actually create an editor:</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    @ckeditor/ckeditor5-dev-utils \
+    @ckeditor/ckeditor5-editor-decoupled \
+    @ckeditor/ckeditor5-essentials \
+    @ckeditor/ckeditor5-paragraph \
+    @ckeditor/ckeditor5-basic-styles \
+    @ckeditor/ckeditor5-theme-lark
+</code></pre>
+<p>With all the packages installed and the Webpack config taken care of, we can now proceed with creating our basic editor.</p>
+<p>Create two files, first <code>app.js</code> file:</p>
+<pre class="highlight"><code class="js">// app.js
+
+import DecoupledEditor from &apos;@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+
+DecoupledEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Essentials, Paragraph, Bold, Italic ],
+        toolbar: [ &apos;bold&apos;, &apos;italic&apos; ]
+    } )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+
+        const toolbarContainer = document.querySelector( &apos;#toolbar-container&apos; );
+        toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+    } )
+    .catch( error =&gt; {
+        console.error( error.stack );
+    } );
+</code></pre>
+<p>And <code>index.html</code> file:</p>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Pagination - integration with Export to PDF/Word&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;document-container&quot;&gt;
+            &lt;div id=&quot;toolbar-container&quot;&gt;&lt;/div&gt;
+
+            &lt;div class=&quot;editor-container&quot;&gt;
+                &lt;div id=&quot;editor&quot;&gt;
+                    &lt;p&gt;This is the initial editor content.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>The final step for this part of the guide is building the editor with the following command:</p>
+<pre class="highlight"><code class="bash">./node_modules/.bin/webpack --mode development
+</code></pre>
+<p>However, it will be more handy to add an npm script inside the <code>package.json</code> file:</p>
+<pre class="highlight"><code class="json">&quot;scripts&quot;: {
+    &quot;build&quot;: &quot;./node_modules/.bin/webpack --mode development&quot;
+}
+</code></pre>
+<p>This way every time you will need to rebuild the editor, you can just run:</p>
+<pre class="highlight"><code class="bash">npm run build
+</code></pre>
+<p>After the build process is complete, you can open the <code>index.html</code> file (preferably using some simple server, like, for example <a href="https://www.npmjs.com/package/http-server" target="_blank" rel="noopener">http-server</a>).</p>
+<p>Now the editor is up and running, however it is very basic. In the next section we will add more plugins and see how to configure them properly.</p>
+<h2 id="configuration"><a class="headerlink" href="#configuration">#</a> Configuration</h2>
+<h3 id="installing-additional-plugins"><a class="headerlink" href="#installing-additional-plugins">#</a> Installing additional plugins</h3>
+<p>Now it is time to install the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-pagination" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-pagination</code></a>, <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-export-pdf" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-export-pdf</code></a> and <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-export-word" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-export-word</code></a> packages using <code>npm</code>. To use the full potential of the pagination plugin, we will also add the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-page-break" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-page-break</code></a> feature.</p>
+<p>Apart from the plugins listed above, let&#x2019;s add a few more and make our custom editor more versatile and rich:</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    @ckeditor/ckeditor5-pagination \
+    @ckeditor/ckeditor5-page-break \
+    @ckeditor/ckeditor5-export-pdf \
+    @ckeditor/ckeditor5-export-word \
+    @ckeditor/ckeditor5-cloud-services \
+    @ckeditor/ckeditor5-list \
+    @ckeditor/ckeditor5-heading \
+    @ckeditor/ckeditor5-table \
+    @ckeditor/ckeditor5-font \
+    @ckeditor/ckeditor5-block-quote
+</code></pre>
+<div class="info-box notice notice__info"><p>Read more about this in the <a href="../../installation/getting-started/installing-plugins.html">installing plugins</a> guide.</p></div>
+<p>Let&#x2019;s update <code>app.js</code>, which should now look like this:</p>
+<pre class="highlight"><code class="js">// app.js
+
+import DecoupledEditor from &apos;@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+
+import Heading from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import BlockQuote from &apos;@ckeditor/ckeditor5-block-quote/src/blockquote&apos;;
+import Font from &apos;@ckeditor/ckeditor5-font/src/font&apos;;
+import List from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import Table from &apos;@ckeditor/ckeditor5-table/src/table&apos;;
+import TableProperties from &apos;@ckeditor/ckeditor5-table/src/tableproperties&apos;;
+import TableCellProperties from &apos;@ckeditor/ckeditor5-table/src/tablecellproperties&apos;;
+import TableToolbar from &apos;@ckeditor/ckeditor5-table/src/tabletoolbar&apos;;
+import Pagination from &apos;@ckeditor/ckeditor5-pagination/src/pagination&apos;;
+import PageBreak from &apos;@ckeditor/ckeditor5-page-break/src/pagebreak&apos;;
+import ExportPdf from &apos;@ckeditor/ckeditor5-export-pdf/src/exportpdf&apos;;
+import ExportWord from &apos;@ckeditor/ckeditor5-export-word/src/exportword&apos;;
+import CloudServices from &apos;@ckeditor/ckeditor5-cloud-services/src/cloudservices&apos;;
+
+DecoupledEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [
+            Essentials, Paragraph, Bold, Heading, Italic, Font,
+            BlockQuote, List, Table, TableProperties, TableCellProperties, TableToolbar, PageBreak,
+            Pagination, ExportPdf, ExportWord, CloudServices
+        ],
+        toolbar: [
+            &apos;exportPdf&apos;,
+            &apos;exportWord&apos;,
+            &apos;|&apos;,
+            &apos;previousPage&apos;,
+            &apos;nextPage&apos;,
+            &apos;pageNavigation&apos;,
+            &apos;pageBreak&apos;,
+            &apos;|&apos;,
+            &apos;heading&apos;,
+            &apos;|&apos;,
+            &apos;bold&apos;,
+            &apos;italic&apos;,
+            &apos;|&apos;,
+            &apos;fontSize&apos;,
+            &apos;fontFamily&apos;,
+            &apos;fontColor&apos;,
+            &apos;fontBackgroundColor&apos;,
+            &apos;|&apos;,
+            &apos;blockQuote&apos;,
+            &apos;bulletedList&apos;,
+            &apos;numberedList&apos;,
+            &apos;insertTable&apos;
+        ],
+        table: {
+            contentToolbar: [ &apos;tableColumn&apos;, &apos;tableRow&apos;, &apos;mergeTableCells&apos; ]
+        }
+    } )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+
+        const toolbarContainer = document.querySelector( &apos;#toolbar-container&apos; );
+        toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+    } )
+    .catch( error =&gt; {
+        console.error( error.stack );
+    } );
+</code></pre>
+<h3 id="adding-proper-configuration"><a class="headerlink" href="#adding-proper-configuration">#</a> Adding proper configuration</h3>
+<p>Pagination configuration has to be in sync with the configuration of the exports plugins. All three configs need to have the same margin values and page format set. This is due to the handling of default editor styles which we will mention later. For the purpose of this guide, we will use A4 format but of course you can use other paper sizes as well.</p>
+<p>You will also need to provide a license key for the pagination feature and also the Cloud Services configuration for the exports plugins (which you obtained in <a href="#accessing-authorization-data">step one</a>).</p>
+<div class="info-box notice notice__info"><p>This guide assumes that we do not use any other plugin that needs a <code>cloudServices</code> configuration. If we used, for example, real-time collaboration or the EasyImage plugin, we would have to provide all three values, which are: <code>tokenUrl</code>, <code>webSocketUrl</code> and <code>uploadUrl</code>.</p></div>
+<p>After the <code>table</code> configuration add:</p>
+<pre class="highlight"><code class="js">// ...
+cloudServices: {
+    // Provide correct value here. You can find it in the CKEditor Dashboard:
+    // https://dashboard.ckeditor.com/login
+    tokenUrl: &apos;https://example.com/cs-token-endpoint&apos;
+},
+pagination: {
+    // Page width and height correspond to A4 format
+    pageWidth: &apos;21cm&apos;,
+    pageHeight: &apos;29.7cm&apos;,
+
+    pageMargins: {
+        top: &apos;20mm&apos;,
+        bottom: &apos;20mm&apos;,
+        right: &apos;12mm&apos;,
+        left: &apos;12mm&apos;
+    }
+},
+exportPdf: {
+    stylesheets: [
+        &apos;EDITOR_STYLES&apos;
+    ],
+    fileName: &apos;my-sample-file.pdf&apos;,
+    converterOptions: {
+        format: &apos;A4&apos;,
+        margin_top: &apos;20mm&apos;,
+        margin_bottom: &apos;20mm&apos;,
+        margin_right: &apos;12mm&apos;,
+        margin_left: &apos;12mm&apos;,
+        page_orientation: &apos;portrait&apos;
+    }
+},
+exportWord: {
+    stylesheets: [
+        &apos;EDITOR_STYLES&apos;
+    ],
+    fileName: &apos;my-sample-file.docx&apos;,
+    converterOptions: {
+        format: &apos;A4&apos;,
+        margin_top: &apos;20mm&apos;,
+        margin_bottom: &apos;20mm&apos;,
+        margin_right: &apos;12mm&apos;,
+        margin_left: &apos;12mm&apos;
+    }
+},
+licenseKey: &apos;your-license-key&apos;,
+// ...
+</code></pre>
+<h3 id="styling-the-editor"><a class="headerlink" href="#styling-the-editor">#</a> Styling the editor</h3>
+<p>When using the <a href="../../api/module_editor-decoupled_decouplededitor-DecoupledEditor.html">decoupled editor (document editor)</a>, you need to make sure that the editor styles match precisely the configuration options that you provided to the feature and to the <a href="../export-pdf.html#configuration">export to PDF</a> or <a href="../export-word.html#configuration">export to Word</a> features. Additionally, we just want the editor to look good.</p>
+<p>To address this issue, let&#x2019;s create a new <code>styles.css</code> file the following declarations:</p>
+<pre class="highlight"><code class="css">/* Editor styles */
+.document-container {
+    width: 1000px;
+    margin: auto;
+    background-color: rgb(238, 238, 238);
+}
+.editor-container {
+    border: 1px solid hsl( 0, 0%, 80% );
+    max-height: calc( 100vh - 100px );
+    overflow: auto;
+}
+.ck.ck-editor__editable_inline {
+    /*
+        A4 size.
+        Expand the width by 2px because of the border and &quot;box-sizing: border-box&quot;.
+    */
+    width: calc( 210mm + 2px );
+    height: auto;
+    padding: 20mm 12mm;
+    box-sizing: border-box;
+    border: 1px solid hsl( 0, 0%, 88% );
+    background: hsl( 0, 0%, 100% );
+    box-shadow: 0 2px 8px hsla( 0, 0%, 0%, .08 );
+    margin: 40px auto;
+}
+</code></pre>
+<h3 id="styling-the-content"><a class="headerlink" href="#styling-the-content">#</a> Styling the content</h3>
+<p>Apart from styling the editor&#x2019;s editable element, there are also styles that control how the content inside the editor looks. When using the pagination feature together with export to PDF and export to Word, you need to make sure that these styles are sent to the converters (which means they will be actually applied to the content when generating the document) and that they do not create a discrepancy between the pagination lines in the editor and page breaks in the generated document.</p>
+<p>Currently, our exports and pagination features use only <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_export-pdf_exportpdf-ExportPdfConfig.html#member-stylesheets">default editor styles</a>, which in case of PDF/Word export configs are defined as:</p>
+<pre class="highlight"><code class="js">// ...
+exportPdf: {
+    stylesheets: [
+        &apos;EDITOR_STYLES&apos;
+    ],
+    ...
+...
+exportWord: {
+    stylesheets: [
+        &apos;EDITOR_STYLES&apos;
+    ],
+    ...
+// ...
+</code></pre>
+<p>This means that only the default CKEditor styles are sent to the converter when generating the PDF/Word document. This default configuration might be enough in some simple scenarios, but more often than not it will need some adjustments (depending on the content that you create and the environment in which you use the editor).</p>
+<p>We will now add a few <a href="#styling-the-content">declarations, that are specific to the pagination plugin</a> and also adjust the line height:</p>
+<pre class="highlight"><code class="css">/* Content styles */
+@media print {
+    body {
+        margin: 0 !important;
+    }
+}
+.ck-content * {
+    line-height: 1.6;
+}
+.ck-content .table thead {
+    display: table-row-group;
+}
+.ck-content .table tr {
+    break-inside: avoid;
+    break-after: auto;
+}
+</code></pre>
+<p>To send the file with custom styles to the converter, update the PDF/Word export configurations like this:</p>
+<pre class="highlight"><code class="js">// ...
+exportPdf: {
+    stylesheets: [
+        &apos;EDITOR_STYLES&apos;,
+        &apos;./styles.css&apos;
+    ],
+    ...
+...
+exportWord: {
+    stylesheets: [
+        &apos;EDITOR_STYLES&apos;,
+        &apos;./styles.css&apos;
+    ],
+    ...
+// ...
+</code></pre>
+<p>And also do not forget to import the CSS file inside <code>app.js</code>:</p>
+<pre class="highlight"><code class="js">// ...
+import &apos;./styles.css&apos;;
+
+DecoupledEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+// ...
+</code></pre>
+<p>After updating the configuration and adding styles, rebuild the editor again:</p>
+<pre class="highlight"><code class="bash">npm run build
+</code></pre>
+<p>You can read more about sending styles to the server in the <a href="pagination.html#troubleshooting">troubleshooting section</a> of Pagination overview.</p>
+<h3 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h3>
+<p>Presented below is a sample editor with the <code><a href="pagination.html">pagination</a></code>, <code><a href="../export-pdf.html">export to PDF</a></code> and <code><a href="../export-word.html">export to Word</a></code> features enabled (keep in mind, however, that this demo might be slightly different than the editor you just built because of the fonts and other styling, that is specific to the whole documentation page):</p>
+<div class="live-snippet"><div class="document-container">
+	<div id="toolbar-container" class="toolbar-container"></div>
+	<div class="editor-container">
+		<div id="editor" class="test-editor">
+			<h2>APPENDIX C&nbsp;</h2>
+				<h3>Sample Request for Proposal Language for QBE Contract Goals for Invest-Build&nbsp;</h3>
+				<h4><span style="color:#666666;">(Department of Purchasing Invest-Build Project from 2019)&nbsp;</span></h4>
+				<p>QUALIFIED BUSINESS ENTERPRISE (2-1-19) SP P32&nbsp;</p>
+				<h3>Description&nbsp;</h3>
+				<p>The purpose of this Special Provision is to carry out the Department of Purchasing's policy of ensuring nondiscrimination
+					in the award and administration of contracts financed in whole or in part with Federal funds. This provision is guided
+					by 54 CFR Part 3.&nbsp;</p>
+				<div class="page-break" style="page-break-after:always;"><span style="display:none;">&nbsp;</span></div>
+				<h4>Definitions&nbsp;</h4>
+				<figure class="table">
+					<table>
+						<tbody>
+						<tr>
+							<td style="vertical-align:top;"><strong>Additional QBE Subcontractors</strong></td>
+							<td style="vertical-align:top;">Any QBE submitted at the time of bid that will not be used to meet the QBE goal.
+								No submittal of a Letter of Intent is required
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;width:10em;"><strong>Committed QBE Subcontractor</strong></td>
+							<td style="vertical-align:top;">Any QBE submitted at the time of bid that is being used to meet the QBE goal by
+								submission of a Letter of Intent. Or any QBE used a replacement for a previously committed QBE firm.
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>Contract Goal Requirement</strong></td>
+							<td style="vertical-align:top;">The approved QBE participation at time of award, but not greater than the
+								advertised contract goal.
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>QBE Goal&nbsp;</strong></td>
+							<td style="vertical-align:top;">A portion of the total contract, expressed as a percentage, that is to be
+								performed by a committed QBE subcontractor(s).
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>Qualified Business Enterprise (QBE)</strong></td>
+							<td style="vertical-align:top;">A firm certified as a Qualified Business Enterprise through the Unified
+								Certification Program.
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>Goal Confirmation Letter</strong></td>
+							<td style="vertical-align:top;">Written documentation from the Department to the Proposer confirming the
+								invest-build team's approved, committed QBE participation along with a listing of the committed QBE firms.
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>Manufacturer</strong></td>
+							<td style="vertical-align:top;">A firm that operates or maintains a factory or establishment that produces, on
+								the premises, the materials or supplies obtained by the invest-build team.
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>Regular Dealer</strong></td>
+							<td style="vertical-align:top;">A firm that owns, operates, or maintains a store, warehouse, or other
+								establishment in which the materials or supplies required for the performance of the contract are bought,
+								kept in stock, and regularly sold to the public in the usual course of business
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>Unified Certification Program (UCP)</strong></td>
+							<td style="vertical-align:top;">A program that provides comprehensive services and information to applicants for
+								QBE certification, such that an applicant is required to apply only once for a QBE certification.The
+								Certification Program is in accordance with 54 CFR Part 3.
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>CapitalBC Department of Purchasing&nbsp;</strong></td>
+							<td style="vertical-align:top;">Department&nbsp; responsible for issuing regulations (54 CFR Part 3) and
+								official guidance for the QBE program.
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</figure>
+				<div class="page-break" style="page-break-after:always;"><span style="display:none;">&nbsp;</span></div>
+				<h4>Forms and Websites Referenced In this Provision&nbsp;</h4>
+				<figure class="table">
+					<table>
+						<tbody>
+						<tr>
+							<td style="vertical-align:top;width:10em;"><strong>QBE Payment Tracking System</strong></td>
+							<td style="vertical-align:top;">Online system in which the invest-build team enters the payments made to QBE
+								subcontractors who have performed work on the project.
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>RF-1 QBE Replacement Request Form</strong></td>
+							<td style="vertical-align:top;">Form for replacing a committed QBE.&nbsp;</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>SAF Subcontract Approval Form</strong></td>
+							<td style="vertical-align:top;">Form required for approval to sublet the contract.&nbsp;</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>Joint Check Notification Form</strong></td>
+							<td style="vertical-align:top;">Form and procedures for joint check notification. The form acts as a written
+								joint &nbsp;check agreement among the parties, providing full and prompt disclosure of the expected use of joint
+								checks.
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>Letter of Intent</strong></td>
+							<td style="vertical-align:top;">Form signed by the contractor and the QBE subcontractor, manufacturer or regular
+								dealer that affirms that a portion of said contract is going to be performed by the signed QBE for the
+								amount listed at the time of bid.
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>Listing of QBE Subcontractors Form</strong></td>
+							<td style="vertical-align:top;">Form for entering QBE subcontractors on a project that will meet this QBE goal
+								contained elsewhere in this RFP.
+							</td>
+						</tr>
+						<tr>
+							<td style="vertical-align:top;"><strong>Subcontractor Quote Comparison Sheet</strong></td>
+							<td style="vertical-align:top;">Spreadsheet for showing all subcontractor quotes in the work areas where QBES
+								quoted on the project. This sheet is submitted with good faith effort packages.
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</figure>
+				<h3>QBE Goal&nbsp;</h3>
+				<p>The following QBE goal for participation by Qualified Business Enterprises is established for this contract:&nbsp;</p>
+				<p>Qualified Business Enterprises 11%</p>
+				<ul>
+					<li>If the QBE goal is more than zero, the invest-build team shall exercise all necessary and reasonable steps to ensure
+						that QBES participate in at least the percentage of the contract as set forth above as the QBE goal.
+					</li>
+					<li>If the QBE goal is zero, the invest-build team shall make an effort to recruit and use QBES during the performance
+						of the contract. Any QBE participation obtained shall be reported to the Department.
+					</li>
+				</ul>
+				<p>This goal is to be met through utilization of construction contractors and/or right-of-way acquisition firms. Utilization
+					of QBE firms performing design, other preconstruction services, or construction engineering and inspection are not
+					included in this goal.&nbsp;</p>
+				<h3>Directory of Firms (Directory)&nbsp;</h3>
+				<p>Real-time information is available about firms doing business with the department and firms that are certified through
+					UCP in the Directory of Firms. Only firms identified in the directory as QBE certified shall be used to meet the QBE
+					goal. The directory can be found at the following link: <a
+							href="https://partner.ncdot.gov/VendorDirectory/default.html">https://partner.capitalbc.com/VendorDirectory/default.html</a>.&nbsp;
+				</p>
+				<p>For the listing to be validated, the logo of the firm must be submitted to the directory. You can submit your logos 300
+					pixels to 500 pixels at 72PPI to <a href="mailto:QBE@capitalbc.com">QBE@capitalbc.com</a> with PNG format.&nbsp;</p>
+				<figure class="image"><img
+						src="https://c.cksource.com/a/1/img/docs/pagination-illustration.png"
+						alt="Logos must be 300 px to 500 px in PNG format.">
+					<figcaption>Logos must be 300 px to 500 px in PNG format.</figcaption>
+				</figure>
+				<p>The listing of an individual firm in the directory shall not be construed as an endorsement of the firm's capability to
+					perform certain work.</p><h4>Listing of QBE Subcontractors&nbsp;</h4>
+				<p>At the time of bid, proposers shall submit all QBE participation that they anticipate to use during the life of the
+					contract. Only those identified to meet the QBE goal will be considered committed, even though the listing shall include
+					both committed QBE subcontractors and additional QBE subcontractors. Additional QBE subcontractor participation
+					submitted at the time of bid will be used toward the department's overall race-neutral goal. Only those firms with
+					current QBE certification at the time of Price Proposal opening will be acceptable for listing in the proposer's
+					submittal of QBE participation. The invest-build team shall indicate the following required information:&nbsp;</p>
+				<ol>
+					<li><strong>If the QBE goal is more than zero</strong>,
+						<ol>
+							<li>Proposers, at the time the Price Proposal is submitted, shall submit a listing of QBE participation,
+								including the names and addresses on Listing of QBE Subcontractors contained elsewhere in the contract
+								documents in order for the Price Proposal to be considered responsive. Proposers shall indicate the total
+								dollar value of the QBE participation for the contract.
+							</li>
+							<li>If proposers have no QBE participation, they shall indicate this on the Listing of QBE Subcontractors by
+								entering the word &nbsp;"None" or the number "0." This form shall be completed in its entirety.
+							</li>
+							<li>The Proposer shall be responsible for ensuring that the QBE is certified at the time of bid by checking the
+								Directory of Firms. If the firm is not certified at the time of the opening of the Price Proposals, that
+								QBE's participation will not count toward achieving the QBE goal.
+							</li>
+						</ol>
+					</li>
+					<li><strong>If the QBE goal is zero</strong>, proposers, at the time the Price Proposal is submitted, shall enter the
+						word "None"; or the number "0"; or if there is participation, add the value on the Listing of QBE Subcontractors
+						contained elsewhere in the contract documents.
+					</li>
+				</ol>
+				<p><strong>Blank forms will not be deemed to represent zero participation.</strong> Price Proposals submitted that do not
+					have QBE participation indicated on the appropriate form will not be read publicly during the opening of the Price
+					Proposals. The Department will not consider these Price Proposals for award and the proposal will be rejected.&nbsp;</p>
+				<h4>QBE Prime Contractor&nbsp;</h4>
+				<p>When a certified QBE firm proposes a contract that contains a QBE goal, the QBE firm is responsible for meeting the goal
+					or making good faith efforts to meet the goal, just like any other proposer. In most cases, a QBE proposer on a contract
+					will meet the QBE goal by virtue of the work it performs on the contract with its own forces. However, all the work that
+					is performed by the QBE proposer and any other QBE subcontractors will count toward the QBE goal. The QBE proposer shall
+					list itself along with any QBE subcontractors, if any, in order to receive credit toward the QBE goal.&nbsp;</p>
+				<p>For example, if the QBE goal is 45% and the QBE proposer will only perform 40% of the contract work, the prime will list
+					itself at 40%, and the additional 5% shall be obtained through additional QBE participation with QBE subcontractors or
+					documented through a good faith effort.&nbsp;</p>
+				<p>QBE prime contractors shall also follow Sections A and B listed under<i> Listing of QBE Subcontractor</i> just as a
+					non-QBE proposer would.&nbsp;</p>
+				<h3>Written Documentation - Letter of Intent&nbsp;</h3>
+				<p>The proposer shall submit written documentation for each QBE that will be used to meet the QBE goal of the contract,
+					indicating the proposer's commitment to use the QBE in the contract. This documentation shall be submitted on the
+					department's form titled <i>Letter of Intent</i>.&nbsp;</p>
+				<p>The documentation shall be received in the office of the Contractor Utilization Engineer or at QBE@capitalbc.com no later
+					than 12:00 noon of the sixth calendar day following opening of Price Proposals, unless the sixth day falls on an
+					official state holiday. In that situation, it is due in the office of Contractor Utilization Engineer no later than
+					12:00 noon on the next official state business day.&nbsp;</p>
+				<p>If the proposer fails to submit the Letter of Intent from each committed QBE to be used toward the QBE goal, or if the
+					form is incomplete (i.e., both signatures are not present), the QBE participation will not count toward meeting the QBE
+					goal. If the lack of this participation drops the commitment below the QBE goal, the invest-&nbsp;build team shall submit
+					evidence of good faith efforts, completed in its entirety, to the Contractor Utilization Engineer or QBE@capitalbc.com
+					no later than 12:00 noon on the eighth calendar day following opening of the Price Proposals, unless the eighth day
+					falls on an official state holiday. In that situation, it is due in the office of the Contractor Utilization Engineer no
+					later than 12:00 noon on the next official state business day.&nbsp;</p><h4>Submission of Good Faith Effort&nbsp;</h4>
+				<p>If the Proposer fails to meet or exceed the QBE goal, the proposer with the apparent adjusted low price shall submit to
+					the department documentation of adequate good faith efforts made to reach the QBE goal.&nbsp;</p>
+				<p>A hard copy and an electronic copy of this information shall be received in the office of the Contractor Utilization
+					Engineer or at QBE@capitalbc.com no later than 12:00 noon of the sixth calendar day following opening of the Price
+					Proposals unless the sixth day falls on an official state holiday. In that situation, it is due in the office of the
+					Contractor Utilization Engineer the next official state business day. If the invest-build team cannot send the
+					information electronically, then one complete set and nine copies of this information shall be received under the same
+					time constraints.&nbsp;</p>
+				<p>Note: Where the information submitted includes repetitious solicitation letters, it will be acceptable to submit a
+					representative letter along with a distribution list of the firms that were solicited. Documentation of QBE quotations
+					shall be a part of the good faith effort submission. This documentation may include written subcontractor quotations,
+					telephone log notations of verbal quotations, or other types of quotation documentation.&nbsp;</p><h4>Consideration of
+				Good Faith Effort for Projects with QBE Goals More Than Zero&nbsp;</h4>
+				<p>Adequate good faith efforts mean that the proposer took all necessary and reasonable steps to achieve the goal which, by
+					their scope, intensity, and appropriateness, could reasonably be expected to obtain sufficient QBE participation.
+					Adequate good faith efforts also means that the proposer actively and aggressively sought QBE participation. Mere
+					proforma efforts are not considered good faith efforts.</p>
+				<p>The Department will consider the quality, quantity, and intensity of the different kinds of efforts a proposer has made.
+					Listed below are examples of the types of actions a proposer will take in making a good faith effort to&nbsp; meet the goal.
+					They are not intended to be exclusive or exhaustive, nor is the list intended to be a mandatory checklist.&nbsp;</p>
+				<ul>
+					<li>Soliciting through all reasonable and available means (e.g., attendance at pre-bid meetings, advertising and/or
+						written notices through the use of the Directory of Firms) the interest of all certified QBES who have the
+						capability to perform the work of the contract. The proposer must solicit this interest no less than 10 days prior
+						to the opening of the Price Proposals to allow the QBES to respond to the solicitation. Solicitation shall provide
+						the opportunity to QBES within the division and surrounding divisions where the project is located. The proposer
+						must determine with certainty if the QBES are interested by taking appropriate steps to follow up initial
+						solicitations.
+					</li>
+					<li>Selecting portions of the work to be performed by QBES in order to increase the likelihood that the QBE goals will
+						be achieved. This includes, where appropriate, breaking out contract work items into economically feasible units to
+						facilitate QBE participation, even when the prime contractor might otherwise prefer to perform these work items with
+						its own forces.
+					</li>
+					<li>Providing interested QBES with adequate information about the plans, specifications, and requirements of the
+						contract in a timely manner to assist them in responding to a solicitation.
+						<ul>
+							<li>Negotiating in good faith with interested QBES. It is the proposer's responsibility to make a portion of the
+								work available to QBE subcontractors and suppliers and to select those portions of the work or material
+								needs consistent with the available QBE subcontractors and suppliers, so as to facilitate QBE participation.
+								Evidence of such negotiation includes the names, addresses, and telephone numbers of QBES that were
+								considered; a description of the information provided regarding the plans and specifications for the work
+								selected for subcontracting; and evidence as to why additional agreements could not be reached for QBES to
+								perform the work.
+							</li>
+							<li>A proposer using good business judgment would consider a number of factors in negotiating with
+								subcontractors, including QBE subcontractors, and would take a firm's price and capabilities as well as
+								contract goals into consideration. However, the fact that there may be some additional costs involved in
+								finding and using QBES is not in itself sufficient reason for a proposer's failure to meet the contract QBE
+								goal, as long as such costs are reasonable. Also, the ability or desire of a prime contractor to perform the
+								work of a contract with its own organization does not relieve the proposer of the responsibility to make
+								good faith efforts. Proposing invest-build teams are not, however, required to accept higher quotes from
+								QBES if the price difference is excessive or unreasonable.
+							</li>
+						</ul>
+					</li>
+					<li>Not rejecting QBES as being unqualified without sound reasons based on a thorough investigation of their
+						capabilities. The proposer's standing within its industry; membership in specific groups, organizations, or
+						associations; and political or social affiliations (for example, union vs. non-union employee status) are not
+						legitimate causes for the rejection or non solicitation of bids in the proposer's efforts to meet the project goal.
+					</li>
+					<li>Making efforts to assist interested QBES in obtaining a recipient or proposer. bonding, lines of credit, or
+						insurance as required by the
+					</li>
+					<li>Making efforts to assist interested QBES in obtaining necessary equipment, supplies, materials, or related
+						assistance or services.
+					</li>
+					<li>Effectively using the services of available minority/women community organizations; minority/women contractors'
+						groups; Federal, State, and local minority/women business assistance offices; and other organizations as allowed on
+						a case-by-case basis to provide assistance in the recruitment and placement of QBES. Contact within 7 days from the
+						opening of the Price Proposals the Business Development Manager in the Business Opportunity and Work Force
+						Development Unit to give notification of the proposer's inability to get QBE quotes.
+					</li>
+					<li>Any other evidence that the proposer submits which shows that the proposer has made reasonable good faith efforts to
+						meet the QBE goal.
+					</li>
+				</ul>
+				<p>In addition, the Department may take into account the following:</p>
+				<ol>
+					<li>Whether the proposer's documentation reflects a clear and realistic plan for achieving the QBE goal.</li>
+					<li>The proposer's past performance in meeting the QBE goals.</li>
+					<li>The performance of other proposers in meeting the QBE goal. For example, when the proposer with the apparent
+						adjusted low price fails to meet the QBE goal, but others meet it, you may reasonably raise the question of whether,
+						with additional reasonable efforts, the proposer with the apparent adjusted low price could have met the goal. If
+						the proposer with the apparent adjusted low price fails to meet the QBE goal but meets or exceeds the average QBE
+						participation obtained by other proposers, the department may view this, in conjunction with other factors, as
+						evidence of the proposer with the apparent adjusted low price having made a good faith effort.
+					</li>
+				</ol>
+				<p>If the Department does not award the contract to the proposer with the apparent adjusted low price, the Department
+					reserves the right to award the contract to the proposer with the next adjusted lowest adjusted price that can satisfy
+					to the Department that the QBE goal can be met or that an adequate good faith effort has been made to meet the QBE goal.&nbsp;</p>
+				<h4>Non-Good Faith Appeal&nbsp;</h4>
+				<p>The Contractor Utilization Engineer will notify the invest-build team verbally and in writing of non-good faith. A
+					invest-build team may appeal a determination of non-good faith made by the Goal Compliance Committee. If an
+					investment-build team wishes to appeal the determination made by the Committee, they shall provide written notification
+					to the Contractual Services Engineer or at QBE@capitalbc.com. The appeal shall be made within 2 business days of
+					notification of the determination of non-good faith.&nbsp;</p><h4>Counting QBE Participation Toward Meeting QBE Goal&nbsp;</h4>
+				<h5><span style="color:#434343;">Participation</span></h5>
+				<p>The total dollar value of the participation by a committed QBE will be counted toward the contract goal requirement. The
+					total dollar value of participation by a committed QBE will be based upon the value of work actually performed by the
+					QBE and the actual payments to QBE firms by the invest-build team.</p><h5><span
+					style="color:#434343;">Joint Checks</span></h5>
+				<p>Prior notification of joint check use shall be required when counting QBE participation for services or purchases that
+					involves the use of a joint check. Notification shall be through submission of Joint Check Notification Form and the use
+					of joint checks shall be in accordance with the Department's Joint Check Procedures.&nbsp;</p><h5><span
+					style="color:#434343;">Subcontracts&nbsp;</span></h5>
+				<p>&nbsp;A QBE may enter into subcontracts. Work that a QBE subcontracts to another QBE firm may be counted toward the
+					contract goal requirement. Work that a QBE subcontracts to a requirement. If a QBE contractor or subcontractor
+					subcontracts a significantly greater portion of the work of the con- non-QBE firm does not count toward the contract
+					goal tract than would be expected on the basis of standard industry practices, it shall be presumed that the QBE is not
+					performing a commercially useful function. The QBE may present evidence to rebut this presumption to the department.&nbsp;</p>
+				<h5><span style="color:#434343;">Joint Venture</span></h5>
+				<p>When a QBE performs as a participant in a joint venture, the invest-build team may count toward its contract goal
+					requirement a portion of the total value of participation with the QBE in the joint venture, that portion of the total
+					dollar value being a distinct, clearly defined portion of work that the QBE performs with its forces.&nbsp;</p><h5><span
+					style="color:#434343;">Suppliers</span></h5>
+				<p>A invest-build team may count toward its QBE requirement 60% of its expenditures for materials and supplies required to
+					complete the contract and obtained from a QBE regular dealer and 100% of such expenditures from a QBE manufacturer.</p>
+				<h5><span style="color:#434343;">Manufacturers and Regular Dealers</span></h5>
+				<p>An invest-build team may count toward its contract goal requirement only expenditures to DBES that perform a com-
+					mercially useful function in the work of a contract.</p>
+				<ul>
+					<li>The fees or commissions charged by a QBE firm for providing a bona fide service, such as providing bonds or
+						insurance specifically required for the performance of a CapitalBC-assisted contract, provided the fees or
+						commissions are determined to be reasonable and not excessive compared with fees and commissions customarily allowed
+						for similar services.
+					</li>
+					<li>With respect to materials or supplies purchased from a QBE that is neither a manufacturer nor a regular dealer,
+						count the entire amount of fees or commissions charged for assistance in the procurement of the materials and
+						supplies, or fees or transportation charges for the delivery of materials or supplies required (but not the cost of
+						the materials and supplies themselves), provided the fees are determined to be reasonable and not excessive compared
+						with fees customarily allowed for similar services.
+					</li>
+				</ul>
+				<h3>Commercially Useful Function&nbsp;</h3><h4>QBE Utilization</h4>
+				<p>The invest-build team may count toward its contract goal requirement only expenditures to QBES that perform a com-
+					mercially useful function in the work of a contract. A QBE performs a commercially useful function when it is
+					responsible for execution of the work of the contract and is carrying out its responsibilities by actually performing,
+					managing, and supervising the work involved. To perform a commercially useful function, the QBE shall also be
+					responsible with respect to materials and supplies used on the contract, for negotiating price, determining quality and
+					quantity, ordering the material and installing (where applicable) and paying for the material itself. To determine
+					whether a QBE is performing a commercially useful function, the department will evaluate the amount of work
+					subcontracted, industry practices, whether the amount the firm is to be paid under the contract is commensurate with the
+					work it is actually performing and the QBE credit claimed for its performance of the work, and any other relevant
+					factors.&nbsp;</p><h4>QBE Partner Utilizations&nbsp;</h4>
+				<p>The following factors will be used to determine if a QBE partner firm is performing a commercially useful function.&nbsp;&nbsp;</p>
+				<ul>
+					<li>The QBE shall be responsible for the management and supervision of the entire partner operation for which it is
+						responsible on a particular contract, and there shall not be a contrived arrangement for the purpose of meeting QBE
+						goals.
+					</li>
+					<li>The QBE may subcontract the work to another QBE firm, including an owner-operator who is certified as a QBE. The QBE
+						who subcontracts work to another QBE receives credit for the total value of the services the subcontracted QBE
+						provides on the contract.
+					</li>
+					<li>The QBE may also subcontract the work to a non-QBE firm, including an owner-operator. The QBE who subcontracts the
+						work to a non-QBE is entitled to credit for the total value of services provided by the non-QBE subcontractor not to
+						exceed the contract. Additional participation by non-QBE subcontractors receives credit only for the fee or
+						commission it receives as a result of the subcontract arrangement. The value of services performed under subcontract
+						agreements between the QBE and the invest-build team will not count toward the QBE contract requirement.
+					</li>
+					<li>A QBE may lease equipment from an established equipment leasing business open to the general public. The lease must
+						indicate that the QBE has exclusive use of and control over the equipment. This requirement does not preclude the
+						leased equipment from working for others during the term of the lease with the consent of the QBE, so long as the
+						lease gives the QBE absolute priority for use of the leased equipment. This type of lease may count toward the QBE's
+						credit as long as the operator of the equipment is under the QBE's payroll.
+					</li>
+					<li>Subcontracted/leased equipment shall display clearly the name of the QBE that they are subcon- tracted/leased to and
+						their own company name if it is not identified on the equipment itself.
+					</li>
+				</ul>
+				<h4>A QBE Replacement&nbsp;</h4>
+				<p>When an invest-build team has relied on a commitment to a QBE firm (or an approved substitute QBE firm) to meet all or
+					part of a contract goal requirement, the invest-build team shall not terminate the QBE for convenience. This includes,
+					but is not limited to, instances in which the invest-build team seeks to perform the work of the terminated
+					subcontractor with another QBE subcontractor, a non-QBE subcontractor, or with the contractor's own forces or those of
+					an affiliate. A QBE may only be terminated after receiving the Engineer's written approval based upon a finding of good
+					cause for the termination.&nbsp;</p>
+				<p>All requests for replacement of a committed QBE firm shall be submitted to the Engineer for approval on Form RF-1 (QBE
+					Replacement Request). If the invest-build team fails to follow this procedure, the prime contractor or other affiliated
+					companies within the invest-build team may be disqualified from further bidding for a period of up to 6
+					months.&nbsp;</p>
+				<p>The invest-build team shall comply with the following for replacement of a committed QBE:&nbsp;</p><h4>
+				Performance-Related Replacement&nbsp;</h4>
+				<p>When a committed QBE is terminated for good cause as stated above, an additional QBE that was submitted at the time of
+					bid may be used to fulfill the QBE commitment. A good faith effort will only be required for removing a committed QBE if
+					there were no additional QBEs submitted at the time of bid to cover the same amount of work as the QBE that was
+					terminated.&nbsp;</p>
+				<p>If a replacement QBE is not found that can perform at least the same amount of work as the terminated QBE, the design-
+					build team shall submit a good faith effort documenting the steps taken. Such documentation shall include, but not be
+					limited to, the following:&nbsp;</p>
+				<ol>
+					<li>Copies of written notification to QBES that their interest is solicited in contracting the work defaulted by the
+						previ- ous QBE or in subcontracting other items of work in the contract.
+					</li>
+					<li>Efforts to negotiate with QBES for specific sub-bids, including, at a minimum:
+						<ol>
+							<li>The names, addresses, and telephone numbers of QBES who were contacted.</li>
+							<li>A description of the information provided to QBES regarding the plans and specifications for portions of the
+								work to be performed.
+							</li>
+						</ol>
+					</li>
+					<li>A list of reasons why QBE quotes were not accepted.</li>
+					<li>Efforts made to assist the QBES contacted, if needed, in obtaining bonding or insurance required by the design-
+						build team.
+					</li>
+				</ol>
+				<h4>Decertification Replacement&nbsp;</h4>
+				<ul>
+					<li>When a committed QBE is decertified by the department after the SAF (Subcontract Approval Form) has been received by
+						the department, the department will not require the invest-build team to solicit replacement QBE participation equal
+						to the remaining work to be performed by the decertified firm. The participation equal to the remaining work
+						performed by the decertified firm will count toward the contract goal requirement.
+					</li>
+					<li>When a committed QBE is decertified prior to the department receiving the SAF (Subcontract Approval Form) for the
+						named QBE firm, the invest-build team shall take all necessary and reasonable steps to replace the QBE subcontractor
+						with another QBE subcontractor to perform at least the same amount of work to meet the QBE goal requirement, If a
+						QBE firm is not found to do the same amount of work, a good faith effort must be submitted to CapitalBC (see A
+						herein for required documentation).
+					</li>
+				</ul>
+		</div>
+	</div>
+</div>
+
+<style>
+	@import url( '../../assets/pagination.css' );
+</style>
+</div>
+<h2 id="full-implementation"><a class="headerlink" href="#full-implementation">#</a> Full implementation</h2>
+<p>After following this guide and building the editor, your application should now have the following structure:</p>
+<pre class="highlight"><code class>- dist/
+    - bundle.js
+    - bundle.js.map
+- node_modules/
+- app.js
+- index.html
+- package-lock.json
+- package.json
+- styles.css
+- webpack.config.js
+</code></pre>
+<h3 id="appjs"><a class="headerlink" href="#appjs">#</a> <code>app.js</code>:</h3>
+<pre class="highlight"><code class="js">// app.js
+
+import DecoupledEditor from &apos;@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+
+import Heading from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import BlockQuote from &apos;@ckeditor/ckeditor5-block-quote/src/blockquote&apos;;
+import Font from &apos;@ckeditor/ckeditor5-font/src/font&apos;;
+import List from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import Table from &apos;@ckeditor/ckeditor5-table/src/table&apos;;
+import TableProperties from &apos;@ckeditor/ckeditor5-table/src/tableproperties&apos;;
+import TableCellProperties from &apos;@ckeditor/ckeditor5-table/src/tablecellproperties&apos;;
+import TableToolbar from &apos;@ckeditor/ckeditor5-table/src/tabletoolbar&apos;;
+import Pagination from &apos;@ckeditor/ckeditor5-pagination/src/pagination&apos;;
+import PageBreak from &apos;@ckeditor/ckeditor5-page-break/src/pagebreak&apos;;
+import ExportPdf from &apos;@ckeditor/ckeditor5-export-pdf/src/exportpdf&apos;;
+import ExportWord from &apos;@ckeditor/ckeditor5-export-word/src/exportword&apos;;
+import CloudServices from &apos;@ckeditor/ckeditor5-cloud-services/src/cloudservices&apos;;
+
+import &apos;./styles.css&apos;;
+
+DecoupledEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [
+            Essentials, Paragraph, Bold, Heading, Italic, Font,
+            BlockQuote, List, Table, TableProperties, TableCellProperties, TableToolbar, PageBreak,
+            Pagination, ExportPdf, ExportWord, CloudServices
+        ],
+        toolbar: [
+            &apos;exportPdf&apos;,
+            &apos;exportWord&apos;,
+            &apos;|&apos;,
+            &apos;previousPage&apos;,
+            &apos;nextPage&apos;,
+            &apos;pageNavigation&apos;,
+            &apos;pageBreak&apos;,
+            &apos;|&apos;,
+            &apos;heading&apos;,
+            &apos;|&apos;,
+            &apos;bold&apos;,
+            &apos;italic&apos;,
+            &apos;|&apos;,
+            &apos;fontSize&apos;,
+            &apos;fontFamily&apos;,
+            &apos;fontColor&apos;,
+            &apos;fontBackgroundColor&apos;,
+            &apos;|&apos;,
+            &apos;blockQuote&apos;,
+            &apos;bulletedList&apos;,
+            &apos;numberedList&apos;,
+            &apos;insertTable&apos;
+        ],
+        table: {
+            contentToolbar: [ &apos;tableColumn&apos;, &apos;tableRow&apos;, &apos;mergeTableCells&apos; ]
+        },
+        cloudServices: {
+            // Provide correct value here. You can find it in the CKEditor Dashboard:
+            // https://dashboard.ckeditor.com/login
+            tokenUrl: &apos;https://example.com/cs-token-endpoint&apos;
+        },
+        pagination: {
+            // Page width and height correspond to A4 format
+            pageWidth: &apos;21cm&apos;,
+            pageHeight: &apos;29.7cm&apos;,
+
+            pageMargins: {
+                top: &apos;20mm&apos;,
+                bottom: &apos;20mm&apos;,
+                right: &apos;12mm&apos;,
+                left: &apos;12mm&apos;
+            }
+        },
+        exportPdf: {
+            stylesheets: [
+                &apos;EDITOR_STYLES&apos;,
+                &apos;./styles.css&apos;
+            ],
+            fileName: &apos;my-sample-file.pdf&apos;,
+            converterOptions: {
+                format: &apos;A4&apos;,
+                margin_top: &apos;20mm&apos;,
+                margin_bottom: &apos;20mm&apos;,
+                margin_right: &apos;12mm&apos;,
+                margin_left: &apos;12mm&apos;,
+                page_orientation: &apos;portrait&apos;
+            }
+        },
+        exportWord: {
+            stylesheets: [
+                &apos;EDITOR_STYLES&apos;,
+                &apos;./styles.css&apos;
+            ],
+            fileName: &apos;my-sample-file.docx&apos;,
+            converterOptions: {
+                format: &apos;A4&apos;,
+                margin_top: &apos;20mm&apos;,
+                margin_bottom: &apos;20mm&apos;,
+                margin_right: &apos;12mm&apos;,
+                margin_left: &apos;12mm&apos;
+            }
+        },
+        licenseKey: &apos;your-license-key&apos;
+    } )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+
+        const toolbarContainer = document.querySelector( &apos;#toolbar-container&apos; );
+        toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+    } )
+    .catch( error =&gt; {
+        console.error( error.stack );
+    } );
+</code></pre>
+<h3 id="indexhtml"><a class="headerlink" href="#indexhtml">#</a> <code>index.html</code>:</h3>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Pagination - integration with Export to PDF/Word&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;document-container&quot;&gt;
+            &lt;div id=&quot;toolbar-container&quot;&gt;&lt;/div&gt;
+
+            &lt;div class=&quot;editor-container&quot;&gt;
+                &lt;div id=&quot;editor&quot;&gt;
+                    &lt;p&gt;This is the initial editor content.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="stylescss"><a class="headerlink" href="#stylescss">#</a> <code>styles.css</code>:</h3>
+<pre class="highlight"><code class="css">/* Editor styles */
+.document-container {
+    width: 1000px;
+    margin: auto;
+    background-color: rgb(238, 238, 238);
+}
+.editor-container {
+    border: 1px solid hsl( 0, 0%, 80% );
+    max-height: calc( 100vh - 100px );
+    overflow: auto;
+}
+.ck.ck-editor__editable_inline {
+    /*
+        A4 size.
+        Expand the width by 2px because of the border and &quot;box-sizing: border-box&quot;.
+    */
+    width: calc( 210mm + 2px );
+    height: auto;
+    padding: 20mm 12mm;
+    box-sizing: border-box;
+    border: 1px solid hsl( 0, 0%, 88% );
+    background: hsl( 0, 0%, 100% );
+    box-shadow: 0 2px 8px hsla( 0, 0%, 0%, .08 );
+    margin: 40px auto;
+}
+
+/* Content styles */
+@media print {
+    body {
+        margin: 0 !important;
+    }
+}
+.ck-content * {
+    line-height: 1.6;
+}
+.ck-content .table thead {
+    display: table-row-group;
+}
+.ck-content .table tr {
+    break-inside: avoid;
+    break-after: auto;
+}
+</code></pre>
+<h3 id="troubleshooting"><a class="headerlink" href="#troubleshooting">#</a> Troubleshooting</h3>
+<p>Please keep in mind that each of the plugins used in this guide has some known issues - this could be partial or missing support for other CKEditor 5 plugins, partial browser support, some known bugs, etc. When combined, these sometimes might cause problems for certain more complicated use cases. We strongly advise to go through all <em>Known issues</em> sections in the features&#x2019; respective documentation pages and make sure that you understand all their limitations.</p>
+<p>If you would like to report a bug or propose enhancements for these plugins, we encourage you to use the <a href="https://github.com/ckeditor/ckeditor5/issues" target="_blank" rel="noopener">CKEditor 5 issue tracker</a>. If you would like to use CKEditor 5 as a part of a commercial solution or have a request for custom development, feel free to contact us through our <a href="https://ckeditor.com/contact/">support channel</a> - our team will make sure to answer all your questions.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22features%2Fpagination%2Fpagination-integration.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li><a href="../autoformat.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="../text-transformation.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="../basic-styles.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="../indent.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="../block-quote.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="../code-blocks.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../collaboration/collaboration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../collaboration/comments/comments.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/comments/comments-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/comments/comments-only-mode.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/comments/comments-outside-editor.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../collaboration/track-changes/track-changes.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/track-changes/track-changes-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/track-changes/track-changes-custom-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/track-changes/track-changes-data.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../collaboration/real-time-collaboration/real-time-collaboration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/real-time-collaboration/real-time-collaboration-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/real-time-collaboration/users-in-real-time-collaboration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../collaboration/users.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                        </div></a></li>
+                                    <li><a href="../collaboration/context-and-collaboration-features.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../collaboration/annotations/annotations.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/annotations/annotations-display-mode.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/annotations/annotations-custom-configuration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/annotations/annotations-custom-theme.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/annotations/annotations-custom-template.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                                  </div></a></li>
+                                              <li><a href="../collaboration/annotations/annotations-custom-view.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../minimap.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li><a href="../title.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="../editor-placeholder.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li><a href="../export-pdf.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../export-word.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../find-and-replace.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="../font.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font</span>
+                              </div></a></li>
+                          <li><a href="../general-html-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                              </div></a></li>
+                          <li><a href="../headings.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="../highlight.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="../horizontal-line.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li><a href="../html-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../images/images-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../images/images-installation.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                        </div></a></li>
+                                    <li><a href="../images/images-text-alternative.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                        </div></a></li>
+                                    <li><a href="../images/images-captions.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                        </div></a></li>
+                                    <li><a href="../images/images-resizing.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                        </div></a></li>
+                                    <li><a href="../images/images-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                        </div></a></li>
+                                    <li><a href="../images/images-linking.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../images/image-upload/image-upload.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../images/image-upload/easy-image.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Easy Image</span>
+                                                  </div></a></li>
+                                              <li><a href="../images/image-upload/ckfinder.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder file manager</span>
+                                                  </div></a></li>
+                                              <li><a href="../images/image-upload/base64-upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../images/image-upload/simple-upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../images/image-upload/images-inserting.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../keyboard-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Keyboard support</span>
+                              </div></a></li>
+                          <li><a href="../link.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../lists/lists.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                        </div></a></li>
+                                    <li><a href="../lists/todo-lists.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../markdown.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="../math-equations.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../media-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="../mentions.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="../page-break.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="pagination.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../pasting/paste-from-word.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Word</span>
+                                        </div></a></li>
+                                    <li><a href="../pasting/paste-from-google-docs.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                        </div></a></li>
+                                    <li><a href="../pasting/paste-plain-text.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                        </div></a></li>
+                                    <li><a href="../pasting/drag-drop.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../read-only.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="../remove-format.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="../restricted-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../revision-history/revision-history.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../revision-history/revision-history-integration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../select-all.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="../source-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="../special-characters.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="../spelling-and-grammar-checking.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spelling and grammar checking</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../table.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Tables</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="../text-alignment.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="../language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Toolbar</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../toolbar/toolbar.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbar</span>
+                                        </div></a></li>
+                                    <li><a href="../toolbar/blocktoolbar.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block toolbar</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../ui-language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                              </div></a></li>
+                          <li><a href="../watchdog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="../word-count.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'features' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'features' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'features' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'features' ] );tags.forEach( function( tag ) {if ( tag !== 'features' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../assets/snippet.js"></script>
+    <script src="../../snippets/assets.js"></script>
+    <script src="../../snippets/features/pagination-integration/snippet.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

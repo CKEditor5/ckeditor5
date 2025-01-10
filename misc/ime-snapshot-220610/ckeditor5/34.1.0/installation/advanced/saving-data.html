@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting and saving data - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:56 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Getting and saving data - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/saving-data.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Getting and saving data - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/saving-data.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../snippets/installation/saving-data/build-autosave-source/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Installation</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a href="../../updating/index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../index.html">Installation</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../getting-started/quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="../getting-started/configuration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                      </div></a></li>
+                                  <li><a href="../getting-started/installing-plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                      </div></a></li>
+                                  <li><a href="../getting-started/basic-api.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../getting-started/frameworks/overview.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../getting-started/frameworks/angular.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                              </div></a></li>
+                                          <li><a href="../getting-started/frameworks/react.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                              </div></a></li>
+                                          <li><a href="../getting-started/frameworks/vuejs-v2.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                              </div></a></li>
+                                          <li><a href="../getting-started/frameworks/vuejs-v3.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                              </div></a></li>
+                                          <li><a href="../getting-started/frameworks/css.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../getting-started/migration-from-ckeditor-4.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="../getting-started/maintenance.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="using-two-editors.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                      </div></a></li>
+                                  <li><a href="">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                      </div></a></li>
+                                  <li><a href="content-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                      </div></a></li>
+                                  <li><a href="csp.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                      </div></a></li>
+                                  <li><a href="plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                      </div></a></li>
+                                  <li><a href="features-html-output-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="alternative-setups/integrating-from-source.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                              </div></a></li>
+                                          <li><a href="alternative-setups/dll-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                              </div></a></li>
+                                          <li><a href="alternative-setups/dll-builds-collaboration-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                              </div></a></li>
+                                          <li><a href="alternative-setups/predefined-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/installation/advanced/saving-data.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Installation</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../assets/2.1.3/img/book.svg" alt="guide">Getting and saving data
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#automatic-integration-with-html-forms">Automatic integration with HTML forms</a></li><li><a href="#manually-retrieving-the-data">Manually retrieving the data</a></li><li><a href="#autosave-feature">Autosave feature</a><ol><li><a href="#demo">Demo</a></li></ol></li><li><a href="#handling-users-exiting-the-page">Handling users exiting the page</a><ol><li><a href="#demo-2">Demo</a></li></ol></li></ol></nav>
+
+<p>CKEditor 5 allows you to retrieve the data from and save it to your server (or to your system in general) in various ways. In this guide you can learn about the available options along with their pros and cons.</p>
+<h2 id="automatic-integration-with-html-forms"><a class="headerlink" href="#automatic-integration-with-html-forms">#</a> Automatic integration with HTML forms</h2>
+<p>This is the classic way of integrating the editor. It is typically used in simpler CMSes, forums, comment sections, etc.</p>
+<p>This approach is only available in the <a href="alternative-setups/predefined-builds.html#classic-editor">Classic editor</a> and only if the editor was used to replace a <code>&lt;textarea&gt;</code> element:</p>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;CKEditor 5 - Classic editor&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Classic editor&lt;/h1&gt;
+    &lt;form action=&quot;[URL]&quot; method=&quot;post&quot;&gt;
+        &lt;textarea name=&quot;content&quot; id=&quot;editor&quot;&gt;
+            &amp;lt;p&amp;gt;This is some sample content.&amp;lt;/p&amp;gt;
+        &lt;/textarea&gt;
+        &lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;&lt;/p&gt;
+    &lt;/form&gt;
+    &lt;script&gt;
+        ClassicEditor
+            .create( document.querySelector( &apos;#editor&apos; ) )
+            .catch( error =&gt; {
+                console.error( error );
+            } );
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Classic editor will automatically update the value of the <code>&lt;textarea&gt;</code> element once the user submits the form. You do not need any additional JavaScript code to send the editor data to the server.</p>
+<p>In your HTTP server, you can now read the editor data from the <code>content</code> variable of the POST request. For instance, in PHP, you can get it in this way:</p>
+<pre class="highlight"><code class="php">&lt;?php
+    $editor_data = $_POST[ &apos;content&apos; ];
+?&gt;
+</code></pre>
+<div class="info-box notice"><p>Please note that the replaced <code>&lt;textarea&gt;</code> element is updated automatically by CKEditor straight before the submission. If you need to access the <code>&lt;textarea&gt;</code> value programatically with JavaScript (e.g. in the <code>onsubmit</code> handler to validate the entered data), there is a chance that the <code>&lt;textarea&gt;</code> element would still store the original data. In order to update the value of the replaced <code>&lt;textarea&gt;</code>, use the <a href="../../api/module_editor-classic_classiceditor-ClassicEditor.html#function-updateSourceElement"><code>editor.updateSourceElement()</code></a> method.</p><p>If you need to get the actual data from CKEditor at any moment using JavaScript, use the <a href="../../api/module_editor-classic_classiceditor-ClassicEditor.html#function-getData"><code>editor.getData()</code></a> method as described in the next section.</p></div>
+<div class="info-box notice"><p>When you print the data from the database to a <code>&lt;textarea&gt;</code> element in an HTML page, you need to encode it correctly. For instance, if you use PHP then a minimal solution would look like this:</p><pre class="highlight"><code class="php">&lt;?php
+    $data = str_replace( &apos;&amp;&apos;, &apos;&amp;amp;&apos;, $data );
+?&gt;
+<p>&lt;textarea name=&#x201C;content&#x201D; id=&#x201C;editor&#x201D;&gt;&lt;?= $data ?&gt;&lt;/textarea&gt;<br>
+</p></code></pre><p>Thanks to that, the <code>&lt;textarea&gt;</code> will be printed out like this:</p><pre class="highlight"><code class="html">&lt;textarea&gt;&amp;lt;p&gt;This is some sample content.&amp;lt;/p&gt;&lt;/textarea&gt;<br>
+</code></pre><p>Instead of being printed like this:</p><pre class="highlight"><code class="html">&lt;textarea&gt;&lt;p&gt;This is some sample content.&lt;/p&gt;&lt;/textarea&gt;<br>
+</code></pre><p>While simple content like mentioned above does not itself require to be encoded, encoding the data will prevent losing text like &#x201C;&lt;&#x201D; or &#x201C;&lt;img&gt;&#x201D;.</p></div><p></p>
+<h2 id="manually-retrieving-the-data"><a class="headerlink" href="#manually-retrieving-the-data">#</a> Manually retrieving the data</h2>
+<p>When you:</p>
+<ul>
+<li>Use Ajax requests instead of the classic integration with HTML forms,</li>
+<li>Implement a single-page application,</li>
+<li>Use a different editor type than the Classic editor (and hence, cannot use the previous method),</li>
+</ul>
+<p>you can retrieve the data from the editor by using the <a href="../../api/module_editor-classic_classiceditor-ClassicEditor.html#function-getData"><code>editor.getData()</code></a> method.</p>
+<p>For that, you need to store the reference to the <code>editor</code> because &#x2014; unlike in CKEditor 4 &#x2014; there is no global <code>CKEDITOR.instances</code> property. You can do that in multiple ways, for example by assigning the <code>editor</code> to a variable defined outside the <code>then()</code>&apos;s callback:</p>
+<pre class="highlight"><code class="js">let editor;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ) )
+    .then( newEditor =&gt; {
+        editor = newEditor;
+    } )
+    .catch( error =&gt; {
+        console.error( error );
+    } );
+
+// Assuming there is a &lt;button id=&quot;submit&quot;&gt;Submit&lt;/button&gt; in your application.
+document.querySelector( &apos;#submit&apos; ).addEventListener( &apos;click&apos;, () =&gt; {
+    const editorData = editor.getData();
+
+    // ...
+} );
+</code></pre>
+<h2 id="autosave-feature"><a class="headerlink" href="#autosave-feature">#</a> Autosave feature</h2>
+<p>The <a href="../../api/module_autosave_autosave-Autosave.html"><code>Autosave</code></a> feature allows you to automatically save the data (e.g. send it to the server) when needed (when the user changed the content).</p>
+<div class="info-box notice"><p>This plugin is unavailable in any of the builds by default so you need to <a href="../getting-started/installing-plugins.html">install it</a>.</p></div>
+<p>Assuming that you implemented a <code>saveData()</code> function that sends the data to your server and returns a promise which is resolved once the data is successfully saved, configuring the autosave feature is as simple as:</p>
+<pre class="highlight"><code class="js">ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [
+            Autosave,
+
+            // ... other plugins
+        ],
+
+        autosave: {
+            save( editor ) {
+                return saveData( editor.getData() );
+            }
+        },
+
+        // ... other configuration options
+    } );
+</code></pre>
+<p>The autosave feature listens to the <a href="../../api/module_engine_model_document-Document.html#event-change:data"><code>editor.model.document#change:data</code></a> event, throttles it and executes the <code>config.autosave.save()</code> function.</p>
+<p>It also listens to the native <a href="https://developer.mozilla.org/en-US/docs/Web/Events/beforeunload" target="_blank" rel="noopener"><code>window#beforeunload</code></a> event and blocks it in the following cases:</p>
+<ul>
+<li>The data has not been saved yet (the <code>save()</code> function did not resolve its promise or it was not called yet due to throttling).</li>
+<li>Or any of the editor features registered a <a href="../../api/module_core_pendingactions-PendingActions.html">&#x201C;pending action&#x201D;</a> (e.g. that an image is being uploaded).</li>
+</ul>
+<p>This automatically secures you from the user leaving the page before the content is saved or some ongoing actions like image upload did not finish.</p>
+<p>The minimum time period between two save actions can be configured using the <a href="../../api/module_autosave_autosave-AutosaveConfig.html#member-waitingTime"><code>config.waitingTime</code></a> property to not overload the backend. 1 second is the default waiting time before the next save action if nothing has changed in the meantime after the editor data has changed.</p>
+<pre class="highlight"><code class="js">ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        autosave: {
+            waitingTime: 5000, // in ms
+            save( editor ) {}
+        },
+
+        // ... other configuration options
+    } );
+</code></pre>
+<h3 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h3>
+<p>This demo shows a simple integration of the editor with a fake HTTP server (which needs 1000ms to save the content).</p>
+<pre class="highlight"><code class="js">ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [
+            Autosave,
+
+            // ... other plugins
+        ],
+
+        autosave: {
+            save( editor ) {
+                return saveData( editor.getData() );
+            }
+        }
+    } )
+    .then( editor =&gt; {
+        window.editor = editor;
+
+        displayStatus( editor );
+    } )
+    .catch( err =&gt; {
+        console.error( err.stack );
+    } );
+
+// Save the data to a fake HTTP server (emulated here with a setTimeout()).
+function saveData( data ) {
+    return new Promise( resolve =&gt; {
+        setTimeout( () =&gt; {
+            console.log( &apos;Saved&apos;, data );
+
+            resolve();
+        }, HTTP_SERVER_LAG );
+    } );
+}
+
+// Update the &quot;Status: Saving...&quot; info.
+function displayStatus( editor ) {
+    const pendingActions = editor.plugins.get( &apos;PendingActions&apos; );
+    const statusIndicator = document.querySelector( &apos;#editor-status&apos; );
+
+    pendingActions.on( &apos;change:hasAny&apos;, ( evt, propertyName, newValue ) =&gt; {
+        if ( newValue ) {
+            statusIndicator.classList.add( &apos;busy&apos; );
+        } else {
+            statusIndicator.classList.remove( &apos;busy&apos; );
+        }
+    } );
+}
+</code></pre>
+<p>How to understand this demo:</p>
+<ul>
+<li>The status indicator shows when the editor has some unsaved content or pending actions.
+<ul>
+<li>If you drop a big image into this editor, you will see that it is busy during the entire period when the image is being uploaded.</li>
+<li>The editor is also busy when saving the content is in progress (the <code>save()</code>&apos;s promise was not resolved).</li>
+</ul>
+</li>
+<li>The autosave feature has a throttling mechanism which groups frequent changes (e.g. typing) are grouped in batches.</li>
+<li>The autosave itself does not check whether the data has really changed. It bases on changes in the model which, in special cases, may not be &#x201C;visible&#x201D; in the data. You can add such a check yourself if you would like to avoid sending the same data to the server twice in a row.</li>
+<li>You will be asked whether you want to leave the page if an image is being uploaded or the data has not been saved successfully yet. You can test that by dropping a big image into the editor or changing the &#x201C;HTTP server lag&#x201D; to a high value (e.g. 9000ms) and typing something. These actions will make the editor &#x201C;busy&#x201D; for a longer time &#x2014; try leaving the page then.</li>
+</ul>
+<div class="live-snippet"><div id="snippet-autosave">
+	<p>Type some text to test the <a href="#autosave-feature">autosave</a> feature.</p>
+</div>
+
+<div id="snippet-autosave-header">
+	<div id="snippet-autosave-status">
+		<div id="snippet-autosave-status_label">Status:</div>
+		<div id="snippet-autosave-status_spinner">
+			<span id="snippet-autosave-status_spinner-label"></span>
+			<span id="snippet-autosave-status_spinner-loader"></span>
+		</div>
+	</div>
+
+	<div id="snippet-autosave-server">
+		<div id="snippet-autosave-server_label">HTTP server lag (ms):</div>
+		<input id="snippet-autosave-lag" type="number" value="500" step="100" min="0" max="9000">
+	</div>
+</div>
+
+<p>Server data:</p>
+
+<pre class="highlight language-html" id="snippet-autosave-console">Type some text to test the &#x3C;a href=&#x22;#autosave-feature&#x22;&#x3E;autosave&#x3C;/a&#x3E; feature.</pre>
+
+<style>
+	#snippet-autosave-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: var(--ck-color-toolbar-background);
+		border: 1px solid var(--ck-color-toolbar-border);
+		padding: 10px;
+		border-radius: var(--ck-border-radius);
+		margin-top: -1.5em;
+		margin-bottom: 1.5em;
+		border-top: 0;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+
+	#snippet-autosave-status_spinner{
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+	#snippet-autosave-status_spinner-label {
+		position: relative;
+	}
+
+	#snippet-autosave-status_spinner-label::after {
+		content: 'Saved!';
+		color: green;
+		display: inline-block;
+		margin-right: var(--ck-spacing-medium);
+	}
+
+	/* During "Saving" display spinner and change content of label. */
+	#snippet-autosave-status.busy #snippet-autosave-status_spinner-label::after  {
+		content: 'Saving...';
+		color: red;
+	}
+
+	#snippet-autosave-status.busy #snippet-autosave-status_spinner-loader {
+		display: block;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		border-top: 3px solid hsl(0, 0%, 70%);
+		border-right: 2px solid transparent;
+		animation: autosave-status-spinner 1s linear infinite;
+	}
+
+	#snippet-autosave-status,
+	#snippet-autosave-server {
+		display: flex;
+		align-items: center;
+	}
+
+	#snippet-autosave-server_label,
+	#snippet-autosave-status_label {
+		font-weight: bold;
+		margin-right: var(--ck-spacing-medium);
+	}
+
+	#snippet-autosave + .ck.ck-editor .ck-editor__editable {
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	#snippet-autosave-lag {
+		padding: 4px;
+	}
+
+	#snippet-autosave-console {
+		max-height: 300px;
+		overflow: auto;
+		white-space: normal;
+		background: #2b2c26;
+		transition: background-color 500ms;
+	}
+
+	#snippet-autosave-console.updated {
+		background: green;
+	}
+
+	@keyframes autosave-status-spinner {
+		to { transform: rotate( 360deg ); }
+	}
+</style>
+</div>
+<h2 id="handling-users-exiting-the-page"><a class="headerlink" href="#handling-users-exiting-the-page">#</a> Handling users exiting the page</h2>
+<p>An additional concern when integrating the editor in your website is that the user may mistakenly leave before saving the data. This problem is automatically handled by the <a href="#autosave-feature">autosave feature</a> described above, but if you do not use it and instead chose different integration methods, you should consider handling these two scenarios:</p>
+<ul>
+<li>The user leaves the page before saving the data (e.g. mistakenly closes a tab or clicks some link).</li>
+<li>The user saved the data, but there are some pending actions like an image upload.</li>
+</ul>
+<p>To handle the former situation you can listen to the native <a href="https://developer.mozilla.org/en-US/docs/Web/Events/beforeunload" target="_blank" rel="noopener"><code>window#beforeunload</code></a> event. The latter situation can be handled by using CKEditor 5 <a href="../../api/module_core_pendingactions-PendingActions.html"><code>PendingActions</code></a> plugin.</p>
+<h3 id="demo-2"><a class="headerlink" href="#demo-2">#</a> Demo</h3>
+<p>The example below shows how all these mechanisms can be used together to enable or disable a &#x201C;Save&#x201D; button and block the user from leaving the page without saving the data.</p>
+<div class="info-box notice"><p>The <a href="../../api/module_core_pendingactions-PendingActions.html"><code>PendingActions</code></a> plugin is unavailable in any of the builds by default so you need to <a href="../getting-started/installing-plugins.html">install it</a>.</p></div>
+<pre class="highlight"><code class="js">// Note: We need to build the editor from source.
+// We cannot use existing builds in this case.
+import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+
+import PendingActions from &apos;@ckeditor/ckeditor5-core/src/pendingactions&apos;;
+
+let isDirty = false;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [
+            PendingActions,
+
+            // ... other plugins
+        ]
+    } )
+    .then( editor =&gt; {
+        window.editor = editor;
+
+        handleStatusChanges( editor );
+        handleSaveButton( editor );
+        handleBeforeunload( editor );
+    } )
+    .catch( err =&gt; {
+        console.error( err.stack );
+    } );
+
+// Handle clicking the &quot;Save&quot; button by sending the data to a
+// fake HTTP server (emulated here with setTimeout()).
+function handleSaveButton( editor ) {
+    const saveButton = document.querySelector( &apos;#save&apos; );
+    const pendingActions = editor.plugins.get( &apos;PendingActions&apos; );
+
+    saveButton.addEventListener( &apos;click&apos;, evt =&gt; {
+        const data = editor.getData();
+
+        // Register the action of saving the data as a &quot;pending action&quot;.
+        // All asynchronous actions related to the editor are tracked like this,
+        // so later on you only need to check `pendingActions.hasAny` to check
+        // whether the editor is busy or not.
+        const action = pendingActions.add( &apos;Saving changes&apos; );
+
+        evt.preventDefault();
+
+        // Save the data to a fake HTTP server.
+        setTimeout( () =&gt; {
+            pendingActions.remove( action );
+
+            // Reset isDirty only if the data did not change in the meantime.
+            if ( data == editor.getData() ) {
+                isDirty = false;
+            }
+
+            updateStatus( editor );
+        }, HTTP_SERVER_LAG );
+    } );
+}
+
+// Listen to new changes (to enable the &quot;Save&quot; button) and to
+// pending actions (to show the spinner animation when the editor is busy).
+function handleStatusChanges( editor ) {
+    editor.plugins.get( &apos;PendingActions&apos; ).on( &apos;change:hasAny&apos;, () =&gt; updateStatus( editor ) );
+
+    editor.model.document.on( &apos;change:data&apos;, () =&gt; {
+        isDirty = true;
+
+        updateStatus( editor );
+    } );
+}
+
+// If the user tries to leave the page before the data is saved, ask
+// them whether they are sure they want to proceed.
+function handleBeforeunload( editor ) {
+    const pendingActions = editor.plugins.get( &apos;PendingActions&apos; );
+
+    window.addEventListener( &apos;beforeunload&apos;, evt =&gt; {
+        if ( pendingActions.hasAny ) {
+            evt.preventDefault();
+        }
+    } );
+}
+
+function updateStatus( editor ) {
+    const saveButton = document.querySelector( &apos;#save&apos; );
+
+    // Disables the &quot;Save&quot; button when the data on the server is up to date.
+    if ( isDirty ) {
+        saveButton.classList.add( &apos;active&apos; );
+    } else {
+        saveButton.classList.remove( &apos;active&apos; );
+    }
+
+    // Shows the spinner animation.
+    if ( editor.plugins.get( &apos;PendingActions&apos; ).hasAny ) {
+        saveButton.classList.add( &apos;saving&apos; );
+    } else {
+        saveButton.classList.remove( &apos;saving&apos; );
+    }
+}
+</code></pre>
+<p>How to understand this demo:</p>
+<ul>
+<li>The button changes to &#x201C;Saving&#x2026;&#x201D; when the data is being sent to the server or there are any other pending actions (e.g. an image being uploaded).</li>
+<li>You will be asked whether you want to leave the page if an image is being uploaded or the data has not been saved successfully yet. You can test that by dropping a big image into the editor or changing the &#x201C;HTTP server lag&#x201D; to a high value (e.g. 9000ms) and clicking the &#x201C;Save&#x201D; button. These actions will make the editor &#x201C;busy&#x201D; for a longer time &#x2014; try leaving the page then.</li>
+</ul>
+<div class="live-snippet"><div id="snippet-manualsave">
+	<p>Change the content of this editor, then save it on the server.</p>
+</div>
+
+<div id="snippet-manualsave-header">
+	<div id="snippet-manualsave-server">
+		<div id="snippet-manualsave-server_label">HTTP server lag (ms):</div>
+		<input id="snippet-manualsave-lag" type="number" value="500" step="100" min="0" max="9000">
+	</div>
+	<div id="snippet-manualsave-container">
+		<span id="snippet-manualsave-spinner"></span>
+		<input id="snippet-manualsave-save" type="submit" value="Save">
+	</div>
+</div>
+
+<p>Server data:</p>
+
+<pre class="highlight language-html" id="snippet-manualsave-console">&#x3C;p&#x3E;Change the content of this editor, then save it on the server.&#x3C;/p&#x3E;</pre>
+
+<style>
+	#snippet-manualsave-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: var(--ck-color-toolbar-background);
+		border: 1px solid var(--ck-color-toolbar-border);
+		padding: 10px;
+		border-radius: var(--ck-border-radius);
+		margin-top: -1.5em;
+		margin-bottom: 1.5em;
+		border-top: 0;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+
+	#snippet-manualsave-server,
+	#snippet-manualsave-submit {
+		display: flex;
+		align-items: center;
+	}
+
+	#snippet-manualsave-server_label,
+	#snippet-manualsave-status_label {
+		font-weight: bold;
+		margin-right: var(--ck-spacing-medium);
+	}
+
+	#snippet-manual + .ck.ck-editor .ck-editor__editable {
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	#snippet-manualsave-lag {
+		padding: 4px;
+	}
+
+	#snippet-manualsave-save {
+		color: #fff;
+		background: hsl( 88, 73%, 39% );
+		opacity: 0.5;
+		padding: 4px 20px;
+		display: inline-block;
+		border: 0;
+		border-radius: 2px;
+		font-weight: bold;
+		outline: none;
+		transition: 300ms ease background;
+		box-shadow: 0 2px 0 rgb(68, 117, 10);
+	}
+
+	#snippet-manualsave-save:hover {
+		background: hsl( 88, 73%, 42% );
+	}
+
+	#snippet-manualsave-save:active,
+	#snippet-manualsave-save:focus {
+		box-shadow: 0 1px 0 rgb(68, 117, 10);
+	}
+
+	#snippet-manualsave-container.active #snippet-manualsave-save {
+		cursor: pointer;
+		opacity: 1;
+	}
+
+	#snippet-manualsave-container.saving #snippet-manualsave-save {
+		background: hsl( 88, 73%, 34% );
+	}
+
+	#snippet-manualsave-console {
+		max-height: 300px;
+		overflow: auto;
+		white-space: normal;
+		background: #2b2c26;
+		transition: background-color 500ms;
+	}
+
+	#snippet-manualsave-console.updated {
+		background: green;
+	}
+
+	#snippet-manualsave-spinner {
+		display: none;
+	}
+
+	#snippet-manualsave-container.saving #snippet-manualsave-spinner {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: var(--ck-spacing-medium);
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		border-top: 3px solid hsl(0, 0%, 70%);
+		border-right: 2px solid transparent;
+		animation: manualsave-spinner 1s linear infinite;
+	}
+
+	@keyframes manualsave-spinner {
+		to { transform: rotate( 360deg ); }
+	}
+</style>
+</div>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22installation%2Fadvanced%2Fsaving-data.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../getting-started/quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="../getting-started/configuration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                        </div></a></li>
+                                    <li><a href="../getting-started/installing-plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                        </div></a></li>
+                                    <li><a href="../getting-started/basic-api.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../getting-started/frameworks/overview.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../getting-started/frameworks/angular.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                                  </div></a></li>
+                                              <li><a href="../getting-started/frameworks/react.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                                  </div></a></li>
+                                              <li><a href="../getting-started/frameworks/vuejs-v2.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                                  </div></a></li>
+                                              <li><a href="../getting-started/frameworks/vuejs-v3.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                                  </div></a></li>
+                                              <li><a href="../getting-started/frameworks/css.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../getting-started/migration-from-ckeditor-4.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="../getting-started/maintenance.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="using-two-editors.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                        </div></a></li>
+                                    <li><a href="">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                        </div></a></li>
+                                    <li><a href="content-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                        </div></a></li>
+                                    <li><a href="csp.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                        </div></a></li>
+                                    <li><a href="plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                        </div></a></li>
+                                    <li><a href="features-html-output-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="alternative-setups/integrating-from-source.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                                  </div></a></li>
+                                              <li><a href="alternative-setups/dll-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                                  </div></a></li>
+                                              <li><a href="alternative-setups/dll-builds-collaboration-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                                  </div></a></li>
+                                              <li><a href="alternative-setups/predefined-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'installation' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'installation' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'installation' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'installation' ] );tags.forEach( function( tag ) {if ( tag !== 'installation' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../assets/snippet.js"></script>
+    <script src="../../snippets/assets.js"></script>
+    <script src="../../snippets/installation/saving-data/build-autosave-source/snippet.js"></script>
+    <script src="../../snippets/installation/saving-data/autosave/snippet.js"></script>
+    <script src="../../snippets/installation/saving-data/manualsave/snippet.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+/*!
+ * @license Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md.
+ */(()=>{"use strict";const e={tokenUrl:"https://33333.cke-cs.com/token/dev/ijrDsqFix838Gh3wGO3F77FSW94BwcLXprJ4APSp3XQ26xsUHTi0jcb1hoBt",uploadUrl:"https://33333.cke-cs.com/easyimage/upload/"};ClassicEditor.create(document.querySelector("#toolbar-nested-label"),{toolbar:["undo","redo","|",{label:"Fonts",icon:"text",withText:!0,items:["fontSize","fontFamily","fontColor","fontBackgroundColor"]},"|",{label:"Basic styles",withText:!0,items:["bold","italic","strikethrough","superscript","subscript"]},"|",{label:"Inserting",withText:!0,items:["insertImage","insertTable"]}],image:{toolbar:["imageStyle:inline","imageStyle:block","imageStyle:wrapText","|","toggleImageCaption","imageTextAlternative","|","ckboxImageEdit"]},cloudServices:e,ui:{viewportOffset:{top:window.getViewportTopOffsetConfig()}},ckbox:{tokenUrl:"https://api.ckbox.io/token/demo",forceDemoLabel:!0,allowExternalImagesEditing:[/^data:/,"origin",/ckbox/]},licenseKey:"GPL"}).then((e=>{window.editor=e})).catch((e=>{console.error(e.stack)}))})();
+//# sourceMappingURL=snippet.js.map

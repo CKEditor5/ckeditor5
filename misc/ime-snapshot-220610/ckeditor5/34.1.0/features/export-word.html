@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Export to Word - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:42 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Export to Word - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/features/export-word.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Export to Word - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/features/export-word.html">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../snippets/features/export-word-comments-suggestions/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../index.html">CKEditor 5</a></li>
+          <li><a href="../installation/index.html">Installation</a></li>
+          <li><a class="top__menu__item--active" href="index.html">Features</a></li>
+          <li><a href="../examples/index.html">Examples</a></li>
+          <li><a href="../updating/index.html">Updating</a></li>
+          <li><a href="../support/index.html">Support</a></li>
+          <li><a href="../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="index.html">Features</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="autoformat.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="text-transformation.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="basic-styles.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="indent.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="block-quote.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="code-blocks.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="collaboration/collaboration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="collaboration/comments/comments.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-only-mode.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-outside-editor.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="collaboration/track-changes/track-changes.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/track-changes/track-changes-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/track-changes/track-changes-custom-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/track-changes/track-changes-data.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="collaboration/real-time-collaboration/real-time-collaboration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/real-time-collaboration/real-time-collaboration-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/real-time-collaboration/users-in-real-time-collaboration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="collaboration/users.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                      </div></a></li>
+                                  <li><a href="collaboration/context-and-collaboration-features.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="collaboration/annotations/annotations.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-display-mode.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-configuration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-theme.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-template.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-view.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="minimap.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li><a href="title.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="editor-placeholder.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li><a href="export-pdf.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="find-and-replace.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="font.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font</span>
+                              </div></a></li>
+                          <li><a href="general-html-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                              </div></a></li>
+                          <li><a href="headings.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="highlight.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="horizontal-line.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li><a href="html-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="images/images-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-installation.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-text-alternative.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-captions.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-resizing.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-linking.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="images/image-upload/image-upload.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/easy-image.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Easy Image</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/ckfinder.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder file manager</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/base64-upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/simple-upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/images-inserting.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="keyboard-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Keyboard support</span>
+                              </div></a></li>
+                          <li><a href="link.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="lists/lists.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                      </div></a></li>
+                                  <li><a href="lists/todo-lists.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="markdown.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="math-equations.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="media-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="mentions.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="page-break.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="pagination/pagination.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="pagination/pagination-integration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="pasting/paste-from-word.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Word</span>
+                                      </div></a></li>
+                                  <li><a href="pasting/paste-from-google-docs.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                      </div></a></li>
+                                  <li><a href="pasting/paste-plain-text.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                      </div></a></li>
+                                  <li><a href="pasting/drag-drop.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="read-only.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="remove-format.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="restricted-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="revision-history/revision-history.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="revision-history/revision-history-integration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="select-all.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="source-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="special-characters.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="spelling-and-grammar-checking.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spelling and grammar checking</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="table.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Tables</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="text-alignment.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Toolbar</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="toolbar/toolbar.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbar</span>
+                                      </div></a></li>
+                                  <li><a href="toolbar/blocktoolbar.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block toolbar</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="ui-language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                              </div></a></li>
+                          <li><a href="watchdog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="word-count.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="examples"><a href="../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted main__content--no-toc">
+        <div class="main__content-inner">
+          <div class="rwd-breadcrumbs"><a href="../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="index.html">Features</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../assets/2.1.3/img/book.svg" alt="guide">Export to Word
+          </h1><p>The <a href="../api/module_export-word_exportword-ExportWord.html"><code>ExportWord</code></a> feature allows you to generate a <code>.docx</code> file directly from the CKEditor 5 WYSIWYG editor content.</p>
+<p>When enabled, this feature sends the content of your editor together with the styles that are used to display it to the CKEditor Cloud Services HTML to DOCX converter service. The service then generates a Word document that can be downloaded by the user. This allows you to easily export your content to the Microsoft Word format. You can read more about the converter and the plugin in a <a href="https://ckeditor.com/blog/feature-spotlight-html-to-word-converter/">dedicated Feature spotlight blog post</a>.</p>
+<div class="info-box notice"><p>This is a premium feature. Please <a href="https://ckeditor.com/contact/">contact us</a> if you would like to purchase a license. Let us know if you have any feedback or questions!</p><p>You can also sign up for the <a href="https://orders.ckeditor.com/trial/premium-features" target="_blank" rel="noopener">CKEditor Premium Features 30-day free trial</a>.</p><p>If this feature is used without authentication, the resulting document will be watermarked.</p></div>
+<p>The complementary <a href="pagination/pagination.html">pagination feature</a> allows you to see where page breaks would be after the document is exported to Word. Thanks to the live preview, the user is able to fine-tune the structure of the output document when editing it. In addition to this, the pagination feature shows you the page count and allows to easily navigate between the document pages.</p>
+<div class="info-box notice"><p>Please note that the generated <code>.docx</code> file may not be fully compatible with older versions of Word. At the time of writing this guide the generated document was fully compatible with Word in Office 365.</p></div>
+<h2 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h2>
+<p>The demo below allows you to generate a Word file based on the editor content. Craft the document content in the WYSIWYG editor, then click the &#x201C;Export to Word&#x201D; toolbar button <span class="editor-icon"><img src="../assets/icons/e87b1d7a0b.svg" class="editor-icon__image" alt="Export to Word"></span> to save it as a Word file.</p>
+<div class="live-snippet"><div class="document-container">
+  <div id="toolbar-container" class="toolbar-container"></div>
+  <div class="editor-container">
+    <div id="editor" class="test-editor">
+      <h2 style="text-align:center;">
+        <comment id="thread-1" type="start"></comment><span style="font-family:Georgia, serif;font-size:28px;">The Flavorful Tuscany Meetup</span>
+        <comment id="thread-1" type="end"></comment>
+      </h2>
+      <h3 style="text-align:center;"><span style="color:hsl(210,75%,60%);font-family:Georgia, serif;font-size:22px">Welcome letter</span></h3>
+      <p>Dear Guest,</p>
+      <p>We are delighted to welcome you to the annual <i>Flavorful Tuscany Meetup</i> and hope you will enjoy the programme as well as your stay at the <a href="https://ckeditor.com">Bilancino Hotel</a>.</p>
+      <p>Please find attached the full schedule of the event.</p>
+      <blockquote>
+        <p>The annual Flavorful Tuscany meetups are always a culinary discovery. You get the best of Tuscan flavors during an intense one-day stay at one of the top hotels of the region. All the sessions are lead by top chefs passionate about their profession. I would certainly recommend to save the date in your calendar for this one!</p>
+        <p>Angelina Calvino, food journalist</p>
+      </blockquote>
+      <p>Please arrive at the <a href="https://ckeditor.com">Bilancino Hotel</a> reception desk at least <suggestion id="suggestion-1:user-2" suggestion-type="insertion" type="start"></suggestion><strong>half </strong>
+        <suggestion id="suggestion-1:user-2" suggestion-type="insertion" type="end"></suggestion><strong>an hour earlier</strong> to make sure that the registration process goes as smoothly as possible.
+      </p>
+      <p>We look forward to welcoming you to the event.</p>
+	  <img class="image_resized" src="https://c.cksource.com/a/1/img/docs/signature.png" alt="Victoria Valc signature" style="width: 180px;"/>
+      <p><strong>Victoria Valc</strong>, <strong>Event Manager at Bilancino Hotel</strong></p>
+      <p>&nbsp;</p>
+      <div class="page-break" style="page-break-after:always;"><span style="display:none;">&nbsp;</span></div>
+      <p>&nbsp;</p>
+      <h2 style="text-align:center;"><span style="color:hsl(210,75%,60%);font-size:24px;">The Flavorful Tuscany Meetup Schedule</span></h2>
+      <figure class="table" style="width:597px;">
+        <table>
+          <thead>
+            <tr>
+              <th style="background-color:hsl(0, 0%, 60%);" colspan="2"><span style="color:hsl(0,0%,100%);">Saturday, July 14</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="background-color:hsl(0, 0%, 90%);text-align:center;">9:30 AM - 11:30 AM</td>
+              <td>
+                <p><strong>Americano vs. Brewed - “know your coffee”</strong> with:&nbsp;</p>
+                <ul>
+                  <li>Giulia Bianchi</li>
+                  <li>Stefano Garau</li>
+                  <li>Giuseppe Russo</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td style="background-color:hsl(0, 0%, 90%);text-align:center;">1:00 PM - 3:00 PM</td>
+              <td>
+                <p><strong>Pappardelle al pomodoro</strong> - live cooking&nbsp;<sup>1</sup></p>
+                <p>Incorporate the freshest ingredients&nbsp;<br>with <comment id="thread-2" type="start"></comment>Rita Fresco<comment id="thread-2" type="end"></comment>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="background-color:hsl(0, 0%, 90%);text-align:center;">5:00 PM - 8:00 PM</td>
+              <td><strong>Tuscan vineyards at a glance</strong> - wine-tasting&nbsp;<br>with Frederico Riscoli</td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+      <p><sup>1</sup>&nbsp;<span style="background-color:hsl(90,75%,60%);"><i>Registration for the live cooking session is required as seats are limited.</i></span></p>
+      <p>&nbsp;</p>
+    </div>
+  </div>
+</div>
+</div>
+<div class="info-box notice"><p>If you have already tried the export to Word feature, please <strong>help us develop it by sharing your feedback</strong> with <a href="https://www.surveymonkey.com/r/ZYJBCZT" target="_blank" rel="noopener">this short survey</a>. It only takes about 2 minutes, but will be invaluable for the development team. Thank you!</p></div>
+<h2 id="how-it-works"><a class="headerlink" href="#how-it-works">#</a> How it works</h2>
+<p>The export to Microsoft Word feature collects the HTML generated with the <a href="../api/module_editor-classic_classiceditor-ClassicEditor.html#function-getData"><code>editor.getData()</code></a> method and the <a href="../installation/advanced/content-styles.html#the-full-list-of-content-styles">default editor content styles</a> combined with the styles provided by you in the configuration. It then sends them to the CKEditor Cloud Services HTML to DOCX converter service. The service generates a Word file and returns it to the user&#x2019;s browser so they can save it in the Word format on their disk.</p>
+<h2 id="related-features"><a class="headerlink" href="#related-features">#</a> Related features</h2>
+<ul>
+<li>The complementary <a href="pagination/pagination.html">pagination feature</a> provides live preview of the document&#x2019;s page breaks, ensuring the output document looks correct.</li>
+<li>If you would like to export your content to a portable, universal format, using the <a href="export-pdf.html">export to PDF</a> feature will allow you to generate PDF files out of your editor-created content.</li>
+</ul>
+<h2 id="before-you-start"><a class="headerlink" href="#before-you-start">#</a> Before you start</h2>
+<div class="info-box notice"><p>This is a premium feature and you can <a href="https://ckeditor.com/pricing/">purchase a license here</a> or <a href="https://ckeditor.com/contact/">contact us</a> for a tailor-made offer. Export to Word then needs to be configured to run without the watermark.</p></div>
+<p>After you purchase a license, follow the steps below, as explained in the {@link @cs guides/export-to-word/quick-start Export to Word quick start guide}:</p>
+<ul>
+<li>{@link @cs guides/export-to-word/quick-start#log-in-to-the-ckeditor-ecosystem-dashboard Log into the CKEditor Ecosystem customer dashboard}.</li>
+<li>{@link @cs guides/export-to-word/quick-start#creating-token-endpoint Create the token endpoint needed for authorization}.</li>
+<li><a href="#installation">Install</a> and <a href="#configuration">configure</a> the CKEditor 5 export to Word plugin.</li>
+</ul>
+<h2 id="installation"><a class="headerlink" href="#installation">#</a> Installation</h2>
+<p>To add the export to Word feature to your editor, install the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-export-word" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-export-word</code></a> package:</p>
+<pre class="highlight"><code class>npm install --save @ckeditor/ckeditor5-export-word
+</code></pre>
+<p>Then add the <code>ExportWord</code> plugin to your plugin list and <a href="#configuration">configure</a> it:</p>
+<pre class="highlight"><code class="js">import ExportWord from &apos;@ckeditor/ckeditor5-export-word/src/exportword&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ ExportWord, ... ],
+        toolbar: [
+            &apos;exportWord&apos;, &apos;|&apos;,
+            ...
+        ],
+        exportWord: {
+            tokenUrl: &apos;https://example.com/cs-token-endpoint&apos;,
+            fileName: &apos;my-file.docx&apos;,
+            converterOptions: {
+                format: &apos;A4&apos;, // Default value, you don&apos;t need to specify it explicitly for A4.
+                margin_top: &apos;20mm&apos;,
+                margin_bottom: &apos;20mm&apos;,
+                margin_right: &apos;12mm&apos;,
+                margin_left: &apos;12mm&apos;
+            }
+        }
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<div class="info-box notice"><p>Read more about <a href="../installation/getting-started/installing-plugins.html">installing plugins</a>.</p></div>
+<h2 id="configuration"><a class="headerlink" href="#configuration">#</a> Configuration</h2>
+<div class="info-box notice"><p>For more technical details, please check the <a href="../api/module_export-word_exportword-ExportWordConfig.html">plugin configuration API</a>.</p></div>
+<h3 id="default-configuration"><a class="headerlink" href="#default-configuration">#</a> Default configuration</h3>
+<p>This is the default configuration of the Word export feature for CKEditor 5.</p>
+<pre class="highlight"><code class="js">{
+    exportWord: {
+        fileName: &apos;document.docx&apos;,
+        converterUrl: &apos;https://docx-converter.cke-cs.com/v1/convert&apos;,
+        stylesheets: [ &apos;EDITOR_STYLES&apos; ],
+        converterOptions: {
+            format: &apos;A4&apos;,
+            margin_top: &apos;1in&apos;,
+            margin_bottom: &apos;1in&apos;,
+            margin_right: &apos;1in&apos;,
+            margin_left: &apos;1in&apos;,
+            header: undefined,
+            footer: undefined,
+            comments: undefined,
+            suggestions: undefined
+        },
+        dataCallback: ( editor ) =&gt; editor.getData( { pagination: true } )
+    }
+}
+</code></pre>
+<h3 id="plugin-options"><a class="headerlink" href="#plugin-options">#</a> Plugin options</h3>
+<p>For some use cases the default configuration will suffice. As you can see in the example above, you can improve how your Word file will look by adjusting the Word export plugin configuration.</p>
+<ul>
+<li>
+<p><strong><a href="../api/module_export-word_exportword-ExportWordConfig.html#member-stylesheets"><code>config.exportWord.stylesheets</code></a></strong></p>
+<p>You can set the paths (relative or absolute URLs) to the stylesheets that should be included during the HTML to DOCX conversion. If you want to extend <a href="../installation/advanced/content-styles.html#the-full-list-of-content-styles">editor&#x2019;s default content styles</a>, you have to pass <strong>a special <code>&apos;EDITOR_STYLES&apos;</code> token</strong> before a path to your custom styling.</p>
+  <div class="info-box notice notice__warning"><p>Note: <strong>The order of the paths matters</strong>. If you have custom elements or have overridden some of the default editor&#x2019;s content styles, the paths to your file(s) should go after the <code>&apos;EDITOR_STYLES&apos;</code> token. See the examples in the <code><a href="../api/module_export-word_exportword-ExportWordConfig.html#member-stylesheets">config.exportWord.stylesheets</a></code> documentation.</p></div>
+</li>
+<li>
+<p><strong><a href="../api/module_export-word_exportword-ExportWordConfig.html#member-fileName"><code>config.exportWord.fileName</code></a></strong></p>
+<p>Sets the name for the generated Word file (together with the extension). The default name is <code>document.docx</code>.</p>
+</li>
+<li>
+<p><strong><a href="../api/module_export-word_exportword-ExportWordConfig.html#member-converterUrl"><code>config.exportWord.converterUrl</code></a></strong></p>
+<p>By default, the Word export feature is configured to use the CKEditor Cloud Services HTML to DOCX converter service to generate the Word files. You can, however, use this option to provide the URL to an on-premises converter. <a href="https://ckeditor.com/contact/">Contact us</a> if you need this feature.</p>
+</li>
+<li>
+<p><strong><a href="../api/module_export-word_exportword-ExportWordConfig.html#member-tokenUrl"><code>config.exportWord.tokenUrl</code></a></strong></p>
+<p>A token URL or a token request function. This field is optional and should be used when a different <a href="../api/module_cloud-services_cloudservices-CloudServicesConfig.html#member-tokenUrl"><code>tokenUrl</code></a> is required for the Export to Word feature. You can skip this option if you use the <code>cloudServices</code> configuration to provide the same <code>tokenUrl</code> (in fact in most cases you will probably want to provide the token in <code>cloudServices</code>, as other plugins like <a href="images/image-upload/easy-image.html">EasyImage</a> or <a href="collaboration/real-time-collaboration/real-time-collaboration.html">real-time collaboration</a> will use this token as well. For the purpose of this guide, to explicitly show that this value is needed, we leave it the inside <code>exportWord</code> config).</p>
+</li>
+<li>
+<p><strong><a href="../api/module_export-word_exportword-ExportWordConfig.html#member-converterOptions"><code>config.exportWord.converterOptions</code></a></strong></p>
+<p>The plugin allows you to provide a custom <a href="../api/module_export-word_exportword-ExportWordConfig.html#member-converterOptions">CKEditor Cloud Services HTML to DOCX converter configuration</a>.</p>
+</li>
+<li>
+<p><strong><a href="../api/module_export-word_exportword-ExportWordConfig.html#member-dataCallback"><code>config.exportWord.dataCallback</code></a></strong></p>
+<p>By default, the plugin uses <code>editor.getData( { pagination: true } )</code> to gather the HTML to be sent to the conversion service. You can use this option to customize the editor&#x2019;s data.</p>
+<p>When using the <a href="pagination/pagination.html">pagination</a> feature, the <code>pagination:true</code> option inserts additional markers into editor&#x2019;s data. Thanks to that, the DOCX converter creates a Word document similar to what is displayed in the editor.</p>
+</li>
+</ul>
+<div class="info-box notice"><p>The <a href="../api/module_export-word_exportword-ExportWordConfig.html#member-dataCallback"><code>config.exportWord.dataCallback</code></a> option may be useful when handling:</p><ul>
+<li><a href="../examples/framework/multi-root-editor.html">multi-root editor</a>,</li>
+<li><a href="collaboration/track-changes/track-changes.html#saving-the-data-with-suggestion-highlights">track changes suggestions preview</a>.</li>
+</ul>
+</div>
+<h2 id="html-to-word-converter-features"><a class="headerlink" href="#html-to-word-converter-features">#</a> HTML to Word converter features</h2>
+<h3 id="styling-a-document"><a class="headerlink" href="#styling-a-document">#</a> Styling a document</h3>
+<p>By default, <a href="../api/module_export-word_exportword-ExportWord.html">Export to Word</a> plugin takes editor content styles and sends them to the CKEditor Cloud Services HTML to DOCX Converter. You can also add your own styles by providing the paths to the external CSS files.</p>
+<pre class="highlight"><code class="js">    // ...
+    exportWord: {
+        fileName: &apos;document.docx&apos;,
+        converterUrl: &apos;https://docx-converter.cke-cs.com/v1/convert&apos;,
+        stylesheets: [
+            &apos;EDITOR_STYLES&apos;,
+            &apos;path/to/my-styles.css&apos;
+        ],
+        // ...
+    }
+    // ...
+</code></pre>
+<h4 id="supported-css-properties"><a class="headerlink" href="#supported-css-properties">#</a> Supported CSS properties</h4>
+<p>DOCX Converter supports proper CSS inheritance with a set of whitelisted properties which can be used to style document content.</p>
+<p>CSS properties like:</p>
+<ul>
+<li><code>color</code></li>
+<li><code>background-color</code></li>
+<li><code>font-size</code></li>
+<li><code>font-family</code></li>
+<li><code>text-align</code></li>
+</ul>
+<p>can be applied to the following elements: <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, <code>h6</code>, <code>p</code>, <code>span</code>, <code>td</code>, <code>th</code>, <code>strong</code>, <code>i</code>, <code>u</code>, <code>s</code>, <code>sub</code>, <code>sup</code>, <code>mark</code>.</p>
+<p>You can also position images using <code>float</code> CSS property, supporting <code>left</code>, <code>right</code>, and <code>none</code> values.</p>
+<div class="info-box notice"><p>You can use any CSS selector to style the above elements, including classes, attributes, and <code>*</code> selector.</p></div>
+<h3 id="setting-the-page-format"><a class="headerlink" href="#setting-the-page-format">#</a> Setting the page format</h3>
+<p>Consistency is an important factor. To make sure that the editor content and the generated Word file look exactly the same, you need to match their format settings. You can modify your existing stylesheet or use a new one, for example, <code>format.css</code>. By default the CKEditor Cloud Services HTML to DOCX converter is set to A4 format, but you may change this setting in your configuration.</p>
+<p>Assuming that you want to create a document in the US Letter format, with the standard margins (<code>19mm</code> for each side), here is the example code you can use:</p>
+<pre class="highlight"><code class="js">import ClassicEditor from &apos;@ckeditor/ckeditor5-build-classic/src/ckeditor&apos;;
+import ExportWord from &apos;@ckeditor/ckeditor5-export-pdf/src/exportword&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ ExportWord, ... ],
+        toolbar: [
+            &apos;exportWord&apos;, &apos;|&apos;,
+            // ...
+        ],
+        exportWord: {
+            stylesheets: [
+                &apos;EDITOR_STYLES&apos;,
+                // Add an external stylesheet after the &apos;EDITOR_STYLES&apos; token.
+                &apos;./styles/format.css&apos;
+            ],
+            fileName: &apos;my-document.docx&apos;,
+            converterOptions: {
+                // Document format settings with proper margins.
+                format: &apos;Letter&apos;,
+                margin_top: &apos;19mm&apos;,
+                margin_bottom: &apos;19mm&apos;,
+                margin_right: &apos;19mm&apos;,
+                margin_left: &apos;19mm&apos;,
+            }
+        }
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<div class="info-box notice"><p>This example focuses only on preparing the editable to match the converter settings. Please keep in mind that as a result, the appearance of your editor may change. Depending on your editor type and implementation or even some inherited global styles like <code>box-sizing</code>, applying new <code>padding</code> values may change the size of the editor on your website.</p><p>For the purpose of this example, <code>box-sizing: border-box</code> was implemented to make sure that the editor&#x2019;s width will not change.</p></div>
+<p>Now set the corresponding editor styles:</p>
+<pre class="highlight"><code class="css">/* format.css */
+
+/* Styles for the editable. */
+.ck.ck-content.ck-editor__editable {
+    /* US Letter size. */
+    width: 215.9mm;
+    /* Padding is your document&apos;s margin. */
+    padding: 19mm;
+    /* You don&apos;t want to change the size of the editor by applying the new padding values. */
+    box-sizing: border-box;
+    /* ... */
+}
+</code></pre>
+<p>With these settings, the content in the generated Word file should have the same US Letter format layout as it has in the editor.</p>
+<h3 id="header-and-footer"><a class="headerlink" href="#header-and-footer">#</a> Header and footer</h3>
+<p>The converter allows you to set the document&#x2019;s header and footer in a similar way as you do this in your Microsoft Word or Google Docs files.</p>
+<pre class="highlight"><code class="js">// Let&apos;s keep the CSS string as a variable to avoid unnecessary string duplication.
+const templateCSS = &apos;.styled { font-weight: bold; text-align: center; }&apos;
+
+const converterOptions = {
+    header: [
+        // Header template for all headers (without the `type` property).
+        { html: &apos;&lt;div class=&quot;styled&quot;&gt;Default header content&lt;/div&gt;&apos;, css: templateCSS },
+        // Header template only for the first page of the document.
+        { html: &apos;&lt;div class=&quot;styled&quot;&gt;First document page header content&lt;/div&gt;&apos;, css: templateCSS, type: &apos;first&apos; },
+        // Header template for every even page of the document.
+        { html: &apos;&lt;div class=&quot;styled&quot;&gt;Every even page header content&lt;/div&gt;&apos;, css: templateCSS, type: &apos;even&apos; },
+        // Header template for every odd page of the document.
+        { html: &apos;&lt;div class=&quot;styled&quot;&gt;Every odd page header content&lt;/div&gt;&apos;, css: templateCSS, type: &apos;odd&apos; }
+    ],
+    footer: [
+        // Footer template for all footers (without the `type` property).
+        { html: &apos;&lt;div class=&quot;styled&quot;&gt;Default footer content&lt;/div&gt;&apos;, css: templateCSS },
+        // Footer template only for the first page of the document.
+        { html: &apos;&lt;div class=&quot;styled&quot;&gt;First document page footer content&lt;/div&gt;&apos;, css: templateCSS, type: &apos;first&apos; },
+        // Footer template for every even page of the document.
+        { html: &apos;&lt;div class=&quot;styled&quot;&gt;Every even page footer content&lt;/div&gt;&apos;, css: templateCSS, type: &apos;even&apos; },
+        // Footer template for every odd page of the document.
+        { html: &apos;&lt;div class=&quot;styled&quot;&gt;Every odd page footer content&lt;/div&gt;&apos;, css: templateCSS, type: &apos;odd&apos; }
+    ],
+}
+</code></pre>
+<p>As you can see, the <code>header</code> and <code>footer</code> options take an array of objects that define templates for the particular type of page. If you want to have consistent templates no matter the page, you can define only the <code>default</code> <code>headers/footers</code> template (<strong>NOTE:</strong> This setting misses the <code>type</code> property on purpose).</p>
+<p>Regarding CSS, <code>header</code> and <code>footer</code> can be styled using the same <a href="#supported-css-properties">supported properties</a> as used for styling the whole document.</p>
+<p>For more details, refer to the <a href="https://docx-converter.cke-cs.com/docs#section/Options" target="_blank" rel="noopener">CKEditor Cloud Services HTML to DOCX converter&#x2019;s documentation</a>.</p>
+<h3 id="comments-and-suggestions"><a class="headerlink" href="#comments-and-suggestions">#</a> Comments and suggestions</h3>
+<p>When your editor has <a href="https://ckeditor.com/collaboration/">collaboration features</a> (like comments and track changes) enabled, the <a href="../api/module_export-word_exportword-ExportWord.html">Export to Word</a> feature will take care of setting the configuration needed by the CKEditor Cloud Services HTML to DOCX converter. But if for some reason you need to pass your own data, you can do this via the <a href="https://docx-converter.cke-cs.com/docs#section/Options" target="_blank" rel="noopener">REST API converter options</a>.</p>
+<div class="info-box notice"><p><strong>Note:</strong> Currently formatting suggestions are not supported. Only insertions and deletions will work correctly with the CKEditor Cloud Services HTML to DOCX converter.</p></div>
+<h3 id="other"><a class="headerlink" href="#other">#</a> Other</h3>
+<ul>
+<li>By default, the generated Word file is encoded with <strong><code>UTF-8</code></strong>.</li>
+</ul>
+<h2 id="known-issues"><a class="headerlink" href="#known-issues">#</a> Known issues</h2>
+<p>Not all CKEditor 5 plugins and features are compatible with export to Word at the moment. Feel free to <a href="https://ckeditor.com/contact/">contact us</a> if you are interested in any of these features specifically. Here is a list of known issues:</p>
+<h3 id="unsupported-plugins"><a class="headerlink" href="#unsupported-plugins">#</a> Unsupported plugins</h3>
+<ul>
+<li><a href="media-embed.html">Media embed</a> &#x2013; Embedded media will not be included in the exported document.</li>
+<li><a href="math-equations.html">MathType</a> &#x2013; Supported partially. The plugin parses the data but not the formatting, losing some of the math operators and not reproducing a usable equation in the effecting file.</li>
+</ul>
+<h3 id="unsupported-features"><a class="headerlink" href="#unsupported-features">#</a> Unsupported features</h3>
+<ul>
+<li>Inline and block formatting <a href="collaboration/track-changes/track-changes.html">suggestions</a> &#x2013; Such suggestions are not included in the exported document.</li>
+<li><a href="collaboration/comments/comments.html">Comments</a> applied to whole widgets (e.g. tables) &#x2013; Such comments are not included in the exported document.</li>
+</ul>
+<h2 id="common-api"><a class="headerlink" href="#common-api">#</a> Common API</h2>
+<p>The <a href="../api/module_export-word_exportword-ExportWord.html"><code>ExportWord</code></a> plugin registers:</p>
+<ul>
+<li>
+<p>The <code>&apos;exportWord&apos;</code> button.</p>
+</li>
+<li>
+<p>The <code>&apos;exportWord&apos;</code> command implemented by <a href="../api/module_export-word_exportwordcommand-ExportWordCommand.html"><code>ExportWordCommand</code></a>.</p>
+<p>The command can be executed using the <a href="../api/module_core_editor_editor-Editor.html#function-execute"><code>editor.execute()</code></a> method. However, should the command be used directly (not via the toolbar button), <a href="../api/module_export-word_exportword-ExportWordConfig.html">the options</a> need to be specified or gathered from the config. Otherwise the command will not execute properly.</p>
+<p>And example code to use the command directly should look like this:</p>
+<pre class="highlight"><code class="js">// Start generating a PDF file based on the editor content and plugin configuration.
+const config = editor.config.get( &apos;exportWord&apos; );
+editor.execute( &apos;exportWord&apos;, config );
+</code></pre>
+</li>
+</ul>
+<script>
+	/* Functions for cookie manipulation */
+	function setCookie(name, value, expiresDays, domain = '.ckeditor.com') {
+		var d = new Date();
+		d.setTime(d.getTime() + (expiresDays * 24 * 60 * 60 * 1000));
+		var expires = "expires=" + d.toUTCString();
+		document.cookie = `${name}=${value};domain=${domain};${expires};path=/`;
+	}
+	function getCookie(name) {
+		const cookieName = `${name}=`;
+		const decodedCookie = decodeURIComponent(document.cookie);
+		const ca = decodedCookie.split(';');
+		for (let i = 0; i < ca.length; i++) {
+			let c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(cookieName) == 0) {
+				return c.substring(cookieName.length, c.length);
+			}
+		}
+		return '';
+	}
+	function removeCookie(name) {
+		document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+	}
+
+	/* Random swaping of survey url & saving the randomization in a cookie  */
+	function surveyRandomization() {
+		const randomizingSurvey = Math.random() < 0.5;
+		const surveyCookie = 'word-survey';
+		const altSurvey = getCookie(surveyCookie);
+		const surveyLink = document.querySelector(`a[href^='https://www.surveymonkey.com/']`);
+		const altSurveyLink = 'https://www.surveymonkey.com/r/ZL6TZZT';
+
+		if( ( !altSurvey && randomizingSurvey ) || altSurvey == '1' ) {
+			setCookie( surveyCookie, '1', 180 );
+			surveyLink.setAttribute( 'href', altSurveyLink );
+		} else if ( !altSurvey || altSurvey == '0' ) {
+			setCookie( surveyCookie, '0', 180 );
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', surveyRandomization());
+</script>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22features%2Fexport-word.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li><a href="autoformat.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="text-transformation.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="basic-styles.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="indent.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="block-quote.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="code-blocks.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="collaboration/collaboration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="collaboration/comments/comments.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-only-mode.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-outside-editor.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="collaboration/track-changes/track-changes.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/track-changes/track-changes-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/track-changes/track-changes-custom-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/track-changes/track-changes-data.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="collaboration/real-time-collaboration/real-time-collaboration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/real-time-collaboration/real-time-collaboration-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/real-time-collaboration/users-in-real-time-collaboration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="collaboration/users.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                        </div></a></li>
+                                    <li><a href="collaboration/context-and-collaboration-features.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="collaboration/annotations/annotations.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-display-mode.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-configuration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-theme.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-template.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-view.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="minimap.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li><a href="title.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="editor-placeholder.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li><a href="export-pdf.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="find-and-replace.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="font.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font</span>
+                              </div></a></li>
+                          <li><a href="general-html-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                              </div></a></li>
+                          <li><a href="headings.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="highlight.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="horizontal-line.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li><a href="html-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="images/images-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-installation.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-text-alternative.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-captions.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-resizing.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-linking.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="images/image-upload/image-upload.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/easy-image.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Easy Image</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/ckfinder.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder file manager</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/base64-upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/simple-upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/images-inserting.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="keyboard-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Keyboard support</span>
+                              </div></a></li>
+                          <li><a href="link.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="lists/lists.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                        </div></a></li>
+                                    <li><a href="lists/todo-lists.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="markdown.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="math-equations.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="media-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="mentions.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="page-break.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="pagination/pagination.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="pagination/pagination-integration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="pasting/paste-from-word.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Word</span>
+                                        </div></a></li>
+                                    <li><a href="pasting/paste-from-google-docs.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                        </div></a></li>
+                                    <li><a href="pasting/paste-plain-text.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                        </div></a></li>
+                                    <li><a href="pasting/drag-drop.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="read-only.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="remove-format.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="restricted-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="revision-history/revision-history.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="revision-history/revision-history-integration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="select-all.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="source-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="special-characters.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="spelling-and-grammar-checking.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spelling and grammar checking</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="table.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Tables</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="text-alignment.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Toolbar</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="toolbar/toolbar.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbar</span>
+                                        </div></a></li>
+                                    <li><a href="toolbar/blocktoolbar.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block toolbar</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="ui-language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                              </div></a></li>
+                          <li><a href="watchdog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="word-count.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'features' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'features' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'features' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'features' ] );tags.forEach( function( tag ) {if ( tag !== 'features' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../assets/snippet.js"></script>
+    <script src="../snippets/assets.js"></script>
+    <script src="../snippets/features/export-word-comments-suggestions/snippet.js"></script>
+    <script src="../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue.js 2.x component - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:57 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Vue.js 2.x component - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/frameworks/vuejs-v2.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Vue.js 2.x component - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/installation/getting-started/frameworks/vuejs-v2.html">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../index.html">CKEditor 5</a></li>
+          <li><a class="top__menu__item--active" href="../../index.html">Installation</a></li>
+          <li><a href="../../../features/index.html">Features</a></li>
+          <li><a href="../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../support/index.html">Support</a></li>
+          <li><a href="../../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../index.html">Installation</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="../configuration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                      </div></a></li>
+                                  <li><a href="../installing-plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                      </div></a></li>
+                                  <li><a href="../basic-api.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="overview.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="angular.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                              </div></a></li>
+                                          <li><a href="react.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                              </div></a></li>
+                                          <li><a href="">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                              </div></a></li>
+                                          <li><a href="vuejs-v3.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                              </div></a></li>
+                                          <li><a href="css.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../migration-from-ckeditor-4.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="../maintenance.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../advanced/using-two-editors.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                      </div></a></li>
+                                  <li><a href="../../advanced/saving-data.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                      </div></a></li>
+                                  <li><a href="../../advanced/content-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                      </div></a></li>
+                                  <li><a href="../../advanced/csp.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                      </div></a></li>
+                                  <li><a href="../../advanced/plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                      </div></a></li>
+                                  <li><a href="../../advanced/features-html-output-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../advanced/alternative-setups/integrating-from-source.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                              </div></a></li>
+                                          <li><a href="../../advanced/alternative-setups/dll-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                              </div></a></li>
+                                          <li><a href="../../advanced/alternative-setups/dll-builds-collaboration-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                              </div></a></li>
+                                          <li><a href="../../advanced/alternative-setups/predefined-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="features"><a href="../../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/installation/frameworks/vuejs-v2.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Installation</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../../assets/2.1.3/img/book.svg" alt="guide">Vue.js 2.x rich text editor component
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#quick-start">Quick start</a><ol><li><a href="#direct-script-include">Direct script include</a></li><li><a href="#using-es6-modules">Using ES6 modules</a></li></ol></li><li><a href="#using-the-component-locally">Using the component locally</a></li><li><a href="#integrating-a-custom-build-from-the-online-builder">Integrating a custom build from the online builder</a></li><li><a href="#using-ckeditor-from-source">Using CKEditor from source</a><ol><li><a href="#configuring-vueconfigjs">Configuring vue.config.js</a></li><li><a href="#using-the-editor-from-source">Using the editor from source</a></li></ol></li><li><a href="#using-the-document-editor-build">Using the Document editor build</a></li><li><a href="#localization">Localization</a><ol><li><a href="#predefined-builds">Predefined builds</a></li><li><a href="#ckeditor-5-built-from-source">CKEditor 5 built from source</a></li></ol></li><li><a href="#component-directives">Component directives</a><ol><li><a href="#editor">editor</a></li><li><a href="#tag-name">tag-name</a></li><li><a href="#v-model">v-model</a></li><li><a href="#value">value</a></li><li><a href="#config">config</a></li><li><a href="#disabled">disabled</a></li></ol></li><li><a href="#component-events">Component events</a><ol><li><a href="#ready">ready</a></li><li><a href="#focus">focus</a></li><li><a href="#blur">blur</a></li><li><a href="#input">input</a></li><li><a href="#destroy">destroy</a></li></ol></li><li><a href="#contributing-and-reporting-issues">Contributing and reporting issues</a></li></ol></nav>
+
+<p>
+	<a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-vue2" target="_blank" rel="noopener">
+		<img src="https://badge.fury.io/js/%40ckeditor%2Fckeditor5-vue2.svg" alt="npm version" loading="lazy">
+	</a>
+</p>
+<div class="info-box notice"><p><strong>Important</strong>: This guide is about the CKEditor 5 integration with Vue.js 2.x. To learn more about the integration with Vue.js 3+, check out the <a href="vuejs-v3.html">&#x201C;Rich text editor component for Vue.js 3+&#x201D;</a> guide.</p></div>
+<p>CKEditor 5 consists of the <a href="../../advanced/alternative-setups/predefined-builds.html">ready-to-use editor builds</a> and the <a href="../../../framework/guides/overview.html">CKEditor 5 Framework</a> upon which the builds are based.</p>
+<p>The easiest way to use CKEditor 5 in your Vue.js application is by choosing one of the <a href="../../advanced/alternative-setups/predefined-builds.html#available-builds">rich text editor builds</a> and simply passing it to the configuration of the Vue.js component. Read more about this solution in the <a href="#quick-start">Quick start</a> section.</p>
+<p>Additionally, you can <a href="#using-ckeditor-from-source">integrate CKEditor 5 from source</a> which is a much more flexible and powerful solution, but requires some additional configuration.</p>
+<div class="info-box notice"><p>The <a href="../../../features/watchdog.html">watchdog feature</a> is available for the <a href="react.html">React</a> and <a href="angular.html">Angular</a> integrations, but is not supported in Vue yet.</p></div>
+<h2 id="quick-start"><a class="headerlink" href="#quick-start">#</a> Quick start</h2>
+<p>Install the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-vue2" target="_blank" rel="noopener">CKEditor 5 WYSIWYG editor component for Vue.js</a> and the <a href="../../advanced/alternative-setups/predefined-builds.html#available-builds">editor build of your choice</a>.</p>
+<p>Assuming that you picked <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-build-classic" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-build-classic</code></a>:</p>
+<pre class="highlight"><code class="bash">npm install --save @ckeditor/ckeditor5-vue2 @ckeditor/ckeditor5-build-classic
+</code></pre>
+<p>You now need to enable the CKEditor component in your application. There are 2 ways to do so:</p>
+<ul>
+<li><a href="#direct-script-include">via a direct script include</a>,</li>
+<li><a href="#using-es6-modules">by using ES6 module imports</a>.</li>
+</ul>
+<p>Optionally, you can <a href="#using-the-component-locally">use the component locally</a>.</p>
+<h3 id="direct-script-include"><a class="headerlink" href="#direct-script-include">#</a> Direct script include</h3>
+<p>This is the quickest way to start using CKEditor in your project. Assuming <a href="https://vuejs.org/v2/guide/installation.html" target="_blank" rel="noopener">Vue is installed</a>, include the <code>&lt;script&gt;</code> tags for the WYSIWYG editor component and the build:</p>
+<pre class="highlight"><code class="html">&lt;script src=&quot;../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../node_modules/@ckeditor/ckeditor5-vue2/dist/ckeditor.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Enable the component in your application by using the <a href="https://vuejs.org/v2/api/#Vue-use" target="_blank" rel="noopener"><code>Vue.use()</code></a> method:</p>
+<pre class="highlight"><code class="js">Vue.use( CKEditor );
+</code></pre>
+<div class="info-box notice"><p>Instead of calling <code>Vue.use()</code>, you can always <a href="#using-the-component-locally">use the component locally</a>.</p></div>
+<p>Use the <code>&lt;ckeditor&gt;</code> component in your template:</p>
+<ul>
+<li>The <a href="#editor"><code>editor</code></a> directive specifies the editor build.</li>
+<li>The <a href="#v-model"><code>v-model</code></a> directive enables an out&#x2013;of&#x2013;the&#x2013;box two&#x2013;way data binding.</li>
+<li>The <a href="#config"><code>config</code></a> directive helps you pass the configuration to the editor instance.</li>
+</ul>
+<pre class="highlight"><code class="html">&lt;div id=&quot;app&quot;&gt;
+    &lt;ckeditor :editor=&quot;editor&quot; v-model=&quot;editorData&quot; :config=&quot;editorConfig&quot;&gt;&lt;/ckeditor&gt;
+&lt;/div&gt;
+</code></pre>
+<pre class="highlight"><code class="js">const app = new Vue( {
+    el: &apos;#app&apos;,
+    data: {
+        editor: ClassicEditor,
+        editorData: &apos;&lt;p&gt;Content of the editor.&lt;/p&gt;&apos;,
+        editorConfig: {
+            // The configuration of the editor.
+        }
+    }
+} );
+</code></pre>
+<p>Voil&#xE0;! You should see CKEditor 5 running in your Vue.js app.</p>
+<div class="info-box notice"><p>See the list of supported <a href="#component-directives">directives</a> and <a href="#component-events">events</a> that will help you configure the component.</p></div>
+<h3 id="using-es6-modules"><a class="headerlink" href="#using-es6-modules">#</a> Using ES6 modules</h3>
+<p>The editor component comes as a <a href="https://github.com/umdjs/umd" target="_blank" rel="noopener">UMD module</a>, which makes it possible to use in various environments, for instance, applications generated by <a href="https://cli.vuejs.org/" target="_blank" rel="noopener">Vue CLI 3</a>, built using <a href="https://webpack.js.org" target="_blank" rel="noopener">webpack</a>, etc.</p>
+<p>To create an editor instance, you must first import the editor build and the component modules into the root file of your application (e.g. <code>main.js</code> when generated by Vue CLI). Then, enable the component using the <a href="https://vuejs.org/v2/api/#Vue-use" target="_blank" rel="noopener"><code>Vue.use()</code></a> method:</p>
+<pre class="highlight"><code class="js">import Vue from &apos;vue&apos;;
+import CKEditor from &apos;@ckeditor/ckeditor5-vue2&apos;;
+
+Vue.use( CKEditor );
+</code></pre>
+<div class="info-box notice"><p>Instead of calling <code>Vue.use()</code>, you can always <a href="#using-the-component-locally">use the component locally</a>.</p></div>
+<p>The following example showcases a single&#x2013;file component of the application. Use the <code>&lt;ckeditor&gt;</code> component in your template:</p>
+<ul>
+<li>The <a href="#editor"><code>editor</code></a> directive specifies the editor build (the editor constructor).</li>
+<li>The <a href="#v-model"><code>v-model</code></a> directive enables an out&#x2013;of&#x2013;the&#x2013;box two&#x2013;way data binding.</li>
+<li>The <a href="#config"><code>config</code></a> directive helps you pass the configuration to the editor instance.</li>
+</ul>
+<pre class="highlight"><code class="html">&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;ckeditor :editor=&quot;editor&quot; v-model=&quot;editorData&quot; :config=&quot;editorConfig&quot;&gt;&lt;/ckeditor&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import ClassicEditor from &apos;@ckeditor/ckeditor5-build-classic&apos;;
+
+    export default {
+        name: &apos;app&apos;,
+        data() {
+            return {
+                editor: ClassicEditor,
+                editorData: &apos;&lt;p&gt;Content of the editor.&lt;/p&gt;&apos;,
+                editorConfig: {
+                    // The configuration of the editor.
+                }
+            };
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<div class="info-box notice"><p>See the list of supported <a href="#component-directives">directives</a> and <a href="#component-events">events</a> that will help you configure the component.</p></div>
+<h2 id="using-the-component-locally"><a class="headerlink" href="#using-the-component-locally">#</a> Using the component locally</h2>
+<p>If you do not want the CKEditor component to be enabled globally, you can skip the <code>Vue.use( CKEditor )</code> part entirely. Instead, configure it in the <code>components</code> property of your view.</p>
+<div class="info-box notice"><p>Make sure <code>CKEditor</code> and <code>ClassicEditor</code> are accessible depending on the integration scenario: as <a href="#direct-script-include">direct script includes</a> or <a href="#using-es6-modules">ES6 module imports</a>.</p></div>
+<pre class="highlight"><code class="html">&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;ckeditor :editor=&quot;editor&quot; ... &gt;&lt;/ckeditor&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default {
+        name: &apos;app&apos;,
+        components: {
+            // Use the &lt;ckeditor&gt; component in this view.
+            ckeditor: CKEditor.component
+        },
+        data() {
+            return {
+                editor: ClassicEditor,
+
+                // ...
+            };
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<h2 id="integrating-a-custom-build-from-the-online-builder"><a class="headerlink" href="#integrating-a-custom-build-from-the-online-builder">#</a> Integrating a custom build from the online builder</h2>
+<p>This guide assumes that you have created a zip archive with the editor built using the <a href="https://ckeditor.com/ckeditor-5/online-builder/">CKEditor 5 online builder</a>.</p>
+<p>Unpack it into you application main directory. The directory with the editor build cannot be placed inside the <code>src/</code> directory as Node will return an error. Because of that, we recommend placing the directory next to the <code>src/</code> and <code>node_modules/</code> folders:</p>
+<pre class="highlight"><code class>&#x251C;&#x2500;&#x2500; ckeditor5
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; build
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; sample
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; src
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; ...
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; package.json
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; webpack.config.js
+&#x251C;&#x2500;&#x2500; node_modules
+&#x251C;&#x2500;&#x2500; public
+&#x251C;&#x2500;&#x2500; src
+&#x251C;&#x2500;&#x2500; ...
+&#x2514;&#x2500;&#x2500; package.json
+</code></pre>
+<p>Then, add the package located in the <code>ckeditor5</code> directory as a dependency of your project:</p>
+<pre class="highlight"><code class>yarn add file:./ckeditor5
+</code></pre>
+<p>Finally, import the build in your application:</p>
+<pre class="highlight"><code class="html">&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;ckeditor :editor=&quot;editor&quot; v-model=&quot;editorData&quot; :config=&quot;editorConfig&quot;&gt;&lt;/ckeditor&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import Editor from &apos;ckeditor5-custom-build/build/ckeditor&apos;;
+
+    export default {
+        name: &apos;app&apos;,
+        data() {
+            return {
+                editor: Editor,
+                editorData: &apos;&lt;p&gt;Content of the editor.&lt;/p&gt;&apos;,
+                editorConfig: {
+                    // The configuration of the editor.
+                }
+            };
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<h2 id="using-ckeditor-from-source"><a class="headerlink" href="#using-ckeditor-from-source">#</a> Using CKEditor from source</h2>
+<p>Integrating the rich text editor from source allows you to use the full power of <a href="../../../framework/guides/overview.html">CKEditor 5 Framework</a>.</p>
+<p>This guide assumes that you are using <a href="https://cli.vuejs.org" target="_blank" rel="noopener">Vue CLI 3+</a> as your boilerplate and your application has been created using the <a href="https://cli.vuejs.org/guide/creating-a-project.html#vue-create" target="_blank" rel="noopener"><code>vue create</code></a> command.</p>
+<div class="info-box notice"><p>Learn more about building CKEditor from source in the <a href="../../advanced/alternative-setups/integrating-from-source.html">Integrating the editor from the source</a> guide.</p></div>
+<h3 id="configuring-vueconfigjs"><a class="headerlink" href="#configuring-vueconfigjs">#</a> Configuring <code>vue.config.js</code></h3>
+<p>To build CKEditor with your application, certain changes must be made to the default project configuration.</p>
+<p>First, install the necessary dependencies:</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    @ckeditor/ckeditor5-vue2 \
+    @ckeditor/ckeditor5-dev-webpack-plugin \
+    @ckeditor/ckeditor5-dev-utils \
+    postcss-loader@4 \
+    raw-loader@4
+</code></pre>
+<p>Edit the <code>vue.config.js</code> file and use the following configuration. If the file is not present, create it in the root of the application (i.e. next to <code>package.json</code>):</p>
+<pre class="highlight"><code class="js">const path = require( &apos;path&apos; );
+const CKEditorWebpackPlugin = require( &apos;@ckeditor/ckeditor5-dev-webpack-plugin&apos; );
+const { styles } = require( &apos;@ckeditor/ckeditor5-dev-utils&apos; );
+
+module.exports = {
+    // The source of CKEditor is encapsulated in ES6 modules. By default, the code
+    // from the node_modules directory is not transpiled, so you must explicitly tell
+    // the CLI tools to transpile JavaScript files in all ckeditor5-* modules.
+    transpileDependencies: [
+        /ckeditor5-[^/\\]+[/\\]src[/\\].+\.js$/,
+    ],
+
+    configureWebpack: {
+        plugins: [
+            // CKEditor needs its own plugin to be built using webpack.
+            new CKEditorWebpackPlugin( {
+                // See https://ckeditor.com/docs/ckeditor5/latest/features/ui-language.html
+                language: &apos;en&apos;,
+
+                // Append translations to the file matching the `app` name.
+                translationsOutputFile: /app/
+            } )
+        ]
+    },
+
+    // Vue CLI would normally use its own loader to load .svg and .css files, however:
+    //	1. The icons used by CKEditor must be loaded using raw-loader,
+    //	2. The CSS used by CKEditor must be transpiled using PostCSS to load properly.
+    chainWebpack: config =&gt; {
+        // (1.) To handle editor icons, get the default rule for *.svg files first:
+        const svgRule = config.module.rule( &apos;svg&apos; );
+
+        // Then you can either:
+        //
+        // * clear all loaders for existing &apos;svg&apos; rule:
+        //
+        //		svgRule.uses.clear();
+        //
+        // * or exclude ckeditor directory from node_modules:
+        svgRule.exclude.add( path.join( __dirname, &apos;node_modules&apos;, &apos;@ckeditor&apos; ) );
+
+        // Add an entry for *.svg files belonging to CKEditor. You can either:
+        //
+        // * modify the existing &apos;svg&apos; rule:
+        //
+        //		svgRule.use( &apos;raw-loader&apos; ).loader( &apos;raw-loader&apos; );
+        //
+        // * or add a new one:
+        config.module
+            .rule( &apos;cke-svg&apos; )
+            .test( /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/ )
+            .use( &apos;raw-loader&apos; )
+            .loader( &apos;raw-loader&apos; );
+
+        // (2.) Transpile the .css files imported by the editor using PostCSS.
+        // Make sure only the CSS belonging to ckeditor5-* packages is processed this way.
+        config.module
+            .rule( &apos;cke-css&apos; )
+            .test( /ckeditor5-[^/\\]+[/\\].+\.css$/ )
+            .use( &apos;postcss-loader&apos; )
+            .loader( &apos;postcss-loader&apos; )
+            .tap( () =&gt; {
+                return {
+                    postcssOptions: styles.getPostCssConfig( {
+                        themeImporter: {
+                            themePath: require.resolve( &apos;@ckeditor/ckeditor5-theme-lark&apos; )
+                        },
+                        minify: true
+                    } )
+                };
+            } );
+    }
+};
+</code></pre>
+<div class="info-box notice"><p>By default, the Vue CLI uses <a href="https://webpack.js.org/loaders/file-loader/" target="_blank" rel="noopener"><code>file-loader</code></a> for all SVG files. The <code>file-loader</code> copies the file to the output directory and resolves imports into URLs. The CKEditor&#x2019;s UI components use SVG <a href="../../../api/module_ui_icon_iconview-IconView.html#member-content">source directly</a> so the theme icons must be loaded using <a href="https://webpack.js.org/loaders/raw-loader" target="_blank" rel="noopener"><code>raw-loader</code></a>. If your project uses different approach then CKEditor&#x2019;s UI library you must create different webpack loader rules for your project SVG files and CKEditor&#x2019;s ones.</p></div>
+<h3 id="using-the-editor-from-source"><a class="headerlink" href="#using-the-editor-from-source">#</a> Using the editor from source</h3>
+<p>Having configured <code>vue.config.js</code>, you can choose the building blocks of your editor. Install the packages necessary for your integration, but please remember that all packages (excluding <code>@ckeditor/ckeditor5-dev-*</code> and <code>@ckeditor/ckeditor5-vue2</code>) <a href="../installing-plugins.html#requirements">must have the same version as the base editor package</a>.</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    @ckeditor/ckeditor5-editor-classic \
+    @ckeditor/ckeditor5-essentials \
+    @ckeditor/ckeditor5-basic-styles \
+    @ckeditor/ckeditor5-link \
+    @ckeditor/ckeditor5-paragraph \
+    @ckeditor/ckeditor5-theme-lark
+</code></pre>
+<p>You can use more packages, depending on which features are needed in your application.</p>
+<pre class="highlight"><code class="js">import CKEditor from &apos;@ckeditor/ckeditor5-vue2&apos;;
+
+Vue.use( CKEditor );
+</code></pre>
+<div class="info-box notice"><p>Instead of calling <code>Vue.use()</code>, you can always <a href="#using-the-component-locally">use the component locally</a>.</p></div>
+<p>Now all you need to do is specify the list of rich text editor options (<strong>including plugins</strong>) in the <code>editorConfig</code> data property:</p>
+<pre class="highlight"><code class="html">&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;ckeditor :editor=&quot;editor&quot; v-model=&quot;editorData&quot; :config=&quot;editorConfig&quot;&gt;&lt;/ckeditor&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    // &#x26A0;&#xFE0F; NOTE: We don&apos;t use @ckeditor/ckeditor5-build-classic any more!
+    // Since we&apos;re building CKEditor from source, we use the source version of ClassicEditor.
+    import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+
+    import EssentialsPlugin from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+    import BoldPlugin from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+    import ItalicPlugin from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+    import LinkPlugin from &apos;@ckeditor/ckeditor5-link/src/link&apos;;
+    import ParagraphPlugin from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+
+    export default {
+        name: &apos;app&apos;,
+        data() {
+            return {
+                editor: ClassicEditor,
+                editorData: &apos;&lt;p&gt;Content of the editor.&lt;/p&gt;&apos;,
+                editorConfig: {
+                    plugins: [
+                        EssentialsPlugin,
+                        BoldPlugin,
+                        ItalicPlugin,
+                        LinkPlugin,
+                        ParagraphPlugin
+                    ],
+
+                    toolbar: {
+                        items: [
+                            &apos;bold&apos;,
+                            &apos;italic&apos;,
+                            &apos;link&apos;,
+                            &apos;undo&apos;,
+                            &apos;redo&apos;
+                        ]
+                    }
+                }
+            };
+        }
+    };
+&lt;/script&gt;
+</code></pre>
+<h2 id="using-the-document-editor-build"><a class="headerlink" href="#using-the-document-editor-build">#</a> Using the Document editor build</h2>
+<p>If you use the <a href="../../../framework/guides/deep-dive/ui/document-editor.html">Document editor</a> in your application, you need to <a href="../../../api/module_editor-decoupled_decouplededitor-DecoupledEditor.html#static-function-create">manually add the editor toolbar to the DOM</a>.</p>
+<p>Since accessing the editor toolbar is not possible until after the editor instance is <a href="../../../api/module_core_editor_editor-Editor.html#event-ready">ready</a>, put your toolbar insertion code in a method executed upon the <a href="#ready"><code>ready</code></a> event of the component, like in the following example:</p>
+<pre class="highlight"><code class="html">&lt;template&gt;
+        &lt;div id=&quot;app&quot;&gt;
+            &lt;ckeditor :editor=&quot;editor&quot; @ready=&quot;onReady&quot; ... &gt;&lt;/ckeditor&gt;
+        &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import DecoupledEditor from &apos;@ckeditor/ckeditor5-build-decoupled-document&apos;;
+
+    export default {
+        name: &apos;app&apos;,
+        data() {
+            return {
+                editor: DecoupledEditor,
+
+                // ...
+            };
+        },
+        methods: {
+            onReady( editor )  {
+                // Insert the toolbar before the editable area.
+                editor.ui.getEditableElement().parentElement.insertBefore(
+                    editor.ui.view.toolbar.element,
+                    editor.ui.getEditableElement()
+                );
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<h2 id="localization"><a class="headerlink" href="#localization">#</a> Localization</h2>
+<p>CKEditor 5 supports <a href="../../../features/ui-language.html">multiple UI languages</a>, and so does the official Vue.js component. Follow the instructions below to translate CKEditor 5 in your Vue.js application.</p>
+<h3 id="predefined-builds"><a class="headerlink" href="#predefined-builds">#</a> Predefined builds</h3>
+<p>When using one of the <a href="../../advanced/alternative-setups/predefined-builds.html#available-builds">official editor builds</a>, you need to import the translations first.</p>
+<ul>
+<li>When using a <a href="#direct-script-include">direct script include</a>:<pre class="highlight"><code class="html">&lt;!-- Import translations for the German language. --&gt;
+&lt;script src=&quot;../node_modules/@ckeditor/ckeditor5-build-classic/build/translations/de.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../node_modules/@ckeditor/ckeditor5-vue2/dist/ckeditor.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>When using <a href="#using-es6-modules">ES6 modules</a>:<pre class="highlight"><code class="js">import ClassicEditor from &apos;@ckeditor/ckeditor5-build-classic&apos;;
+
+// Import translations for the German language.
+import &apos;@ckeditor/ckeditor5-build-classic/build/translations/de&apos;;
+</code></pre>
+</li>
+</ul>
+<p>Then, <a href="../configuration.html">configure</a> the language of the editor in the component:</p>
+<pre class="highlight"><code class="html">&lt;ckeditor :editor=&quot;editor&quot; v-model=&quot;editorData&quot; :config=&quot;editorConfig&quot;&gt;&lt;/ckeditor&gt;
+</code></pre>
+<pre class="highlight"><code class="js">export default {
+    name: &apos;app&apos;,
+    data() {
+        return {
+            editor: ClassicEditor,
+            editorData: &apos;&lt;p&gt;Content of the editor.&lt;/p&gt;&apos;,
+            editorConfig: {
+                // Run the editor with the German UI.
+                language: &apos;de&apos;
+            }
+        };
+    }
+}
+</code></pre>
+<p>For more information, please refer to the <a href="../../../features/ui-language.html">Setting the UI language</a> guide.</p>
+<h3 id="ckeditor-5-built-from-source"><a class="headerlink" href="#ckeditor-5-built-from-source">#</a> CKEditor 5 built from source</h3>
+<p>Using the editor <a href="#using-ckeditor-from-source">built from source</a> requires you to modify the webpack configuration. Pass the <code>language</code> (also <code>additionalLanguages</code>) to the constructor of  <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-dev-webpack-plugin" target="_blank" rel="noopener"><code>CKEditorWebpackPlugin</code></a> to localize your editor:</p>
+<pre class="highlight"><code class="js">// vue.config.js
+// ...
+
+const CKEditorWebpackPlugin = require( &apos;@ckeditor/ckeditor5-dev-webpack-plugin&apos; );
+
+// ...
+
+module.exports = {
+    // ...
+
+    configureWebpack: {
+        plugins: [
+            // CKEditor needs its own plugin to be built using webpack.
+            new CKEditorWebpackPlugin( {
+                // The UI language. Language codes follow the https://en.wikipedia.org/wiki/ISO_639-1 format.
+                language: &apos;de&apos;,
+
+                // Append translations to the file matching the `app` name.
+                translationsOutputFile: /app/
+            } )
+        ]
+    },
+
+    // ...
+}
+</code></pre>
+<p>After building the application, CKEditor 5 will run with the UI translated to the specified language.</p>
+<p>For more information, please refer to the <a href="../../../features/ui-language.html">&#x201C;Setting UI language&#x201D;</a> guide.</p>
+<h2 id="component-directives"><a class="headerlink" href="#component-directives">#</a> Component directives</h2>
+<h3 id="editor"><a class="headerlink" href="#editor">#</a> <code>editor</code></h3>
+<p>This directive specifies the editor to be used by the component. It must directly reference the editor constructor to be used in the template.</p>
+<pre class="highlight"><code class="html">&lt;template&gt;
+        &lt;div id=&quot;app&quot;&gt;
+            &lt;ckeditor :editor=&quot;editor&quot; ... &gt;&lt;/ckeditor&gt;
+        &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import ClassicEditor from &apos;@ckeditor/ckeditor5-build-classic&apos;;
+
+    export default {
+        name: &apos;app&apos;,
+        data() {
+            return {
+                editor: ClassicEditor,
+
+                // ...
+            };
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<div class="info-box notice"><p>To use more than one rich text editor build in your application, you will need to configure it <a href="#using-ckeditor-from-source">from source</a> or use a <a href="../../advanced/using-two-editors.html">&#x201C;super build&#x201D;</a>.</p></div>
+<h3 id="tag-name"><a class="headerlink" href="#tag-name">#</a> <code>tag-name</code></h3>
+<p>By default, the editor component creates a <code>&lt;div&gt;</code> container which is used as an element passed to the editor (e.g. <a href="../../../api/module_editor-classic_classiceditorui-ClassicEditorUI.html#member-element"><code>ClassicEditor#element</code></a>). The element can be configured, so for example to create a <code>&lt;textarea&gt;</code>, use the following directive:</p>
+<pre class="highlight"><code class="html">&lt;ckeditor :editor=&quot;editor&quot; tag-name=&quot;textarea&quot;&gt;&lt;/ckeditor&gt;
+</code></pre>
+<h3 id="v-model"><a class="headerlink" href="#v-model">#</a> <code>v-model</code></h3>
+<p>A <a href="https://vuejs.org/v2/api/#v-model" target="_blank" rel="noopener">standard directive</a> for form inputs in Vue. Unlike <a href="#value"><code>value</code></a>, it creates a two&#x2013;way data binding, which:</p>
+<ul>
+<li>sets the initial editor content,</li>
+<li>automatically updates the state of the application as the editor content changes (e.g. as the user types),</li>
+<li>can be used to set the editor content when necessary.</li>
+</ul>
+<pre class="highlight"><code class="html">&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;ckeditor :editor=&quot;editor&quot; v-model=&quot;editorData&quot;&gt;&lt;/ckeditor&gt;
+        &lt;button v-on:click=&quot;emptyEditor()&quot;&gt;Empty the editor&lt;/button&gt;
+
+        &lt;h2&gt;Editor data&lt;/h2&gt;
+        &lt;code&gt;{{ editorData }}&lt;/code&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import ClassicEditor from &apos;@ckeditor/ckeditor5-build-classic&apos;;
+
+    export default {
+        name: &apos;app&apos;,
+        data() {
+            return {
+                editor: ClassicEditor,
+                editorData: &apos;&lt;p&gt;Content of the editor.&lt;/p&gt;&apos;
+            };
+        },
+        methods: {
+            emptyEditor() {
+                this.editorData = &apos;&apos;;
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<p>In the above example, the <code>editorData</code> property will be updated automatically as the user types and changes the content. It can also be used to change (as in <code>emptyEditor()</code>) or set the initial content of the editor.</p>
+<p>If you only want to execute an action when the editor data changes, use the <a href="#input"><code>input</code></a> event.</p>
+<h3 id="value"><a class="headerlink" href="#value">#</a> <code>value</code></h3>
+<p>Allows a one&#x2013;way data binding that sets the content of the editor. Unlike <a href="#v-model"><code>v-model</code></a>, the value will not be updated when the content of the editor changes.</p>
+<pre class="highlight"><code class="html">&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;ckeditor :editor=&quot;editor&quot; :value=&quot;editorData&quot;&gt;&lt;/ckeditor&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import ClassicEditor from &apos;@ckeditor/ckeditor5-build-classic&apos;;
+
+    export default {
+        name: &apos;app&apos;,
+        data() {
+            return {
+                editor: ClassicEditor,
+                editorData: &apos;&lt;p&gt;Content of the editor.&lt;/p&gt;&apos;
+            };
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<p>To execute an action when the editor data changes, use the <a href="#input"><code>input</code></a> event.</p>
+<h3 id="config"><a class="headerlink" href="#config">#</a> <code>config</code></h3>
+<p>Specifies the <a href="../../../api/module_core_editor_editorconfig-EditorConfig.html">configuration</a> of the editor.</p>
+<pre class="highlight"><code class="html">&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;ckeditor :editor=&quot;editor&quot; :config=&quot;editorConfig&quot;&gt;&lt;/ckeditor&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import ClassicEditor from &apos;@ckeditor/ckeditor5-build-classic&apos;;
+
+    export default {
+        name: &apos;app&apos;,
+        data() {
+            return {
+                editor: ClassicEditor,
+                editorConfig: {
+                    toolbar: [ &apos;bold&apos;, &apos;italic&apos;, &apos;|&apos;, &apos;link&apos; ]
+                }
+            };
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<h3 id="disabled"><a class="headerlink" href="#disabled">#</a> <code>disabled</code></h3>
+<p>This directive controls the <a href="../../../api/module_core_editor_editor-Editor.html#member-isReadOnly"><code>isReadOnly</code></a> property of the editor.</p>
+<p>It sets the initial read&#x2013;only state of the editor and changes it during its lifecycle.</p>
+<pre class="highlight"><code class="html">&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;ckeditor :editor=&quot;editor&quot; :disabled=&quot;editorDisabled&quot;&gt;&lt;/ckeditor&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import ClassicEditor from &apos;@ckeditor/ckeditor5-build-classic&apos;;
+
+    export default {
+        name: &apos;app&apos;,
+        data() {
+            return {
+                editor: ClassicEditor,
+                // This editor will be read&#x2013;only when created.
+                editorDisabled: true
+            };
+        }
+    }
+&lt;/script&gt;
+</code></pre>
+<h2 id="component-events"><a class="headerlink" href="#component-events">#</a> Component events</h2>
+<h3 id="ready"><a class="headerlink" href="#ready">#</a> <code>ready</code></h3>
+<p>Corresponds to the <a href="../../../api/module_core_editor_editor-Editor.html#event-ready"><code>ready</code></a> editor event.</p>
+<pre class="highlight"><code class="html">&lt;ckeditor :editor=&quot;editor&quot; @ready=&quot;onEditorReady&quot;&gt;&lt;/ckeditor&gt;
+</code></pre>
+<h3 id="focus"><a class="headerlink" href="#focus">#</a> <code>focus</code></h3>
+<p>Corresponds to the <a href="../../../api/module_engine_view_document-Document.html#event-event:focus"><code>focus</code></a> editor event.</p>
+<pre class="highlight"><code class="html">&lt;ckeditor :editor=&quot;editor&quot; @focus=&quot;onEditorFocus&quot;&gt;&lt;/ckeditor&gt;
+</code></pre>
+<h3 id="blur"><a class="headerlink" href="#blur">#</a> <code>blur</code></h3>
+<p>Corresponds to the <a href="../../../api/module_engine_view_document-Document.html#event-event:blur"><code>blur</code></a> editor event.</p>
+<pre class="highlight"><code class="html">&lt;ckeditor :editor=&quot;editor&quot; @blur=&quot;onEditorBlur&quot;&gt;&lt;/ckeditor&gt;
+</code></pre>
+<h3 id="input"><a class="headerlink" href="#input">#</a> <code>input</code></h3>
+<p>Corresponds to the <a href="../../../api/module_engine_model_document-Document.html#event-change:data"><code>change:data</code></a> editor event. See the <a href="#v-model"><code>v-model</code> directive</a> to learn more.</p>
+<pre class="highlight"><code class="html">&lt;ckeditor :editor=&quot;editor&quot; @input=&quot;onEditorInput&quot;&gt;&lt;/ckeditor&gt;
+</code></pre>
+<h3 id="destroy"><a class="headerlink" href="#destroy">#</a> <code>destroy</code></h3>
+<p>Corresponds to the <a href="../../../api/module_core_editor_editor-Editor.html#event-destroy"><code>destroy</code></a> editor event.</p>
+<p><strong>Note:</strong> Because the destruction of the editor is promise&#x2013;driven, this event can be fired before the actual promise resolves.</p>
+<pre class="highlight"><code class="html">&lt;ckeditor :editor=&quot;editor&quot; @destroy=&quot;onEditorDestroy&quot;&gt;&lt;/ckeditor&gt;
+</code></pre>
+<h2 id="contributing-and-reporting-issues"><a class="headerlink" href="#contributing-and-reporting-issues">#</a> Contributing and reporting issues</h2>
+<p>The source code of this component is available on GitHub in <a href="https://github.com/ckeditor/ckeditor5-vue2" target="_blank" rel="noopener">https://github.com/ckeditor/ckeditor5-vue2</a>.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22installation%2Fgetting-started%2Fframeworks%2Fvuejs-v2.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="../configuration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                        </div></a></li>
+                                    <li><a href="../installing-plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                        </div></a></li>
+                                    <li><a href="../basic-api.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="overview.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="angular.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                                  </div></a></li>
+                                              <li><a href="react.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                                  </div></a></li>
+                                              <li><a href="">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                                  </div></a></li>
+                                              <li><a href="vuejs-v3.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                                  </div></a></li>
+                                              <li><a href="css.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../migration-from-ckeditor-4.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="../maintenance.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../advanced/using-two-editors.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                        </div></a></li>
+                                    <li><a href="../../advanced/saving-data.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                        </div></a></li>
+                                    <li><a href="../../advanced/content-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                        </div></a></li>
+                                    <li><a href="../../advanced/csp.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                        </div></a></li>
+                                    <li><a href="../../advanced/plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                        </div></a></li>
+                                    <li><a href="../../advanced/features-html-output-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../advanced/alternative-setups/integrating-from-source.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                                  </div></a></li>
+                                              <li><a href="../../advanced/alternative-setups/dll-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                                  </div></a></li>
+                                              <li><a href="../../advanced/alternative-setups/dll-builds-collaboration-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                                  </div></a></li>
+                                              <li><a href="../../advanced/alternative-setups/predefined-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'installation' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'installation' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'installation' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'installation' ] );tags.forEach( function( tag ) {if ( tag !== 'installation' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../../assets/snippet.js"></script>
+    <script src="../../../snippets/assets.js"></script>
+    <script src="../../../snippets/installation/frameworks/framework-integration/snippet.js"></script>
+    <script src="../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

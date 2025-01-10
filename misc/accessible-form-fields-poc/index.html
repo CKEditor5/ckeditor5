@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor 5 – accessible form fields – development sample</title>
+	<style>
+		body {
+			max-width: 800px;
+			margin: 20px auto;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 14px;
+		}
+
+		.info {
+			background: rgb(255, 218, 150);
+			border: 3px dashed #000;
+			padding: 1em 2em;
+			margin-top: 2em;
+			margin-bottom: 2em;
+		}	
+	</style>
+</head>
+<body>
+
+<h1>CKEditor 5 – accessible form fields – development sample</h1>
+
+<section class="info">
+	<p>⚠️ This is a proof of concept of accessible input labels in <a href="https://ckeditor.com/ckeditor-5">CKEditor 5</a>. 
+	For more details and updates, check out the <a href="https://github.com/ckeditor/ckeditor5/issues/7952">issue</a> on GitHub.</p>
+</section>
+
+<div id="editor">
+	<h2>Sample</h2>
+	<p>Go and checkout the <a
+			href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">link insertion
+			form</a>.</p>
+	<figure class="table" style="width:350px;">
+		<table
+			style="background-color:hsl(0, 0%, 90%);border-bottom:2px solid hsl(0, 0%, 60%);border-left:2px solid hsl(0, 0%, 60%);border-right:2px solid hsl(0, 0%, 60%);border-top:2px solid hsl(0, 0%, 60%);">
+			<tbody>
+				<tr>
+					<td>A</td>
+					<td
+						style="background-color:hsl(30, 75%, 60%);border-bottom:3px dashed hsl(0, 0%, 0%);border-left:3px dashed hsl(0, 0%, 0%);border-right:3px dashed hsl(0, 0%, 0%);border-top:3px dashed hsl(0, 0%, 0%);">
+						table</td>
+					<td>to</td>
+				</tr>
+				<tr>
+					<td>test&nbsp;</td>
+					<td>properties</td>
+					<td>forms</td>
+				</tr>
+			</tbody>
+		</table>
+	</figure>
+	<figure class="image image-style-side"><img src="./sample.jpg" alt="Autumn fields">
+		<figcaption>An image to test the text alternative form.</figcaption>
+	</figure>
+</div>
+
+<script src="./build/ckeditor.js"></script>
+<script>
+	ClassicEditor.create( document.querySelector( '#editor' ) )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( error => {
+			console.error( 'There was a problem initializing the editor.', error );
+		} );
+</script>
+
+</body>
+</html>

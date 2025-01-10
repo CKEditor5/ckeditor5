@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update to version 37.x | CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:12:50 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Update to version 37.x | CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/updating/guides/update-to-37.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Update to version 37.x | CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/updating/guides/update-to-37.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../getting-started/index.html">Getting started</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../index.html">Updating</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Migrations from npm to CDN</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="migrations">
+                                  <li><a href="../migrations/vanilla-js.html" title="Vanilla JS">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/testing-suite.html" title="Vanilla JS testing suite">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS testing suite</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/react.html" title="React">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/vuejs-v3.html" title="Vue.js 3+">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/angular.html" title="Angular">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">New installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="nim-migration">
+                                  <li><a href="../nim-migration/migration-to-new-installation-methods.html" title="Migrating to new installation methods">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating to new installation methods</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/predefined-builds.html" title="Migrating from predefined builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from predefined builds</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/online-builder.html" title="Migrating from legacy Online Builder">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from legacy Online Builder</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/customized-builds.html" title="Migrating from customized builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from customized builds</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/dll-builds.html" title="Migrating from DLL builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from DLL builds</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/custom-plugins.html" title="Migrating custom plugins">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating custom plugins</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">CKEditor 4 migration</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="ckeditor4-migration">
+                                  <li><a href="../ckeditor4/migration-from-ckeditor-4.html" title="Migration from CKEditor 4">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-plugin-compatibility.html" title="Plugin equivalents">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin equivalents</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-configuration-compatibility.html" title="Configuration options compatibility">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration options compatibility</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-troubleshooting.html" title="Troubleshooting">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Troubleshooting</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../maintaining.html" title="Maintaining your editor">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your editor</span>
+                              </div></a></li>
+                          <li><a href="../release-process.html" title="Release process">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Release process</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Update guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="update-guides">
+                                  <li><a href="updating-ckeditor-5.html" title="Updating CKEditor 5">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating CKEditor 5</span>
+                                      </div></a></li>
+                                  <li><a href="changelog.html" title="Changelog">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Changelog</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-44.html" title="Update to v44.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v44.x</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-43.html" title="Update to v43.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v43.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-42.html" title="Update to v42.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v42.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-41.html" title="Update to v41.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v41.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-40.html" title="Update to v40.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v40.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-39.html" title="Update to v39.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v39.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-38.html" title="Update to v38.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v38.x</span>
+                                      </div></a></li>
+                                  <li><a href="" title="Update to v37.x">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Update to v37.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-36.html" title="Update to v36.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v36.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-35.html" title="Update to v35.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v35.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-34.html" title="Update to v34.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v34.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-33.html" title="Update to v33.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v33.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-32.html" title="Update to v32.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v32.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-31.html" title="Update to v31.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v31.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-30.html" title="Update to v30.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v30.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-29.html" title="Update to v29.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v29.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-28.html" title="Update to v28.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v28.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-27.html" title="Update to v27.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v27.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-26.html" title="Update to v26.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v26.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-25.html" title="Update to v25.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v25.x</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../versioning-policy.html" title="Versioning policy">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Versioning policy</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/updating/update-to-37.md" title="Contribute to this guide"><img src="../../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Updating</a>
+          </div>
+          <h1 class="main__content-title">Update to CKEditor 5 v37.x
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#update-to-ckeditor-5-v3700" title="Update to CKEditor&nbsp;5 v37.0.0">Update to CKEditor&nbsp;5 v37.0.0</a><ol><li><a href="#bump-of-minimal-version-of-nodejs-to-16x" title="Bump of minimal version of Node.js to 16.x">Bump of minimal version of Node.js to 16.x</a></li><li><a href="#typescript-type-definitions" title="TypeScript type definitions">TypeScript type definitions</a></li><li><a href="#comments-archive" title="Comments archive">Comments archive</a><ol><li><a href="#general-notes" title="General notes">General notes</a></li><li><a href="#breaking-changes" title="Breaking changes">Breaking changes</a><ol><li><a href="#asynchronous-collaboration-integration" title="Asynchronous collaboration integration">Asynchronous collaboration integration</a><ol><li><a href="#load-and-save-integration" title="“Load and save” integration">“Load and save” integration</a></li><li><a href="#adapter-integration" title="Adapter integration">Adapter integration</a></li></ol></li><li><a href="#custom-views-and-templates" title="Custom views and templates">Custom views and templates</a></li><li><a href="#comments-outside-the-editor" title="Comments outside the editor">Comments outside the editor</a></li></ol></li></ol></li></ol></li></ol></nav>
+<div class="info-box notice"><p>When updating your CKEditor&nbsp;5 installation, ensure <strong>all the packages are the same version</strong> to avoid errors.</p><p>For custom builds, you may try removing the <code>package-lock.json</code> or <code>yarn.lock</code> files (if applicable) and reinstalling all packages before rebuilding the editor. For best results, make sure you use the most recent package versions.</p></div>
+<h2 id="update-to-ckeditor-5-v3700"><a class="headerlink" href="#update-to-ckeditor-5-v3700">#</a> Update to CKEditor&nbsp;5 v37.0.0</h2>
+<p><em>Released on April 5, 2023.</em></p>
+<p>For the entire list of changes introduced in version 37.0.0, see the <a href="https://github.com/ckeditor/ckeditor5/releases/tag/v37.0.0">release notes for CKEditor&nbsp;5 v37.0.0</a>.</p>
+<p>Below are the most important changes that require your attention when upgrading to CKEditor&nbsp;5 v37.0.0.</p>
+<h3 id="bump-of-minimal-version-of-nodejs-to-16x"><a class="headerlink" href="#bump-of-minimal-version-of-nodejs-to-16x">#</a> Bump of minimal version of Node.js to 16.x</h3>
+<p><a href="https://nodejs.org/en/about/releases/">Node.js 14 ends its long-term support in April 2023</a>. Because of that, starting from v37.0.0, the minimal version of Node.js required by CKEditor&nbsp;5 will be 16.</p>
+<h3 id="typescript-type-definitions"><a class="headerlink" href="#typescript-type-definitions">#</a> TypeScript type definitions</h3>
+<p>As of version 37.0.0, CKEditor&nbsp;5 provides native TypeScript types, so community types are no longer needed. To address this, it may be necessary to replace community types with native types provided by the package. Here is how to do it:</p>
+<ol>
+<li>
+<p>Remove community types:</p>
+<ul>
+<li>Remove any <code>@types/ckeditor__ckeditor5-*</code> packages used.</li>
+<li>Remove any augmentation of types you had in your project.</li>
+</ul>
+<p>For example:</p>
+<pre class="highlight"><code class="ts">// typings/types.d.ts
+
+declare module 'ckeditor5/src/core' {
+    export * from 'ckeditor__ckeditor5-core';
+}
+
+declare module 'ckeditor5/src/ui' {
+    export * from 'ckeditor__ckeditor5-ui';
+}
+</code></pre>
+</li>
+<li>
+<p>Replace community types with native types:</p>
+<ul>
+<li>Update any import statements to use native types instead of community types.</li>
+<li>Update any code that references community types to use native types.</li>
+<li>Make sure that all imports are from the package entry point instead of the path to a module.</li>
+</ul>
+<p>For example:</p>
+<pre class="highlight"><code class="ts">// Instead of:
+import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
+
+// Do:
+import { Plugin } from 'ckeditor5';
+</code></pre>
+</li>
+<li>
+<p>Adjust your <code>tsconfig.json</code> to include at least:</p>
+<pre class="highlight"><code class="json">{
+    "compilerOptions": {
+        "lib": [
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "module": "es6",
+        "target": "es2019",
+        "moduleResolution": "node"
+    }
+}
+</code></pre>
+<p>You can choose other options for your project, but they are not guaranteed to work.</p>
+</li>
+<li>
+<p>Test your project:</p>
+<ul>
+<li>Make sure that the changes did not introduce any new errors or issues.</li>
+<li>Verify that the project still functions as intended.</li>
+</ul>
+</li>
+</ol>
+<p>We want to thank our community for providing the types so far!</p>
+<h3 id="comments-archive"><a class="headerlink" href="#comments-archive">#</a> Comments archive</h3>
+<p>CKEditor&nbsp;5 v37.0.0 introduces the comments archive feature. Below you will find notes regarding the feature and migration tips in case of breaking changes that may affect some integrations.</p>
+<p>The <a href="https://ckeditor.com/docs/ckeditor5/36.0.1/">documentation for the previous editor version (36.0.1)</a> is still available if you would like to compare the differences.</p>
+<h4 id="general-notes"><a class="headerlink" href="#general-notes">#</a> General notes</h4>
+<ul>
+<li>Comments archive is enabled by default and you cannot turn it off.</li>
+<li>You need to add the <code>commentsArchive</code> button to the toolbar to get access to the comments archive panel.</li>
+<li>The UI in the comment annotation has changed. The remove and edit buttons were moved to a dropdown. A new button for resolving a comment thread was added.</li>
+<li>Markers for resolved comment threads are still preserved in the document data. This allows for re-opening (removing the “resolved” state) a comment thread. Comment threads can be re-opened if their related marker is still present in the content.</li>
+<li>When you remove a commented content from the document, the related comment thread is resolved and moved to the archive.</li>
+<li>In integrations using <code>Context</code> and multiple editor instances, each editor instance will display only its own comment threads in the comments archive panel.</li>
+<li>Comment threads removed before the introduction of the comments archive will not be shown in the archive.</li>
+<li>The undo feature no longer undoes creating or removing a comment thread.</li>
+<li>The undo feature no longer undoes resolving or re-opening a comment thread.</li>
+</ul>
+<h4 id="breaking-changes"><a class="headerlink" href="#breaking-changes">#</a> Breaking changes</h4>
+<h5 id="asynchronous-collaboration-integration"><a class="headerlink" href="#asynchronous-collaboration-integration">#</a> Asynchronous collaboration integration</h5>
+<p>This concerns applications that use the comments feature without real-time collaboration and provide their integration.</p>
+<h6 id="load-and-save-integration"><a class="headerlink" href="#load-and-save-integration">#</a> “Load and save” integration</h6>
+<p>You need to store additional data for comment threads and pass it to <code>CommentsRepository#addCommentThread()</code> when adding comments data. Make sure that you correctly store the new properties: <code>resolvedBy</code>, <code>resolvedAt</code>, <code>context</code>, and <code>attributes</code>. Depending on your integration, this may require changes in your database.</p>
+<h6 id="adapter-integration"><a class="headerlink" href="#adapter-integration">#</a> Adapter integration</h6>
+<p>Comment thread becomes an actual data entity, with properties that you need to save in the database. This requires changes in the adapter and may require changes in your database, depending on your integration.</p>
+<p>New methods are required in the <a href="../../api/module_comments_comments_commentsrepository-CommentsAdapter.html">comments adapter</a>:</p>
+<ul>
+<li><code>addCommentThread()</code></li>
+<li><code>updateCommentThread()</code></li>
+<li><code>resolveCommentThread()</code></li>
+<li><code>reopenCommentThread()</code></li>
+<li><code>removeCommentThread()</code> – it is now required (it was optional before).</li>
+</ul>
+<p>Additionally, you should also update <code>getCommentThread()</code> to resolve with an object that includes new comment thread properties: <code>resolvedBy</code>, <code>resolvedAt</code>, <code>context</code>, and <code>attributes</code>.</p>
+<p>You may also review the updated API documentation for the <a href="../../api/module_comments_comments_commentsrepository-CommentsAdapter.html">comments adapter</a>.</p>
+<h5 id="custom-views-and-templates"><a class="headerlink" href="#custom-views-and-templates">#</a> Custom views and templates</h5>
+<p>This concerns applications that customize the comment and comment thread views and templates.</p>
+<p>Many CSS rules have changed, so make sure that your custom views display properly. Additionally, comment annotations may now be displayed in the comments archive dropdown which is available from the toolbar. This means that your custom views may be affected by new CSS rules (most notably, CSS reset rules). Make sure that your custom views display correctly inside the comments archive dropdown.</p>
+<p>Comments and comment thread views and templates have substantially changed due to the introduction of the comments archive. These changes may be incompatible with your custom views or templates. Review the following:</p>
+<ul>
+<li>The <a href="../../api/module_comments_comments_ui_view_commentthreadview-CommentThreadView.html"><code>CommentThreadView</code> template</a>.</li>
+<li>The <a href="../../api/module_comments_comments_ui_view_commentview-CommentView.html#function-getTemplate"><code>CommentView</code> template</a>.</li>
+<li>The updated <a href="../../features/collaboration/annotations/annotations-custom-template.html">custom templates</a> and <a href="../../features/collaboration/annotations/annotations-custom-view.html">custom views</a> guides.</li>
+<li><code>CommentThreadView</code> introduces <code>resolveButton</code>, which fires a new <code>resolveCommentThread</code> event. If you have a completely custom thread view (inheriting directly from <code>BaseCommentThreadView</code>), implement a UI element that will fire this event on <code>CommentThreadView</code>.</li>
+</ul>
+<p>Finally, we introduced a special type of comment, “system comment.” It looks like a simple comment and displays system messages, such as “Comment thread was resolved” (displayed for a resolved comment thread). These comments are created using <code>CommentView</code> (or a defined custom view). A system comment has the <code>#isSystemComment</code> property set to <code>true</code>. You may use it to recognize a system comment and provide necessary customization (for example, a system comment should not have action buttons). A system comment receives a temporary comment model. The system comment model’s <code>attributes</code> property is set to an empty object. Make sure that your custom comment view correctly handles system comments.</p>
+<h5 id="comments-outside-the-editor"><a class="headerlink" href="#comments-outside-the-editor">#</a> Comments outside the editor</h5>
+<p>This concerns applications that use the comments outside the editor feature.</p>
+<p>You need to handle new events, properties, and changes in the API. Review the updated guide for <a href="../../features/collaboration/comments/comments-outside-editor.html">comments outside the editor</a> and compare it with your current integration.</p>
+<p>Notable changes include, but are not limited to:</p>
+<ul>
+<li>Handling new <code>CommentsRepository</code> events: <code>resolveCommentThread</code> and <code>reopenCommentThread</code>.</li>
+<li>New <code>context</code> and <code>isResolvable</code> parameters in the <a href="../../api/module_comments_comments_commentsrepository-CommentsRepository.html#function-openNewCommentThread"><code>CommentsRepository#openNewCommentThread()</code></a> call.</li>
+</ul>
+<p>At the moment, for comments outside the editor, the resolved comment threads are not displayed in the archive panel.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22updating%2Fguides%2Fupdate-to-37.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Migrations from npm to CDN</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="migrations">
+                                    <li><a href="../migrations/vanilla-js.html" title="Vanilla JS">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/testing-suite.html" title="Vanilla JS testing suite">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS testing suite</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/react.html" title="React">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/vuejs-v3.html" title="Vue.js 3+">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/angular.html" title="Angular">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">New installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="nim-migration">
+                                    <li><a href="../nim-migration/migration-to-new-installation-methods.html" title="Migrating to new installation methods">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating to new installation methods</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/predefined-builds.html" title="Migrating from predefined builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from predefined builds</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/online-builder.html" title="Migrating from legacy Online Builder">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from legacy Online Builder</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/customized-builds.html" title="Migrating from customized builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from customized builds</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/dll-builds.html" title="Migrating from DLL builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from DLL builds</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/custom-plugins.html" title="Migrating custom plugins">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating custom plugins</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">CKEditor 4 migration</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="ckeditor4-migration">
+                                    <li><a href="../ckeditor4/migration-from-ckeditor-4.html" title="Migration from CKEditor 4">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-plugin-compatibility.html" title="Plugin equivalents">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin equivalents</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-configuration-compatibility.html" title="Configuration options compatibility">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration options compatibility</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-troubleshooting.html" title="Troubleshooting">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Troubleshooting</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../maintaining.html" title="Maintaining your editor">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your editor</span>
+                              </div></a></li>
+                          <li><a href="../release-process.html" title="Release process">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Release process</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Update guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="update-guides">
+                                    <li><a href="updating-ckeditor-5.html" title="Updating CKEditor 5">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating CKEditor 5</span>
+                                        </div></a></li>
+                                    <li><a href="changelog.html" title="Changelog">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Changelog</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-44.html" title="Update to v44.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v44.x</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-43.html" title="Update to v43.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v43.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-42.html" title="Update to v42.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v42.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-41.html" title="Update to v41.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v41.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-40.html" title="Update to v40.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v40.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-39.html" title="Update to v39.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v39.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-38.html" title="Update to v38.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v38.x</span>
+                                        </div></a></li>
+                                    <li><a href="" title="Update to v37.x">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Update to v37.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-36.html" title="Update to v36.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v36.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-35.html" title="Update to v35.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v35.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-34.html" title="Update to v34.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v34.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-33.html" title="Update to v33.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v33.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-32.html" title="Update to v32.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v32.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-31.html" title="Update to v31.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v31.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-30.html" title="Update to v30.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v30.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-29.html" title="Update to v29.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v29.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-28.html" title="Update to v28.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v28.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-27.html" title="Update to v27.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v27.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-26.html" title="Update to v26.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v26.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-25.html" title="Update to v25.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v25.x</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../versioning-policy.html" title="Versioning policy">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Versioning policy</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'updating' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'updating' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'updating' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'updating' ] );tags.forEach( function( tag ) {if ( tag !== 'updating' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

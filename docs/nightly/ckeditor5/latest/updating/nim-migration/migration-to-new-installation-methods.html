@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Migrating to new installation methods | CKEditor5 documentation</title>
+    <meta name="description" content="Learn how to upgrade your CKEditor5 project to the new installation methods.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:13:04 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Migrating to new installation methods | CKEditor5 documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/updating/nim-migration/migration-to-new-installation-methods.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Migrating to new installation methods | CKEditor5 documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/updating/nim-migration/migration-to-new-installation-methods.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../getting-started/index.html">Getting started</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../index.html">Updating</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Migrations from npm to CDN</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="migrations">
+                                  <li><a href="../migrations/vanilla-js.html" title="Vanilla JS">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/testing-suite.html" title="Vanilla JS testing suite">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS testing suite</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/react.html" title="React">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/vuejs-v3.html" title="Vue.js 3+">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/angular.html" title="Angular">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">New installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="nim-migration">
+                                  <li><a href="" title="Migrating to new installation methods">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migrating to new installation methods</span>
+                                      </div></a></li>
+                                  <li><a href="predefined-builds.html" title="Migrating from predefined builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from predefined builds</span>
+                                      </div></a></li>
+                                  <li><a href="online-builder.html" title="Migrating from legacy Online Builder">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from legacy Online Builder</span>
+                                      </div></a></li>
+                                  <li><a href="customized-builds.html" title="Migrating from customized builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from customized builds</span>
+                                      </div></a></li>
+                                  <li><a href="dll-builds.html" title="Migrating from DLL builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from DLL builds</span>
+                                      </div></a></li>
+                                  <li><a href="custom-plugins.html" title="Migrating custom plugins">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating custom plugins</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">CKEditor 4 migration</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="ckeditor4-migration">
+                                  <li><a href="../ckeditor4/migration-from-ckeditor-4.html" title="Migration from CKEditor 4">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-plugin-compatibility.html" title="Plugin equivalents">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin equivalents</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-configuration-compatibility.html" title="Configuration options compatibility">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration options compatibility</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-troubleshooting.html" title="Troubleshooting">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Troubleshooting</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../maintaining.html" title="Maintaining your editor">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your editor</span>
+                              </div></a></li>
+                          <li><a href="../release-process.html" title="Release process">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Release process</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Update guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="update-guides">
+                                  <li><a href="../guides/updating-ckeditor-5.html" title="Updating CKEditor 5">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating CKEditor 5</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/changelog.html" title="Changelog">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Changelog</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-44.html" title="Update to v44.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v44.x</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-43.html" title="Update to v43.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v43.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-42.html" title="Update to v42.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v42.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-41.html" title="Update to v41.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v41.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-40.html" title="Update to v40.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v40.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-39.html" title="Update to v39.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v39.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-38.html" title="Update to v38.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v38.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-37.html" title="Update to v37.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v37.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-36.html" title="Update to v36.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v36.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-35.html" title="Update to v35.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v35.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-34.html" title="Update to v34.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v34.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-33.html" title="Update to v33.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v33.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-32.html" title="Update to v32.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v32.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-31.html" title="Update to v31.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v31.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-30.html" title="Update to v30.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v30.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-29.html" title="Update to v29.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v29.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-28.html" title="Update to v28.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v28.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-27.html" title="Update to v27.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v27.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-26.html" title="Update to v26.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v26.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-25.html" title="Update to v25.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v25.x</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../versioning-policy.html" title="Versioning policy">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Versioning policy</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/updating/nim-migration/migration-to-new-installation-methods.md" title="Contribute to this guide"><img src="../../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Updating</a>
+          </div>
+          <h1 class="main__content-title">Migrating to new installation methods
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#legacy-installation-methods" title="Legacy installation methods">Legacy installation methods</a></li><li><a href="#new-installation-methods" title="New installation methods">New installation methods</a><ol><li><a href="#npm-packages" title="npm packages">npm packages</a></li><li><a href="#browser-builds" title="Browser builds">Browser builds</a></li><li><a href="#whats-new" title="What’s new?">What’s new?</a></li><li><a href="#feature-comparison" title="Feature comparison">Feature comparison</a></li></ol></li><li><a href="#sunset-of-old-installation-methods-and-deprecation-timelines" title="Sunset of old installation methods and deprecation timelines">Sunset of old installation methods and deprecation timelines</a><ol><li><a href="#deprecation-of-the-predefined-builds-and-custom-builds" title="Deprecation of the predefined builds and custom builds">Deprecation of the predefined builds and custom builds</a></li><li><a href="#deprecation-of-dlls" title="Deprecation of DLLs">Deprecation of DLLs</a></li></ol></li><li><a href="#migrating-from-the-old-installation-methods" title="Migrating from the old installation methods">Migrating from the old installation methods</a></li></ol></nav>
+<p>In this guide, we will explore the new installation methods introduced in CKEditor&nbsp;5 v42.0.0. These methods make CKEditor&nbsp;5 much easier to use by reducing the number of possible installation paths and removing most of the limitations of the old methods. Links to migration guides for specific installation methods can be found in the table of contents on the left <span class="navigation-hint_mobile">or under the <strong>main menu button in the upper-left corner</strong> on mobile </span>and at the end of this document.</p>
+<p>Let’s start by comparing the new installation methods to the old ones to better understand what has changed.</p>
+<h2 id="legacy-installation-methods"><a class="headerlink" href="#legacy-installation-methods">#</a> Legacy installation methods</h2>
+<p>Prior to version 42.0.0, there were several ways to install CKEditor&nbsp;5, each with its own limitations and quirks that made it difficult or impossible to use in certain scenarios. It was also difficult for us to properly document all possible setups without making the documentation overly complex, as these setups were so different from each other.</p>
+<p>Here is a code example showing one of the possible setups using the old installation methods:</p>
+<pre class="highlight"><code class="js">// webpack.config.js
+const path = require( 'path' );
+const { CKEditorTranslationsPlugin } = require( '@ckeditor/ckeditor5-dev-translations' );
+const { styles } = require( '@ckeditor/ckeditor5-dev-utils' );
+
+module.exports = {
+    entry: './src/index.js',
+    output: {
+        path: path.resolve( __dirname, 'dist' ),
+        filename: 'bundle.js'
+    },
+    plugins: [
+        new CKEditorTranslationsPlugin( {
+            language: 'en'
+        } )
+    ],
+    module: {
+        rules: [
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+                use: [ 'raw-loader' ]
+            },
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            injectType: 'singletonStyleTag',
+                            attributes: {
+                                'data-cke': true
+                            }
+                        }
+                    },
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: styles.getPostCssConfig( {
+                                themeImporter: {
+                                    themePath: require.resolve( '@ckeditor/ckeditor5-theme-lark' )
+                                },
+                                minify: true
+                            } )
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+};
+</code></pre>
+<pre class="highlight"><code class="js">// src/index.js
+import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
+import { Essentials } from '@ckeditor/ckeditor5-essentials';
+import { Bold, Italic } from '@ckeditor/ckeditor5-basic-styles';
+import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
+import { Mention } from '@ckeditor/ckeditor5-mention';
+import { FormatPainter } from '@ckeditor/ckeditor5-format-painter';
+import { SlashCommand } from '@ckeditor/ckeditor5-slash-command';
+
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        plugins: [ Essentials, Bold, Italic, Paragraph, Mention, FormatPainter, SlashCommand ],
+        toolbar: [ /* ... */ ],
+        licenseKey: '&lt;YOUR_LICENSE_KEY&gt;',
+
+        // This value must be kept in sync with the language defined in webpack.config.js.
+        language: 'en'
+    } );
+</code></pre>
+<p>It may seem strange to show the webpack configuration in an example of the old installation methods, but it was a necessary part of the setup to handle translations, CSS, and SVG files. This setup could be even more complex if you wanted to use TypeScript.</p>
+<h2 id="new-installation-methods"><a class="headerlink" href="#new-installation-methods">#</a> New installation methods</h2>
+<p>In the new installation methods we have reduced the number of possible paths to just two: <strong>npm packages and browser builds</strong>. Unlike before, both methods no longer require you to add dozens of individual packages or JavaScript bundles to get the editor up and running. Instead, you can import the editor and all our open source plugins from the <code>ckeditor5</code> package and the premium features from <code>ckeditor5-premium-features</code>. You also do not need to worry about a specific webpack or Vite configurations, as the new installation methods are designed to work out-of-the-box with any modern bundler or JavaScript meta-framework like Next.js.</p>
+<h3 id="npm-packages"><a class="headerlink" href="#npm-packages">#</a> npm packages</h3>
+<p>The new npm packages are the recommended way to install CKEditor&nbsp;5 if you use a module bundler like Vite or webpack or one of the popular JavaScript meta-frameworks.</p>
+<p>This is what the new npm setup looks like when using the open-source and commercial features and translations:</p>
+<pre class="highlight"><code class="js">import { ClassicEditor, Essentials, Bold, Italic, Paragraph, Mention } from 'ckeditor5';
+import { FormatPainter, SlashCommand } from 'ckeditor5-premium-features';
+
+import coreTranslations from 'ckeditor5/translations/pl.js';
+import premiumFeaturesTranslations from 'ckeditor5-premium-features/translations/pl.js';
+
+import 'ckeditor5/ckeditor5.css';
+import 'ckeditor5-premium-features/ckeditor5-premium-features.css';
+
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        plugins: [ Essentials, Bold, Italic, Paragraph, Mention, FormatPainter, SlashCommand ],
+        toolbar: [ /* ... */ ],
+        licenseKey: '&lt;YOUR_LICENSE_KEY&gt;',
+        translations: [
+            coreTranslations,
+            premiumFeaturesTranslations
+        ]
+    } );
+</code></pre>
+<h3 id="browser-builds"><a class="headerlink" href="#browser-builds">#</a> Browser builds</h3>
+<p>The browser builds are a great way to use CKEditor&nbsp;5 if you do not want to build JavaScript with a module bundler. The browser builds are available as JavaScript modules and can be loaded directly in the browser using the <code>&lt;script type="module"&gt;</code> tag.</p>
+<p>Here is the same editor setup as above, but using the browser builds:</p>
+<pre class="highlight"><code class="html">&lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css" /&gt;
+&lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/ckeditor5-premium-features.css" /&gt;
+
+&lt;script type="importmap"&gt;
+{
+    "imports": {
+        "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.js",
+        "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/44.1.0/",
+        "ckeditor5-premium-features": "https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/ckeditor5-premium-features.js",
+        "ckeditor5-premium-features/": "https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/"
+    }
+}
+&lt;/script&gt;
+
+&lt;script type="module"&gt;
+import { ClassicEditor, Essentials, Bold, Italic, Paragraph, Mention } from 'ckeditor5';
+import { FormatPainter, SlashCommand } from 'ckeditor5-premium-features';
+
+import coreTranslations from 'ckeditor5/translations/pl.js';
+import premiumFeaturesTranslations from 'ckeditor5-premium-features/translations/pl.js';
+
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        plugins: [ Essentials, Bold, Italic, Paragraph, Mention, FormatPainter, SlashCommand ],
+        toolbar: [ /* ... */ ],
+        licenseKey: '&lt;YOUR_LICENSE_KEY&gt;',
+        translations: [
+            coreTranslations,
+            premiumFeaturesTranslations
+        ]
+    } );
+&lt;/script&gt;
+</code></pre>
+<p>In some environments, you may not be able to use the import maps or JavaScript modules. In such cases, you can use the UMD builds instead. These register global variables that you can use in your scripts. This is the same setup as above, but using the UMD builds:</p>
+<pre class="highlight"><code class="html">&lt;!-- Style sheets --&gt;
+&lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css" /&gt;
+&lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/ckeditor5-premium-features.css" /&gt;
+
+&lt;!-- Scripts --&gt;
+&lt;script src="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.umd.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/ckeditor5-premium-features.umd.js"&gt;&lt;/script&gt;
+
+&lt;!-- Translations --&gt;
+&lt;script src="https://cdn.ckeditor.com/ckeditor5/44.1.0/translations/pl.umd.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/translations/pl.umd.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+const { ClassicEditor, Essentials, Bold, Italic, Paragraph, Mention } = CKEDITOR;
+const { FormatPainter, SlashCommand } = CKEDITOR_PREMIUM_FEATURES;
+
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        plugins: [ Essentials, Bold, Italic, Paragraph, Mention, FormatPainter, SlashCommand ],
+        toolbar: [ /* ... */ ],
+        licenseKey: '&lt;YOUR_LICENSE_KEY&gt;'
+    } );
+&lt;/script&gt;
+</code></pre>
+<h3 id="whats-new"><a class="headerlink" href="#whats-new">#</a> What’s new?</h3>
+<p>There are a few things that stand out in both examples compared to the old installation methods:</p>
+<ol>
+<li>Everything is imported from the <code>ckeditor5</code> and <code>ckeditor5-premium-features</code> packages only. In the browser, this is done using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap">importmaps</a>, which maps the package names to the build URLs.</li>
+<li>CSS files are imported separately from the JavaScript files, which improves performance and allows you to more easily customize or remove the default editor styles.</li>
+<li>Translations are imported as JavaScript objects and passed to the editor instance, instead of using side-effect imports (<code>import '...'</code>) that rely on the global state.</li>
+<li>You no longer need to maintain a CKEditor&nbsp;5-specific webpack or Vite configuration, and can use CKEditor&nbsp;5 with any modern bundler or JavaScript meta-framework.</li>
+</ol>
+<p>The setups we presented above are what you should aim for when migrating your project to the new installation methods.</p>
+<h3 id="feature-comparison"><a class="headerlink" href="#feature-comparison">#</a> Feature comparison</h3>
+<p>Here is a visual comparison of the features available in the new npm and CDN builds and the old installation methods:</p>
+<table>
+	<thead>
+		<tr>
+			<th rowspan="2" style="text-align: center; vertical-align: middle;">Installation methods</th>
+			<th colspan="2">New methods</th>
+			<th colspan="3">Legacy methods</th>
+		</tr>
+		<tr>
+			<th>npm</th>
+			<th>CDN</th>
+			<th><abbr title="Predefined builds include the `@ckeditor/ckeditor5-build-*` npm packages and their CDN equivalents">Predefined</abbr></th>
+			<th><abbr title="Custom builds include packages built from source and from the legacy Online Builder">Custom</abbr></th>
+			<th><abbr title="DLL builds generated by webpack">DLL</abbr></th>
+		</tr>
+	</thead>
+	<tbody style="text-align: center; vertical-align: middle;">
+		<tr>
+			<td>No build step</td>
+			<td>❌</td>
+			<td>✅</td>
+			<td>✅</td>
+			<td>❌</td>
+			<td>✅</td>
+		</tr>
+		<tr>
+			<td>Can be used with any modern bundler</td>
+			<td>✅</td>
+			<td>❌</td>
+			<td>✅</td>
+			<td>❌</td>
+			<td>❌</td>
+		</tr>
+		<tr>
+			<td>Allows adding plugins</td>
+			<td>✅</td>
+			<td>✅</td>
+			<td>❌</td>
+			<td>✅</td>
+			<td>✅</td>
+		</tr>
+		<tr>
+			<td>Style customization</td>
+			<td>✅</td>
+			<td>✅</td>
+			<td>❌</td>
+			<td>⚠️ <sup>[2]</sup></td>
+			<td>❌</td>
+		</tr>
+		<tr>
+			<td>Icon customization</td>
+			<td>⚠️ <sup>[1]</sup></td>
+			<td>⚠️ <sup>[1]</sup></td>
+			<td>❌</td>
+			<td>✅</td>
+			<td>❌</td>
+		</tr>
+		<tr>
+			<td>Does not rely on global state</td>
+			<td>✅</td>
+			<td>✅</td>
+			<td>❌</td>
+			<td>❌</td>
+			<td>❌</td>
+		</tr>
+		<tr>
+			<td>Provides editor- and content-only style sheets</td>
+			<td>✅</td>
+			<td>✅</td>
+			<td>❌</td>
+			<td>❌</td>
+			<td>❌</td>
+		</tr>
+		<tr>
+			<td>Style sheets separate from JavaScript</td>
+			<td>✅</td>
+			<td>✅</td>
+			<td>❌</td>
+			<td>⚠️<sup>[3]</sup></td>
+			<td>❌</td>
+		</tr>
+		<tr>
+			<td>Can be optimized to reduce bundle size</td>
+			<td>✅</td>
+			<td>❌</td>
+			<td>❌</td>
+			<td>✅</td>
+			<td>✅</td>
+		</tr>
+	</tbody>
+</table>
+<p>[1] Support for customizing icons is planned for future releases. See this <a href="https://github.com/ckeditor/ckeditor5/issues/16546">GitHub issue</a> for more information.<br>
+[2] Style customization is partially supported via webpack configuration.<br>
+[3] CSS can be separated from JavaScript using custom webpack configuration.</p>
+<h2 id="sunset-of-old-installation-methods-and-deprecation-timelines"><a class="headerlink" href="#sunset-of-old-installation-methods-and-deprecation-timelines">#</a> Sunset of old installation methods and deprecation timelines</h2>
+<p>With the release of version 42.0.0, we have decided to deprecate the older methods of setting up CKEditor&nbsp;5. The new experience introduced in v42.0.0 is far superior.</p>
+<p>However, we understand that migrating to a new setup, even if easy, requires planning and work allocation. We would rather not block anyone from receiving bug fixes and improvements due to a deprecated update path. Therefore, we will support all existing methods according to the timelines given below.</p>
+<h3 id="deprecation-of-the-predefined-builds-and-custom-builds"><a class="headerlink" href="#deprecation-of-the-predefined-builds-and-custom-builds">#</a> Deprecation of the predefined builds and custom builds</h3>
+<p>The setup methods, which were “webpack-first” or provided predefined editors without the possibility of extending them will be supported until <strong>the end of Q1 (March), 2025</strong>.</p>
+<p>What we will sunset on this date:</p>
+<ol>
+<li>The documentation for the predefined builds, superbuild, and custom builds will be removed.</li>
+<li>No more new versions of predefined builds packages will be published to npm.</li>
+<li>New versions of npm packages published after this date will not have the <code>src</code> directory. It will not be possible to import files from those destinations, as <code>dist</code> will become the main folder.</li>
+<li>Deprecation of <code>@ckeditor/ckeditor5-dev-translations</code> package, as it will not be needed anymore.</li>
+<li>We will update our environment to target ES2022 (or newer), thus dropping the support for webpack 4.</li>
+</ol>
+<h3 id="deprecation-of-dlls"><a class="headerlink" href="#deprecation-of-dlls">#</a> Deprecation of DLLs</h3>
+<p>This is an advanced setup method that we provided, that was used to dynamically create the editor and its configuration on the browser side. As this is now provided out-of-the-box with our browser builds, this method will also be deprecated. As DLLs are used in complex CMSes, this deprecation timeline is significantly longer.</p>
+<p>The DLLs will be supported until <strong>the end of 2025</strong>.</p>
+<p>What we will sunset on this date:</p>
+<ol>
+<li>The documentation for DLLs will be removed.</li>
+<li>New versions of npm packages published after this date will not have <code>build</code> directory. It will not be possible to import files from those destinations.</li>
+</ol>
+<div class="info-box notice"><p>If any of the above worries you, reach out to our support or inform us via the <a href="https://github.com/ckeditor/ckeditor5/issues/new?assignees=&amp;labels=type:question&amp;projects=&amp;template=8-question.md&amp;title=">GitHub issue tracker</a>. We are open to discussing the timelines or potential cases that you would need us to support.</p></div>
+<h2 id="migrating-from-the-old-installation-methods"><a class="headerlink" href="#migrating-from-the-old-installation-methods">#</a> Migrating from the old installation methods</h2>
+<p>To migrate your project to the new installation methods, you can follow the instructions below.</p>
+<p>First, if you maintain any CKEditor&nbsp;5 custom plugins as separate packages, whether in a monorepo setup or published to npm, you need to migrate them:</p>
+<ul>
+<li><a href="custom-plugins.html">Migrating custom plugins</a>.</li>
+</ul>
+<p>Second, proceed with migrating your project, depending on the old installation method you are using.</p>
+<ul>
+<li><a href="predefined-builds.html">Migrating from predefined builds</a>.</li>
+<li><a href="online-builder.html">Migrating from legacy Online Builder</a>.</li>
+<li><a href="customized-builds.html">Migrating from customized builds</a>.</li>
+<li><a href="dll-builds.html">Migrating from DLL builds</a>.</li>
+</ul>
+<p>Finally, if you use our React, Vue or Angular integrations, you also need to update them:</p>
+<ul>
+<li>Update the <code>@ckeditor/ckeditor5-react</code> package to version <code>^8.0.0</code>. Please refer to the <a href="https://github.com/ckeditor/ckeditor5-react/blob/master/CHANGELOG.md">package’s changelog</a>, because of the minor breaking change introduced in this version.</li>
+<li>Update the <code>@ckeditor/ckeditor5-vue</code> package to version <code>^6.0.0</code>.</li>
+<li>Update the <code>@ckeditor/ckeditor5-angular</code> package to version <code>^8.0.0</code>.</li>
+</ul>
+<p>If you encounter any issues during the migration process, please refer to this <a href="https://github.com/ckeditor/ckeditor5/issues/16511">GitHub issue containing common errors</a>. If your issue is not listed there, feel free to open a new issue in our <a href="https://github.com/ckeditor/ckeditor5/issues/new/choose">GitHub repository</a>.</p>
+<style>
+	table tbody td sup {
+		top: -0.5em;
+		position: relative;
+		font-size: 75%;
+		line-height: 0;
+		vertical-align: baseline;
+	}
+</style>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22updating%2Fnim-migration%2Fmigration-to-new-installation-methods.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Migrations from npm to CDN</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="migrations">
+                                    <li><a href="../migrations/vanilla-js.html" title="Vanilla JS">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/testing-suite.html" title="Vanilla JS testing suite">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS testing suite</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/react.html" title="React">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/vuejs-v3.html" title="Vue.js 3+">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/angular.html" title="Angular">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">New installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="nim-migration">
+                                    <li><a href="" title="Migrating to new installation methods">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migrating to new installation methods</span>
+                                        </div></a></li>
+                                    <li><a href="predefined-builds.html" title="Migrating from predefined builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from predefined builds</span>
+                                        </div></a></li>
+                                    <li><a href="online-builder.html" title="Migrating from legacy Online Builder">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from legacy Online Builder</span>
+                                        </div></a></li>
+                                    <li><a href="customized-builds.html" title="Migrating from customized builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from customized builds</span>
+                                        </div></a></li>
+                                    <li><a href="dll-builds.html" title="Migrating from DLL builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from DLL builds</span>
+                                        </div></a></li>
+                                    <li><a href="custom-plugins.html" title="Migrating custom plugins">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating custom plugins</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">CKEditor 4 migration</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="ckeditor4-migration">
+                                    <li><a href="../ckeditor4/migration-from-ckeditor-4.html" title="Migration from CKEditor 4">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-plugin-compatibility.html" title="Plugin equivalents">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin equivalents</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-configuration-compatibility.html" title="Configuration options compatibility">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration options compatibility</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-troubleshooting.html" title="Troubleshooting">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Troubleshooting</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../maintaining.html" title="Maintaining your editor">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your editor</span>
+                              </div></a></li>
+                          <li><a href="../release-process.html" title="Release process">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Release process</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Update guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="update-guides">
+                                    <li><a href="../guides/updating-ckeditor-5.html" title="Updating CKEditor 5">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating CKEditor 5</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/changelog.html" title="Changelog">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Changelog</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-44.html" title="Update to v44.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v44.x</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-43.html" title="Update to v43.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v43.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-42.html" title="Update to v42.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v42.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-41.html" title="Update to v41.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v41.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-40.html" title="Update to v40.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v40.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-39.html" title="Update to v39.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v39.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-38.html" title="Update to v38.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v38.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-37.html" title="Update to v37.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v37.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-36.html" title="Update to v36.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v36.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-35.html" title="Update to v35.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v35.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-34.html" title="Update to v34.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v34.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-33.html" title="Update to v33.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v33.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-32.html" title="Update to v32.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v32.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-31.html" title="Update to v31.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v31.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-30.html" title="Update to v30.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v30.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-29.html" title="Update to v29.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v29.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-28.html" title="Update to v28.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v28.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-27.html" title="Update to v27.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v27.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-26.html" title="Update to v26.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v26.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-25.html" title="Update to v25.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v25.x</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../versioning-policy.html" title="Versioning policy">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Versioning policy</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'updating' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'updating' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'updating' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'updating' ] );tags.forEach( function( tag ) {if ( tag !== 'updating' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

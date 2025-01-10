@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CKEditor 5 installation documentation</title>
+    <meta name="description" content="Learn how to install, integrate, configure and develop CKEditor 5. Browse through API documentation and online samples.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:51 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="CKEditor 5 installation documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/installation/index.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="CKEditor 5 installation documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/installation/index.html">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../index.html">CKEditor 5</a></li>
+          <li><a class="top__menu__item--active" href="">Installation</a></li>
+          <li><a href="../features/index.html">Features</a></li>
+          <li><a href="../examples/index.html">Examples</a></li>
+          <li><a href="../updating/index.html">Updating</a></li>
+          <li><a href="../support/index.html">Support</a></li>
+          <li><a href="../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="">Installation</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="getting-started/quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="getting-started/configuration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                      </div></a></li>
+                                  <li><a href="getting-started/installing-plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                      </div></a></li>
+                                  <li><a href="getting-started/basic-api.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="getting-started/frameworks/overview.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="getting-started/frameworks/angular.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                              </div></a></li>
+                                          <li><a href="getting-started/frameworks/react.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                              </div></a></li>
+                                          <li><a href="getting-started/frameworks/vuejs-v2.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                              </div></a></li>
+                                          <li><a href="getting-started/frameworks/vuejs-v3.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                              </div></a></li>
+                                          <li><a href="getting-started/frameworks/css.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="getting-started/migration-from-ckeditor-4.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="getting-started/maintenance.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="advanced/using-two-editors.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                      </div></a></li>
+                                  <li><a href="advanced/saving-data.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                      </div></a></li>
+                                  <li><a href="advanced/content-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                      </div></a></li>
+                                  <li><a href="advanced/csp.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                      </div></a></li>
+                                  <li><a href="advanced/plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                      </div></a></li>
+                                  <li><a href="advanced/features-html-output-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="advanced/alternative-setups/integrating-from-source.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                              </div></a></li>
+                                          <li><a href="advanced/alternative-setups/dll-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                              </div></a></li>
+                                          <li><a href="advanced/alternative-setups/dll-builds-collaboration-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                              </div></a></li>
+                                          <li><a href="advanced/alternative-setups/predefined-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="features"><a href="../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/installation/index.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="">Installation</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../assets/2.1.3/img/book.svg" alt="guide">Installing CKEditor 5
+          </h1>
+<p>CKEditor 5 provides every type of WYSIWYG editing solution imaginable. From editors similar to Google Docs and Medium, to Slack or Twitter like applications, all is possible within a single editing framework. It is an ultra-modern JavaScript rich text editor with MVC architecture, custom data model and virtual DOM, written from scratch in ES6 with excellent webpack support. Find out the most convenient way to start using it!</p>
+<div class="info-box notice"><p>Use the <span class="navigation-hint_desktop"><strong>navigation tree on the left</strong></span><span class="navigation-hint_mobile"><strong>main menu button in the upper-left corner</strong></span> to navigate through the documentation. Newly added or meaningfully updated guides are marked with a <span class="tree__item__badge tree__item__badge_new">NEW</span> icon for easy spotting.</p></div>
+<div class="info-box notice"><p><strong>Not sure which installation method is best for you?</strong> <button type="button" class="quiz-button quiz-button_start">Take a short quiz!</button></p></div>
+<h2 id="installing-ckeditor-5-2"><a class="headerlink" href="#installing-ckeditor-5-2">#</a> Installing CKEditor 5</h2>
+<p>Learn how to install CKEditor 5 easily with the use of <a href="getting-started/quick-start.html#creating-custom-builds-with-online-builder">online builder</a> or <a href="getting-started/quick-start.html#building-the-editor-from-source">build the editor from scratch</a>, learn to <a href="getting-started/quick-start.html#building-the-editor-from-source">create a custom build</a>, <a href="getting-started/configuration.html">configure it</a>, and <a href="advanced/csp.html">secure</a>.</p>
+<h2 id="predefined-ckeditor-5-builds"><a class="headerlink" href="#predefined-ckeditor-5-builds">#</a> Predefined CKEditor 5 builds</h2>
+<p>Predefined CKEditor 5 builds are ready-to-use installations aimed at specific needs that you can simply download and use out of the box. Learn more about the <a href="advanced/alternative-setups/predefined-builds.html">available predefined builds</a> and choosing the right one for you. This is the fastest way to kick-off you CKEditor 5 installation.</p>
+<h2 id="integration-with-frameworks"><a class="headerlink" href="#integration-with-frameworks">#</a> Integration with frameworks</h2>
+<p>Get to know the supported <a href="getting-started/frameworks/overview.html">integrations with popular JavaScript frameworks</a> such as React, Angular or Vue, and learn to utilize them and to integrate CKEditor 5 with you software.</p>
+<h2 id="migrating-from-ckeditor-4"><a class="headerlink" href="#migrating-from-ckeditor-4">#</a> Migrating from CKEditor 4</h2>
+<p>Refer to the <a href="getting-started/migration-from-ckeditor-4.html">CKEditor 4 migration guide</a> if you are updating your CKEditor 5 installation.</p>
+<h2 id="advanced-installation-concepts"><a class="headerlink" href="#advanced-installation-concepts">#</a> Advanced installation concepts</h2>
+<p>Find out more about the <a href="advanced/plugins.html">plugin development</a>, how to <a href="advanced/saving-data.html">handle and save the data</a> and what the <a href="advanced/features-html-output-overview.html">features&#x2019; HTML output</a> is for each plugin. Learn about alternative setups such as <a href="advanced/alternative-setups/dll-builds.html">DLL builds</a> or <a href="advanced/alternative-setups/integrating-from-source.html">integrating CKEditor 5 from source</a>.</p>
+<p><strong>Related links</strong></p>
+<ul>
+<li><a href="../updating/index.html">Updating CKEditor 5</a> &#x2013; Find out how to keep you installation up-to-date at all times.</li>
+<li><a href="../features/index.html">Features</a> &#x2013; Learn more about the CKEditor 5 features.</li>
+<li><a href="../examples/index.html">Examples</a> &#x2013; Try live demos of available predefined builds and custom solutions.</li>
+<li><a href="../framework/guides/overview.html">CKEditor 5 Framework</a> &#x2013; Learn how to work with CKEditor 5 Framework, customize it, create your own plugins or custom editors, how to change the UI or even bring your own UI to the editor.</li>
+</ul>
+<script type="text/javascript">
+	const QUIZ_DEFAULT_HEADER = 'Installation method quiz';
+	const QUIZ_RESOLUTION_BUTTON_DEFINITIONS = [
+		{
+			classes: [ 'quiz-button', 'quiz-button_restart' ],
+			text: 'Restart the quiz',
+			navigateToPaneId: 'quiz-question-usingBuilds'
+		}
+	];
+	const QUIZ_PANE_DEFINITIONS = {
+		// This pane is not rendered. This definition is for the button click handlers to work properly only.
+		'quiz-start': {
+			buttons: [
+				{
+					classes: [ 'quiz-button', 'quiz-button_start' ],
+					text: 'Take a short quiz',
+					navigateToPaneId: 'quiz-question-usingBuilds',
+				}
+			]
+		},
+
+		// ------------------------------ Questions -----------------------------------------------
+
+		'quiz-question-usingBuilds': {
+			content: 'Do you need a working, out-of-the box solution?',
+			hint: 'CKEditor 5 comes with ready-to-use <a href="#predefined-ckeditor-5-builds">predefined builds</a> that offer working solutions for different use cases. This is the fastest way to start.',
+			buttons: [
+				getDecisionButtonDefinition( true, 'quiz-resolution-usingBuilds' ),
+				getDecisionButtonDefinition( false, 'quiz-question-onlineBuilder' ),
+			]
+		},
+
+		'quiz-question-onlineBuilder': {
+			content: 'Do you need a ready-to-use, custom solution?',
+			hint: 'CKEditor 5 online builder allows users to create a downloadable working copy with custom set of features.',
+			buttons: [
+				getDecisionButtonDefinition( true, 'quiz-resolution-onlineBuilder' ),
+				getDecisionButtonDefinition( false, 'quiz-question-fromSource' ),
+			]
+		},
+
+		'quiz-question-fromSource': {
+			content: 'Do you want to configure your own custom-tailored installation?',
+			hint: 'Building CKEditor 5 from source allows you to fully control the building process and every aspect of the final editor.',
+			buttons: [
+				getDecisionButtonDefinition( true, 'quiz-resolution-fromSource' ),
+				getDecisionButtonDefinition( false, 'quiz-question-usingFrameworks' ),
+			]
+		},
+
+		'quiz-question-usingFrameworks': {
+			content: 'Do you want to integrate CKEditor into an existing React, Vue.js or Angular project?',
+			hint: 'CKEditor 5 comes with ready-to-use <a href="#integration-with-frameworks">adapters</a> for popular frontend frameworks. You can use them to quickly bootstrap your project.',
+			buttons: [
+				getDecisionButtonDefinition( true, 'quiz-resolution-usingFrameworks' ),
+				getDecisionButtonDefinition( false, 'quiz-question-usingDLL' ),
+			]
+		},
+
+		'quiz-question-usingDLL': {
+			content: 'Do you want to design and maintain your installation without the need to recompile each time on update?',
+			hint: 'CKEditor 5 DLL build allows adding plugins to an editor build without having to rebuild the build itself.',
+			buttons: [
+				getDecisionButtonDefinition( true, 'quiz-resolution-usingDLL' ),
+				getDecisionButtonDefinition( false, 'quiz-question-migrateFromV4' ),
+			]
+		},
+
+		'quiz-question-migrateFromV4': {
+			content: 'Do you want to migrate from your existing CKEditor 4 installation?',
+			buttons: [
+				getDecisionButtonDefinition( true, 'quiz-resolution-migrateFromV4' ),
+				getDecisionButtonDefinition( false, 'quiz-resolution-endOfTheWorld' ),
+			]
+		},
+
+		// ------------------------------ Resolutions ----------------------------------------------
+
+		'quiz-resolution-usingBuilds': {
+			content: 'Based on your answers, you should check out the <a href=advanced/alternative-setups/predefined-builds.html>predefined builds</a>. You can also browse other installation methods listed below.',
+			buttons: QUIZ_RESOLUTION_BUTTON_DEFINITIONS
+		},
+
+		'quiz-resolution-onlineBuilder': {
+			content: 'Based on your answers, you should check out the <a href=getting-started/quick-start.html#creating-custom-builds-with-online-builder>online builder</a>. You can also browse other installation methods listed below.',
+			buttons: QUIZ_RESOLUTION_BUTTON_DEFINITIONS
+		},
+
+		'quiz-resolution-fromSource': {
+			content: 'Based on your answers, you should check out the <a href=getting-started/quick-start.html#building-the-editor-from-source>building CKEditor 5 from source</a>. You can also browse other installation methods listed below.',
+			buttons: QUIZ_RESOLUTION_BUTTON_DEFINITIONS
+		},
+
+		'quiz-resolution-usingFrameworks': {
+			content: 'Based on your answers, you should check out official <a href=getting-started/frameworks/overview.html>integrations with popular JavaScript frameworks</a>. You can also browse other installation methods listed below.',
+			buttons: QUIZ_RESOLUTION_BUTTON_DEFINITIONS
+		},
+
+		'quiz-resolution-usingDLL': {
+			content: 'Based on your answers, you should check out the <a href=advanced/alternative-setups/dll-builds.html>DLL webpack</a> solution. You can also browse other installation methods listed below.',
+			buttons: QUIZ_RESOLUTION_BUTTON_DEFINITIONS
+		},
+
+		'quiz-resolution-migrateFromV4': {
+			content: 'Based on your answers, you should check out the <a href=getting-started/migration-from-ckeditor-4.html>CKEditor 4 migration guide</a>.',
+			buttons: QUIZ_RESOLUTION_BUTTON_DEFINITIONS
+		},
+
+		'quiz-resolution-endOfTheWorld': {
+			content: 'The solution you need is not clear. Please browse the documentation to look for further answers.',
+			buttons: QUIZ_RESOLUTION_BUTTON_DEFINITIONS
+		}
+	};
+
+	window.addEventListener( 'DOMContentLoaded', () => setUpTheInstallationQuiz() );
+
+	function setUpTheInstallationQuiz() {
+		const startButtonElement = document.querySelector( '.quiz-button_start' );
+		setupQuizPaneButton( startButtonElement, getPaneDefinition( 'quiz-start' ).buttons[ 0 ] );
+
+		const startPaneElement = startButtonElement.closest( '.info-box' );
+		const quizPaneElements = generateQuizPaneElements( startPaneElement );
+
+		for ( const paneId in quizPaneElements ) {
+			startPaneElement.parentNode.insertBefore( quizPaneElements[ paneId ], startPaneElement.nextSibling );
+		}
+
+		setupQuizNavigation( quizPaneElements );
+	}
+
+	function generateQuizPaneElements( startPaneElement ) {
+		const paneElements = {};
+
+		for ( const paneName in QUIZ_PANE_DEFINITIONS ) {
+			let paneElement;
+
+			if ( paneName !== 'quiz-start' ) {
+				const paneDefinition = getPaneDefinition( paneName );
+				paneElement = startPaneElement.cloneNode();
+
+				paneElement.innerHTML = `
+					<h3>${ paneDefinition.header || QUIZ_DEFAULT_HEADER }</h3>
+					<p class="quiz-message">${ paneDefinition.content }</p>
+					<div class="quiz-buttons">${ generateQuizPaneButtons( paneDefinition ) }</div>
+					${ paneDefinition.hint ? `<p class="quiz-hint">${ paneDefinition.hint }</p>` : '' }
+				`;
+			} else {
+				// Not creating the start pane this way to take advantage of Umberto and its generator.
+				// The start pane will be cloned and other panes will have the same Umberto classes.
+				// It will prevent the quiz DOM structure from getting outdated.
+				paneElement = startPaneElement;
+			}
+
+			paneElement.id = paneName;
+			paneElement.classList.add( 'quiz-pane' );
+			paneElements[ paneName ] = paneElement;
+		}
+
+		return paneElements;
+	}
+
+	function generateQuizPaneButtons( paneDefinition ) {
+		return paneDefinition.buttons.map( buttonDefinition => {
+			const buttonElement = document.createElement( 'button' );
+
+			setupQuizPaneButton( buttonElement, buttonDefinition );
+
+			return buttonElement;
+		} ).reduce( ( previousValue, currentValue ) => previousValue + currentValue.outerHTML, '' );
+	}
+
+	function setupQuizPaneButton( buttonElement, definition ) {
+		buttonElement.setAttribute( 'type', 'button' );
+		buttonElement.innerHTML = definition.text;
+		buttonElement.classList.add( ...definition.classes );
+		buttonElement.dataset.navigateToPaneId = definition.navigateToPaneId;
+	}
+
+	function setupQuizNavigation( quizPaneElements ) {
+		for ( const paneName in quizPaneElements ) {
+			if ( paneName === 'quiz-start' ) {
+				continue;
+			}
+
+			hideQuizPane( quizPaneElements[ paneName ] );
+		}
+
+		document.addEventListener( 'click', event => {
+			if ( !event.target.matches( '.quiz-button' ) ) {
+				return;
+			}
+
+			const parentPaneElement = event.target.closest( '.info-box' );
+			const parentPaneDefinition = getPaneDefinition( parentPaneElement.id );
+
+			hideQuizPane( parentPaneElement );
+			showQuizPane( quizPaneElements[ event.target.dataset.navigateToPaneId ] );
+
+			// Allow tracking the usage of the quiz in GA.
+			window.location.hash = `installation-quiz-navigation:${ event.target.dataset.navigateToPaneId }`;
+		}, false );
+	}
+
+	function showQuizPane( paneElement ) {
+		paneElement.style.display = 'block';
+	}
+
+	function hideQuizPane( paneElement ) {
+		paneElement.style.display = 'none';
+	}
+
+	function getPaneDefinition( id ) {
+		return QUIZ_PANE_DEFINITIONS[ id ];
+	}
+
+	function getDecisionButtonDefinition( isYes, navigateToPaneId ) {
+		return {
+			classes: [ 'quiz-button' ],
+			text: isYes ? 'Yes' : 'No',
+			navigateToPaneId
+		};
+	}
+</script>
+<style>
+div.quiz-pane h3 {
+	font-size: 1em;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+div.quiz-pane p.quiz-message {
+	font-size: 1.2em;
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+div.quiz-pane p.quiz-hint {
+	font-size: .8em;
+	opacity: 0.6;
+	margin-top: 1em;
+	text-align: center;
+}
+
+div.quiz-pane .quiz-hint::before {
+	content: "ℹ️";
+	margin-right: .4em;
+}
+
+div.quiz-pane .quiz-buttons {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+div.quiz-pane button.quiz-button {
+	all: unset;
+	border: 1px solid #1b3af2;
+	border-radius: 100px;
+	padding: 2px 10px;
+	color: #1b3af2;
+	background: transparent;
+	min-width: 80px;
+	text-align: center;
+}
+
+div.quiz-pane button.quiz-button:hover {
+	background: #e6eaff;
+}
+
+div.quiz-pane button.quiz-button:active,
+div.quiz-pane button.quiz-button:focus {
+	background: #aebbff;
+}
+
+div.quiz-pane .quiz-buttons button.quiz-button + button {
+	margin-left: 1em;
+}
+
+div.quiz-pane button.quiz-button_restart {
+	border: 0px;
+}
+
+div.quiz-pane button.quiz-button_restart::before {
+	content: "↺";
+	margin-right: .5em;
+}
+
+div.quiz-pane[id="quiz-start"] p {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+</style>
+
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="getting-started/quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="getting-started/configuration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                        </div></a></li>
+                                    <li><a href="getting-started/installing-plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                        </div></a></li>
+                                    <li><a href="getting-started/basic-api.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="getting-started/frameworks/overview.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="getting-started/frameworks/angular.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                                  </div></a></li>
+                                              <li><a href="getting-started/frameworks/react.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                                  </div></a></li>
+                                              <li><a href="getting-started/frameworks/vuejs-v2.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                                  </div></a></li>
+                                              <li><a href="getting-started/frameworks/vuejs-v3.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                                  </div></a></li>
+                                              <li><a href="getting-started/frameworks/css.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="getting-started/migration-from-ckeditor-4.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="getting-started/maintenance.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="advanced/using-two-editors.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                        </div></a></li>
+                                    <li><a href="advanced/saving-data.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                        </div></a></li>
+                                    <li><a href="advanced/content-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                        </div></a></li>
+                                    <li><a href="advanced/csp.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                        </div></a></li>
+                                    <li><a href="advanced/plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                        </div></a></li>
+                                    <li><a href="advanced/features-html-output-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="advanced/alternative-setups/integrating-from-source.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                                  </div></a></li>
+                                              <li><a href="advanced/alternative-setups/dll-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                                  </div></a></li>
+                                              <li><a href="advanced/alternative-setups/dll-builds-collaboration-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                                  </div></a></li>
+                                              <li><a href="advanced/alternative-setups/predefined-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'installation' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'installation' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'installation' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'installation' ] );tags.forEach( function( tag ) {if ( tag !== 'installation' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Schema | CKEditor 5 Framework Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:12:55 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Schema | CKEditor 5 Framework Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/schema.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Schema | CKEditor 5 Framework Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/framework/deep-dive/schema.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../getting-started/index.html">Getting started</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a href="../../updating/index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../index.html">Framework</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Tutorials</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="tutorials">
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Crash course</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="crash-course">
+                                          <li><a href="../tutorials/crash-course/editor.html" title="Editor and configuration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor and configuration</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/plugins.html" title="Plugins">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/model-and-schema.html" title="Model and schema">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model and schema</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/data-conversion.html" title="Data conversion">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data conversion</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/commands.html" title="Commands">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Commands</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/view.html" title="Editor UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor UI</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/events-and-observables.html" title="Events and observables">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Events and observables</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/keystrokes.html" title="Handling keystrokes">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Handling keystrokes</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/plugin-configuration.html" title="Plugin configuration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin configuration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../tutorials/creating-simple-plugin-timestamp.html" title="Creating a basic plugin">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a basic plugin</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Creating an advanced plugin</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="abbreviation-plugin">
+                                          <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-1.html" title="Defining a model and a view">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Defining a model and a view</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-2.html" title="Getting user input with a custom UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting user input with a custom UI</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-3.html" title="Improving accessibility and adding a command">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Improving accessibility and adding a command</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Using widgets</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="widget-tutorials">
+                                          <li><a href="../tutorials/widgets/implementing-a-block-widget.html" title="Implementing a block widget">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/widgets/implementing-an-inline-widget.html" title="Implementing an inline widget">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/widgets/using-react-in-a-widget.html" title="Using a React component in a widget">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/widgets/data-from-external-source.html" title="Data from an external source">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data from an external source</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../tutorials/supporting-multiple-versions.html" title="Compatibility of custom plugins">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Compatibility of custom plugins</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Development tools</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="development-tools">
+                                  <li><a href="../develpment-tools/inspector.html" title="Inspector">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inspector</span>
+                                      </div></a></li>
+                                  <li><a href="../develpment-tools/testing-helpers.html" title="Testing helpers">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing helpers</span>
+                                      </div></a></li>
+                                  <li><a href="../develpment-tools/mrgit.html" title="Mr. Git">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mr. Git</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Package Generator</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="package-generator">
+                                          <li><a href="../develpment-tools/package-generator/using-package-generator.html" title="Using package generator">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                              </div></a></li>
+                                          <li><a href="../develpment-tools/package-generator/javascript-package.html" title="JavaScript package">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">JavaScript package</span>
+                                              </div></a></li>
+                                          <li><a href="../develpment-tools/package-generator/typescript-package.html" title="TypeScript package">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">TypeScript package</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-architecture">
+                                  <li><a href="../architecture/intro.html" title="Introduction">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                      </div></a></li>
+                                  <li><a href="../architecture/plugins.html" title="Plugins in CKEditor 5">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins in CKEditor 5</span>
+                                      </div></a></li>
+                                  <li><a href="../architecture/core-editor-architecture.html" title="Core editor architecture">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                      </div></a></li>
+                                  <li><a href="../architecture/editing-engine.html" title="Editing engine">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                      </div></a></li>
+                                  <li><a href="../architecture/ui-library.html" title="UI library">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                      </div></a></li>
+                                  <li><a href="../architecture/ui-components.html" title="UI components">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI components</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-deep-dive">
+                                  <li><a href="clipboard.html" title="Clipboard">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                      </div></a></li>
+                                  <li><a href="upload-adapter.html" title="Custom upload adapter">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                      </div></a></li>
+                                  <li><a href="event-system.html" title="Event system">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                      </div></a></li>
+                                  <li><a href="observables.html" title="Observables">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                      </div></a></li>
+                                  <li><a href="" title="Schema">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Schema</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-conversion">
+                                          <li><a href="conversion/intro.html" title="Introduction">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                              </div></a></li>
+                                          <li><a href="conversion/downcast.html" title="Model to view (downcast)">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                              </div></a></li>
+                                          <li><a href="conversion/upcast.html" title="View to model (upcast)">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list" data-id="framework-deep-dive-conversion-helpers">
+                                                  <li><a href="conversion/helpers/intro.html" title="Introduction">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                      </div></a></li>
+                                                  <li><a href="conversion/helpers/downcast.html" title="Downcast helpers">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                      </div></a></li>
+                                                  <li><a href="conversion/helpers/upcast.html" title="Upcast helpers">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-ui">
+                                          <li><a href="ui/focus-tracking.html" title="Focus tracking">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                              </div></a></li>
+                                          <li><a href="ui/widget-internals.html" title="Widget internals">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                              </div></a></li>
+                                          <li><a href="ui/theme-customization.html" title="Theme customization">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                              </div></a></li>
+                                          <li><a href="ui/external-ui.html" title="Third-party UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third-party UI</span>
+                                              </div></a></li>
+                                          <li><a href="ui/document-editor.html" title="Document editor">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                              </div></a></li>
+                                          <li><a href="ui/custom-editor-creator.html" title="Creating custom editor">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                              </div></a></li>
+                                          <li><a href="ui/localization.html" title="Localization">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../how-tos.html" title="How-tos">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">How-tos</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-contributing">
+                                  <li><a href="../contributing/contributing.html" title="Contributing">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                      </div></a></li>
+                                  <li><a href="../contributing/development-environment.html" title="Development environment">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                      </div></a></li>
+                                  <li><a href="../contributing/testing-environment.html" title="Testing environment">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                      </div></a></li>
+                                  <li><a href="../contributing/code-style.html" title="Code style">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                      </div></a></li>
+                                  <li><a href="../contributing/package-metadata.html" title="Package metadata">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                      </div></a></li>
+                                  <li><a href="../contributing/git-commit-message-convention.html" title="Git commit message convention">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted schema-deep-dive">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/packages/ckeditor5-engine/docs/framework/deep-dive/schema.md" title="Contribute to this guide"><img src="../../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Framework</a>
+          </div>
+          <h1 class="main__content-title">Schema
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#quick-recap" title="Quick recap">Quick recap</a></li><li><a href="#defining-allowed-structures" title="Defining allowed structures">Defining allowed structures</a></li><li><a href="#disallowing-structures" title="Disallowing structures">Disallowing structures</a><ol><li><a href="#precedence-over-allow-rules" title="Precedence over allow rules">Precedence over allow rules</a></li><li><a href="#disallow-rules-examples" title="Disallow rules examples">Disallow rules examples</a></li></ol></li><li><a href="#defining-additional-semantics" title="Defining additional semantics">Defining additional semantics</a><ol><li><a href="#limit-elements" title="Limit elements">Limit elements</a></li><li><a href="#object-elements" title="Object elements">Object elements</a></li><li><a href="#block-elements" title="Block elements">Block elements</a></li><li><a href="#inline-elements" title="Inline elements">Inline elements</a></li><li><a href="#selectable-elements" title="Selectable elements">Selectable elements</a></li><li><a href="#content-elements" title="Content elements">Content elements</a></li></ol></li><li><a href="#generic-items" title="Generic items">Generic items</a><ol><li><a href="#relations-between-generic-items" title="Relations between generic items">Relations between generic items</a></li></ol></li><li><a href="#defining-advanced-rules-using-callbacks" title="Defining advanced rules using callbacks">Defining advanced rules using callbacks</a><ol><li><a href="#child-checks-structure-checks" title="Child checks (structure checks)">Child checks (structure checks)</a></li><li><a href="#attribute-checks" title="Attribute checks">Attribute checks</a></li></ol></li><li><a href="#implementing-additional-constraints" title="Implementing additional constraints">Implementing additional constraints</a></li><li><a href="#who-checks-the-schema" title="Who checks the schema?">Who checks the schema?</a><ol><li><a href="#low-level-apis" title="Low-level APIs">Low-level APIs</a></li><li><a href="#high-level-apis" title="High-level APIs">High-level APIs</a></li></ol></li></ol></nav>
+<p>This article assumes that you have already read the <a href="../architecture/editing-engine.html#schema">“Schema”</a> section of the <a href="../architecture/editing-engine.html">introduction to the editing engine architecture</a>.</p>
+<h2 id="quick-recap"><a class="headerlink" href="#quick-recap">#</a> Quick recap</h2>
+<p>The editor’s schema is available in the <a href="../../api/module_engine_model_model-Model.html#member-schema"><code>editor.model.schema</code></a> property. It defines allowed model structures (how model elements can be nested), allowed attributes (of both elements and text nodes), and other characteristics (inline vs. block, atomicity in regards of external actions). This information is later used by editing features and the editing engine to decide how to process the model, where to enable features, etc.</p>
+<p>Schema rules can be defined by using the <a href="../../api/module_engine_model_schema-Schema.html#function-register"><code>Schema#register()</code></a> or the <a href="../../api/module_engine_model_schema-Schema.html#function-extend"><code>Schema#extend()</code></a> methods. The former can be used only once for a given item name which ensures that only a single editing feature can introduce this item. Similarly, <code>extend()</code> can only be used for defined items.</p>
+<p>Elements and attributes are checked by features separately by using the <a href="../../api/module_engine_model_schema-Schema.html#function-checkChild"><code>Schema#checkChild()</code></a> and the <a href="../../api/module_engine_model_schema-Schema.html#function-checkAttribute"><code>Schema#checkAttribute()</code></a> methods.</p>
+<h2 id="defining-allowed-structures"><a class="headerlink" href="#defining-allowed-structures">#</a> Defining allowed structures</h2>
+<p>When a feature introduces a model element, it should register it in the schema. Besides defining that such an element may exist in the model, the feature also needs to define where this element can be placed. This information is provided by the <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-allowIn"><code>allowIn</code></a> property of the <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html"><code>SchemaItemDefinition</code></a>:</p>
+<pre class="highlight"><code class="js">schema.register( 'myElement', {
+    allowIn: '$root'
+} );
+</code></pre>
+<p>This lets the schema know that <code>&lt;myElement&gt;</code> can be a child of <code>&lt;$root&gt;</code>. The <code>$root</code> element is one of the generic nodes defined by the editing framework. By default, the editor names the main root element a <code>&lt;$root&gt;</code>, so the above definition allows <code>&lt;myElement&gt;</code> in the main editor element.</p>
+<p>In other words, this would be correct:</p>
+<pre class="highlight"><code class="xml">&lt;$root&gt;
+    &lt;myElement&gt;&lt;/myElement&gt;
+&lt;/$root&gt;
+</code></pre>
+<p>While this would be incorrect:</p>
+<pre class="highlight"><code class="xml html">&lt;$root&gt;
+    &lt;foo&gt;
+        &lt;myElement&gt;&lt;/myElement&gt;
+    &lt;/foo&gt;
+&lt;/$root&gt;
+</code></pre>
+<p>To declare which nodes are allowed inside the registered element, the <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-allowChildren"><code>allowChildren</code></a> property could be used:</p>
+<pre class="highlight"><code class="js">schema.register( 'myElement', {
+    allowIn: '$root',
+    allowChildren: '$text'
+} );
+</code></pre>
+<p>To allow the following structure:</p>
+<pre class="highlight"><code class="xml">&lt;$root&gt;
+    &lt;myElement&gt;
+        foobar
+    &lt;/myElement&gt;
+&lt;/$root&gt;
+</code></pre>
+<p>Both the <code><a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-allowIn"><code>allowIn</code></a></code> and <code><a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-allowChildren"><code>allowChildren</code></a></code> properties can also be inherited from other <code>SchemaItemDefinition</code> items.</p>
+<div class="info-box notice"><p>You can read more about the format of the item definition in the <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html"><code>SchemaItemDefinition</code></a> API guide.</p></div>
+<h2 id="disallowing-structures"><a class="headerlink" href="#disallowing-structures">#</a> Disallowing structures</h2>
+<p>The schema, in addition to allowing certain structures, can also be used to ensure some structures are explicitly disallowed. This can be achieved with the use of disallow rules.</p>
+<p>Typically, you will use <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-disallowChildren"><code>disallowChildren</code></a> property for that. It can be used to define which nodes are disallowed inside given element:</p>
+<pre class="highlight"><code class="js">schema.register( 'myElement', {
+    inheritAllFrom: '$block',
+    disallowChildren: 'imageInline'
+} );
+</code></pre>
+<p>In the example above, a new custom element should behave like any block element (paragraph, heading, etc.) but it should not be possible to insert inline images inside it.</p>
+<h3 id="precedence-over-allow-rules"><a class="headerlink" href="#precedence-over-allow-rules">#</a> Precedence over allow rules</h3>
+<p>In general, all <code>disallow</code> rules have higher priority than their <code>allow</code> counterparts. When we also take inheritance into the picture, the hierarchy of rules looks like this (from the highest priority):</p>
+<ol>
+<li><code>disallowChildren</code> / <code>disallowIn</code> from the element’s own definition.</li>
+<li><code>allowChildren</code> / <code>allowIn</code> from the element’s own definition.</li>
+<li><code>disallowChildren</code> / <code>disallowIn</code> from the inherited element’s definition.</li>
+<li><code>allowChildren</code> / <code>allowIn</code> from the inherited element’s definition.</li>
+</ol>
+<h3 id="disallow-rules-examples"><a class="headerlink" href="#disallow-rules-examples">#</a> Disallow rules examples</h3>
+<p>While disallowing is easy to understand for simple cases, things might start to get unclear when more complex rules are involved. Below are some examples explaining how disallowing works when rules inheriting is involved.</p>
+<pre class="highlight"><code class="js">schema.register( 'baseChild' );
+schema.register( 'baseParent', { allowChildren: [ 'baseChild' ] } );
+
+schema.register( 'extendedChild', { inheritAllFrom: 'baseChild' } );
+schema.register( 'extendedParent', { inheritAllFrom: 'baseParent', disallowChildren: [ 'baseChild' ] } );
+</code></pre>
+<p>In this case, <code>extendedChild</code> will be allowed in <code>baseParent</code> (thanks to inheriting from <code>baseChild</code>) and in <code>extendedParent</code> (as it inherits <code>baseParent</code>).</p>
+<p>However, <code>baseChild</code> will be allowed only in <code>baseParent</code>. Although <code>extendedParent</code> inherits all rules from <code>baseParent</code>, it specifically disallows <code>baseChild</code> as part of its definition.</p>
+<p>Below is a different example, where instead <code>baseChild</code> is extended with <code>disallowIn</code> rule:</p>
+<pre class="highlight"><code class="js">schema.register( 'baseParent' );
+schema.register( 'baseChild', { allowIn: 'baseParent' } );
+
+schema.register( 'extendedParent', { inheritAllFrom: 'baseParent' } );
+schema.register( 'extendedChild', { inheritAllFrom: 'baseChild' } );
+schema.extend( 'baseChild', { disallowIn: 'extendedParent' } );
+</code></pre>
+<p>This changes how schema rules are resolved. <code>baseChild</code> will still be disallowed in <code>extendedParent</code> as before. But now, <code>extendedChild</code> will be disallowed in <code>extendedParent</code> as well. That is because it will inherit this rule from <code>baseChild</code>, and there is no other rule that would allow <code>extendedChild</code> in <code>extendedParent</code>.</p>
+<p>Of course, you can mix <code>allowIn</code> with <code>disallowChildren</code> as well as <code>allowChildren</code> with <code>disallowIn</code>.</p>
+<p>Finally, a situation may come up, when you want to inherit from an item which is already disallowed, but the new element should be re-allowed again. In this case, the definitions should look like this:</p>
+<pre class="highlight"><code class="js">schema.register( 'baseParent', { inheritAllFrom: 'paragraph', disallowChildren: [ 'imageInline' ] } );
+schema.register( 'extendedParent', { inheritAllFrom: 'baseParent', allowChildren: [ 'imageInline' ] } );
+</code></pre>
+<p>Here, <code>imageInline</code> is allowed in paragraph, but will not be allowed in <code>baseParent</code>. However, <code>extendedParent</code> will again re-allow it, as own definitions are more important than inherited definitions.</p>
+<h2 id="defining-additional-semantics"><a class="headerlink" href="#defining-additional-semantics">#</a> Defining additional semantics</h2>
+<p>In addition to setting allowed structures, the schema can also define additional traits of model elements. By using the <code>is*</code> properties, a feature author may declare how a certain element should be treated by other features and by the engine.</p>
+<p>Here is a table listing various model elements and their properties registered in the schema:</p>
+<table>
+	<thead>
+		<tr>
+			<th rowspan="2">Schema entry</th>
+			<th colspan="6">Properties in the <a href="#defining-allowed-structures">definition</a></th>
+		</tr>
+		<tr>
+			<th><a href="#block-elements"><code>isBlock</code></a></th>
+			<th><a href="#limit-elements"><code>isLimit</code></a></th>
+			<th><a href="#object-elements"><code>isObject</code></a></th>
+			<th><a href="#inline-elements"><code>isInline</code></a></th>
+			<th><a href="#selectable-elements"><code>isSelectable</code></a></th>
+			<th><a href="#content-elements"><code>isContent</code></a></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>$block</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>$container</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>$blockObject</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited1"><sup>[1]</sup></a></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited2"><sup>[2]</sup></a></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited3"><sup>[3]</sup></a></td>
+		</tr>
+		<tr>
+			<td><code>$inlineObject</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited1"><sup>[1]</sup></a></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited2"><sup>[2]</sup></a></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited3"><sup>[3]</sup></a></td>
+		</tr>
+		<tr>
+			<td><code>$clipboardHolder</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>$documentFragment</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>$marker</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>$root</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>$text</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive"><code>true</code></td>
+		</tr>
+		<tr>
+			<td><code>blockQuote</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>caption</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>codeBlock</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>heading1</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>heading2</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>heading3</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>horizontalLine</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited1"><sup>[1]</sup></a></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited2"><sup>[2]</sup></a></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited3"><sup>[3]</sup></a></td>
+		</tr>
+		<tr>
+			<td><code>imageBlock</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited1"><sup>[1]</sup></a></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited2"><sup>[2]</sup></a></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited3"><sup>[3]</sup></a></td>
+		</tr>
+		<tr>
+			<td><code>imageInline</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited1"><sup>[1]</sup></a></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited2"><sup>[2]</sup></a></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited3"><sup>[3]</sup></a></td>
+		</tr>
+		<tr>
+			<td><code>listItem</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>media</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited1"><sup>[1]</sup></a></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited2"><sup>[2]</sup></a></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited3"><sup>[3]</sup></a></td>
+		</tr>
+		<tr>
+			<td><code>pageBreak</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited1"><sup>[1]</sup></a></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited2"><sup>[2]</sup></a></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited3"><sup>[3]</sup></a></td>
+		</tr>
+		<tr>
+			<td><code>paragraph</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>softBreak</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>table</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited1"><sup>[1]</sup></a></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited2"><sup>[2]</sup></a></td>
+			<td class="value_positive_inherited"><code>true</code><a href="#inherited3"><sup>[3]</sup></a></td>
+		</tr>
+		<tr>
+			<td><code>tableRow</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+		<tr>
+			<td><code>tableCell</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_negative"><code>false</code></td>
+			<td class="value_positive"><code>true</code></td>
+			<td class="value_negative"><code>false</code></td>
+		</tr>
+	</tbody>
+</table>
+<div class="info-box notice"><ul>
+<li><span id="inherited1">[1]</span> The value of <code>isLimit</code> is <code>true</code> for this element because all <a href="#object-elements">objects</a> are automatically <a href="#limit-elements">limit elements</a>.</li>
+<li><span id="inherited2">[2]</span> The value of <code>isSelectable</code> is <code>true</code> for this element because all <a href="#object-elements">objects</a> are automatically <a href="#selectable-elements">selectable elements</a>.</li>
+<li><span id="inherited3">[3]</span> The value of <code>isContent</code> is <code>true</code> for this element because all <a href="#object-elements">objects</a> are automatically <a href="#content-elements">content elements</a>.</li>
+</ul>
+</div>
+<h3 id="limit-elements"><a class="headerlink" href="#limit-elements">#</a> Limit elements</h3>
+<p>Consider a feature like an image caption. The caption text area should construct a boundary to some internal actions:</p>
+<ul>
+<li>A selection that starts inside should not end outside.</li>
+<li>Pressing <kbd>Backspace</kbd> or <kbd>Delete</kbd> should not delete the area. Pressing <kbd>Enter</kbd> should not split the area.</li>
+</ul>
+<p>It should also act as a boundary for external actions. This is mostly enforced by a selection post-fixer that ensures that a selection that starts outside, should not end inside. It means that most actions will either apply to the “outside” of such an element or to the content inside it.</p>
+<p>Taken these characteristics, the image caption should be defined as a limit element by using the <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-isLimit"><code>isLimit</code></a> property.</p>
+<pre class="highlight"><code class="js">schema.register( 'myCaption', {
+    isLimit: true
+} );
+</code></pre>
+<p>The engine and various features then check it via <a href="../../api/module_engine_model_schema-Schema.html#function-isLimit"><code>Schema#isLimit()</code></a> and can act accordingly.</p>
+<div class="info-box notice"><p>“Limit element” does not mean “editable element.” The concept of “editable element” is reserved for the view and expressed by the <a href="../../api/module_engine_view_editableelement-EditableElement.html"><code>EditableElement</code> class</a>.</p></div>
+<h3 id="object-elements"><a class="headerlink" href="#object-elements">#</a> Object elements</h3>
+<p>For an image caption like in the example above it does not make much sense to select the caption box, then copy or drag it somewhere else.</p>
+<p>A caption without the image it describes makes little sense. The image, however, is more self-sufficient. Most likely users should be able to select the entire image (with all its internals), then copy or move it around. The <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-isObject"><code>isObject</code></a> property should be used to mark such behavior.</p>
+<pre class="highlight"><code class="js">schema.register( 'myImage', {
+    isObject: true
+} );
+</code></pre>
+<p>The <a href="../../api/module_engine_model_schema-Schema.html#function-isObject"><code>Schema#isObject()</code></a> can later be used to check this property.</p>
+<div class="info-box notice"><p>There are also the <code>$blockObject</code> and the <code>$inlineObject</code> generic items which have the <code>isObject</code> property set to <code>true</code>. Most object-type items will inherit from <code>$blockObject</code> or <code>$inlineObject</code> (through <code>inheritAllFrom</code>).</p></div>
+<div class="info-box notice"><p>Every object is automatically also:</p><ul>
+<li>A <a href="#limit-elements">limit element</a> – For every element with <code>isObject</code> set to <code>true</code>, <a href="../../api/module_engine_model_schema-Schema.html#function-isLimit"><code>Schema#isLimit( element )</code></a> will always return <code>true</code>.</li>
+<li>A <a href="#selectable-elements">selectable element</a> – For every element with <code>isObject</code> set to <code>true</code>, <a href="../../api/module_engine_model_schema-Schema.html#function-isSelectable"><code>Schema#isSelectable( element )</code></a> will always return <code>true</code>.</li>
+<li>A <a href="#content-elements">content element</a> – For every element with <code>isObject</code> set to <code>true</code>, <a href="../../api/module_engine_model_schema-Schema.html#function-isContent"><code>Schema#isContent( element )</code></a> will always return <code>true</code>.</li>
+</ul>
+</div>
+<h3 id="block-elements"><a class="headerlink" href="#block-elements">#</a> Block elements</h3>
+<p>Generally speaking, content is usually made out of blocks like paragraphs, list items, images, headings, etc. All these elements should be marked as blocks by using <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-isBlock"><code>isBlock</code></a>.</p>
+<p>Schema items with the <code>isBlock</code> property set are (among others) affecting the <a href="../../api/module_engine_model_documentselection-DocumentSelection.html#function-getSelectedBlocks"><code>Selection#getSelectedBlocks()</code></a> behavior and by that allow setting block level attributes like <code>alignment</code> to appropriate elements.</p>
+<p>It is important to remember that a block should not allow another block inside. Container elements like <code>&lt;blockQuote&gt;</code>, which can contain other block elements, should not be marked as blocks.</p>
+<div class="info-box notice"><p>There are also the <code>$block</code> and the <code>$blockObject</code> generic items which have the <code>isBlock</code> property set to <code>true</code>. Most block-type items will inherit from <code>$block</code> or <code>$blockObject</code> (through <code>inheritAllFrom</code>).</p><p>Note that every item that inherits from <code>$block</code> has <code>isBlock</code> set, but not every item with <code>isBlock</code> set has to be a <code>$block</code>.</p></div>
+<h3 id="inline-elements"><a class="headerlink" href="#inline-elements">#</a> Inline elements</h3>
+<p>In the editor, all HTML formatting elements such as <code>&lt;strong&gt;</code> or <code>&lt;code&gt;</code> are represented by text attributes. Therefore, inline model elements are not supposed to be used for these scenarios.</p>
+<p>Currently, the <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-isInline"><code>isInline</code></a> property is used for the <code>$text</code> token (so, text nodes) and elements such as <code>&lt;softBreak&gt;</code>, <code>&lt;imageInline&gt;</code> or placeholder elements such as described in the <a href="../tutorials/widgets/implementing-an-inline-widget.html">Implementing an inline widget</a> tutorial.</p>
+<p>The support for inline elements in CKEditor&nbsp;5 is so far limited to self-contained elements. Because of this, all elements marked with <code>isInline</code> should also be marked with <code>isObject</code>.</p>
+<div class="info-box notice"><p>There is also the <code>$inlineObject</code> generic item which has the <code>isInline</code> property set to <code>true</code>. Most inline object type items will inherit from <code>$inlineObject</code> (through <code>inheritAllFrom</code>).</p></div>
+<h3 id="selectable-elements"><a class="headerlink" href="#selectable-elements">#</a> Selectable elements</h3>
+<p>Elements that users can select as a whole (with all their internals) and then, for instance, copy them or apply formatting, are marked with the <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-isSelectable"><code>isSelectable</code></a> property in the schema:</p>
+<pre class="highlight"><code class="js">schema.register( 'mySelectable', {
+    isSelectable: true
+} );
+</code></pre>
+<p>The <a href="../../api/module_engine_model_schema-Schema.html#function-isSelectable"><code>Schema#isSelectable()</code></a> method can later be used to check this property.</p>
+<div class="info-box notice"><p>All <a href="#object-elements">object elements</a> are selectable by default. There are other selectable elements registered in the editor, though. For instance, there is also the <code>tableCell</code> model element (rendered as a <code>&lt;td&gt;</code> in the editing view) that is selectable while <strong>not</strong> registered as an object. The <a href="../../features/tables/tables.html#table-selection">table selection</a> plugin takes advantage of this fact and allows users to create rectangular selections made of multiple table cells.</p></div>
+<h3 id="content-elements"><a class="headerlink" href="#content-elements">#</a> Content elements</h3>
+<p>You can tell content model elements from other elements by looking at their representation in the editor data (you can use <a href="../../api/module_editor-classic_classiceditor-ClassicEditor.html#function-getData"><code>editor.getData()</code></a> or <a href="../../api/module_engine_model_model-Model.html#function-hasContent"><code>Model#hasContent()</code></a> to check this out).</p>
+<p>Elements such as images or media will <strong>always</strong> find their way into the editor data and this is what makes them content elements. They are marked with the <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html#member-isContent"><code>isContent</code></a> property in the schema:</p>
+<pre class="highlight"><code class="js">schema.register( 'myImage', {
+    isContent: true
+} );
+</code></pre>
+<p>The <a href="../../api/module_engine_model_schema-Schema.html#function-isContent"><code>Schema#isContent()</code></a> method can later be used to check this property.</p>
+<p>At the same time, elements like paragraphs, list items, or headings <strong>are not</strong> content elements because they are skipped in the editor output when they are empty. From the data perspective, they are transparent unless they contain other content elements (an empty paragraph is as good as no paragraph).</p>
+<div class="info-box notice"><p><a href="#object-elements">Object elements</a> and <a href="#generic-items"><code>$text</code></a> are content by default.</p></div>
+<h2 id="generic-items"><a class="headerlink" href="#generic-items">#</a> Generic items</h2>
+<p>There are several generic items (classes of elements) available: <code>$root</code>, <code>$container</code>, <code>$block</code>, <code>$blockObject</code>, <code>$inlineObject</code>, and <code>$text</code>. They are defined as follows:</p>
+<pre class="highlight"><code class="js">schema.register( '$root', {
+    isLimit: true
+} );
+
+schema.register( '$container', {
+    allowIn: [ '$root', '$container' ]
+} );
+
+schema.register( '$block', {
+    allowIn: [ '$root', '$container' ],
+    isBlock: true
+} );
+
+schema.register( '$blockObject', {
+    allowWhere: '$block',
+    isBlock: true,
+    isObject: true
+} );
+
+schema.register( '$inlineObject', {
+    allowWhere: '$text',
+    allowAttributesOf: '$text',
+    isInline: true,
+    isObject: true
+} );
+
+schema.register( '$text', {
+    allowIn: '$block',
+    isInline: true,
+    isContent: true
+} );
+</code></pre>
+<p>These definitions can then be reused by features to create their own definitions in a more extensible way. For example, the <a href="../../api/module_paragraph_paragraph-Paragraph.html"><code>Paragraph</code></a> feature will define its item as:</p>
+<pre class="highlight"><code class="js">schema.register( 'paragraph', {
+    inheritAllFrom: '$block'
+} );
+</code></pre>
+<p>Which translates to:</p>
+<pre class="highlight"><code class="js">schema.register( 'paragraph', {
+    allowWhere: '$block',
+    allowContentOf: '$block',
+    allowAttributesOf: '$block',
+    inheritTypesFrom: '$block'
+} );
+</code></pre>
+<p>And this can be read as:</p>
+<ul>
+<li>The <code>&lt;paragraph&gt;</code> element will be allowed in elements in which <code>&lt;$block&gt;</code> is allowed (like in <code>&lt;$root&gt;</code>).</li>
+<li>The <code>&lt;paragraph&gt;</code> element will allow all nodes that are allowed in <code>&lt;$block&gt;</code> (like <code>$text</code>).</li>
+<li>The <code>&lt;paragraph&gt;</code> element will allow all attributes allowed in <code>&lt;$block&gt;</code>.</li>
+<li>The <code>&lt;paragraph&gt;</code> element will inherit all <code>is*</code> properties of <code>&lt;$block&gt;</code> (like <code>isBlock</code>).</li>
+</ul>
+<p>Thanks to the fact that the <code>&lt;paragraph&gt;</code> definition is inherited from <code>&lt;$block&gt;</code> other features can use the <code>&lt;$block&gt;</code> type to indirectly extend the <code>&lt;paragraph&gt;</code> definition. For example, the <a href="../../api/module_block-quote_blockquote-BlockQuote.html"><code>BlockQuote</code></a> feature does this:</p>
+<pre class="highlight"><code class="js">schema.register( 'blockQuote', {
+    inheritAllFrom: '$container'
+} );
+</code></pre>
+<p>Because <code>&lt;$block&gt;</code> is allowed in <code>&lt;$container&gt;</code> (see <code>schema.register( '$block' ...)</code>), despite the fact that the block quote and paragraph features know nothing about each other, paragraphs will be allowed in block quotes: the schema rules allow chaining.</p>
+<p>Taking this even further, if anyone registers a <code>&lt;section&gt;</code> element (with the <code>allowContentOf: '$root'</code> rule), because <code>&lt;$container&gt;</code> is also allowed in <code>&lt;$root&gt;</code> (see <code>schema.register( '$container' ...)</code>) the <code>&lt;section&gt;</code> elements will allow block quotes out–of–the–box.</p>
+<div class="info-box notice"><p>You can read more about the format of the item definition in <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html"><code>SchemaItemDefinition</code></a>.</p></div>
+<h3 id="relations-between-generic-items"><a class="headerlink" href="#relations-between-generic-items">#</a> Relations between generic items</h3>
+<p>Relations between generic items (which one can be used where) can be visualized by the following abstract structure:</p>
+<pre class="highlight"><code class="xml html">&lt;$root&gt;
+    &lt;$block&gt;                &lt;!-- example: &lt;paragraph&gt;, &lt;heading1&gt; --&gt;
+        &lt;$text/&gt;
+        &lt;$inlineObject/&gt;    &lt;!-- example: &lt;imageInline&gt; --&gt;
+    &lt;/$block&gt;
+    &lt;$blockObject/&gt;         &lt;!-- example: &lt;imageBlock&gt;, &lt;table&gt; --&gt;
+    &lt;$container&gt;            &lt;!-- example: &lt;blockQuote&gt; --&gt;
+        &lt;$container/&gt;
+        &lt;$block/&gt;
+        &lt;$blockObject/&gt;
+    &lt;/$container&gt;
+&lt;/$root&gt;
+</code></pre>
+<p>The above rules will be met for instance by such a model content:</p>
+<pre class="highlight"><code class="xml html">&lt;$root&gt;
+    &lt;heading1&gt;            &lt;!-- inheritAllFrom: $block --&gt;
+        &lt;$text/&gt;          &lt;!-- allowIn: $block --&gt;
+    &lt;/heading1&gt;
+    &lt;paragraph&gt;           &lt;!-- inheritAllFrom: $block --&gt;
+        &lt;$text/&gt;          &lt;!-- allowIn: $block --&gt;
+        &lt;softBreak/&gt;      &lt;!-- allowWhere: $text --&gt;
+        &lt;$text/&gt;          &lt;!-- allowIn: $block --&gt;
+        &lt;imageInline/&gt;    &lt;!-- inheritAllFrom: $inlineObject --&gt;
+    &lt;/paragraph&gt;
+    &lt;imageBlock&gt;          &lt;!-- inheritAllFrom: $blockObject --&gt;
+        &lt;caption&gt;         &lt;!-- allowIn: imageBlock, allowContentOf: $block --&gt;
+            &lt;$text/&gt;      &lt;!-- allowIn: $block --&gt;
+        &lt;/caption&gt;
+    &lt;/imageBlock&gt;
+    &lt;blockQuote&gt;                    &lt;!-- inheritAllFrom: $container --&gt;
+        &lt;paragraph/&gt;                &lt;!-- inheritAllFrom: $block --&gt;
+        &lt;table&gt;                     &lt;!-- inheritAllFrom: $blockObject --&gt;
+            &lt;tableRow&gt;              &lt;!-- allowIn: table --&gt;
+                &lt;tableCell&gt;         &lt;!-- allowIn: tableRow, allowContentOf: $container --&gt;
+                    &lt;paragraph&gt;     &lt;!-- inheritAllFrom: $block --&gt;
+                        &lt;$text/&gt;    &lt;!-- allowIn: $block --&gt;
+                    &lt;/paragraph&gt;
+                &lt;/tableCell&gt;
+            &lt;/tableRow&gt;
+        &lt;/table&gt;
+    &lt;/blockQuote&gt;
+&lt;/$root&gt;
+</code></pre>
+<p>Which, in turn, has these <a href="#defining-additional-semantics">semantics</a>:</p>
+<pre class="highlight"><code class="xml html">&lt;$root&gt;                   &lt;!-- isLimit: true --&gt;
+    &lt;heading1&gt;            &lt;!-- isBlock: true --&gt;
+        &lt;$text/&gt;          &lt;!-- isInline: true, isContent: true --&gt;
+    &lt;/heading1&gt;
+    &lt;paragraph&gt;           &lt;!-- isBlock: true --&gt;
+        &lt;$text/&gt;          &lt;!-- isInline: true, isContent: true --&gt;
+        &lt;softBreak/&gt;      &lt;!-- isInline: true --&gt;
+        &lt;$text/&gt;          &lt;!-- isInline: true, isContent: true --&gt;
+        &lt;imageInline/&gt;    &lt;!-- isInline: true, isObject: true --&gt;
+    &lt;/paragraph&gt;
+    &lt;imageBlock&gt;          &lt;!-- isBlock: true, isObject: true --&gt;
+        &lt;caption&gt;         &lt;!-- isLimit: true --&gt;
+            &lt;$text/&gt;      &lt;!-- isInline: true, isContent: true --&gt;
+        &lt;/caption&gt;
+    &lt;/imageBlock&gt;
+    &lt;blockQuote&gt;
+        &lt;paragraph/&gt;                &lt;!-- isBlock: true --&gt;
+        &lt;table&gt;                     &lt;!-- isBlock: true, isObject: true --&gt;
+            &lt;tableRow&gt;              &lt;!-- isLimit: true --&gt;
+                &lt;tableCell&gt;         &lt;!-- isLimit: true --&gt;
+                    &lt;paragraph&gt;     &lt;!-- isBlock: true --&gt;
+                        &lt;$text/&gt;    &lt;!-- isInline: true, isContent: true --&gt;
+                    &lt;/paragraph&gt;
+                &lt;/tableCell&gt;
+            &lt;/tableRow&gt;
+        &lt;/table&gt;
+    &lt;/blockQuote&gt;
+&lt;/$root&gt;
+</code></pre>
+<h2 id="defining-advanced-rules-using-callbacks"><a class="headerlink" href="#defining-advanced-rules-using-callbacks">#</a> Defining advanced rules using callbacks</h2>
+<p>The base <a href="../../api/module_engine_model_schema-SchemaItemDefinition.html">declarative <code>SchemaItemDefinition</code> API</a> is by its nature limited, and some custom rules might not be possible to be implemented this way.</p>
+<p>For this reason, it is also possible to define schema checks by providing callbacks. This gives you flexibility to implement any logic that you need.</p>
+<p>These callbacks can be set both for child checks (model structure checks) and attribute checks.</p>
+<p>Note that the callbacks take precedence over the rules defined through the declarative API and can overwrite these rules.</p>
+<h3 id="child-checks-structure-checks"><a class="headerlink" href="#child-checks-structure-checks">#</a> Child checks (structure checks)</h3>
+<p>Using <a href="../../api/module_engine_model_schema-Schema.html#function-addChildCheck"><code>Schema#addChildCheck()</code></a> you can provide function callbacks to implement specific advanced rules for checking the model structure.</p>
+<p>You can provide callbacks that are fired only when a specific child is checked, or generic callbacks fired for all checks performed by the schema.</p>
+<p>Below is an example of a specific callback, that disallows inline images inside code blocks:</p>
+<pre class="highlight"><code class="js">schema.addChildCheck( context =&gt; {
+    if ( context.endsWith( 'codeBlock' ) ) {
+        return false;
+    }
+}, 'imageInline' );
+</code></pre>
+<p>The second parameter (<code>'imageInline'</code>) specifies that the callback will be used only if <code>imageInline</code> is being checked.</p>
+<p>You can also use a callback to force given item to be allowed. For example, allow special <code>$marker</code> item to be allowed everywhere:</p>
+<pre class="highlight"><code class="js">schema.addChildCheck( () =&gt; true, '$marker' );
+</code></pre>
+<p>Note that a callback may return <code>true</code>, <code>false</code>, or no value (<code>undefined</code>). If <code>true</code> or <code>false</code> is returned, the decision was made and further callbacks or declarative rules will not be checked. The item will be allowed or disallowed. If no value is returned, further checks will decide whether the item is allowed or not.</p>
+<p>In some cases, you may need to define a generic listener that will be fired on every schema check.</p>
+<p>For instance, to disallow all block objects (for example tables) inside a block quotes, you can define following callback:</p>
+<pre class="highlight"><code class="js">schema.addChildCheck( ( context, childDefinition ) =&gt; {
+    if ( context.endsWith( 'blockQuote' ) &amp;&amp; childDefinition.isBlock &amp;&amp; childDefinition.isObject ) {
+        return false;
+    }
+} );
+</code></pre>
+<p>The above will trigger on every <code>checkChild()</code> call giving you more flexibility. However, please keep in mind that using multiple generic callbacks might negatively impact the editor performance.</p>
+<h3 id="attribute-checks"><a class="headerlink" href="#attribute-checks">#</a> Attribute checks</h3>
+<p>Similarly, you can define callbacks to check whether given attribute is or is not allowed on given item.</p>
+<p>This time, you will use <a href="../../api/module_engine_model_schema-Schema.html#function-addAttributeCheck"><code>Schema#addAttributeCheck()</code></a> to provide the callback.</p>
+<p>For example, allow custom attribute <code>headingMarker</code> on all headings:</p>
+<pre class="highlight"><code class="js">schema.addAttributeCheck( ( context, attributeName ) =&gt; {
+    const isHeading = context.last.name.startsWith( 'heading' );
+    
+    if ( isHeading ) {
+        return true;
+    }
+}, 'headingMarker' );
+</code></pre>
+<p>Generic callbacks are available too. For example, disallow formatting attributes (like bold or italic) on text inside all headings:</p>
+<pre class="highlight"><code class="js">schema.addAttributeCheck( ( context, attributeName ) =&gt; {
+    const parent = context.getItem( context.length - 2 );
+    const insideHeading = parent &amp;&amp; parent.name.startsWith( 'heading' );
+    
+    if ( insideHeading &amp;&amp; context.endsWith( '$text' ) &amp;&amp; schema.getAttributeProperties( attributeName ).isFormatting ) {
+        return false;
+    }
+} );
+</code></pre>
+<p>All notes related to child check callbacks apply to attribute callbacks as well.</p>
+<h2 id="implementing-additional-constraints"><a class="headerlink" href="#implementing-additional-constraints">#</a> Implementing additional constraints</h2>
+<p>Schema’s capabilities are limited to simple (and atomic) <a href="../../api/module_engine_model_schema-Schema.html#function-checkChild"><code>Schema#checkChild()</code></a> and <a href="../../api/module_engine_model_schema-Schema.html#function-checkAttribute"><code>Schema#checkAttribute()</code></a> checks on purpose. One may imagine that the schema should support defining more complex rules such as “element <code>&lt;x&gt;</code> must be always followed by <code>&lt;y&gt;</code>.” While it is feasible to create an API that would enable feeding the schema with such definitions, it is unfortunately unrealistic to then expect that every editing feature will consider these rules when processing the model. It is also unrealistic to expect that it will be done automatically by the schema and the editing engine themselves.</p>
+<p>For instance, let’s get back to the “element <code>&lt;x&gt;</code> must be always followed by <code>&lt;y&gt;</code>” rule and this initial content:</p>
+<pre class="highlight"><code class="xml html">&lt;$root&gt;
+    &lt;x&gt;foo&lt;/x&gt;
+    &lt;y&gt;bar[bom&lt;/y&gt;
+    &lt;z&gt;bom]bar&lt;/z&gt;
+&lt;/$root&gt;
+</code></pre>
+<p>Now imagine that the user presses the “Block quote” button. Normally it would wrap the two selected blocks (<code>&lt;y&gt;</code> and <code>&lt;z&gt;</code>) with a <code>&lt;blockQuote&gt;</code> element:</p>
+<pre class="highlight"><code class="xml html">&lt;$root&gt;
+    &lt;x&gt;foo&lt;/x&gt;
+    &lt;blockQuote&gt;
+        &lt;y&gt;bar[bom&lt;/y&gt;
+        &lt;z&gt;bom]bar&lt;/z&gt;
+    &lt;/blockQuote&gt;
+&lt;/$root&gt;
+</code></pre>
+<p>However, it turns out that this creates an incorrect structure – <code>&lt;x&gt;</code> is not followed by <code>&lt;y&gt;</code> anymore.</p>
+<p>What should happen instead? There are at least 4 possible solutions: the block quote feature should not be applicable in such a context, someone should create a new <code>&lt;y&gt;</code> right after <code>&lt;x&gt;</code>, <code>&lt;x&gt;</code> should be moved inside <code>&lt;blockQuote&gt;</code> together with <code>&lt;y&gt;</code> or vice versa.</p>
+<p>While this is a relatively simple scenario (unlike most real-time collaborative editing scenarios), it turns out that it is already hard to say what should happen and who should react to fix this content.</p>
+<p>Therefore, if your editor needs to implement such rules, you should do that through <a href="../../api/module_engine_model_document-Document.html#function-registerPostFixer">model’s post-fixers</a> fixing incorrect content or actively prevent such situations (for example, by disabling certain features). It means that these constraints will be defined specifically for your scenario by your code which makes their implementation much easier.</p>
+<p>To sum up, the answer to who and how should implement additional constraints is: your features or your editor through the CKEditor&nbsp;5 API.</p>
+<h2 id="who-checks-the-schema"><a class="headerlink" href="#who-checks-the-schema">#</a> Who checks the schema?</h2>
+<p>The CKEditor&nbsp;5 API exposes many ways to work on (change) the model. It can be done <a href="../architecture/editing-engine.html#changing-the-model">through the writer</a>, via methods like <a href="../../api/module_engine_model_model-Model.html#function-insertContent"><code>Model#insertContent()</code></a>, via commands, and so on.</p>
+<h3 id="low-level-apis"><a class="headerlink" href="#low-level-apis">#</a> Low-level APIs</h3>
+<p>The lowest-level API is the writer (to be precise, there are also raw operations below, but they are used for special cases only). It allows applying atomic changes to the content like inserting, removing, moving or splitting nodes, setting and removing an attribute, etc. It is important to know that the <strong>writer does not prevent from applying changes that violate rules defined in the schema</strong>.</p>
+<p>The reason for this is that when you implement a command or any other feature you may need to perform multiple operations to do all the necessary changes. The state in the meantime (between these atomic operations) may be incorrect. The writer must allow that.</p>
+<p>For instance, you need to move <code>&lt;foo&gt;</code> from <code>&lt;$root&gt;</code> to <code>&lt;bar&gt;</code> and (at the same time) rename it to <code>&lt;oof&gt;</code>. But the schema defines that <code>&lt;oof&gt;</code> is not allowed in <code>&lt;$root&gt;</code> and <code>&lt;foo&gt;</code> is disallowed in <code>&lt;bar&gt;</code>. If the writer checked the schema, it would complain regardless of the order of <code>rename</code> and <code>move</code> operations.</p>
+<p>You can argue that the engine could handle this by checking the schema at the end of a <a href="../../api/module_engine_model_model-Model.html#function-change"><code>Model#change()</code> block</a> (it works like a transaction – the state needs to be correct at the end of it). This approach, however, was not adopted, as there are the following problems:</p>
+<ul>
+<li>How to fix the content after a transaction is committed? It is impossible to implement a reasonable heuristic that would not break the content from the user’s perspective.</li>
+<li>The model can become invalid during real-time collaborative changes. Operational Transformation, while implemented by us in a rich form (with 11 types of operations instead of the base 3), ensures conflict resolution and eventual consistency, but not the model’s validity.</li>
+</ul>
+<p>Therefore, we chose to handle such situations on a case-by-case basis, using more expressive and flexible <a href="../../api/module_engine_model_document-Document.html#function-registerPostFixer">model’s post-fixers</a>. Additionally, we moved the responsibility of checking the schema to features. They can make a lot better decisions before making changes. You can read more about this in the <a href="#implementing-additional-constraints">“Implementing additional constraints”</a> section above.</p>
+<h3 id="high-level-apis"><a class="headerlink" href="#high-level-apis">#</a> High-level APIs</h3>
+<p>What about other, higher-level methods? <strong>We recommend that all APIs built on top of the writer should check the schema.</strong></p>
+<p>For instance, the <a href="../../api/module_engine_model_model-Model.html#function-insertContent"><code>Model#insertContent()</code></a> method will make sure that inserted nodes are allowed in the place of their insertion. It may also attempt to split the insertion container (if allowed by the schema) if that will make the element to insert allowed, and so on.</p>
+<p>Similarly, commands – if implemented correctly – <a href="../../api/module_core_command-Command.html#member-isEnabled">get disabled</a> if they should not be executed in the current place.</p>
+<p>Finally, the schema plays a crucial role during the conversion from the view to the model (also called “upcasting”). During this process converters decide whether they can convert specific view elements or attributes to the given positions in the model. Thanks to that if you tried to load incorrect data to the editor or when you paste content copied from another website, the structure and attributes of the data get adjusted to the current schema rules.</p>
+<div class="info-box notice"><p>Some features may miss schema checks. If you happen to find such a scenario, do not hesitate to <a href="https://github.com/ckeditor/ckeditor5/issues">report it to us</a>.</p></div>
+<style>
+.schema-deep-dive table {
+	text-align: center;
+}
+
+.schema-deep-dive table td,
+.schema-deep-dive table th {
+	border-color: hsl(72deg 6% 16%);
+}
+
+.schema-deep-dive table thead th {
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.schema-deep-dive table thead th code {
+	white-space: nowrap;
+}
+
+.schema-deep-dive table tbody td.value_negative {
+	background: hsl(354deg, 100%, 90%);
+}
+
+.schema-deep-dive table tbody td.value_positive {
+	background: hsl(88deg, 50%, 60%);
+}
+
+.schema-deep-dive table tbody td.value_negative code,
+.schema-deep-dive table tbody td.value_positive code,
+.schema-deep-dive table tbody td.value_positive_inherited code {
+	background: none;
+	text-shadow: 0px 0px 2px hsl(0deg, 0%, 100%);
+}
+
+.schema-deep-dive table tbody td.value_positive_inherited {
+	background-image: linear-gradient(45deg, hsl(88deg, 50%, 60%) 25%, hsl(89deg, 58% ,71%) 25%, hsl(89deg, 58%, 71%) 50%, hsl(88deg, 50%, 60%) 50%, hsl(88deg, 50%, 60%) 75%, hsl(89deg, 58%, 71%) 75%, hsl(89deg, 58%, 71%) 100%);
+	background-size: 3px 3px;
+}
+
+.schema-deep-dive table tbody td sup {
+	top: -0.5em;
+	position: relative;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+</style>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22framework%2Fdeep-dive%2Fschema.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Tutorials</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="tutorials">
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Crash course</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="crash-course">
+                                              <li><a href="../tutorials/crash-course/editor.html" title="Editor and configuration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor and configuration</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/plugins.html" title="Plugins">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/model-and-schema.html" title="Model and schema">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model and schema</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/data-conversion.html" title="Data conversion">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data conversion</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/commands.html" title="Commands">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Commands</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/view.html" title="Editor UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor UI</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/events-and-observables.html" title="Events and observables">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Events and observables</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/keystrokes.html" title="Handling keystrokes">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Handling keystrokes</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/plugin-configuration.html" title="Plugin configuration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin configuration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../tutorials/creating-simple-plugin-timestamp.html" title="Creating a basic plugin">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a basic plugin</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Creating an advanced plugin</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="abbreviation-plugin">
+                                              <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-1.html" title="Defining a model and a view">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Defining a model and a view</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-2.html" title="Getting user input with a custom UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting user input with a custom UI</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-3.html" title="Improving accessibility and adding a command">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Improving accessibility and adding a command</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Using widgets</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="widget-tutorials">
+                                              <li><a href="../tutorials/widgets/implementing-a-block-widget.html" title="Implementing a block widget">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/widgets/implementing-an-inline-widget.html" title="Implementing an inline widget">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/widgets/using-react-in-a-widget.html" title="Using a React component in a widget">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/widgets/data-from-external-source.html" title="Data from an external source">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data from an external source</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../tutorials/supporting-multiple-versions.html" title="Compatibility of custom plugins">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Compatibility of custom plugins</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Development tools</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="development-tools">
+                                    <li><a href="../develpment-tools/inspector.html" title="Inspector">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inspector</span>
+                                        </div></a></li>
+                                    <li><a href="../develpment-tools/testing-helpers.html" title="Testing helpers">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing helpers</span>
+                                        </div></a></li>
+                                    <li><a href="../develpment-tools/mrgit.html" title="Mr. Git">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mr. Git</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Package Generator</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="package-generator">
+                                              <li><a href="../develpment-tools/package-generator/using-package-generator.html" title="Using package generator">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                                  </div></a></li>
+                                              <li><a href="../develpment-tools/package-generator/javascript-package.html" title="JavaScript package">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">JavaScript package</span>
+                                                  </div></a></li>
+                                              <li><a href="../develpment-tools/package-generator/typescript-package.html" title="TypeScript package">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">TypeScript package</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-architecture">
+                                    <li><a href="../architecture/intro.html" title="Introduction">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                        </div></a></li>
+                                    <li><a href="../architecture/plugins.html" title="Plugins in CKEditor 5">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins in CKEditor 5</span>
+                                        </div></a></li>
+                                    <li><a href="../architecture/core-editor-architecture.html" title="Core editor architecture">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                        </div></a></li>
+                                    <li><a href="../architecture/editing-engine.html" title="Editing engine">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                        </div></a></li>
+                                    <li><a href="../architecture/ui-library.html" title="UI library">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                        </div></a></li>
+                                    <li><a href="../architecture/ui-components.html" title="UI components">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI components</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-deep-dive">
+                                    <li><a href="clipboard.html" title="Clipboard">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                        </div></a></li>
+                                    <li><a href="upload-adapter.html" title="Custom upload adapter">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                        </div></a></li>
+                                    <li><a href="event-system.html" title="Event system">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                        </div></a></li>
+                                    <li><a href="observables.html" title="Observables">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                        </div></a></li>
+                                    <li><a href="" title="Schema">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Schema</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-conversion">
+                                              <li><a href="conversion/intro.html" title="Introduction">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                  </div></a></li>
+                                              <li><a href="conversion/downcast.html" title="Model to view (downcast)">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                  </div></a></li>
+                                              <li><a href="conversion/upcast.html" title="View to model (upcast)">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list" data-id="framework-deep-dive-conversion-helpers">
+                                                        <li><a href="conversion/helpers/intro.html" title="Introduction">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                            </div></a></li>
+                                                        <li><a href="conversion/helpers/downcast.html" title="Downcast helpers">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                            </div></a></li>
+                                                        <li><a href="conversion/helpers/upcast.html" title="Upcast helpers">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-ui">
+                                              <li><a href="ui/focus-tracking.html" title="Focus tracking">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                  </div></a></li>
+                                              <li><a href="ui/widget-internals.html" title="Widget internals">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                  </div></a></li>
+                                              <li><a href="ui/theme-customization.html" title="Theme customization">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                  </div></a></li>
+                                              <li><a href="ui/external-ui.html" title="Third-party UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third-party UI</span>
+                                                  </div></a></li>
+                                              <li><a href="ui/document-editor.html" title="Document editor">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                  </div></a></li>
+                                              <li><a href="ui/custom-editor-creator.html" title="Creating custom editor">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                  </div></a></li>
+                                              <li><a href="ui/localization.html" title="Localization">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../how-tos.html" title="How-tos">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">How-tos</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-contributing">
+                                    <li><a href="../contributing/contributing.html" title="Contributing">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                        </div></a></li>
+                                    <li><a href="../contributing/development-environment.html" title="Development environment">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                        </div></a></li>
+                                    <li><a href="../contributing/testing-environment.html" title="Testing environment">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                        </div></a></li>
+                                    <li><a href="../contributing/code-style.html" title="Code style">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                        </div></a></li>
+                                    <li><a href="../contributing/package-metadata.html" title="Package metadata">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                        </div></a></li>
+                                    <li><a href="../contributing/git-commit-message-convention.html" title="Git commit message convention">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'framework' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'framework' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'framework' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'framework' ] );tags.forEach( function( tag ) {if ( tag !== 'framework' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

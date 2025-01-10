@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Balloon block editor - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:55 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Balloon block editor - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/examples/builds/balloon-block-editor.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Balloon block editor - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/examples/builds/balloon-block-editor.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../snippets/examples/balloon-block-editor/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../installation/index.html">Installation</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Examples</a></li>
+          <li><a href="../../updating/index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../index.html">Examples</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Predefined builds</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="classic-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Classic editor</span>
+                                      </div></a></li>
+                                  <li><a href="inline-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inline editor</span>
+                                      </div></a></li>
+                                  <li><a href="">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Balloon block editor</span>
+                                      </div></a></li>
+                                  <li><a href="balloon-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Balloon editor</span>
+                                      </div></a></li>
+                                  <li><a href="document-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Custom builds</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../builds-custom/full-featured-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Full-featured editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds-custom/bottom-toolbar-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Bottom toolbar with formatting options grouped</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Framework</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../framework/chat-with-mentions.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Chat with mentions</span>
+                                      </div></a></li>
+                                  <li><a href="../framework/theme-customization.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                      </div></a></li>
+                                  <li><a href="../framework/custom-ui.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom UI (with Bootstrap)</span>
+                                      </div></a></li>
+                                  <li><a href="../framework/multi-root-editor.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-root editor</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="updating"><a href="../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted main__content--no-toc">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/examples/builds/balloon-block-editor.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Examples</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../assets/2.1.3/img/book.svg" alt="guide">Balloon block editor
+          </h1>
+<p><a href="../../installation/advanced/alternative-setups/predefined-builds.html#balloon-block-editor">Balloon block editor</a> lets you create your content directly in its target location with the help of two toolbars:</p>
+<ul>
+<li>a balloon toolbar that appears next to the selected editable document element (offering inline content formatting tools),</li>
+<li>a <a href="../../features/toolbar/blocktoolbar.html">block toolbar</a> accessible using a button attached to the editable content area and following the selection in the document (bringing additional block formatting tools).</li>
+</ul>
+<div class="live-snippet"><div id="snippet-balloon-block-editor">
+	<h2>Taj Mahal: A breathtaking ode to love</h2>
+
+	<figure class="image image-style-side" height="400">
+		<img src="../../assets/img/tajmahal.jpg" srcset="../../assets/img/tajmahal.jpg, ../../assets/img/tajmahal_2x.jpg 2x" alt="Taj Mahal illustration.">
+		<figcaption>Taj Mahal with its poetic white marble tomb</figcaption>
+	</figure>
+
+	<p>No trip to India is complete without visiting this spectacular monument, <a href="https://en.wikipedia.org/wiki/New7Wonders_of_the_World"><strong>counted among the Seven Wonders of the World</strong></a>.
+	</p>
+
+	<p>Tourists frequently admit that Taj Mahal "simply cannot be described with words". And that’s probably true. The more you try the more speechless you become. Words give only a semblance of truth. The real truth about its beauty is revealed when you adore <strong>different shades of “Taj” depending on the time of the day</strong> or when you admire the exquisite inlay work in different corners of the façade.</p>
+
+	<h3>Masterpiece of the world’s heritage</h3>
+
+	<p>Taj Mahal is a mausoleum built in Agra between 1631 and 1648 by Emperor Shah Jahan <strong>in the memory of his beloved wife</strong>, Mumtaz Mahal, whose body lies there. It took 20 000 workers to complete and the excellence of this building is visible in every brick.</p>
+
+	<p>In 1983, Taj Mahal was appointed <a href="https://en.wikipedia.org/wiki/World_Heritage_Site">UNESCO World Heritage Site</a> for being "the jewel of Muslim art in India and one of the universally admired masterpieces of the world's heritage".</p>
+
+	<p>If you like having a methodology for visiting historical places, here are the four elements on which we recommend to focus your attention:</p>
+
+	<ul>
+		<li>The tomb</li>
+		<li>The Decorations</li>
+		<li>The Garden</li>
+		<li>The Outlying buildings</li>
+	</ul>
+
+	<p>The tomb is what immediately catches your eyesight. The <strong>white and soft marble</strong> embroidered with stones leaves you totally enchanted.</p>
+</div>
+
+<style>
+	/* Restrict the width of the editor to isolate it from the content of the guide. */
+	#snippet-balloon-block-editor {
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+</style>
+</div>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22examples%2Fbuilds%2Fballoon-block-editor.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Predefined builds</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="classic-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Classic editor</span>
+                                        </div></a></li>
+                                    <li><a href="inline-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inline editor</span>
+                                        </div></a></li>
+                                    <li><a href="">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Balloon block editor</span>
+                                        </div></a></li>
+                                    <li><a href="balloon-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Balloon editor</span>
+                                        </div></a></li>
+                                    <li><a href="document-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Custom builds</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../builds-custom/full-featured-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Full-featured editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds-custom/bottom-toolbar-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Bottom toolbar with formatting options grouped</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Framework</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../framework/chat-with-mentions.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Chat with mentions</span>
+                                        </div></a></li>
+                                    <li><a href="../framework/theme-customization.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                        </div></a></li>
+                                    <li><a href="../framework/custom-ui.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom UI (with Bootstrap)</span>
+                                        </div></a></li>
+                                    <li><a href="../framework/multi-root-editor.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-root editor</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'examples' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'examples' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'examples' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'examples' ] );tags.forEach( function( tag ) {if ( tag !== 'examples' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../assets/snippet.js"></script>
+    <script src="../../snippets/assets.js"></script>
+    <script src="../../snippets/examples/balloon-block-editor/snippet.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

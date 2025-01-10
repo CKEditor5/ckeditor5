@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Integration - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:47 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Integration - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/real-time-collaboration/real-time-collaboration-integration.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Integration - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/real-time-collaboration/real-time-collaboration-integration.html">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../index.html">CKEditor 5</a></li>
+          <li><a href="../../../installation/index.html">Installation</a></li>
+          <li><a class="top__menu__item--active" href="../../index.html">Features</a></li>
+          <li><a href="../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../support/index.html">Support</a></li>
+          <li><a href="../../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../../index.html">Features</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../../autoformat.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="../../text-transformation.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="../../basic-styles.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="../../indent.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="../../block-quote.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="../../code-blocks.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../collaboration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../comments/comments.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-only-mode.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-outside-editor.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../track-changes/track-changes.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../track-changes/track-changes-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../track-changes/track-changes-custom-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                              </div></a></li>
+                                          <li><a href="../track-changes/track-changes-data.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="real-time-collaboration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="users-in-real-time-collaboration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../users.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                      </div></a></li>
+                                  <li><a href="../context-and-collaboration-features.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../annotations/annotations.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../annotations/annotations-display-mode.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                              </div></a></li>
+                                          <li><a href="../annotations/annotations-custom-configuration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                              </div></a></li>
+                                          <li><a href="../annotations/annotations-custom-theme.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                              </div></a></li>
+                                          <li><a href="../annotations/annotations-custom-template.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                              </div></a></li>
+                                          <li><a href="../annotations/annotations-custom-view.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../minimap.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li><a href="../../title.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="../../editor-placeholder.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li><a href="../../export-pdf.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../export-word.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../find-and-replace.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="../../font.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font</span>
+                              </div></a></li>
+                          <li><a href="../../general-html-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                              </div></a></li>
+                          <li><a href="../../headings.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="../../highlight.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="../../horizontal-line.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li><a href="../../html-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../images/images-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-installation.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-text-alternative.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-captions.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-resizing.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-linking.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../images/image-upload/image-upload.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/easy-image.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Easy Image</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/ckfinder.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder file manager</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/base64-upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/simple-upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/images-inserting.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../keyboard-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Keyboard support</span>
+                              </div></a></li>
+                          <li><a href="../../link.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../lists/lists.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                      </div></a></li>
+                                  <li><a href="../../lists/todo-lists.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../markdown.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="../../math-equations.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../media-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="../../mentions.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="../../page-break.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../pagination/pagination.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../../pagination/pagination-integration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../pasting/paste-from-word.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Word</span>
+                                      </div></a></li>
+                                  <li><a href="../../pasting/paste-from-google-docs.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                      </div></a></li>
+                                  <li><a href="../../pasting/paste-plain-text.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                      </div></a></li>
+                                  <li><a href="../../pasting/drag-drop.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../read-only.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="../../remove-format.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="../../restricted-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../revision-history/revision-history.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../../revision-history/revision-history-integration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../select-all.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="../../source-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="../../special-characters.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="../../spelling-and-grammar-checking.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spelling and grammar checking</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../table.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Tables</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="../../text-alignment.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="../../language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Toolbar</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../toolbar/toolbar.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbar</span>
+                                      </div></a></li>
+                                  <li><a href="../../toolbar/blocktoolbar.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block toolbar</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../ui-language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                              </div></a></li>
+                          <li><a href="../../watchdog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="../../word-count.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="examples"><a href="../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/issues/new" target="_blank" rel="noopener" title="Report an issue"><img src="../../../../../assets/2.1.3/img/exclamation-circle.svg" alt="Report an issue"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Features</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../../assets/2.1.3/img/book.svg" alt="guide">Real-time collaboration feature integration
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#sign-up-to-the-collaboration-service">Sign up to the collaboration service</a></li><li><a href="#prepare-editor-build">Prepare editor build</a></li><li><a href="#prepare-the-html-structure">Prepare the HTML structure</a></li><li><a href="#configure-and-initialize-the-editor">Configure and initialize the editor</a><ol><li><a href="#the-channelid-configuration-property">The channelId configuration property</a></li></ol></li><li><a href="#handling-document-data">Handling document data</a><ol><li><a href="#data-initialization">Data initialization</a><ol><li><a href="#editor-initial-data-and-revision-data">Editor initial data and revision data</a></li></ol></li><li><a href="#saving-data">Saving data</a><ol><li><a href="#the-clouddocumentversion-property">The cloudDocumentVersion property</a></li><li><a href="#the-autosave-plugin">The Autosave plugin</a></li><li><a href="#autosave-for-revision-history">Autosave for revision history</a></li></ol></li></ol></li><li><a href="#reconnection-process">Reconnection process</a></li><li><a href="#users-selection">Users selection</a></li></ol></nav>
+<p>Welcome to the quick start guide for the real time-collaboration integration. This tutorial was designed to provide you with the most crucial information. This will let you set up real-time collaboration inside your editor, including basic integration with other collaboration features.</p>
+<p>After reading this article, we recommend visiting the &#x201C;Learn more&#x201D; sections in our documentation pages for the <a href="../comments/comments.html#learn-more">comments</a>, <a href="../track-changes/track-changes.html#learn-more">track changes</a> and <a href="../../revision-history/revision-history-integration.html#learn-more">revision history</a> features to get more in-depth knowledge about these features.</p>
+<div class="info-box notice"><p>Complementary to this guide, we provide <a href="https://github.com/ckeditor/ckeditor5-collaboration-samples/" target="_blank" rel="noopener">ready-to-use <strong>samples</strong></a> available for download. We prepared samples for all editor types (multi-root included) as well as for the React, Angular and Vue.js integrations. You may use them as an example or as a starting point for your own integration.</p></div>
+<h2 id="sign-up-to-the-collaboration-service"><a class="headerlink" href="#sign-up-to-the-collaboration-service">#</a> Sign up to the collaboration service</h2>
+<p>The real-time collaboration feature needs a server to synchronize content between the clients, so in order to use it, you need to sign up to the collaboration service first. Refer to the {@link @cs guides/collaboration/quick-start CKEditor Cloud Services Collaboration &#x2013; Quick Start} guide for more details. There is also {@link @trial guides/overview Premium features free trial} available for testing purposes, that will provide the necessary backend.</p>
+<h2 id="prepare-editor-build"><a class="headerlink" href="#prepare-editor-build">#</a> Prepare editor build</h2>
+<p>Once you have the server ready, the next step is to <a href="../../../installation/getting-started/installing-plugins.html#adding-a-plugin-to-a-build">create a custom CKEditor 5 build</a>. It needs to include the real-time collaboration feature, because it is not present in any of the predefined builds. The following instructions describe this process step-by-step.</p>
+<div class="info-box notice notice__info"><p>Real-time collaboration is a complex topic and despite having over 10.000 tests we cannot guarantee that no error will show during a long collaboration session. This is why we recommend to use the <a href="../../watchdog.html">watchdog</a> feature. It is a helpful utility which ensures that an editor instance is running and, in case of an error, tries to restore the editor to a working state. We highly recommend it using watchdog, even though using collaboration features without it is still possible.</p></div>
+<p>First, clone the editor build that you want to integrate.</p>
+<pre class="highlight"><code class="bash">git clone -b stable https://github.com/ckeditor/ckeditor5
+</code></pre>
+<p>This example will use the classic build, however, real-time collaboration, like every other official CKEditor 5 plugin, will work with any of the rich text editor predefined builds.</p>
+<p>Change your directory to the <code>ckeditor5-build-classic</code> package. All files and commands are relative to this directory.</p>
+<p>Install the package:</p>
+<pre class="highlight"><code class="bash">cd ckeditor5/packages/ckeditor5-build-classic
+
+npm install
+</code></pre>
+<p>To add the real-time collaborative features to your editor, install the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-real-time-collaboration" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-real-time-collaboration</code></a> and <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-watchdog" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-watchdog</code></a> packages:</p>
+<pre class="highlight"><code class="bash">npm install --save-dev \
+    @ckeditor/ckeditor5-real-time-collaboration \
+    @ckeditor/ckeditor5-watchdog
+</code></pre>
+<p>Then, import and enable the plugins you want to use and export both the editor and the watchdog. The updated <code>src/ckeditor.js</code> should look like this:</p>
+<pre class="highlight"><code class="js">import EditorWatchdog from &apos;@ckeditor/ckeditor5-watchdog/src/editorwatchdog&apos;;
+import ClassicEditorBase from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+import Image from &apos;@ckeditor/ckeditor5-image/src/image&apos;;
+import ImageUpload from &apos;@ckeditor/ckeditor5-image/src/imageupload&apos;;
+import ImageToolbar from &apos;@ckeditor/ckeditor5-image/src/imagetoolbar&apos;;
+import CloudServices from &apos;@ckeditor/ckeditor5-cloud-services/src/cloudservices&apos;;
+import EasyImageUpload from &apos;@ckeditor/ckeditor5-easy-image/src/easyimage&apos;;
+
+import RealTimeCollaborativeEditing from &apos;@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativeediting&apos;;
+
+
+// The following plugins enable real-time collaborative comments.
+// You do not need to import them if you do not want this integration.
+import Comments from &apos;@ckeditor/ckeditor5-comments/src/comments&apos;;
+import RealTimeCollaborativeComments from &apos;@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativecomments&apos;;
+
+// The following plugins enable real-time collaborative track changes and are optional.
+// They depend on the `Comments` and `RealTimeCollaborativeComments` from above, so make sure to include
+// them in the editor plugins if you want to integrate the real-time collaborative track changes.
+// You do not need to import them if you do not want this integration.
+import TrackChanges from &apos;@ckeditor/ckeditor5-track-changes/src/trackchanges&apos;;
+import RealTimeCollaborativeTrackChanges from &apos;@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativetrackchanges&apos;;
+
+// The following plugins enable revision history for real-time collaboration.
+// You do not need to import them if you do not want this integration.
+import RevisionHistory from &apos;@ckeditor/ckeditor5-revision-history/src/revisionhistory&apos;;
+import RealTimeCollaborativeRevisionHistory from &apos;@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativerevisionhistory&apos;;
+
+// The following plugin enables the users presence list and is optional.
+// You do not need to import it if you do not want to integrate the user list.
+import PresenceList from &apos;@ckeditor/ckeditor5-real-time-collaboration/src/presencelist&apos;;
+
+class ClassicEditor extends ClassicEditorBase {}
+
+// Plugins to include in the build.
+ClassicEditor.builtinPlugins = [
+    Essentials, Paragraph, Bold, Italic, Image, ImageUpload, ImageToolbar, EasyImageUpload, CloudServices,
+    // Remove plugins from here if you have not imported them.
+    RealTimeCollaborativeEditing,
+    Comments, RealTimeCollaborativeComments,
+    TrackChanges, RealTimeCollaborativeTrackChanges,
+    RevisionHistory, RealTimeCollaborativeRevisionHistory,
+    PresenceList
+];
+
+// Editor configuration.
+ClassicEditor.defaultConfig = {
+    language: &apos;en&apos;
+};
+
+export default { ClassicEditor, EditorWatchdog };
+</code></pre>
+<p>After the above steps are done, your custom build needs to be bundled using webpack:</p>
+<pre class="highlight"><code class="bash">npm run build
+</code></pre>
+<div class="info-box notice notice__info"><p>Read more about installing plugins in the dedicated <a href="../../../installation/getting-started/installing-plugins.html">Installing plugins</a> guide.</p></div>
+<h2 id="prepare-the-html-structure"><a class="headerlink" href="#prepare-the-html-structure">#</a> Prepare the HTML structure</h2>
+<p>Having configured the plugins, you need to place your bundle in an HTML document and create the editor.</p>
+<p>For the sake of completeness, the examples below implement the <a href="../annotations/annotations-display-mode.html#wide-sidebar">wide sidebar display mode</a> for comments and suggestions annotations. If you want to use the inline display mode, remove parts of the snippets that set up the wide sidebar.</p>
+<p>Your HTML structure will also differ depending on whether you would like to integrate the revision history feature or not.</p>
+<p>Below, you will find an example of an HTML structure for an integration with sidebar and without the revision history feature:</p>
+<pre class="highlight"><code class="html">&lt;div id=&quot;presence-list-container&quot;&gt;&lt;/div&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div id=&quot;editor&quot;&gt;&lt;p&gt;Let&apos;s edit this together!&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;sidebar&quot; id=&quot;sidebar&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>The revision history feature requires a more complex HTML structure:</p>
+<pre class="highlight"><code class="html">&lt;div id=&quot;presence-list-container&quot;&gt;&lt;/div&gt;
+
+&lt;div id=&quot;editor-container&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div id=&quot;editor&quot;&gt;&lt;p&gt;Let&apos;s edit this together!&lt;/p&gt;&lt;/div&gt;
+        &lt;div class=&quot;sidebar&quot; id=&quot;sidebar&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;revision-viewer-container&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div id=&quot;revision-viewer-editor&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;sidebar&quot; id=&quot;revision-viewer-sidebar&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="configure-and-initialize-the-editor"><a class="headerlink" href="#configure-and-initialize-the-editor">#</a> Configure and initialize the editor</h2>
+<p>To finalize the editor configuration, you need to define the <a href="../../../api/module_cloud-services_cloudservices-CloudServicesConfig.html">CKEditor Cloud Services connection data</a>, set the <a href="#the-channelid-configuration-property"><code>channelId</code></a>, and set up the containers for the features and add buttons to the toolbar.</p>
+<div class="info-box notice"><p>If you do not have your CKEditor Cloud Services URLs ready, read more about these first in the {@link @cs guides/collaboration/quick-start CKEditor Cloud Services Collaboration &#x2013; Quick Start} guide.</p></div>
+<p>Below, you will find an updated HTML file (<code>sample/index.html</code>) with a minimal editor configuration and the CSS+HTML structure prepared for integration with the revision history feature.</p>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;CKEditor 5 Collaboration &#x2013; Hello World!&lt;/title&gt;
+
+        &lt;style&gt;
+            body {
+                font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+            }
+
+            .container {
+                display: flex; /* Create a column layout. */
+                position: relative;
+                width: 1000px; /* Set some size for the whole editor + sidebar (can be any size). */
+            }
+
+            .container &gt; .ck.ck-editor {
+                width: 100%;  /* Stretch the editable area. */
+            }
+
+            .sidebar {
+                border: 1px solid #c4c4c4;
+                margin-left: -1px;
+                background: #fafafa;
+            }
+
+            #sidebar {
+                /* Set some size and spacing for the sidebar (can be any size). */
+                min-width: 300px;
+                padding: 0 10px;
+                overflow: hidden; /* Hide annotations moved above top sidebar border. */
+            }
+
+            #revision-viewer-container {
+                display: none; /* Revision history viewer is initially hidden. */
+            }
+
+            #revision-viewer-sidebar {
+                min-width: 320px; /* 20px more than #sidebar due to paddings. */
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;!-- Use simpler CSS and HTML structure if you do not want to integrate revision history feature. !--&gt;
+        &lt;div id=&quot;presence-list-container&quot;&gt;&lt;/div&gt;
+
+        &lt;div id=&quot;editor-container&quot;&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                &lt;div id=&quot;editor&quot;&gt;&lt;p&gt;Let&apos;s edit this together!&lt;/p&gt;&lt;/div&gt;
+                &lt;div class=&quot;sidebar&quot; id=&quot;sidebar&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div id=&quot;revision-viewer-container&quot;&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                &lt;div id=&quot;revision-viewer-editor&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;sidebar&quot; id=&quot;revision-viewer-sidebar&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;script src=&quot;../build/ckeditor.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            const { ClassicEditor: Editor, EditorWatchdog } = ClassicEditor;
+
+            const watchdog = new EditorWatchdog( Editor );
+
+            watchdog.create( document.querySelector( &apos;#editor&apos; ), {
+                initialData: &apos;&lt;p&gt;Let\&apos;s edit this together!&lt;/p&gt;&apos;,
+                // Do not include buttons for the features that you do not want to integrate.
+                // If you use the image toolbar, you might want to add the `&apos;comment&apos;` button to the image toolbar, too.
+                toolbar: [ &apos;bold&apos;, &apos;italic&apos;, &apos;uploadImage&apos;, &apos;|&apos;, &apos;comment&apos;, &apos;trackChanges&apos;, &apos;|&apos;, &apos;revisionHistory&apos; ],
+                cloudServices: {
+                    // PROVIDE CORRECT VALUES HERE:
+                    tokenUrl: &apos;https://example.com/cs-token-endpoint&apos;,
+                    uploadUrl: &apos;https://your-organization-id.cke-cs.com/easyimage/upload/&apos;,
+                    webSocketUrl: &apos;your-organization-id.cke-cs.com/ws/&apos;
+                },
+                collaboration: {
+                    channelId: &apos;document-id&apos;
+                },
+                sidebar: {
+                    container: document.querySelector( &apos;#sidebar&apos; )
+                },
+                presenceList: {
+                    container: document.querySelector( &apos;#presence-list-container&apos; )
+                },
+                // Add configuration for the Comments if the Comments plugin is added.
+                comments: {
+                    editorConfig: {
+                        extraPlugins: ClassicEditor.builtinPlugins.filter( plugin =&gt; {
+                            return [ &apos;Bold&apos;, &apos;Italic&apos;, &apos;Underline&apos;, &apos;List&apos;, &apos;Autoformat&apos; ].includes( plugin.pluginName );
+                        } )
+                    }
+                }
+                // Do not include revision history configuration if you do not want to integrate it.
+                revisionHistory: {
+                    editorContainer: document.querySelector( &apos;#editor-container&apos; ),
+                    viewerContainer: document.querySelector( &apos;#revision-viewer-container&apos; ),
+                    viewerEditorElement: document.querySelector( &apos;#revision-viewer-editor&apos; ),
+                    viewerSidebarContainer: document.querySelector( &apos;#revision-viewer-sidebar&apos; )
+                }
+            } );
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Voil&#xE0;! All users who open this page should be able to collaborate, working on the same rich text document at the same time.</p>
+<h3 id="the-channelid-configuration-property"><a class="headerlink" href="#the-channelid-configuration-property">#</a> The <code>channelId</code> configuration property</h3>
+<p>The <a href="../../../api/module_real-time-collaboration_realtimecollaborativeediting-RealTimeCollaborationConfig.html#member-channelId"><code>config.collaboration.channelId</code></a> configuration property is an important property that controls which editor instances collaborate with one another. All clients created with the same <code>channelId</code> will be collaborating on the same content.</p>
+<p>Each document must have a different <code>channelId</code>. This ID is usually the primary key of the document in the database or a unique identifier for a given form field. However, you are free to provide whatever identifier fits your scenario.</p>
+<div class="info-box notice notice__info"><p>Note that to start the collaboration on a new document, you need the document ID since the very beginning, when the editor is created for the first time. If your application creates document IDs later, for instance when the form is submitted, you may need to provide another method to generate document IDs (for example, some random unique IDs generator).</p></div>
+<p>The <code>channelId</code> needs to be unique in a given environment, so if you are using, for instance, staging and production environments, you may use the same channel ID in these. Since the environments are separated, these ID will not interfere with one another.</p>
+<p>Since editor content is linked with and only with the channel ID, it is possible to create an application where different views (forms, subpages, etc.) provide various sets of rich-text editable fields and have users collaborate with each other even though they have opened a different form, etc.</p>
+<h2 id="handling-document-data"><a class="headerlink" href="#handling-document-data">#</a> Handling document data</h2>
+<p>To make the integration work out of the box, all comments, suggestions and revisions data is saved in CKEditor Cloud Services.</p>
+<div class="info-box notice"><p>In this section, it is assumed that {@link @cs guides/collaboration/document-storage Cloud Services document storage} is not enabled.</p><p>{@link @cs guides/collaboration/document-storage Document storage} has numerous advantages and we recommend enabling it if available in your case.</p></div>
+<p>Note that CKEditor Cloud Services does not save or load the document content. Instead, Cloud Services acts as a medium to handle the collaboration process. Content management should be handled by the application integration.</p>
+<div class="info-box notice"><p>We understand that due to legislation or your company&#x2019;s policy, you may be required to store all data in your own data center or private cloud. This is why we also provide the on-premises version of CKEditor Cloud Services. <a href="https://ckeditor.com/contact/">Contact us</a> to learn more about it.</p></div>
+<h3 id="data-initialization"><a class="headerlink" href="#data-initialization">#</a> Data initialization</h3>
+<p>When the first user opens the rich text editor for a certain document ID, their content is sent to CKEditor Cloud Services. In case of the example above it is:</p>
+<pre class="highlight"><code class="html">&lt;p&gt;Let&apos;s edit this together!&lt;/p&gt;
+</code></pre>
+<p>If you cannot or do not want to set the initial data straight in the HTML, use the <a href="../../../api/module_core_editor_editorconfig-EditorConfig.html#member-initialData"><code>initialData</code> configuration option</a> instead. Do not use <code>editor.setData()</code> (see below).</p>
+<p>After the first user initializes the document and starts the editing session, every other user that connects to the same document will receive the content from CKEditor Cloud Services (while their local initial data is discarded).</p>
+<p>From that moment on, every single change to the editor content is passed between Cloud Services and clients and the document for each client is updated. Any conflicting updates are resolved on-the-fly.</p>
+<p>This is the reason why you should not use the <code>editor.setData()</code> or <code>editor.data.set()</code> methods when using the collaboration plugin. These simply overwrite the whole content of the editor (even if the data to set is the same as the current editor data). In real-time collaboration, this behavior can result in overwriting other clients&#x2019; local updates. In most cases, using <code>editor.setData()</code> and <code>editor.data.set()</code> in real-time collaboration is incorrect.</p>
+<p>If you are sure that you understand and accept the behavior and side effects of setting the editor data this way, you can call <code>editor.data.set()</code> with the flag <code>suppressErrorInCollaboration</code> set to <code>true</code>:</p>
+<pre class="highlight"><code class="js">editor.data.set( &apos;&lt;p&gt;Your data&lt;/p&gt;&apos;, { suppressErrorInCollaboration: true } );
+</code></pre>
+<p>This will let you overwrite the editor data without throwing an error.</p>
+<h4 id="editor-initial-data-and-revision-data"><a class="headerlink" href="#editor-initial-data-and-revision-data">#</a> Editor initial data and revision data</h4>
+<p>When the revision history feature is used, it is crucial to keep the revisions state in synchronization with the document data. For this reason, if there are any revisions saved for that document, the editor initial data will be discarded and data saved with the most recent revision will be used instead.</p>
+<div class="info-box notice"><p>Since the editor initial data is discarded, you can limit the data load by not sending the document data to the browser (it applies to non-new documents, i.e. documents which were already initialized and for which revisions were created).</p></div>
+<p>If the editor initial data is set (by passing a non-empty DOM element or a string to <code>Editor.create()</code>, or by setting the <code>initialData</code> configuration value), and it is different than the revision data, a warning will be logged in the console.</p>
+<h3 id="saving-data"><a class="headerlink" href="#saving-data">#</a> Saving data</h3>
+<p>Although CKEditor Cloud Services handles passing data between clients, you are still responsible for saving the final data in your database. The document is stored in the cloud by CKEditor Cloud Services only temporarily, as long as there are connected users. It means that the editor content should be saved in the database on your server before the last user disconnects &#x2014; otherwise it will be lost. It is recommended to save the data automatically whenever it changes.</p>
+<p>CKEditor 5 provides two utilities to make your integration simpler.</p>
+<h4 id="the-clouddocumentversion-property"><a class="headerlink" href="#the-clouddocumentversion-property">#</a> The <code>cloudDocumentVersion</code> property</h4>
+<p>When your collaborative users are saving the same document at the same time, there might be a conflict. It might happen that one user will try to save an older document version, overwriting a newer one.</p>
+<p>To prevent such race conditions, use the <code>cloudDocumentVersion</code> property.</p>
+<pre class="highlight"><code class="js">editor.plugins.get( &apos;RealTimeCollaborationClient&apos; ).cloudDocumentVersion
+</code></pre>
+<p>This property is simply a number, and a bigger value means a newer document version. This number should be stored in the database together with the document content. When a client wants to save the content, document versions should be compared. The document should only be saved when the version is higher. Otherwise, it means that the incoming data is an older version of the document and should be discarded.</p>
+<p>CKEditor Cloud Services keeps the value of <code>cloudDocumentVersion</code> and makes sure that it is properly set whenever there is a new editing session for a given document.</p>
+<h4 id="the-autosave-plugin"><a class="headerlink" href="#the-autosave-plugin">#</a> The <code>Autosave</code> plugin</h4>
+<div class="info-box notice"><p>Using the autosave feature with large documents may result in a lot of data being sent to your server and can have a negative impact on the editor user experience.</p><p>We recommend using the {@link @cs guides/collaboration/document-storage document storage} feature instead.</p></div>
+<p>The second helper is the <a href="../../../api/module_autosave_autosave-Autosave.html"><code>Autosave</code></a> plugin.</p>
+<p>The autosave plugin triggers the save callback whenever the user changes the content. It takes care of throttling the callback execution to limit the number of calls to the database. It also automatically secures the user from leaving the page before the content is saved.</p>
+<p>The autosave plugin is by default not included in any of the predefined builds nor is it automatically required by the real-time collaboration plugins, so you need to <a href="../../../installation/getting-started/installing-plugins.html">install it</a> separately. To learn more about this plugin, refer to the <a href="../../../installation/advanced/saving-data.html#autosave-feature">Getting and saving data</a> guide.</p>
+<h4 id="autosave-for-revision-history"><a class="headerlink" href="#autosave-for-revision-history">#</a> Autosave for revision history</h4>
+<p>If you are using the revision history feature, your autosave callback should take care of updating the recent revision data. See the example below:</p>
+<pre class="highlight"><code class="js">autosave: {
+    save: async editor =&gt; {
+        const revisionTracker = editor.plugins.get( &apos;RevisionTracker&apos; );
+        const currentRevision = revisionTracker.currentRevision;
+        const oldRevisionVersion = currentRevision.toVersion;
+
+        // Update the current revision with the newest document changes.
+        await revisionTracker.update();
+
+        // Check if the revision was updated.
+        // If not, do not make an unnecessary call.
+        if ( oldRevisionVersion === currentRevision.toVersion ) {
+            return true;
+        }
+
+        // Use the document data saved with the revision instead of the editor data.
+        // Revision data may slightly differ from the editor data when
+        // real-time collaboration is involved.
+        const documentData = await revisionTracker.getRevisionDocumentData( revisionTracker.currentRevision );
+
+        // Use revision version instead of `cloudDocumentVersion`.
+        const documentVersion = currentRevision.toVersion;
+
+        // `saveData()` should save the document in your database.
+        // `documentData` contains data for all roots.
+        // You can save just `documentData.main` if you are using a single root,
+        // or the whole object if you are using multiple roots.
+        return saveData( documentData.main, documentVersion );
+    }
+}
+</code></pre>
+<p>You can read more about saving revisions in the <a href="../../revision-history/revision-history-integration.html#how-revisions-are-updated-and-saved">Revision history</a> guide.</p>
+<h2 id="reconnection-process"><a class="headerlink" href="#reconnection-process">#</a> Reconnection process</h2>
+<p>During the real-time collaboration, it may happen that the internet connection will go down for some time. When this happens, the editor will switch into read-only mode. After the connection is back, the real-time collaboration plugin will try to reconnect the editor back to the editing session. This reconnection process may involve re-creating the editing session (if the reconnection happens after a longer period of time).</p>
+<p>While one client is offline, other clients may perform changes to the document. When the offline client reconnects, the real-time editing plugin will make a decision if the reconnection is possible.</p>
+<h2 id="users-selection"><a class="headerlink" href="#users-selection">#</a> Users selection</h2>
+<p>The real-time collaborative editing feature not only synchronizes the document content between all participants, but it also shows each user the list of all other users in real time. It works out of the box and does not require any additional configuration. This is the only part of the real-time collaborative editing plugin that provides a UI. Refer to the <a href="users-in-real-time-collaboration.html">Users in real-time collaboration</a> guide to learn more.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22features%2Fcollaboration%2Freal-time-collaboration%2Freal-time-collaboration-integration.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li><a href="../../autoformat.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="../../text-transformation.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="../../basic-styles.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="../../indent.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="../../block-quote.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="../../code-blocks.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../collaboration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../comments/comments.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-only-mode.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-outside-editor.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../track-changes/track-changes.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../track-changes/track-changes-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../track-changes/track-changes-custom-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                                  </div></a></li>
+                                              <li><a href="../track-changes/track-changes-data.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="real-time-collaboration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="users-in-real-time-collaboration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../users.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                        </div></a></li>
+                                    <li><a href="../context-and-collaboration-features.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../annotations/annotations.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../annotations/annotations-display-mode.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                                  </div></a></li>
+                                              <li><a href="../annotations/annotations-custom-configuration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                                  </div></a></li>
+                                              <li><a href="../annotations/annotations-custom-theme.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                                  </div></a></li>
+                                              <li><a href="../annotations/annotations-custom-template.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                                  </div></a></li>
+                                              <li><a href="../annotations/annotations-custom-view.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../minimap.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li><a href="../../title.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="../../editor-placeholder.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li><a href="../../export-pdf.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../export-word.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../find-and-replace.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="../../font.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font</span>
+                              </div></a></li>
+                          <li><a href="../../general-html-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                              </div></a></li>
+                          <li><a href="../../headings.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="../../highlight.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="../../horizontal-line.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li><a href="../../html-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../images/images-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-installation.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-text-alternative.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-captions.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-resizing.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-linking.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../images/image-upload/image-upload.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/easy-image.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Easy Image</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/ckfinder.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder file manager</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/base64-upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/simple-upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/images-inserting.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../keyboard-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Keyboard support</span>
+                              </div></a></li>
+                          <li><a href="../../link.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../lists/lists.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                        </div></a></li>
+                                    <li><a href="../../lists/todo-lists.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../markdown.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="../../math-equations.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../media-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="../../mentions.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="../../page-break.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../pagination/pagination.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../../pagination/pagination-integration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../pasting/paste-from-word.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Word</span>
+                                        </div></a></li>
+                                    <li><a href="../../pasting/paste-from-google-docs.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                        </div></a></li>
+                                    <li><a href="../../pasting/paste-plain-text.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                        </div></a></li>
+                                    <li><a href="../../pasting/drag-drop.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../read-only.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="../../remove-format.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="../../restricted-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../revision-history/revision-history.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../../revision-history/revision-history-integration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../select-all.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="../../source-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="../../special-characters.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="../../spelling-and-grammar-checking.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spelling and grammar checking</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../table.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Tables</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="../../text-alignment.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="../../language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Toolbar</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../toolbar/toolbar.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbar</span>
+                                        </div></a></li>
+                                    <li><a href="../../toolbar/blocktoolbar.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block toolbar</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../ui-language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                              </div></a></li>
+                          <li><a href="../../watchdog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="../../word-count.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'features' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'features' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'features' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'features' ] );tags.forEach( function( tag ) {if ( tag !== 'features' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

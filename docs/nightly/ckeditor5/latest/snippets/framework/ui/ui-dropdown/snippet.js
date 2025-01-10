@@ -1,0 +1,5 @@
+/*!
+ * @license Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md.
+ */(()=>{const t=new Locale,e=new Collection;e.add({type:"button",model:new Model({label:"Button",withText:!0})}),e.add({type:"switchbutton",model:new Model({label:"Switch button",withText:!0})});const o=createDropdown(t);o.buttonView.set({label:"List dropdown",withText:!0}),addListToDropdown(o,e),o.render();const n=new ButtonView,d=new ButtonView;n.set({label:"Bold",withText:!1,icon:boldIcon}),d.set({label:"Italic",withText:!1,icon:italicIcon});const l=[n,d],w=createDropdown(t);w.buttonView.set({label:"Toolbar dropdown",withText:!0}),addToolbarToDropdown(w,l),w.render();const i=createDropdown(t,SplitButtonView);addToolbarToDropdown(i,[...l]),i.buttonView.set({label:"Split button dropdown",withText:!0}),i.render();const r=[o,w,i],a=new ToolbarView(t);r.forEach((t=>a.items.add(t))),a.render(),document.querySelector(".ui-dropdown").append(a.element)})();
+//# sourceMappingURL=snippet.js.map

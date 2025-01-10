@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upcast helpers - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:46:02 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Upcast helpers - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/conversion/helpers/upcast.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Upcast helpers - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/conversion/helpers/upcast.html">
+    <link rel="icon" type="image/png" href="../../../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../../../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../../../index.html">CKEditor 5</a></li>
+          <li><a href="../../../../../installation/index.html">Installation</a></li>
+          <li><a href="../../../../../features/index.html">Features</a></li>
+          <li><a href="../../../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../../../support/index.html">Support</a></li>
+          <li><a class="top__menu__item--active" href="../../../../index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../../../../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../../../../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../../../index.html">Framework</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../../overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../../../quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="../../../development-tools.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development tools</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../../architecture/intro.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                              </div></a></li>
+                                          <li><a href="../../../architecture/core-editor-architecture.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                              </div></a></li>
+                                          <li><a href="../../../architecture/editing-engine.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                              </div></a></li>
+                                          <li><a href="../../../architecture/ui-library.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Developing custom plugins</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../../plugins/creating-simple-plugin.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a simple plugin</span>
+                                              </div></a></li>
+                                          <li><a href="../../../plugins/package-generator.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced tutorials</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../../tutorials/implementing-a-block-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                              </div></a></li>
+                                          <li><a href="../../../tutorials/implementing-an-inline-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                              </div></a></li>
+                                          <li><a href="../../../tutorials/using-react-in-a-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../clipboard.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                              </div></a></li>
+                                          <li><a href="../../upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../../event-system.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                              </div></a></li>
+                                          <li><a href="../../observables.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                              </div></a></li>
+                                          <li><a href="../../schema.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list">
+                                                  <li><a href="../intro.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                      </div></a></li>
+                                                  <li><a href="../downcast.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                      </div></a></li>
+                                                  <li><a href="../upcast.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                      </div></a></li>
+                                                  <li>
+                                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                    </div>
+                                                    <ul class="tree__item-nested-list">
+                                                          <li><a href="intro.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                              </div></a></li>
+                                                          <li><a href="downcast.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                              </div></a></li>
+                                                          <li><a href="">
+                                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                              </div></a></li>
+                                                    </ul>
+                                                  </li>
+                                            </ul>
+                                          </li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list">
+                                                  <li><a href="../../ui/focus-tracking.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../ui/widget-internals.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../ui/theme-customization.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../ui/external-ui.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third–party UI</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../ui/document-editor.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../ui/custom-editor-creator.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../ui/localization.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../../contributing/contributing.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                              </div></a></li>
+                                          <li><a href="../../../contributing/development-environment.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                              </div></a></li>
+                                          <li><a href="../../../contributing/testing-environment.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                              </div></a></li>
+                                          <li><a href="../../../contributing/code-style.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                              </div></a></li>
+                                          <li><a href="../../../contributing/package-metadata.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                              </div></a></li>
+                                          <li><a href="../../../contributing/git-commit-message-convention.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="api-reference"><a href="../../../../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/packages/ckeditor5-engine/docs/framework/guides/deep-dive/conversion/helpers/upcast.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../../index.html">Framework</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../../../../assets/2.1.3/img/book.svg" alt="guide">Upcast helpers — view to model conversion
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#element-to-element-conversion-helper">Element to element conversion helper</a><ol><li><a href="#basic-element-to-element-conversion">Basic element to element conversion</a></li><li><a href="#using-view-element-definition">Using view element definition</a></li><li><a href="#creating-a-model-element-using-a-callback">Creating a model element using a callback</a></li><li><a href="#handling-view-elements-with-attributes">Handling view elements with attributes</a></li><li><a href="#changing-converter-priority">Changing converter priority</a></li></ol></li><li><a href="#element-to-attribute-conversion-helper">Element to attribute conversion helper</a><ol><li><a href="#basic-element-to-attribute-conversion">Basic element to attribute conversion</a></li><li><a href="#converting-attribute-in-a-specific-view-element">Converting attribute in a specific view element</a></li><li><a href="#setting-a-predefined-value-to-model-attribute">Setting a predefined value to model attribute</a></li><li><a href="#handling-attribute-values-via-a-callback">Handling attribute values via a callback</a></li><li><a href="#changing-converter-priority-2">Changing converter priority</a></li></ol></li><li><a href="#attribute-to-attribute-conversion-helper">Attribute to attribute conversion helper</a><ol><li><a href="#basic-attribute-to-attribute-conversion">Basic attribute to attribute conversion</a></li><li><a href="#converting-specific-view-elements-attribute">Converting specific view element&#x2019;s attribute</a></li><li><a href="#converting-view-attributes-that-match-a-more-complex-pattern">Converting view attributes that match a more complex pattern</a></li><li><a href="#processing-attributes-via-callback">Processing attributes via callback</a></li><li><a href="#changing-converter-priority-3">Changing converter priority</a></li></ol></li><li><a href="#further-reading">Further reading</a></li></ol></nav>
+<p>This article lists all editor helpers available in the <a href="../upcast.html">upcast conversion</a>.</p>
+<h2 id="element-to-element-conversion-helper"><a class="headerlink" href="#element-to-element-conversion-helper">#</a> Element to element conversion helper</h2>
+<p>Converting a view element to a model element is the most common case of conversion. It is used to handle view elements like <code>&lt;p&gt;</code> or <code>&lt;h1&gt;</code> which need to be converted to model elements.</p>
+<p>With the use of the <code>elementToElement()</code> helper, a <strong>single view element</strong> will be converted to a <strong>single model element</strong>. The children of this view element need to have their own converters defined and the engine will recursively convert them and insert into the created model element.</p>
+<h3 id="basic-element-to-element-conversion"><a class="headerlink" href="#basic-element-to-element-conversion">#</a> Basic element to element conversion</h3>
+<p>The simplest case of an element to element conversion, where a view element becomes a model element can be achieved by simply providing their names within the converter:</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToElement( {
+        view: &apos;p&apos;,
+        model: &apos;paragraph&apos;
+    } );
+</code></pre>
+<p>The example above creates a model element <code>&lt;paragraph&gt;</code> from every <code>&lt;p&gt;</code> view element.</p>
+<h3 id="using-view-element-definition"><a class="headerlink" href="#using-view-element-definition">#</a> Using view element definition</h3>
+<p>You can limit the view elements that qualify for the conversion by specifying their attributes, e.g. a class name. To achieve it, provide the desired element element definition in the <code>view</code> property like in the example below:</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToElement( {
+        view: {
+            name: &apos;p&apos;,
+            classes: &apos;fancy&apos;
+        },
+        model: &apos;fancyParagraph&apos;
+    } );
+</code></pre>
+<p>Check out the <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_engine_view_elementdefinition-ElementDefinition.html">ElementDefinition documentation</a> for more details.</p>
+<h3 id="creating-a-model-element-using-a-callback"><a class="headerlink" href="#creating-a-model-element-using-a-callback">#</a> Creating a model element using a callback</h3>
+<p>A model element resulting from the conversion can be created manually using a callback provided as a <code>model</code> property.</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToElement( {
+        view: {
+            name: &apos;p&apos;,
+            classes: &apos;heading&apos;
+        },
+        model: ( viewElement, { writer } ) =&gt; {
+            return writer.createElement( &apos;heading&apos; );
+        }
+    } );
+</code></pre>
+<p>In the example above, the model element is created only from the <code>&lt;p class=&quot;heading&quot;&gt;</code> view element. All other <code>&lt;p&gt;</code> elements without the <code>heading</code> class name will be filtered out and will not be converted.</p>
+<p>The second parameter of the model callback is the <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_engine_conversion_upcastdispatcher-UpcastConversionApi.html">UpcastConversionApi</a> object, that contains many properties and methods useful when writing more complex converters.</p>
+<h3 id="handling-view-elements-with-attributes"><a class="headerlink" href="#handling-view-elements-with-attributes">#</a> Handling view elements with attributes</h3>
+<p>If the model element depends not only on the view element itself but also on its attributes, you need to specify these attributes in the <code>view</code> property.</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToElement( {
+        view: {
+            name: &apos;p&apos;,
+            attributes: [ &apos;data-level&apos; ]
+        },
+        model: ( viewElement, { writer } ) =&gt; {
+            return writer.createElement( &apos;heading&apos;, { level: viewElement.getAttribute( &apos;data-level&apos; ) } );
+        }
+    } );
+</code></pre>
+<div class="info-box notice"><p>If you forget to specify these attributes, another converter, e.g. from <a href="../../../../../features/general-html-support.html">General HTML Support feature</a>, may also handle these attributes resulting in duplicating them in the model.</p></div>
+<h3 id="changing-converter-priority"><a class="headerlink" href="#changing-converter-priority">#</a> Changing converter priority</h3>
+<p>In case there are more converters with the overlapping <code>view</code> patterns already present, you can prioritize your converter in order to override them. To do so, use the <code>converterPriority</code> property:</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToElement( {
+        view: &apos;div&apos;,
+        model: &apos;mainContent&apos;,
+    } );
+
+editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToElement( {
+        view: &apos;div&apos;,
+        model: &apos;sideContent&apos;,
+        converterPriority: &apos;high&apos;
+    } );
+</code></pre>
+<p>In the above example, the first converter has the default priority, <code>normal</code> (no need to set it explicitly). The second one overrides it, having its priority set to <code>high</code>. Using both of these converters at once will result in the <code>&lt;div&gt;</code> view element being converted to <code>sideContent</code>.</p>
+<p>Another practical application of this solution is to have your converter act as a fallback when other converters for a given element are not present (e.g. a plugin has not been loaded). It can be easily achieved by setting the <code>converterProperty</code> to <code>low</code>.</p>
+<h2 id="element-to-attribute-conversion-helper"><a class="headerlink" href="#element-to-attribute-conversion-helper">#</a> Element to attribute conversion helper</h2>
+<p>The element to attribute conversion is used to handle formatting view elements like <code>&lt;b&gt;</code> or <code>&lt;span style=&quot;font-family: ...&quot;&gt;</code> that need to be converted to text attributes. It is important to note that text formatting such as bold or font size should be represented in the model as text nodes attributes.</p>
+<div class="info-box notice"><p>In general, the model does not implement a concept of &#x201C;inline elements&#x201D; (in the sense in which they are defined by CSS). The only scenarios in which inline elements can be used are self-contained objects such as soft breaks (<code>&lt;br&gt;</code>) or inline images.</p></div>
+<h3 id="basic-element-to-attribute-conversion"><a class="headerlink" href="#basic-element-to-attribute-conversion">#</a> Basic element to attribute conversion</h3>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToAttribute( {
+        view: &apos;strong&apos;,
+        model: &apos;bold&apos;
+    } );
+</code></pre>
+<p>In the example above, the view <code>&lt;strong&gt;CKEditor 5&lt;/strong&gt;</code> will become the <code>CKEditor 5</code> model text node with a <code>bold</code> attribute set to <code>true</code>.</p>
+<h3 id="converting-attribute-in-a-specific-view-element"><a class="headerlink" href="#converting-attribute-in-a-specific-view-element">#</a> Converting attribute in a specific view element</h3>
+<p>You might want to only convert view elements with a specific class name or other attribute. To achieve it, you can provide <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_engine_view_elementdefinition-ElementDefinition.html">element definition</a> in the <code>view</code> property.</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToAttribute( {
+        view: {
+            name: &apos;span&apos;,
+            classes: &apos;bold&apos;
+        },
+        model: &apos;bold&apos;
+    } );
+</code></pre>
+<p>Check out the <a href="https://ckeditor.com/docs/ckeditor5/latest/api/module_engine_view_elementdefinition-ElementDefinition.html">ElementDefinition documentation</a> for more details.</p>
+<h3 id="setting-a-predefined-value-to-model-attribute"><a class="headerlink" href="#setting-a-predefined-value-to-model-attribute">#</a> Setting a predefined value to model attribute</h3>
+<p>You can specify the value a model attribute will take. To achieve it, provide the name of the resulting model attribute as a <code>key</code> and its desired value as a <code>value</code> in <code>model</code> property object:</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToAttribute( {
+        view: {
+            name: &apos;span&apos;,
+            classes: [ &apos;styled&apos;, &apos;styled-dark&apos; ]
+        },
+        model: {
+            key: &apos;styled&apos;,
+            value: &apos;dark&apos;
+        }
+    } );
+</code></pre>
+<p>The code above will convert <code>&lt;span class=&quot;styled styled-dark&quot;&gt;CKEditor5&lt;/span&gt;</code> into a model text node <code>CKEditor5</code> with the <code>styled</code> attribute set to <code>dark</code>.</p>
+<h3 id="handling-attribute-values-via-a-callback"><a class="headerlink" href="#handling-attribute-values-via-a-callback">#</a> Handling attribute values via a callback</h3>
+<p>In a situation when the value of an attribute needs additional processing (like mapping, filtering, etc.), you can define the <code>model.value</code> as a callback.</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToAttribute( {
+        view: {
+            name: &apos;span&apos;,
+            styles: {
+                &apos;font-size&apos;: /[\s\S]+/
+            }
+        },
+        model: {
+            key: &apos;fontSize&apos;,
+            value: ( viewElement, conversionApi ) =&gt; {
+                const fontSize = viewElement.getStyle( &apos;font-size&apos; );
+                const value = fontSize.substr( 0, fontSize.length - 2 );
+
+                if ( value &lt;= 10 ) {
+                    return &apos;small&apos;;
+                } else if ( value &gt; 12 ) {
+                    return &apos;big&apos;;
+                }
+
+                return null;
+            }
+        }
+    } );
+</code></pre>
+<p>In the above example we turn the numeric <code>font-size</code> inline style into either a <code>small</code> or <code>big</code> model attribute depending on the defined criteria.</p>
+<h3 id="changing-converter-priority-2"><a class="headerlink" href="#changing-converter-priority-2">#</a> Changing converter priority</h3>
+<p>You can override the existing converters by specifying higher priority, like in the example below:</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToAttribute( {
+        view: &apos;strong&apos;,
+        model: &apos;bold&apos;
+    } );
+
+editor.conversion
+    .for( &apos;upcast&apos; )
+    .elementToAttribute( {
+        view: &apos;strong&apos;,
+        model: &apos;important&apos;,
+        converterPriority: &apos;high&apos;
+    } );
+</code></pre>
+<p>In this example, the first converter has the default priority, <code>normal</code>. The second one overrides it, having its priority set to <code>high</code>. Using both of these converters at once will result in the <code>&lt;strong&gt;</code> view element being converted to an <code>important</code> model attribute.</p>
+<h2 id="attribute-to-attribute-conversion-helper"><a class="headerlink" href="#attribute-to-attribute-conversion-helper">#</a> Attribute to attribute conversion helper</h2>
+<p>The <code>attributeToAttribute()</code> helper allows registering a converter that handles a specific attribute and converts it to an attribute of a model element.</p>
+<p>Usually, when registering converters for elements (e.g. by using <code>elementToElement()</code>), you will want to handle their attributes while handling the element itself.</p>
+<p>The <code>attributeToAttribute()</code> helper comes handy when, for some reason, you cannot cover a specific attribute inside <code>elementToElement()</code>. This may happen, for instance, when you are extending someone else&#x2019;s plugin.</p>
+<div class="info-box notice"><p>This type of converter helper only works if there is already an element converter provided. Trying to convert to an attribute while there is no receiving model element will cause an error.</p></div>
+<h3 id="basic-attribute-to-attribute-conversion"><a class="headerlink" href="#basic-attribute-to-attribute-conversion">#</a> Basic attribute to attribute conversion</h3>
+<p>This conversion results in adding an attribute to a model element, based on an attribute from a view element. For example, the <code>src</code> attribute in <code>&lt;img src=&quot;foo.jpg&quot;&gt;</code> will be converted to <code>source</code> in <code>&lt;imageInline source=&quot;foo.jpg&quot;&gt;&lt;/imageInline&gt;</code>.</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .attributeToAttribute( {
+        view: &apos;src&apos;,
+        model: &apos;source&apos;
+    } );
+</code></pre>
+<p>Another way of constructing this converter is to provide a <code>view.key</code> property. You can see this executed in the example below:</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .attributeToAttribute( {
+        view: {
+            key: &apos;src&apos;
+        },
+        model: &apos;source&apos;
+    } );
+</code></pre>
+<p>Both of these converters will produce the exact same results.</p>
+<h3 id="converting-specific-view-elements-attribute"><a class="headerlink" href="#converting-specific-view-elements-attribute">#</a> Converting specific view element&#x2019;s attribute</h3>
+<p>You can limit the element holding the attribute as well as the value of that attributes. Such a converter will be executed only in case of a full match.</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .attributeToAttribute( {
+        view: {
+            name: &apos;p&apos;,
+            key: &apos;class&apos;,
+            value: &apos;styled-dark&apos;
+        },
+        model: {
+            key: &apos;styled&apos;,
+            value: &apos;dark&apos;
+        }
+    } );
+</code></pre>
+<p>In the example above only the <code>styled-dark</code> class of a <code>&lt;p&gt;</code> element will be converted to a model attribute <code>styled</code> with a predefined value <code>dark</code>.</p>
+<h3 id="converting-view-attributes-that-match-a-more-complex-pattern"><a class="headerlink" href="#converting-view-attributes-that-match-a-more-complex-pattern">#</a> Converting view attributes that match a more complex pattern</h3>
+<p>The pattern provided in a <code>view</code> property can be much more elaborate. Besides a string, you can also provide a regexp or a function that takes the attribute value and returns <code>true</code> or <code>false</code>.</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .attributeToAttribute( {
+        view: {
+            key: &apos;data-style&apos;,
+            value: /\S+/
+        },
+        model: &apos;styled&apos;
+    } );
+</code></pre>
+<p>In the example above we are utilizing a regular expression to match only a selected <code>data-style</code> attribute that has no whitespace characters in its value. Only attributes that match this expression will have their value assigned to a <code>styled</code> model attribute.</p>
+<h3 id="processing-attributes-via-callback"><a class="headerlink" href="#processing-attributes-via-callback">#</a> Processing attributes via callback</h3>
+<p>If the value of an attribute needs additional processing (like mapping, filtering, etc.) you can define the <code>model.value</code> as a callback.</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .attributeToAttribute( {
+        view: {
+            key: &apos;class&apos;,
+            value: /styled-[\S]+/
+        },
+        model: {
+            key: &apos;styled&apos;
+            value: viewElement =&gt; {
+                const regexp = /styled-([\S]+)/;
+                const match = viewElement.getAttribute( &apos;class&apos; ).match( regexp );
+
+                return match[ 1 ];
+            }
+        }
+    } );
+</code></pre>
+<p>The converter in the example above will extract the style name from each <code>class</code> attribute that starts with <code>styled-</code> and will assign it to a model attribute <code>styled</code>.</p>
+<h3 id="changing-converter-priority-3"><a class="headerlink" href="#changing-converter-priority-3">#</a> Changing converter priority</h3>
+<p>You can override the existing converters by specifying higher priority, like in the example below:</p>
+<pre class="highlight"><code class="js">editor.conversion
+    .for( &apos;upcast&apos; )
+    .attributeToAttribute( {
+        view: &apos;src&apos;,
+        model: &apos;source&apos;
+    } );
+
+editor.conversion
+    .for( &apos;upcast&apos; )
+    .attributeToAttribute( {
+        view: &apos;src&apos;,
+        model: &apos;sourceAddress&apos;,
+        converterPriority: &apos;high&apos;
+    } );
+</code></pre>
+<p>First converter has the default <code>normal</code> priority. The second converter will be called earlier because of its higher priority, thus the <code>src</code> view attribute will get converted to a <code>sourceAddress</code> model attribute (instead of <code>source</code>).</p>
+<h2 id="further-reading"><a class="headerlink" href="#further-reading">#</a> Further reading</h2>
+<p>Check out a <a href="downcast.html">dedicated guide</a> with a full list of complementary <a href="../downcast.html">downcast conversion helpers</a>.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22framework%2Fguides%2Fdeep-dive%2Fconversion%2Fhelpers%2Fupcast.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../../overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../../../quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="../../../development-tools.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development tools</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../../architecture/intro.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../architecture/core-editor-architecture.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../architecture/editing-engine.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../architecture/ui-library.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Developing custom plugins</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../../plugins/creating-simple-plugin.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a simple plugin</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../plugins/package-generator.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced tutorials</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../../tutorials/implementing-a-block-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../tutorials/implementing-an-inline-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../tutorials/using-react-in-a-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../clipboard.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                                  </div></a></li>
+                                              <li><a href="../../upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../../event-system.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                                  </div></a></li>
+                                              <li><a href="../../observables.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                                  </div></a></li>
+                                              <li><a href="../../schema.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list">
+                                                        <li><a href="../intro.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                            </div></a></li>
+                                                        <li><a href="../downcast.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                            </div></a></li>
+                                                        <li><a href="../upcast.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                            </div></a></li>
+                                                        <li>
+                                                          <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                          </div>
+                                                          <ul class="tree__item-nested-list">
+                                                                  <li><a href="intro.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                                      </div></a></li>
+                                                                  <li><a href="downcast.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                                      </div></a></li>
+                                                                  <li><a href="">
+                                                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                                      </div></a></li>
+                                                          </ul>
+                                                        </li>
+                                                </ul>
+                                              </li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list">
+                                                        <li><a href="../../ui/focus-tracking.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../ui/widget-internals.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../ui/theme-customization.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../ui/external-ui.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third–party UI</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../ui/document-editor.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../ui/custom-editor-creator.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../ui/localization.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../../contributing/contributing.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../contributing/development-environment.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../contributing/testing-environment.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../contributing/code-style.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../contributing/package-metadata.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                                  </div></a></li>
+                                              <li><a href="../../../contributing/git-commit-message-convention.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'framework' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'framework' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'framework' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'framework' ] );tags.forEach( function( tag ) {if ( tag !== 'framework' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

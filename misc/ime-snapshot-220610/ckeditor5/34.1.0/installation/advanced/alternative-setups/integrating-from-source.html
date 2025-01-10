@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Integrating from source - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:56 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Integrating from source - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/alternative-setups/integrating-from-source.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Integrating from source - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/alternative-setups/integrating-from-source.html">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../index.html">CKEditor 5</a></li>
+          <li><a class="top__menu__item--active" href="../../index.html">Installation</a></li>
+          <li><a href="../../../features/index.html">Features</a></li>
+          <li><a href="../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../support/index.html">Support</a></li>
+          <li><a href="../../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../index.html">Installation</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../getting-started/quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="../../getting-started/configuration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                      </div></a></li>
+                                  <li><a href="../../getting-started/installing-plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                      </div></a></li>
+                                  <li><a href="../../getting-started/basic-api.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../getting-started/frameworks/overview.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../../getting-started/frameworks/angular.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                              </div></a></li>
+                                          <li><a href="../../getting-started/frameworks/react.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                              </div></a></li>
+                                          <li><a href="../../getting-started/frameworks/vuejs-v2.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                              </div></a></li>
+                                          <li><a href="../../getting-started/frameworks/vuejs-v3.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                              </div></a></li>
+                                          <li><a href="../../getting-started/frameworks/css.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../../getting-started/migration-from-ckeditor-4.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="../../getting-started/maintenance.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../using-two-editors.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                      </div></a></li>
+                                  <li><a href="../saving-data.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                      </div></a></li>
+                                  <li><a href="../content-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                      </div></a></li>
+                                  <li><a href="../csp.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                      </div></a></li>
+                                  <li><a href="../plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                      </div></a></li>
+                                  <li><a href="../features-html-output-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                              </div></a></li>
+                                          <li><a href="dll-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                              </div></a></li>
+                                          <li><a href="dll-builds-collaboration-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                              </div></a></li>
+                                          <li><a href="predefined-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="features"><a href="../../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/installation/advanced/integrating-from-source.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Installation</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../../assets/2.1.3/img/book.svg" alt="guide">Integrating from source
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#webpack-configuration">webpack configuration</a><ol><li><a href="#webpack-encore">Webpack Encore</a></li></ol></li><li><a href="#running-the-editor-method-1">Running the editor &#x2013; method 1</a></li><li><a href="#running-the-editor-method-2">Running the editor &#x2013; method 2</a></li><li><a href="#building">Building</a></li><li><a href="#option-minifying-javascript">Option: Minifying JavaScript</a></li><li><a href="#option-extracting-css">Option: Extracting CSS</a></li><li><a href="#option-building-to-es5-target">Option: Building to ES5 target</a></li></ol></nav>
+<div class="info-box notice"><p>CKEditor 5 is currently built using <a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack@5</a>. All builds, examples and demos are generated using this bundler. It should also be possible to build CKEditor 5 using other bundlers (if they are configured properly), such as <a href="https://github.com/rollup/rollup" target="_blank" rel="noopener">Rollup</a> or <a href="http://browserify.org/" target="_blank" rel="noopener">Browserify</a>, but these setups are not officially supported yet. Also, the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-dev-webpack-plugin" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-dev-webpack-plugin</code></a> that allows to localize the editor is only available for webpack. More work on this subject will be done in the future.</p><p>Therefore, a prerequisite to this guide is that you are using webpack as your build tool.</p></div>
+<p>This scenario allows you to fully control the building process of CKEditor 5. This means that you will not actually use the builds anymore, but instead build CKEditor from source directly into your project. This integration method gives you full control over which features will be included and how webpack will be configured.</p>
+<div class="info-box notice"><p>Similar results to what this method allows can be achieved by <a href="../../getting-started/quick-start.html#building-the-editor-from-source">customizing an existing build</a> and integrating your custom build. This will give faster build times (since CKEditor 5 will be built once and committed), however, it requires maintaining a separate repository and installing the code from that repository into your project (e.g. by publishing a new npm package or using tools like <a href="https://github.com/lerna/lerna" target="_blank" rel="noopener">Lerna</a>). This makes it less convenient than the method described in this scenario.</p></div>
+<p>First of all, you need to install source packages that you will use. If you base your integration on one of the existing builds, you can take them from that build&#x2019;s <code>package.json</code> file (see e.g. <a href="https://github.com/ckeditor/ckeditor5/blob/master/packages/ckeditor5-build-classic/package.json" target="_blank" rel="noopener">classic build&#x2019;s <code>package.json</code></a>). At this moment you can choose the editor creator and the features you want. Keep in mind, however, that all packages (excluding <code>@ckeditor/ckeditor5-dev-*</code>) <a href="../../getting-started/installing-plugins.html#requirements">must have the same version as the base editor package</a>.</p>
+<p>Copy these dependencies to your <code>package.json</code> and call <code>npm install</code> to install them. The <code>dependencies</code> (or <code>devDependencies</code>) section of <code>package.json</code> should look more or less like this:</p>
+<pre class="highlight"><code class="js">&quot;dependencies&quot;: {
+    // ...
+
+    &quot;@ckeditor/ckeditor5-adapter-ckfinder&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-autoformat&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-basic-styles&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-block-quote&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-easy-image&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-editor-classic&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-essentials&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-heading&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-image&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-link&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-list&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-paragraph&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-theme-lark&quot;: &quot;^x.y.z&quot;,
+    &quot;@ckeditor/ckeditor5-upload&quot;: &quot;^x.y.z&quot;
+
+    // ...
+}
+</code></pre>
+<p>The second step is to install dependencies needed to build the editor. The list may differ if you want to customize the webpack configuration, but this is a typical setup:</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    @ckeditor/ckeditor5-dev-webpack-plugin \
+    @ckeditor/ckeditor5-dev-utils \
+    css-loader@5 \
+    postcss-loader@4 \
+    raw-loader@4 \
+    style-loader@2 \
+    webpack@5 \
+    webpack-cli@4
+</code></pre>
+<h2 id="webpack-configuration"><a class="headerlink" href="#webpack-configuration">#</a> webpack configuration</h2>
+<p>You can now configure webpack. There are a couple of things that you need to take care of when building CKEditor 5:</p>
+<ul>
+<li>Handling CSS files of the CKEditor theme. They are included in the CKEditor 5 sources using <code>import &apos;path/to/styles.css&apos;</code> statements, so you need <a href="https://webpack.js.org/loaders/" target="_blank" rel="noopener">proper loaders</a>.</li>
+<li>Similarly, you need to handle bundling SVG icons, which are also imported directly into the source. For that you need the <a href="https://webpack.js.org/loaders/raw-loader/" target="_blank" rel="noopener"><code>raw-loader</code></a>.</li>
+<li>Finally, to localize the editor you need to use the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-dev-webpack-plugin" target="_blank" rel="noopener"><code>@ckeditor/ckeditor5-dev-webpack-plugin</code></a> webpack plugin.</li>
+</ul>
+<p>The minimal configuration, assuming that you use the same methods of handling assets as CKEditor 5 builds, will look like this:</p>
+<pre class="highlight"><code class="js">const CKEditorWebpackPlugin = require( &apos;@ckeditor/ckeditor5-dev-webpack-plugin&apos; );
+const { styles } = require( &apos;@ckeditor/ckeditor5-dev-utils&apos; );
+
+module.exports = {
+    plugins: [
+        // ...
+
+        new CKEditorWebpackPlugin( {
+            // See https://ckeditor.com/docs/ckeditor5/latest/features/ui-language.html
+            language: &apos;pl&apos;
+        } )
+    ],
+
+    module: {
+        rules: [
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+                use: [ &apos;raw-loader&apos; ]
+            },
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
+                use: [
+                    {
+                        loader: &apos;style-loader&apos;,
+                        options: {
+                            injectType: &apos;singletonStyleTag&apos;,
+                            attributes: {
+                                &apos;data-cke&apos;: true
+                            }
+                        }
+                    },
+                    &apos;css-loader&apos;,
+                    {
+                        loader: &apos;postcss-loader&apos;,
+                        options: {
+                            postcssOptions: styles.getPostCssConfig( {
+                                themeImporter: {
+                                    themePath: require.resolve( &apos;@ckeditor/ckeditor5-theme-lark&apos; )
+                                },
+                                minify: true
+                            } )
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+};
+</code></pre>
+<div class="info-box notice"><p>If you cannot use the latest webpack (at the moment of writing this guide, it is 5), the provided configuration will also work with webpack 4.</p></div>
+<h4 id="webpack-encore"><a class="headerlink" href="#webpack-encore">#</a> Webpack Encore</h4>
+<p>If you use <a href="https://github.com/symfony/webpack-encore" target="_blank" rel="noopener">Webpack Encore</a>, you can use the following configuration:</p>
+<pre class="highlight"><code class="js">const CKEditorWebpackPlugin = require( &apos;@ckeditor/ckeditor5-dev-webpack-plugin&apos; );
+const { styles } = require( &apos;@ckeditor/ckeditor5-dev-utils&apos; );
+
+Encore.
+    // ... your configuration ...
+
+    .addPlugin( new CKEditorWebpackPlugin( {
+        // See https://ckeditor.com/docs/ckeditor5/latest/features/ui-language.html
+        language: &apos;pl&apos;
+    } ) )
+
+    // Use raw-loader for CKEditor 5 SVG files.
+    .addRule( {
+        test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+        loader: &apos;raw-loader&apos;
+    } )
+
+    // Configure other image loaders to exclude CKEditor 5 SVG files.
+    .configureLoaderRule( &apos;images&apos;, loader =&gt; {
+        loader.exclude = /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/;
+    } )
+
+    // Configure PostCSS loader.
+    .addLoader({
+        test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
+        loader: &apos;postcss-loader&apos;,
+        options: {
+            postcssOptions: styles.getPostCssConfig( {
+                themeImporter: {
+                    themePath: require.resolve( &apos;@ckeditor/ckeditor5-theme-lark&apos; )
+                },
+                minify: true
+            } )
+        }
+    } )
+</code></pre>
+<h2 id="running-the-editor-method-1"><a class="headerlink" href="#running-the-editor-method-1">#</a> Running the editor &#x2013; method 1</h2>
+<p>You can now import all the needed plugins and the creator directly into your code and use it there. The easiest way to do so is to copy it from the <code>src/ckeditor.js</code> file available in every build repository.</p>
+<pre class="highlight"><code class="js">import ClassicEditorBase from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import EssentialsPlugin from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import UploadAdapterPlugin from &apos;@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter&apos;;
+import AutoformatPlugin from &apos;@ckeditor/ckeditor5-autoformat/src/autoformat&apos;;
+import BoldPlugin from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import ItalicPlugin from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+import BlockQuotePlugin from &apos;@ckeditor/ckeditor5-block-quote/src/blockquote&apos;;
+import EasyImagePlugin from &apos;@ckeditor/ckeditor5-easy-image/src/easyimage&apos;;
+import HeadingPlugin from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import ImagePlugin from &apos;@ckeditor/ckeditor5-image/src/image&apos;;
+import ImageCaptionPlugin from &apos;@ckeditor/ckeditor5-image/src/imagecaption&apos;;
+import ImageStylePlugin from &apos;@ckeditor/ckeditor5-image/src/imagestyle&apos;;
+import ImageToolbarPlugin from &apos;@ckeditor/ckeditor5-image/src/imagetoolbar&apos;;
+import ImageUploadPlugin from &apos;@ckeditor/ckeditor5-image/src/imageupload&apos;;
+import LinkPlugin from &apos;@ckeditor/ckeditor5-link/src/link&apos;;
+import ListPlugin from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import ParagraphPlugin from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+
+export default class ClassicEditor extends ClassicEditorBase {}
+
+ClassicEditor.builtinPlugins = [
+    EssentialsPlugin,
+    UploadAdapterPlugin,
+    AutoformatPlugin,
+    BoldPlugin,
+    ItalicPlugin,
+    BlockQuotePlugin,
+    EasyImagePlugin,
+    HeadingPlugin,
+    ImagePlugin,
+    ImageCaptionPlugin,
+    ImageStylePlugin,
+    ImageToolbarPlugin,
+    ImageUploadPlugin,
+    LinkPlugin,
+    ListPlugin,
+    ParagraphPlugin
+];
+
+ClassicEditor.defaultConfig = {
+    toolbar: {
+        items: [
+            &apos;heading&apos;,
+            &apos;|&apos;,
+            &apos;bold&apos;,
+            &apos;italic&apos;,
+            &apos;link&apos;,
+            &apos;bulletedList&apos;,
+            &apos;numberedList&apos;,
+            &apos;uploadImage&apos;,
+            &apos;blockQuote&apos;,
+            &apos;undo&apos;,
+            &apos;redo&apos;
+        ]
+    },
+    image: {
+        toolbar: [
+            &apos;imageStyle:inline&apos;,
+            &apos;imageStyle:block&apos;,
+            &apos;imageStyle:side&apos;,
+            &apos;|&apos;,
+            &apos;toggleImageCaption&apos;,
+            &apos;imageTextAlternative&apos;
+        ]
+    },
+    language: &apos;en&apos;
+};
+</code></pre>
+<p>This module will export an editor creator class which has all the plugins and configuration that you need already built-in. To use such editor, simply import that class and call the static <code>.create()</code> method like in all <a href="../../getting-started/basic-api.html#creating-an-editor">examples</a>.</p>
+<pre class="highlight"><code class="js">import ClassicEditor from &apos;./ckeditor&apos;;
+
+ClassicEditor
+    // Note that you do not have to specify the plugin and toolbar configuration &#x2014; using defaults from the build.
+    .create( document.querySelector( &apos;#editor&apos; ) )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+    } )
+    .catch( error =&gt; {
+        console.error( error.stack );
+    } );
+</code></pre>
+<h2 id="running-the-editor-method-2"><a class="headerlink" href="#running-the-editor-method-2">#</a> Running the editor &#x2013; method 2</h2>
+<p>The second variant how to run the editor is to use the creator class directly, without creating an intermediary subclass. The above code would translate to:</p>
+<pre class="highlight"><code class="js">import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import EssentialsPlugin from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import UploadAdapterPlugin from &apos;@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter&apos;;
+import AutoformatPlugin from &apos;@ckeditor/ckeditor5-autoformat/src/autoformat&apos;;
+import BoldPlugin from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import ItalicPlugin from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+import BlockQuotePlugin from &apos;@ckeditor/ckeditor5-block-quote/src/blockquote&apos;;
+import EasyImagePlugin from &apos;@ckeditor/ckeditor5-easy-image/src/easyimage&apos;;
+import HeadingPlugin from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import ImagePlugin from &apos;@ckeditor/ckeditor5-image/src/image&apos;;
+import ImageCaptionPlugin from &apos;@ckeditor/ckeditor5-image/src/imagecaption&apos;;
+import ImageStylePlugin from &apos;@ckeditor/ckeditor5-image/src/imagestyle&apos;;
+import ImageToolbarPlugin from &apos;@ckeditor/ckeditor5-image/src/imagetoolbar&apos;;
+import ImageUploadPlugin from &apos;@ckeditor/ckeditor5-image/src/imageupload&apos;;
+import LinkPlugin from &apos;@ckeditor/ckeditor5-link/src/link&apos;;
+import ListPlugin from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import ParagraphPlugin from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos;), {
+        // The plugins are now passed directly to .create().
+        plugins: [
+            EssentialsPlugin,
+            AutoformatPlugin,
+            BoldPlugin,
+            ItalicPlugin,
+            BlockQuotePlugin,
+            HeadingPlugin,
+            ImagePlugin,
+            ImageCaptionPlugin,
+            ImageStylePlugin,
+            ImageToolbarPlugin,
+            EasyImagePlugin,
+            ImageUploadPlugin,
+            LinkPlugin,
+            ListPlugin,
+            ParagraphPlugin,
+            UploadAdapterPlugin
+        ],
+
+        // So is the rest of the default configuration.
+        toolbar: [
+            &apos;heading&apos;,
+            &apos;bold&apos;,
+            &apos;italic&apos;,
+            &apos;link&apos;,
+            &apos;bulletedList&apos;,
+            &apos;numberedList&apos;,
+            &apos;uploadImage&apos;,
+            &apos;blockQuote&apos;,
+            &apos;undo&apos;,
+            &apos;redo&apos;
+        ],
+        image: {
+            toolbar: [
+                &apos;imageStyle:inline&apos;,
+                &apos;imageStyle:block&apos;,
+                &apos;imageStyle:side&apos;,
+                &apos;|&apos;,
+                &apos;toggleImageCaption&apos;,
+                &apos;imageTextAlternative&apos;
+            ]
+        }
+    } )
+    .then( editor =&gt; {
+        console.log( editor );
+    } )
+    .catch( error =&gt; {
+        console.error( error );
+    } );
+</code></pre>
+<h2 id="building"><a class="headerlink" href="#building">#</a> Building</h2>
+<p>Finally, you can build your application. Run webpack on your project and the rich-text editor will be a part of it.</p>
+<h2 id="option-minifying-javascript"><a class="headerlink" href="#option-minifying-javascript">#</a> Option: Minifying JavaScript</h2>
+<p>Webpack 4 introduced the <a href="https://webpack.js.org/concepts/mode/" target="_blank" rel="noopener">concept of modes</a>. It comes with two predefined modes: <code>development</code> and <code>production</code>. The latter automatically enables <a href="https://www.npmjs.com/package/uglifyjs-webpack-plugin" target="_blank" rel="noopener"><code>uglifyjs-webpack-plugin</code></a> which takes care of JavaScript minification. Therefore, it is enough to execute <code>webpack</code> with the <code>--mode production</code> option or set <code>mode: &apos;production&apos;</code> in your <code>webpack.config.js</code> to optimize the build.</p>
+<div class="info-box notice"><p>Prior to version 1.2.7 <code>uglifyjs-webpack-plugin</code> had a bug which caused webpack to crash with the following error: <code>TypeError: Assignment to constant variable</code>. If you experienced this error, make sure that your <code>node_modules</code> contains an up-to-date version of this package (and that webpack uses this version).</p><p>CKEditor 5 builds use <a href="https://github.com/terser/terser" target="_blank" rel="noopener"><code>Terser</code></a> instead of <code>uglifyjs-webpack-plugin</code> because <a href="https://github.com/ckeditor/ckeditor5/issues/1353" target="_blank" rel="noopener">the latter one is not supported anymore</a>.</p></div>
+<h2 id="option-extracting-css"><a class="headerlink" href="#option-extracting-css">#</a> Option: Extracting CSS</h2>
+<p>One of the most common requirements is to extract CKEditor 5 CSS to a separate file (by default it is included in the output JavaScript file). To do that, you can use <a href="https://www.npmjs.com/package/mini-css-extract-plugin" target="_blank" rel="noopener"><code>mini-css-extract-plugin</code></a>:</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    mini-css-extract-plugin \
+    css-loader@5
+</code></pre>
+<p>And add it to your webpack configuration:</p>
+<pre class="highlight"><code class="js">const MiniCssExtractPlugin = require( &apos;mini-css-extract-plugin&apos; );
+
+module.exports = {
+    // ...
+
+    plugins: [
+        // ...
+
+        new MiniCssExtractPlugin( {
+            filename: &apos;styles.css&apos;
+        } )
+    ],
+
+    module: {
+        rules: [
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+                use: [ &apos;raw-loader&apos; ]
+            },
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    &apos;css-loader&apos;,
+                    {
+                        loader: &apos;postcss-loader&apos;,
+                        options: {
+                            postcssOptions: styles.getPostCssConfig( {
+                                themeImporter: {
+                                    themePath: require.resolve( &apos;@ckeditor/ckeditor5-theme-lark&apos; )
+                                },
+                                minify: true
+                            } )
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+};
+</code></pre>
+<p>Webpack will now create a separate file called <code>styles.css</code> which you will need to load manually into your HTML (using the <code>&lt;link rel=&quot;stylesheet&quot;&gt;</code> tag).</p>
+<h2 id="option-building-to-es5-target"><a class="headerlink" href="#option-building-to-es5-target">#</a> Option: Building to ES5 target</h2>
+<p>CKEditor 5 is written in ECMAScript 2015 (also called ES6). All browsers in which CKEditor 5 is <a href="../../../support/browser-compatibility.html">currently supported</a> have sufficient ES6 support to run CKEditor 5. Thanks to that, CKEditor 5 builds are also published in the original ES6 format.</p>
+<p>However, it may happen that your environment requires ES5. For instance, if you use tools like the original <a href="https://github.com/mishoo/UglifyJS" target="_blank" rel="noopener">UglifyJS</a> which do not support ES6+ yet, you may need to transpile CKEditor 5 source to ES5. This will create ~80% bigger builds but will ensure that your environment can process CKEditor 5 code.</p>
+<p>In order to create an ES5 build of CKEditor 5 you can use <a href="https://babeljs.io/" target="_blank" rel="noopener">Babel</a>:</p>
+<pre class="highlight"><code class="bash">npm install --save babel-loader @babel/core @babel/preset-env regenerator-runtime
+</code></pre>
+<p>Then, add this item to webpack <a href="https://webpack.js.org/configuration/module/#module-rules" target="_blank" rel="noopener"><code>module.rules</code></a> section:</p>
+<pre class="highlight"><code class="js">module: {
+    rules: [
+        {
+            // Match files from the `ckeditor5` package but also `ckeditor5-*` packages.
+            test: /(ckeditor5(?:-[^\/\\]+)?)[\/\\].+\.js$/,
+            use: [
+                {
+                    loader: &apos;babel-loader&apos;,
+                    options: {
+                        presets: [ require( &apos;@babel/preset-env&apos; ) ]
+                    }
+                }
+            ]
+        },
+        ...
+    ]
+}
+</code></pre>
+<p>And load <a href="https://www.npmjs.com/package/regenerator-runtime" target="_blank" rel="noopener"><code>regenerator-runtime</code></a> (needed to make ES6 generators work after transpilation) by adding it as the first <a href="https://webpack.js.org/configuration/entry-context/#entry" target="_blank" rel="noopener">entry point</a>:</p>
+<pre class="highlight"><code class="js">entry: [
+    require.resolve( &apos;regenerator-runtime/runtime.js&apos; ),
+
+    // Your entries...
+]
+</code></pre>
+<div class="info-box notice"><p>This setup ensures that the source code is transpiled to ES5. However, it does not ensure that all ES6 polyfills are loaded. Therefore, if you would like to, for example, give <a href="https://github.com/ckeditor/ckeditor5/issues/330" target="_blank" rel="noopener">bringing IE11 compatibility</a> a try, make sure to also load <a href="https://babeljs.io/docs/usage/polyfill/" target="_blank" rel="noopener"><code>babel-polyfill</code></a>.</p></div>
+<div class="info-box notice"><p>The <a href="https://github.com/babel/babel-preset-env" target="_blank" rel="noopener"><code>babel-preset-env</code></a> package lets you choose the environment that you want to support and transpiles ES6+ features to match that environment&#x2019;s capabilities. Without configuration it will produce ES5 builds.</p></div>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22installation%2Fadvanced%2Falternative-setups%2Fintegrating-from-source.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../getting-started/quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="../../getting-started/configuration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                        </div></a></li>
+                                    <li><a href="../../getting-started/installing-plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                        </div></a></li>
+                                    <li><a href="../../getting-started/basic-api.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../getting-started/frameworks/overview.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../../getting-started/frameworks/angular.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                                  </div></a></li>
+                                              <li><a href="../../getting-started/frameworks/react.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                                  </div></a></li>
+                                              <li><a href="../../getting-started/frameworks/vuejs-v2.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                                  </div></a></li>
+                                              <li><a href="../../getting-started/frameworks/vuejs-v3.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                                  </div></a></li>
+                                              <li><a href="../../getting-started/frameworks/css.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../../getting-started/migration-from-ckeditor-4.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="../../getting-started/maintenance.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../using-two-editors.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                        </div></a></li>
+                                    <li><a href="../saving-data.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                        </div></a></li>
+                                    <li><a href="../content-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                        </div></a></li>
+                                    <li><a href="../csp.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                        </div></a></li>
+                                    <li><a href="../plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                        </div></a></li>
+                                    <li><a href="../features-html-output-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                                  </div></a></li>
+                                              <li><a href="dll-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                                  </div></a></li>
+                                              <li><a href="dll-builds-collaboration-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                                  </div></a></li>
+                                              <li><a href="predefined-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'installation' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'installation' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'installation' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'installation' ] );tags.forEach( function( tag ) {if ( tag !== 'installation' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creating custom editor - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:53 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Creating custom editor - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/ui/custom-editor-creator.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Creating custom editor - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/ui/custom-editor-creator.html">
+    <link rel="icon" type="image/png" href="../../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../../index.html">CKEditor 5</a></li>
+          <li><a href="../../../../installation/index.html">Installation</a></li>
+          <li><a href="../../../../features/index.html">Features</a></li>
+          <li><a href="../../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../../support/index.html">Support</a></li>
+          <li><a class="top__menu__item--active" href="../../../index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../../../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../../../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../../index.html">Framework</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../../quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="../../development-tools.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development tools</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../architecture/intro.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                              </div></a></li>
+                                          <li><a href="../../architecture/core-editor-architecture.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                              </div></a></li>
+                                          <li><a href="../../architecture/editing-engine.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                              </div></a></li>
+                                          <li><a href="../../architecture/ui-library.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Developing custom plugins</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../plugins/creating-simple-plugin.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a simple plugin</span>
+                                              </div></a></li>
+                                          <li><a href="../../plugins/package-generator.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced tutorials</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../tutorials/implementing-a-block-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                              </div></a></li>
+                                          <li><a href="../../tutorials/implementing-an-inline-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                              </div></a></li>
+                                          <li><a href="../../tutorials/using-react-in-a-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../clipboard.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                              </div></a></li>
+                                          <li><a href="../upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../event-system.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                              </div></a></li>
+                                          <li><a href="../observables.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                              </div></a></li>
+                                          <li><a href="../schema.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list">
+                                                  <li><a href="../conversion/intro.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                      </div></a></li>
+                                                  <li><a href="../conversion/downcast.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                      </div></a></li>
+                                                  <li><a href="../conversion/upcast.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                      </div></a></li>
+                                                  <li>
+                                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                    </div>
+                                                    <ul class="tree__item-nested-list">
+                                                          <li><a href="../conversion/helpers/intro.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                              </div></a></li>
+                                                          <li><a href="../conversion/helpers/downcast.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                              </div></a></li>
+                                                          <li><a href="../conversion/helpers/upcast.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                              </div></a></li>
+                                                    </ul>
+                                                  </li>
+                                            </ul>
+                                          </li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list">
+                                                  <li><a href="focus-tracking.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                      </div></a></li>
+                                                  <li><a href="widget-internals.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                      </div></a></li>
+                                                  <li><a href="theme-customization.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                      </div></a></li>
+                                                  <li><a href="external-ui.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third–party UI</span>
+                                                      </div></a></li>
+                                                  <li><a href="document-editor.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                      </div></a></li>
+                                                  <li><a href="">
+                                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                      </div></a></li>
+                                                  <li><a href="localization.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../contributing/contributing.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                              </div></a></li>
+                                          <li><a href="../../contributing/development-environment.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                              </div></a></li>
+                                          <li><a href="../../contributing/testing-environment.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                              </div></a></li>
+                                          <li><a href="../../contributing/code-style.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                              </div></a></li>
+                                          <li><a href="../../contributing/package-metadata.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                              </div></a></li>
+                                          <li><a href="../../contributing/git-commit-message-convention.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="api-reference"><a href="../../../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/framework/guides/custom-editor-creator.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">Framework</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../../../assets/2.1.3/img/book.svg" alt="guide">Implementing a custom editor creator
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#editor-class">Editor class</a></li><li><a href="#editorui-class">EditorUI class</a></li><li><a href="#editoruiview-class">EditorUIView class</a></li><li><a href="#initializing-custom-editor-instance">Initializing custom editor instance</a></li></ol></nav>
+<p>The flexible architecture of CKEditor 5 allows creating completely custom editors. Not only the <a href="../../../../examples/framework/theme-customization.html">theme styling can be changed</a> or the <a href="../../../../examples/framework/custom-ui.html">UI redesigned</a> but also the entire editor initialization process can be modified allowing to create new editor types. Thanks to that, apart from the standard editors (like <a href="../../../../examples/builds/classic-editor.html">classic</a>, <a href="../../../../examples/builds/inline-editor.html">inline</a>, <a href="../../../../examples/builds/balloon-editor.html">balloon</a> or <a href="../../../../examples/builds/document-editor.html">document</a>), custom types like a <a href="../../../../examples/framework/multi-root-editor.html"><strong>multi-root editor</strong></a> can be created.</p>
+<p>This guide goes through the process of implementing a custom, multi-root editor. You can check out the <a href="../../../../examples/framework/multi-root-editor.html">demo of the multi-root editor</a> too.</p>
+<h2 id="editor-class"><a class="headerlink" href="#editor-class">#</a> Editor class</h2>
+<p>The <code>*Editor</code> class is the main class of each editor type. It initializes the whole editor and its UI parts. The custom creator class should extend the <a href="../../../../api/module_core_editor_editor-Editor.html">base <code>Editor</code> class</a>. In case of a multi-root editor it may look like below:</p>
+<pre class="highlight"><code class="js">import Editor from &apos;@ckeditor/ckeditor5-core/src/editor/editor&apos;;
+import DataApiMixin from &apos;@ckeditor/ckeditor5-core/src/editor/utils/dataapimixin&apos;;
+import getDataFromElement from &apos;@ckeditor/ckeditor5-utils/src/dom/getdatafromelement&apos;;
+import setDataInElement from &apos;@ckeditor/ckeditor5-utils/src/dom/setdatainelement&apos;;
+import mix from &apos;@ckeditor/ckeditor5-utils/src/mix&apos;;
+
+/**
+ * The multi-root editor implementation. It provides inline editables and a single toolbar.
+ *
+ * Unlike other editors, the toolbar is not rendered automatically and needs to be attached to the DOM manually.
+ *
+ * This type of an editor is dedicated to integrations which require a customized UI with an open
+ * structure, allowing developers to specify the exact location of the interface.
+ *
+ * @mixes module:core/editor/utils/dataapimixin~DataApiMixin
+ * @implements module:core/editor/editorwithui~EditorWithUI
+ * @extends module:core/editor/editor~Editor
+ */
+class MultirootEditor extends Editor {
+    /**
+     * Creates an instance of the multi-root editor.
+     *
+     * **Note:** Do not use the constructor to create editor instances. Use the static `MultirootEditor.create()` method instead.
+     *
+     * @protected
+     * @param {Object.&lt;String,HTMLElement&gt;} sourceElements The list of DOM elements that will be the source
+     * for the created editor (on which the editor will be initialized).
+     * @param {module:core/editor/editorconfig~EditorConfig} config The editor configuration.
+     */
+    constructor( sourceElements, config ) {
+        super( config );
+
+        if ( this.config.get( &apos;initialData&apos; ) === undefined ) {
+            // Create initial data object containing data from all roots.
+            const initialData = {};
+
+            for ( const rootName of Object.keys( sourceElements ) ) {
+                initialData[ rootName ] = getDataFromElement( sourceElements[ rootName ] );
+            }
+
+            this.config.set( &apos;initialData&apos;, initialData );
+        }
+
+        // Create root and UIView element for each editable container.
+        for ( const rootName of Object.keys( sourceElements ) ) {
+            this.model.document.createRoot( &apos;$root&apos;, rootName );
+        }
+
+        this.ui = new MultirootEditorUI( this, new MultirootEditorUIView( this.locale, this.editing.view, sourceElements ) );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    destroy() {
+        // Cache the data and editable DOM elements, then destroy.
+        // It&apos;s safe to assume that the model-&gt;view conversion will not work after super.destroy(),
+        // same as `ui.getEditableElement()` method will not return editables.
+        const data = {};
+        const editables = {};
+        const editablesNames = Array.from( this.ui.getEditableElementsNames() );
+
+        for ( const rootName of editablesNames ) {
+            data[ rootName ] = this.getData( { rootName } );
+            editables[ rootName ] = this.ui.getEditableElement( rootName );
+        }
+
+        this.ui.destroy();
+
+        return super.destroy()
+            .then( () =&gt; {
+                for ( const rootName of editablesNames ) {
+                    setDataInElement( editables[ rootName ], data[ rootName ] );
+                }
+            } );
+    }
+
+    /**
+     * Creates a multi-root editor instance.
+     *
+     * @param {Object.&lt;String,HTMLElement&gt;} sourceElements The list of DOM elements that will be the source
+     * for the created editor (on which the editor will be initialized).
+     * @param {module:core/editor/editorconfig~EditorConfig} config The editor configuration.
+     * @returns {Promise} A promise resolved once the editor is ready. The promise returns the created multi-root editor instance.
+     */
+    static create( sourceElements, config ) {
+        return new Promise( resolve =&gt; {
+            const editor = new this( sourceElements, config );
+
+            resolve(
+                editor.initPlugins()
+                    .then( () =&gt; editor.ui.init() )
+                    .then( () =&gt; editor.data.init( editor.config.get( &apos;initialData&apos; ) ) )
+                    .then( () =&gt; editor.fire( &apos;ready&apos; ) )
+                    .then( () =&gt; editor )
+            );
+        } );
+    }
+}
+
+mix( MultirootEditor, DataApiMixin );
+</code></pre>
+<h2 id="editorui-class"><a class="headerlink" href="#editorui-class">#</a> EditorUI class</h2>
+<p>The <code>*EditorUI</code> class is the main UI class which initializes UI components (the main view and the toolbar) and sets up mechanisms like <a href="focus-tracking.html#using-the-focustracker-class">focus tracker</a> or placeholder management. The custom <code>*EditorUI</code> class should extend the <a href="../../../../api/module_core_editor_editorui-EditorUI.html">base <code>EditorUI</code> class</a> like below:</p>
+<pre class="highlight"><code class="js">import EditorUI from &apos;@ckeditor/ckeditor5-core/src/editor/editorui&apos;;
+import enableToolbarKeyboardFocus from &apos;@ckeditor/ckeditor5-ui/src/toolbar/enabletoolbarkeyboardfocus&apos;;
+import { enablePlaceholder } from &apos;@ckeditor/ckeditor5-engine/src/view/placeholder&apos;;
+
+/**
+ * The multi-root editor UI class.
+ *
+ * @extends module:core/editor/editorui~EditorUI
+ */
+class MultirootEditorUI extends EditorUI {
+    /**
+     * Creates an instance of the multi-root editor UI class.
+     *
+     * @param {module:core/editor/editor~Editor} editor The editor instance.
+     * @param {module:ui/editorui/editoruiview~EditorUIView} view The view of the UI.
+     */
+    constructor( editor, view ) {
+        super( editor );
+
+        /**
+         * The main (top&#x2013;most) view of the editor UI.
+         *
+         * @readonly
+         * @member {module:ui/editorui/editoruiview~EditorUIView} #view
+         */
+        this.view = view;
+    }
+
+    /**
+     * Initializes the UI.
+     */
+    init() {
+        const view = this.view;
+        const editor = this.editor;
+        const editingView = editor.editing.view;
+
+        let lastFocusedEditableElement;
+
+        view.render();
+
+        // Keep track of the last focused editable element. Knowing which one was focused
+        // is useful when the focus moves from editable to other UI components like balloons
+        // (especially inputs) but the editable remains the &quot;focus context&quot; (e.g. link balloon
+        // attached to a link in an editable). In this case, the editable should preserve visual
+        // focus styles.
+        this.focusTracker.on( &apos;change:focusedElement&apos;, ( evt, name, focusedElement ) =&gt; {
+            for ( const editable of this.view.editables ) {
+                if ( editable.element === focusedElement ) {
+                    lastFocusedEditableElement = editable.element;
+                }
+            }
+        } );
+
+        // If the focus tracker loses focus, stop tracking the last focused editable element.
+        // Wherever the focus is restored, it will no longer be in the context of that editable
+        // because the focus &quot;came from the outside&quot;, as opposed to the focus moving from one element
+        // to another withing the editor UI.
+        this.focusTracker.on( &apos;change:isFocused&apos;, ( evt, name, isFocused ) =&gt; {
+            if ( !isFocused ) {
+                lastFocusedEditableElement = null;
+            }
+        } );
+
+        for ( const editable of this.view.editables ) {
+            // The editable UI element in DOM is available for sure only after the editor UI view has been rendered.
+            // But it can be available earlier if a DOM element has been passed to MultirootEditor.create().
+            const editableElement = editable.element;
+
+            // Register each editable UI view in the editor.
+            this.setEditableElement( editable.name, editableElement );
+
+            // Let the global focus tracker know that the editable UI element is focusable and
+            // belongs to the editor. From now on, the focus tracker will sustain the editor focus
+            // as long as the editable is focused (e.g. the user is typing).
+            this.focusTracker.add( editableElement );
+
+            // Let the editable UI element respond to the changes in the global editor focus
+            // tracker. It has been added to the same tracker a few lines above but, in reality, there are
+            // many focusable areas in the editor, like balloons, toolbars or dropdowns and as long
+            // as they have focus, the editable should act like it is focused too (although technically
+            // it isn&apos;t), e.g. by setting the proper CSS class, visually announcing focus to the user.
+            // Doing otherwise will result in editable focus styles disappearing, once e.g. the
+            // toolbar gets focused.
+            editable.bind( &apos;isFocused&apos; ).to( this.focusTracker, &apos;isFocused&apos;, this.focusTracker, &apos;focusedElement&apos;,
+                ( isFocused, focusedElement ) =&gt; {
+                    // When the focus tracker is blurred, it means the focus moved out of the editor UI.
+                    // No editable will maintain focus then.
+                    if ( !isFocused ) {
+                        return false;
+                    }
+
+                    // If the focus tracker says the editor UI is focused and currently focused element
+                    // is the editable, then the editable should be visually marked as focused too.
+                    if ( focusedElement === editableElement ) {
+                        return true;
+                    }
+                    // If the focus tracker says the editor UI is focused but the focused element is
+                    // not an editable, it is possible that the editable is still (context&#x2013;)focused.
+                    // For instance, the focused element could be an input inside of a balloon attached
+                    // to the content in the editable. In such case, the editable should remain _visually_
+                    // focused even though technically the focus is somewhere else. The focus moved from
+                    // the editable to the input but the focus context remained the same.
+                    else {
+                        return lastFocusedEditableElement === editableElement;
+                    }
+                } );
+
+            // Bind the editable UI element to the editing view, making it an end&#x2013; and entry&#x2013;point
+            // of the editor&apos;s engine. This is where the engine meets the UI.
+            editingView.attachDomRoot( editableElement, editable.name );
+        }
+
+        this._initPlaceholder();
+        this._initToolbar();
+        this.fire( &apos;ready&apos; );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    destroy() {
+        const view = this.view;
+        const editingView = this.editor.editing.view;
+
+        for ( const editable of this.view.editables ) {
+            editingView.detachDomRoot( editable.name );
+        }
+
+        view.destroy();
+
+        super.destroy();
+    }
+
+    /**
+     * Initializes the editor main toolbar and its panel.
+     *
+     * @private
+     */
+    _initToolbar() {
+        const editor = this.editor;
+        const view = this.view;
+        const toolbar = view.toolbar;
+
+        toolbar.fillFromConfig( editor.config.get( &apos;toolbar&apos; ), this.componentFactory );
+
+        enableToolbarKeyboardFocus( {
+            origin: editor.editing.view,
+            originFocusTracker: this.focusTracker,
+            originKeystrokeHandler: editor.keystrokes,
+            toolbar
+        } );
+    }
+
+    /**
+     * Enable the placeholder text on the editing root, if any was configured.
+     *
+     * @private
+     */
+    _initPlaceholder() {
+        const editor = this.editor;
+        const editingView = editor.editing.view;
+
+        for ( const editable of this.view.editables ) {
+            const editingRoot = editingView.document.getRoot( editable.name );
+            const sourceElement = this.getEditableElement( editable.name );
+
+            const placeholderText = editor.config.get( &apos;placeholder&apos; )[ editable.name ] ||
+                sourceElement &amp;&amp; sourceElement.tagName.toLowerCase() === &apos;textarea&apos; &amp;&amp; sourceElement.getAttribute( &apos;placeholder&apos; );
+
+            if ( placeholderText ) {
+                enablePlaceholder( {
+                    view: editingView,
+                    element: editingRoot,
+                    text: placeholderText,
+                    isDirectHost: false,
+                    keepOnFocus: true
+                } );
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="editoruiview-class"><a class="headerlink" href="#editoruiview-class">#</a> EditorUIView class</h2>
+<p>Finally, the <code>*EditorUIView</code> class is responsible for registering and handling all editables and creating the editor toolbar. The custom <code>*EditorUIView</code> class should extend the <a href="../../../../api/module_ui_editorui_editoruiview-EditorUIView.html">base <code>EditorUIView</code> class</a>:</p>
+<pre class="highlight"><code class="js">import EditorUIView from &apos;@ckeditor/ckeditor5-ui/src/editorui/editoruiview&apos;;
+import InlineEditableUIView from &apos;@ckeditor/ckeditor5-ui/src/editableui/inline/inlineeditableuiview&apos;;
+import ToolbarView from &apos;@ckeditor/ckeditor5-ui/src/toolbar/toolbarview&apos;;
+import Template from &apos;@ckeditor/ckeditor5-ui/src/template&apos;;
+
+/**
+ * The multi-root editor UI view. It is a virtual view providing an inline editable, but without
+ * any specific arrangement of the components in the DOM.
+ *
+ * @extends module:ui/editorui/editoruiview~EditorUIView
+ */
+class MultirootEditorUIView extends EditorUIView {
+    /**
+     * Creates an instance of the multi-root editor UI view.
+     *
+     * @param {module:utils/locale~Locale} locale The <a href="../../../../api/module_core_editor_editor-Editor.html#member-locale"><code>locale</code></a> instance.
+     * @param {module:engine/view/view~View} editingView The editing view instance this view is related to.
+     * @param {Object.&lt;String,HTMLElement&gt;} editableElements The list of editable elements, containing name and html element
+     * for each editable.
+     */
+    constructor( locale, editingView, editableElements ) {
+        super( locale );
+
+        /**
+         * The main toolbar of the multi-root editor UI.
+         *
+         * @readonly
+         * @member {module:ui/toolbar/toolbarview~ToolbarView}
+         */
+        this.toolbar = new ToolbarView( locale );
+
+        /**
+         * The editables of the multi-root editor UI.
+         *
+         * @readonly
+         * @member {Array.&lt;module:ui/editableui/inline/inlineeditableuiview~InlineEditableUIView&gt;}
+         */
+        this.editables = [];
+
+        // Create InlineEditableUIView instance for each editable.
+        for ( const editableName of Object.keys( editableElements ) ) {
+            const editable = new InlineEditableUIView( locale, editingView, editableElements[ editableName ] );
+
+            editable.name = editableName;
+            this.editables.push( editable );
+        }
+
+        // This toolbar may be placed anywhere in the page so things like font size need to be reset in it.
+        // Because of the above, make sure the toolbar supports rounded corners.
+        // Also, make sure the toolbar has the proper dir attribute because its ancestor may not have one
+        // and some toolbar item styles depend on this attribute.
+        Template.extend( this.toolbar.template, {
+            attributes: {
+                class: [
+                    &apos;ck-reset_all&apos;,
+                    &apos;ck-rounded-corners&apos;
+                ],
+                dir: locale.uiLanguageDirection
+            }
+        } );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    render() {
+        super.render();
+
+        this.registerChild( this.editables );
+        this.registerChild( [ this.toolbar ] );
+    }
+}
+</code></pre>
+<h2 id="initializing-custom-editor-instance"><a class="headerlink" href="#initializing-custom-editor-instance">#</a> Initializing custom editor instance</h2>
+<p>Now with the multi-root editor creator ready, the fully usable editor instance can be created.</p>
+<p>With HTML like:</p>
+<pre class="highlight"><code class="html">&lt;div id=&quot;toolbar&quot;&gt;&lt;/div&gt;
+
+&lt;header id=&quot;header&quot;&gt;
+    &lt;h2&gt;Gone traveling&lt;/h2&gt;
+    &lt;h3&gt;Monthly travel news and inspiration&lt;/h3&gt;
+&lt;/header&gt;
+
+&lt;div id=&quot;content&quot;&gt;
+    &lt;h3&gt;Destination of the Month&lt;/h3&gt;
+
+    &lt;h4&gt;Valletta&lt;/h4&gt;
+
+    &lt;figure class=&quot;image image-style-align-right&quot;&gt;
+        &lt;img alt=&quot;Picture of a sunlit facade of a Maltan building.&quot; src=&quot;../../../../assets/img/malta.jpg&quot;&gt;
+        &lt;figcaption&gt;It&apos;s siesta time in Valletta.&lt;/figcaption&gt;
+    &lt;/figure&gt;
+
+    &lt;p&gt;The capital city of &lt;a href=&quot;https://en.wikipedia.org/wiki/Malta&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Malta&lt;/a&gt; is the top destination this summer. It&#x2019;s home to a cutting-edge contemporary architecture, baroque masterpieces, delicious local cuisine and at least 8 months of sun. It&#x2019;s also a top destination for filmmakers, so you can take a tour through locations familiar to you from Game of Thrones, Gladiator, Troy and many more.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;demo-row&quot;&gt;
+    &lt;div class=&quot;demo-row__half&quot;&gt;
+        &lt;div id=&quot;footer-left&quot;&gt;
+            &lt;h3&gt;The three greatest things you learn from traveling&lt;/h3&gt;
+            &lt;p&gt;&lt;a href=&quot;#&quot;&gt;Find out more&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;demo-row__half&quot;&gt;
+        &lt;div id=&quot;footer-right&quot;&gt;
+            &lt;h3&gt;Walking the capitals of Europe: Warsaw&lt;/h3&gt;
+            &lt;p&gt;&lt;a href=&quot;#&quot;&gt;Find out more&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>The editor can be initialized with the code below:</p>
+<pre class="highlight"><code class="js">MultirootEditor
+    .create( {
+        header: document.querySelector( &apos;#header&apos; ),
+        content: document.querySelector( &apos;#content&apos; ),
+        footerleft: document.querySelector( &apos;#footer-left&apos; ),
+        footerright: document.querySelector( &apos;#footer-right&apos; )
+    }, {
+        plugins: [ Essentials, Paragraph, Heading, Bold, Italic, List, Link, BlockQuote, Image, ImageCaption,
+            ImageStyle, ImageToolbar, ImageUpload, Table, TableToolbar, MediaEmbed, EasyImage ],
+        toolbar: [ &apos;heading&apos;, &apos;|&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;link&apos;, &apos;bulletedList&apos;, &apos;numberedList&apos;, &apos;uploadImage&apos;, &apos;blockQuote&apos;,
+            &apos;insertTable&apos;, &apos;mediaEmbed&apos;, &apos;undo&apos;, &apos;redo&apos; ],
+        image: {
+            toolbar: [ &apos;toggleImageCaption&apos;, &apos;imageTextAlternative&apos;, &apos;|&apos;, &apos;imageStyle:inline&apos;, &apos;imageStyle:wrapText&apos;, &apos;imageStyle:breakText&apos; ],
+        },
+        table: {
+            contentToolbar: [
+                &apos;tableColumn&apos;,
+                &apos;tableRow&apos;,
+                &apos;mergeTableCells&apos;
+            ]
+        },
+        placeholder: {
+            header: &apos;Header text goes here&apos;,
+            content: &apos;Type content here&apos;,
+            footerleft: &apos;Left footer content&apos;,
+            footerright: &apos;Right footer content&apos;
+        },
+    } )
+    .then( newEditor =&gt; {
+        document.querySelector( &apos;#toolbar&apos; ).appendChild( newEditor.ui.view.toolbar.element );
+
+        window.editor = newEditor;
+    } )
+    .catch( err =&gt; {
+        console.error( err.stack );
+    } );
+</code></pre>
+<p>This will create the exact same editor as the one used on the <a href="../../../../examples/framework/multi-root-editor.html">multi-root editor editor example page</a>.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22framework%2Fguides%2Fdeep-dive%2Fui%2Fcustom-editor-creator.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../../quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="../../development-tools.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development tools</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../architecture/intro.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                  </div></a></li>
+                                              <li><a href="../../architecture/core-editor-architecture.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                                  </div></a></li>
+                                              <li><a href="../../architecture/editing-engine.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                                  </div></a></li>
+                                              <li><a href="../../architecture/ui-library.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Developing custom plugins</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../plugins/creating-simple-plugin.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a simple plugin</span>
+                                                  </div></a></li>
+                                              <li><a href="../../plugins/package-generator.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced tutorials</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../tutorials/implementing-a-block-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../../tutorials/implementing-an-inline-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../../tutorials/using-react-in-a-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../clipboard.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                                  </div></a></li>
+                                              <li><a href="../upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../event-system.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                                  </div></a></li>
+                                              <li><a href="../observables.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                                  </div></a></li>
+                                              <li><a href="../schema.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list">
+                                                        <li><a href="../conversion/intro.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                            </div></a></li>
+                                                        <li><a href="../conversion/downcast.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                            </div></a></li>
+                                                        <li><a href="../conversion/upcast.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                            </div></a></li>
+                                                        <li>
+                                                          <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                          </div>
+                                                          <ul class="tree__item-nested-list">
+                                                                  <li><a href="../conversion/helpers/intro.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                                      </div></a></li>
+                                                                  <li><a href="../conversion/helpers/downcast.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                                      </div></a></li>
+                                                                  <li><a href="../conversion/helpers/upcast.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                                      </div></a></li>
+                                                          </ul>
+                                                        </li>
+                                                </ul>
+                                              </li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list">
+                                                        <li><a href="focus-tracking.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                            </div></a></li>
+                                                        <li><a href="widget-internals.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                            </div></a></li>
+                                                        <li><a href="theme-customization.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                            </div></a></li>
+                                                        <li><a href="external-ui.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third–party UI</span>
+                                                            </div></a></li>
+                                                        <li><a href="document-editor.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                            </div></a></li>
+                                                        <li><a href="">
+                                                            <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                            </div></a></li>
+                                                        <li><a href="localization.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../contributing/contributing.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                                  </div></a></li>
+                                              <li><a href="../../contributing/development-environment.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                                  </div></a></li>
+                                              <li><a href="../../contributing/testing-environment.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                                  </div></a></li>
+                                              <li><a href="../../contributing/code-style.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                                  </div></a></li>
+                                              <li><a href="../../contributing/package-metadata.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                                  </div></a></li>
+                                              <li><a href="../../contributing/git-commit-message-convention.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'framework' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'framework' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'framework' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'framework' ] );tags.forEach( function( tag ) {if ( tag !== 'framework' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

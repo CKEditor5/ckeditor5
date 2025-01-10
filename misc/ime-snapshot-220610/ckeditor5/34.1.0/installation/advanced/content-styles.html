@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Content styles - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:55 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Content styles - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/content-styles.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Content styles - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/content-styles.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Installation</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a href="../../updating/index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../index.html">Installation</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../getting-started/quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="../getting-started/configuration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                      </div></a></li>
+                                  <li><a href="../getting-started/installing-plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                      </div></a></li>
+                                  <li><a href="../getting-started/basic-api.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../getting-started/frameworks/overview.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../getting-started/frameworks/angular.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                              </div></a></li>
+                                          <li><a href="../getting-started/frameworks/react.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                              </div></a></li>
+                                          <li><a href="../getting-started/frameworks/vuejs-v2.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                              </div></a></li>
+                                          <li><a href="../getting-started/frameworks/vuejs-v3.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                              </div></a></li>
+                                          <li><a href="../getting-started/frameworks/css.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../getting-started/migration-from-ckeditor-4.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="../getting-started/maintenance.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="using-two-editors.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                      </div></a></li>
+                                  <li><a href="saving-data.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                      </div></a></li>
+                                  <li><a href="">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                      </div></a></li>
+                                  <li><a href="csp.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                      </div></a></li>
+                                  <li><a href="plugins.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                      </div></a></li>
+                                  <li><a href="features-html-output-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="alternative-setups/integrating-from-source.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                              </div></a></li>
+                                          <li><a href="alternative-setups/dll-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                              </div></a></li>
+                                          <li><a href="alternative-setups/dll-builds-collaboration-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                              </div></a></li>
+                                          <li><a href="alternative-setups/predefined-builds.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/installation/advanced/content-styles.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Installation</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../assets/2.1.3/img/book.svg" alt="guide">Content styles
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#sharing-content-styles-between-frontend-and-backend">Sharing content styles between front&#x2013;end and back&#x2013;end</a></li><li><a href="#the-full-list-of-content-styles">The full list of content styles</a></li></ol></nav>
+<p>Some of the <a href="../../features/index.html">core editor features</a> bring additional CSS to control the look of the content they produce. Take, for example, the <a href="../../features/images/images-overview.html">image feature</a> that needs special content styles to render images and their captions in the content. Or the <a href="../../api/module_block-quote_blockquote-BlockQuote.html">block quote</a> feature that displays quotes in italic with a subtle border on the side.</p>
+<p><img src="../../assets/img/builds-content-styles.png" data-lightbox="true" alt="Editor content styles." width="823"></p>
+<p>Content styles are bundled along with editor UI styles and, together with the JavaScript code of CKEditor 5, they create a monolithic structure called an <a href="alternative-setups/predefined-builds.html#available-builds">editor build</a>. By default, content styles are inseparable from the rest of the editor which means there is no CSS file containing them you could take straight from the editor and use in your application (as opposed to the CKEditor 4 <code>contents.css</code> file). To get the editor content styles, for instance, for the front&#x2013;end of your application, you will have to take additional steps described in this guide.</p>
+<h2 id="sharing-content-styles-between-frontend-and-backend"><a class="headerlink" href="#sharing-content-styles-between-frontend-and-backend">#</a> Sharing content styles between front&#x2013;end and back&#x2013;end</h2>
+<p>By default, content styles are loaded by the editor JavaScript which makes them only present when users edit their content and this, in turn, usually takes place in the back&#x2013;end of an application. If you want to use the same styles in the front&#x2013;end, you may find yourself in a situation that requires you to load CKEditor just for that purpose, which is (performance&#x2013;wise) not the best idea.</p>
+<p>To avoid unnecessary dependencies in your front&#x2013;end, use a stylesheet with a complete list of CKEditor 5 content styles used by all editor features. There are two ways to obtain it:</p>
+<ul>
+<li>By taking it directly from <a href="#the-full-list-of-content-styles">this guide</a> and saving it as a static resource in your application (e.g. <code>content-styles.css</code>) (<strong>recommended</strong>).</li>
+<li>By generating it using a dedicated script. Learn more in the <a href="../../framework/guides/contributing/development-environment.html#generating-content-styles">Development environment</a> guide.</li>
+</ul>
+<p>Load the <code>content-styles.css</code> file in your application by adding the following code to the template:</p>
+<pre class="highlight"><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/assets/content-styles.css&quot; type=&quot;text/css&quot;&gt;
+</code></pre>
+<p>The content in the front&#x2013;end of your application should now look the same as when edited by the users.</p>
+<div class="info-box notice notice__warning"><p><strong>Important!</strong></p><p>If you take a closer look at the content styles, you may notice they are prefixed with the <code>.ck-content</code> class selector. This narrows their scope when used in CKEditor 5 so they do not affect the rest of the application. To use them in the front&#x2013;end, <strong>you will have to</strong> add the <code>ck-content</code> CSS class to the container of your content. Otherwise the styles will not be applied.</p></div>
+<div class="info-box notice"><p>If you are not afraid to get your hands dirty, you can always create a custom CKEditor 5 build from the source code with <strong>all</strong> the CSS (both UI and the content) extracted to a separate file. See how to do that in a <a href="alternative-setups/integrating-from-source.html#option-extracting-css">dedicated guide</a>.</p></div>
+<h2 id="the-full-list-of-content-styles"><a class="headerlink" href="#the-full-list-of-content-styles">#</a> The full list of content styles</h2>
+<p>Below there is a full list of content styles used by the editor features. You can copy it and use straight in your project. <strong>Make sure to add the <code>ck-content</code> class to your content container for the styles to work</strong> (<a href="#sharing-content-styles-between-frontend-and-backend">see above</a>).</p>
+<pre class="highlight"><code class="css">/*
+ * CKEditor 5 (v34.1.0) content styles.
+ * Generated on Thu, 09 Jun 2022 04:45:00 GMT.
+ * For more information, check out https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/content-styles.html
+ */
+
+:root {
+    --ck-color-base-active: hsl(208, 88%, 52%);
+    --ck-color-image-caption-background: hsl(0, 0%, 97%);
+    --ck-color-image-caption-text: hsl(0, 0%, 20%);
+    --ck-color-mention-background: hsla(341, 100%, 30%, 0.1);
+    --ck-color-mention-text: hsl(341, 100%, 30%);
+    --ck-color-table-caption-background: hsl(0, 0%, 97%);
+    --ck-color-table-caption-text: hsl(0, 0%, 20%);
+    --ck-color-table-column-resizer-hover: var(--ck-color-base-active);
+    --ck-highlight-marker-blue: hsl(201, 97%, 72%);
+    --ck-highlight-marker-green: hsl(120, 93%, 68%);
+    --ck-highlight-marker-pink: hsl(345, 96%, 73%);
+    --ck-highlight-marker-yellow: hsl(60, 97%, 73%);
+    --ck-highlight-pen-green: hsl(112, 100%, 27%);
+    --ck-highlight-pen-red: hsl(0, 85%, 49%);
+    --ck-image-style-spacing: 1.5em;
+    --ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2);
+    --ck-table-column-resizer-position-offset: calc(var(--ck-table-column-resizer-width) * -0.5 - 0.5px);
+    --ck-table-column-resizer-width: 7px;
+    --ck-todo-list-checkmark-size: 16px;
+    --ck-z-default: 1;
+}
+
+/* ckeditor5-block-quote/theme/blockquote.css */
+.ck-content blockquote {
+    overflow: hidden;
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    border-left: solid 5px hsl(0, 0%, 80%);
+}
+/* ckeditor5-block-quote/theme/blockquote.css */
+.ck-content[dir=&quot;rtl&quot;] blockquote {
+    border-left: 0;
+    border-right: solid 5px hsl(0, 0%, 80%);
+}
+/* ckeditor5-basic-styles/theme/code.css */
+.ck-content code {
+    background-color: hsla(0, 0%, 78%, 0.3);
+    padding: .15em;
+    border-radius: 2px;
+}
+/* ckeditor5-highlight/theme/highlight.css */
+.ck-content .marker-yellow {
+    background-color: var(--ck-highlight-marker-yellow);
+}
+/* ckeditor5-highlight/theme/highlight.css */
+.ck-content .marker-green {
+    background-color: var(--ck-highlight-marker-green);
+}
+/* ckeditor5-highlight/theme/highlight.css */
+.ck-content .marker-pink {
+    background-color: var(--ck-highlight-marker-pink);
+}
+/* ckeditor5-highlight/theme/highlight.css */
+.ck-content .marker-blue {
+    background-color: var(--ck-highlight-marker-blue);
+}
+/* ckeditor5-highlight/theme/highlight.css */
+.ck-content .pen-red {
+    color: var(--ck-highlight-pen-red);
+    background-color: transparent;
+}
+/* ckeditor5-highlight/theme/highlight.css */
+.ck-content .pen-green {
+    color: var(--ck-highlight-pen-green);
+    background-color: transparent;
+}
+/* ckeditor5-font/theme/fontsize.css */
+.ck-content .text-tiny {
+    font-size: .7em;
+}
+/* ckeditor5-font/theme/fontsize.css */
+.ck-content .text-small {
+    font-size: .85em;
+}
+/* ckeditor5-font/theme/fontsize.css */
+.ck-content .text-big {
+    font-size: 1.4em;
+}
+/* ckeditor5-font/theme/fontsize.css */
+.ck-content .text-huge {
+    font-size: 1.8em;
+}
+/* ckeditor5-image/theme/imageresize.css */
+.ck-content .image.image_resized {
+    max-width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+/* ckeditor5-image/theme/imageresize.css */
+.ck-content .image.image_resized img {
+    width: 100%;
+}
+/* ckeditor5-image/theme/imageresize.css */
+.ck-content .image.image_resized &gt; figcaption {
+    display: block;
+}
+/* ckeditor5-image/theme/imagecaption.css */
+.ck-content .image &gt; figcaption {
+    display: table-caption;
+    caption-side: bottom;
+    word-break: break-word;
+    color: var(--ck-color-image-caption-text);
+    background-color: var(--ck-color-image-caption-background);
+    padding: .6em;
+    font-size: .75em;
+    outline-offset: -1px;
+}
+/* ckeditor5-image/theme/image.css */
+.ck-content .image {
+    display: table;
+    clear: both;
+    text-align: center;
+    margin: 0.9em auto;
+    min-width: 50px;
+}
+/* ckeditor5-image/theme/image.css */
+.ck-content .image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 100%;
+}
+/* ckeditor5-image/theme/image.css */
+.ck-content .image-inline {
+    /*
+     * Normally, the .image-inline would have &quot;display: inline-block&quot; and &quot;img { width: 100% }&quot; (to follow the wrapper while resizing).;
+     * Unfortunately, together with &quot;srcset&quot;, it gets automatically stretched up to the width of the editing root.
+     * This strange behavior does not happen with inline-flex.
+     */
+    display: inline-flex;
+    max-width: 100%;
+    align-items: flex-start;
+}
+/* ckeditor5-image/theme/image.css */
+.ck-content .image-inline picture {
+    display: flex;
+}
+/* ckeditor5-image/theme/image.css */
+.ck-content .image-inline picture,
+.ck-content .image-inline img {
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 100%;
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-block-align-left,
+.ck-content .image-style-block-align-right {
+    max-width: calc(100% - var(--ck-image-style-spacing));
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-align-left,
+.ck-content .image-style-align-right {
+    clear: none;
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-side {
+    float: right;
+    margin-left: var(--ck-image-style-spacing);
+    max-width: 50%;
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-align-left {
+    float: left;
+    margin-right: var(--ck-image-style-spacing);
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-align-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-align-right {
+    float: right;
+    margin-left: var(--ck-image-style-spacing);
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-block-align-right {
+    margin-right: 0;
+    margin-left: auto;
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-block-align-left {
+    margin-left: 0;
+    margin-right: auto;
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content p + .image-style-align-left,
+.ck-content p + .image-style-align-right,
+.ck-content p + .image-style-side {
+    margin-top: 0;
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-inline.image-style-align-left,
+.ck-content .image-inline.image-style-align-right {
+    margin-top: var(--ck-inline-image-style-spacing);
+    margin-bottom: var(--ck-inline-image-style-spacing);
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-inline.image-style-align-left {
+    margin-right: var(--ck-inline-image-style-spacing);
+}
+/* ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-inline.image-style-align-right {
+    margin-left: var(--ck-inline-image-style-spacing);
+}
+/* ckeditor5-language/theme/language.css */
+.ck-content span[lang] {
+    font-style: italic;
+}
+/* ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list {
+    list-style: none;
+}
+/* ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list li {
+    margin-bottom: 5px;
+}
+/* ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list li .todo-list {
+    margin-top: 5px;
+}
+/* ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label &gt; input {
+    -webkit-appearance: none;
+    display: inline-block;
+    position: relative;
+    width: var(--ck-todo-list-checkmark-size);
+    height: var(--ck-todo-list-checkmark-size);
+    vertical-align: middle;
+    border: 0;
+    left: -25px;
+    margin-right: -15px;
+    right: 0;
+    margin-left: 0;
+}
+/* ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label &gt; input::before {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    content: &apos;&apos;;
+    width: 100%;
+    height: 100%;
+    border: 1px solid hsl(0, 0%, 20%);
+    border-radius: 2px;
+    transition: 250ms ease-in-out box-shadow, 250ms ease-in-out background, 250ms ease-in-out border;
+}
+/* ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label &gt; input::after {
+    display: block;
+    position: absolute;
+    box-sizing: content-box;
+    pointer-events: none;
+    content: &apos;&apos;;
+    left: calc( var(--ck-todo-list-checkmark-size) / 3 );
+    top: calc( var(--ck-todo-list-checkmark-size) / 5.3 );
+    width: calc( var(--ck-todo-list-checkmark-size) / 5.3 );
+    height: calc( var(--ck-todo-list-checkmark-size) / 2.6 );
+    border-style: solid;
+    border-color: transparent;
+    border-width: 0 calc( var(--ck-todo-list-checkmark-size) / 8 ) calc( var(--ck-todo-list-checkmark-size) / 8 ) 0;
+    transform: rotate(45deg);
+}
+/* ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label &gt; input[checked]::before {
+    background: hsl(126, 64%, 41%);
+    border-color: hsl(126, 64%, 41%);
+}
+/* ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label &gt; input[checked]::after {
+    border-color: hsl(0, 0%, 100%);
+}
+/* ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label .todo-list__label__description {
+    vertical-align: middle;
+}
+/* ckeditor5-media-embed/theme/mediaembed.css */
+.ck-content .media {
+    clear: both;
+    margin: 0.9em 0;
+    display: block;
+    min-width: 15em;
+}
+/* ckeditor5-page-break/theme/pagebreak.css */
+.ck-content .page-break {
+    position: relative;
+    clear: both;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* ckeditor5-page-break/theme/pagebreak.css */
+.ck-content .page-break::after {
+    content: &apos;&apos;;
+    position: absolute;
+    border-bottom: 2px dashed hsl(0, 0%, 77%);
+    width: 100%;
+}
+/* ckeditor5-page-break/theme/pagebreak.css */
+.ck-content .page-break__label {
+    position: relative;
+    z-index: 1;
+    padding: .3em .6em;
+    display: block;
+    text-transform: uppercase;
+    border: 1px solid hsl(0, 0%, 77%);
+    border-radius: 2px;
+    font-family: Helvetica, Arial, Tahoma, Verdana, Sans-Serif;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: hsl(0, 0%, 20%);
+    background: hsl(0, 0%, 100%);
+    box-shadow: 2px 2px 1px hsla(0, 0%, 0%, 0.15);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* ckeditor5-table/theme/tablecaption.css */
+.ck-content .table &gt; figcaption {
+    display: table-caption;
+    caption-side: top;
+    word-break: break-word;
+    text-align: center;
+    color: var(--ck-color-table-caption-text);
+    background-color: var(--ck-color-table-caption-background);
+    padding: .6em;
+    font-size: .75em;
+    outline-offset: -1px;
+}
+/* ckeditor5-table/theme/tablecolumnresize.css */
+.ck-content .table table {
+    overflow: hidden;
+    table-layout: fixed;
+}
+/* ckeditor5-table/theme/tablecolumnresize.css */
+.ck-content .table td,
+.ck-content .table th {
+    position: relative;
+}
+/* ckeditor5-table/theme/tablecolumnresize.css */
+.ck-content .table .table-column-resizer {
+    position: absolute;
+    top: -999999px;
+    bottom: -999999px;
+    right: var(--ck-table-column-resizer-position-offset);
+    width: var(--ck-table-column-resizer-width);
+    cursor: col-resize;
+    user-select: none;
+    z-index: var(--ck-z-default);
+}
+/* ckeditor5-table/theme/tablecolumnresize.css */
+.ck-content .table[draggable] .table-column-resizer {
+    display: none;
+}
+/* ckeditor5-table/theme/tablecolumnresize.css */
+.ck-content .table .table-column-resizer:hover,
+.ck-content .table .table-column-resizer__active {
+    background-color: var(--ck-color-table-column-resizer-hover);
+    opacity: 0.25;
+}
+/* ckeditor5-table/theme/tablecolumnresize.css */
+.ck-content[dir=rtl] .table .table-column-resizer {
+    left: var(--ck-table-column-resizer-position-offset);
+    right: unset;
+}
+/* ckeditor5-table/theme/tablecolumnresize.css */
+.ck-content.ck-read-only .table .table-column-resizer {
+    display: none;
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content .table {
+    margin: 0.9em auto;
+    display: table;
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content .table table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px double hsl(0, 0%, 70%);
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content .table table td,
+.ck-content .table table th {
+    min-width: 2em;
+    padding: .4em;
+    border: 1px solid hsl(0, 0%, 75%);
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content .table table th {
+    font-weight: bold;
+    background: hsla(0, 0%, 0%, 5%);
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content[dir=&quot;rtl&quot;] .table th {
+    text-align: right;
+}
+/* ckeditor5-table/theme/table.css */
+.ck-content[dir=&quot;ltr&quot;] .table th {
+    text-align: left;
+}
+/* ckeditor5-code-block/theme/codeblock.css */
+.ck-content pre {
+    padding: 1em;
+    color: hsl(0, 0%, 20.8%);
+    background: hsla(0, 0%, 78%, 0.3);
+    border: 1px solid hsl(0, 0%, 77%);
+    border-radius: 2px;
+    text-align: left;
+    direction: ltr;
+    tab-size: 4;
+    white-space: pre-wrap;
+    font-style: normal;
+    min-width: 200px;
+}
+/* ckeditor5-code-block/theme/codeblock.css */
+.ck-content pre code {
+    background: unset;
+    padding: 0;
+    border-radius: 0;
+}
+/* ckeditor5-horizontal-line/theme/horizontalline.css */
+.ck-content hr {
+    margin: 15px 0;
+    height: 4px;
+    background: hsl(0, 0%, 87%);
+    border: 0;
+}
+/* ckeditor5-mention/theme/mention.css */
+.ck-content .mention {
+    background: var(--ck-color-mention-background);
+    color: var(--ck-color-mention-text);
+}
+@media print {
+    /* ckeditor5-page-break/theme/pagebreak.css */
+    .ck-content .page-break {
+        padding: 0;
+    }
+    /* ckeditor5-page-break/theme/pagebreak.css */
+    .ck-content .page-break::after {
+        display: none;
+    }
+}
+</code></pre>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22installation%2Fadvanced%2Fcontent-styles.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Getting started</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../getting-started/quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="../getting-started/configuration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                        </div></a></li>
+                                    <li><a href="../getting-started/installing-plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installing plugins</span>
+                                        </div></a></li>
+                                    <li><a href="../getting-started/basic-api.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic API</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Frameworks</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../getting-started/frameworks/overview.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../getting-started/frameworks/angular.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular component</span>
+                                                  </div></a></li>
+                                              <li><a href="../getting-started/frameworks/react.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React component</span>
+                                                  </div></a></li>
+                                              <li><a href="../getting-started/frameworks/vuejs-v2.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x component</span>
+                                                  </div></a></li>
+                                              <li><a href="../getting-started/frameworks/vuejs-v3.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+ component</span>
+                                                  </div></a></li>
+                                              <li><a href="../getting-started/frameworks/css.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../getting-started/migration-from-ckeditor-4.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="../getting-started/maintenance.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your build</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="using-two-editors.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using two different editors</span>
+                                        </div></a></li>
+                                    <li><a href="saving-data.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and saving data</span>
+                                        </div></a></li>
+                                    <li><a href="">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Content styles</span>
+                                        </div></a></li>
+                                    <li><a href="csp.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy</span>
+                                        </div></a></li>
+                                    <li><a href="plugins.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom plugins</span>
+                                        </div></a></li>
+                                    <li><a href="features-html-output-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features' HTML output</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="alternative-setups/integrating-from-source.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integrating from source</span>
+                                                  </div></a></li>
+                                              <li><a href="alternative-setups/dll-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds</span>
+                                                  </div></a></li>
+                                              <li><a href="alternative-setups/dll-builds-collaboration-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">DLL builds for CKEditor 5 Collaboration Features</span>
+                                                  </div></a></li>
+                                              <li><a href="alternative-setups/predefined-builds.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Predefined builds</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'installation' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'installation' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'installation' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'installation' ] );tags.forEach( function( tag ) {if ( tag !== 'installation' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

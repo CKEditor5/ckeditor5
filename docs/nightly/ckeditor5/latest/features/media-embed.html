@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Media embed | CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:12:41 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Media embed | CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/features/media-embed.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Media embed | CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/features/media-embed.html">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../snippets/features/build-media-source/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../snippets/assets.css" type="text/css" data-cke="true">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../index.html">CKEditor 5</a></li>
+          <li><a href="../getting-started/index.html">Getting started</a></li>
+          <li><a class="top__menu__item--active" href="index.html">Features</a></li>
+          <li><a href="../examples/index.html">Examples</a></li>
+          <li><a href="../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../api/index.html">API</a></li>
+          <li><a href="../updating/index.html">Updating</a></li>
+          <li><a href="../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="index.html">Features</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="index.html" title="CKEditor 5 features overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKEditor 5 features overview</span>
+                              </div></a></li>
+                          <li><a href="feature-digest.html" title="Feature digest">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Feature digest</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="accessibility.html" title="Accessibility support">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Accessibility support</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">AI Assistant</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-ai-assistant">
+                                  <li><a href="ai-assistant/ai-assistant-overview.html" title="Overview">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="ai-assistant/ai-assistant-integration.html" title="Integration">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="autoformat.html" title="Autoformatting">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="text-transformation.html" title="Automatic text transformation">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="autosave.html" title="Autosave">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autosave</span>
+                              </div></a></li>
+                          <li><a href="basic-styles.html" title="Basic text styles">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="indent.html" title="Block indentation">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="block-quote.html" title="Block quote">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="bookmarks.html" title="Bookmarks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Bookmarks</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="case-change.html" title="Case change">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Case change</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="code-blocks.html" title="Code blocks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-collaboration">
+                                  <li><a href="collaboration/collaboration.html" title="Overview">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-comments">
+                                          <li><a href="collaboration/comments/comments.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-integration.html" title="Integration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-only-mode.html" title="Comments-only mode">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-outside-editor.html" title="Comments outside the editor">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-archive.html" title="Comments archive custom UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments archive custom UI</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/comments/comments-walkthrough.html" title="Walkthrough">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Walkthrough</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-track-changes">
+                                          <li><a href="collaboration/track-changes/track-changes.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/track-changes/track-changes-integration.html" title="Integration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/track-changes/track-changes-custom-features.html" title="Custom features">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/track-changes/track-changes-data.html" title="Saving data without suggestions">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-revision-history">
+                                          <li><a href="collaboration/revision-history/revision-history.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/revision-history/revision-history-integration.html" title="Integration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-real-time-collaboration">
+                                          <li><a href="collaboration/real-time-collaboration/real-time-collaboration.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/real-time-collaboration/real-time-collaboration-integration.html" title="Integration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/real-time-collaboration/users-in-real-time-collaboration.html" title="Users in real-time collaboration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="collaboration/users.html" title="Users">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                      </div></a></li>
+                                  <li><a href="collaboration/context-and-collaboration-features.html" title="Context and collaboration features">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-annotations">
+                                          <li><a href="collaboration/annotations/annotations.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-display-mode.html" title="Display mode">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-configuration.html" title="Configuration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-theme.html" title="Custom theme">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-template.html" title="Custom template">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                              </div></a></li>
+                                          <li><a href="collaboration/annotations/annotations-custom-view.html" title="Custom view">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="minimap.html" title="Content minimap">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Document conversion</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-converters">
+                                  <li><a href="converters/export-pdf.html" title="Export to PDF">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                                  <li><a href="converters/export-word.html" title="Export to Word">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Import from Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="import-word">
+                                          <li><a href="converters/import-word/import-word.html" title="Import from Word">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Import from Word</span>
+                                              </div></a></li>
+                                          <li><a href="converters/import-word/features-comparison.html" title="Features comparison">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features comparison</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="document-outline.html" title="Document outline">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document outline</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="title.html" title="Document title">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="drag-drop.html" title="Drag and drop">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                              </div></a></li>
+                          <li><a href="editor-placeholder.html" title="Editor placeholder">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">File management</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-file-management">
+                                  <li><a href="file-management/ckbox.html" title="CKBox">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKBox</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                                  <li><a href="file-management/ckfinder.html" title="CKFinder">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="find-and-replace.html" title="Find and replace">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="font.html" title="Font family, size, and color">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font family, size, and color</span>
+                              </div></a></li>
+                          <li><a href="format-painter.html" title="Format painter">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Format painter</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="headings.html" title="Headings">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="highlight.html" title="Highlight">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="horizontal-line.html" title="Horizontal line">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">HTML advanced support</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-html">
+                                  <li><a href="html/general-html-support.html" title="General HTML Support">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                                      </div></a></li>
+                                  <li><a href="html/html-comments.html" title="HTML comment element">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML comment element</span>
+                                      </div></a></li>
+                                  <li><a href="html/html-embed.html" title="HTML embed">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                                      </div></a></li>
+                                  <li><a href="html/full-page-html.html" title="Full page HTML">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Full page HTML</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-images">
+                                  <li><a href="images/images-overview.html" title="Basics">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basics</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-installation.html" title="Installation">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-text-alternative.html" title="Text alternative">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-captions.html" title="Image captions">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-resizing.html" title="Resizing images">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-responsive.html" title="Responsive images">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Responsive images</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-styles.html" title="Image styles">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-linking.html" title="Linking images">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                      </div></a></li>
+                                  <li><a href="images/images-inserting.html" title="Inserting images via URL">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-image-upload">
+                                          <li><a href="images/image-upload/image-upload.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/using-file-managers.html" title="Using file managers">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using file managers</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/base64-upload-adapter.html" title="Base64 upload adapter">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="images/image-upload/simple-upload-adapter.html" title="Simple upload adapter">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="link.html" title="Link">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-lists">
+                                  <li><a href="lists/lists.html" title="Ordered and unordered lists">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                      </div></a></li>
+                                  <li><a href="lists/todo-lists.html" title="To-do lists">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                      </div></a></li>
+                                  <li><a href="lists/multi-level-lists.html" title="Multi-level lists">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-level lists</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                                  <li><a href="lists/lists-editing.html" title="Lists editing behavior">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Lists editing behavior</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="markdown.html" title="Markdown output">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="math-equations.html" title="Math and chemical formulas">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="" title="Media embed">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="mentions.html" title="Mentions">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="merge-fields.html" title="Merge fields">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Merge fields</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="mermaid.html" title="Mermaid flowcharts and diagrams">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mermaid flowcharts and diagrams</span>
+                              </div></a></li>
+                          <li><a href="page-break.html" title="Page break">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-pagination">
+                                  <li><a href="pagination/pagination.html" title="Overview">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="pagination/pagination-integration.html" title="Integration with Export to PDF/Word">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-pasting">
+                                  <li><a href="pasting/paste-from-office-enhanced.html" title="Paste from Office enhanced">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Office enhanced</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                                  <li><a href="pasting/paste-from-office.html" title="Paste from Office">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Office</span>
+                                      </div></a></li>
+                                  <li><a href="pasting/paste-from-google-docs.html" title="Paste from Google Docs">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                      </div></a></li>
+                                  <li><a href="pasting/paste-plain-text.html" title="Paste plain text">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                      </div></a></li>
+                                  <li><a href="pasting/paste-markdown.html" title="Paste Markdown">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste Markdown</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="read-only.html" title="Read-only support">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="remove-format.html" title="Remove formatting">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="restricted-editing.html" title="Restricted editing">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li><a href="select-all.html" title="Select all">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="show-blocks.html" title="Show blocks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Show blocks</span>
+                              </div></a></li>
+                          <li><a href="slash-commands.html" title="Slash commands">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Slash commands</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="source-editing.html" title="Source editing">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="special-characters.html" title="Special characters">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="spelling-and-grammar-checking.html" title="Spell and grammar checker">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spell and grammar checker</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="style.html" title="Styles">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Styles</span>
+                              </div></a></li>
+                          <li><a href="table-of-contents.html" title="Table of contents">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table of contents</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Tables</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="tables">
+                                  <li><a href="tables/tables.html" title="Basics">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basics</span>
+                                      </div></a></li>
+                                  <li><a href="tables/tables-styling.html" title="Styling tables">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Styling tables</span>
+                                      </div></a></li>
+                                  <li><a href="tables/tables-resize.html" title="Table column resizing">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table column resizing</span>
+                                      </div></a></li>
+                                  <li><a href="tables/tables-caption.html" title="Table caption">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table caption</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="template.html" title="Templates">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Templates</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="text-alignment.html" title="Text alignment">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="language.html" title="Text part language">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li><a href="undo-redo.html" title="Undo/Redo">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Undo/Redo</span>
+                              </div></a></li>
+                          <li><a href="watchdog.html" title="Watchdog">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="word-count.html" title="Word and character count">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="examples"><a href="../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/packages/ckeditor5-media-embed/docs/features/media-embed.md" title="Contribute to this guide"><img src="../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="index.html">Features</a>
+          </div>
+          <h1 class="main__content-title">Media embed
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#demo" title="Demo">Demo</a></li><li><a href="#installation" title="Installation">Installation</a></li><li><a href="#previewable-and-non-previewable-media" title="Previewable and non-previewable media">Previewable and non-previewable media</a><ol><li><a href="#previewable-media" title="Previewable media">Previewable media</a></li><li><a href="#non-previewable-media" title="Non-previewable media">Non-previewable media</a></li></ol></li><li><a href="#configuration" title="Configuration">Configuration</a><ol><li><a href="#data-output-format" title="Data output format">Data output format</a><ol><li><a href="#semantic-data-output-default" title="Semantic data output (default)">Semantic data output (default)</a></li><li><a href="#including-previews-in-data" title="Including previews in data">Including previews in data</a></li></ol></li><li><a href="#media-providers" title="Media providers">Media providers</a><ol><li><a href="#extending-media-providers" title="Extending media providers">Extending media providers</a></li><li><a href="#removing-media-providers" title="Removing media providers">Removing media providers</a></li><li><a href="#overriding-media-providers" title="Overriding media providers">Overriding media providers</a></li></ol></li></ol></li><li><a href="#using-external-services-for-preview" title="Using external services for preview">Using external services for preview</a></li><li><a href="#displaying-embedded-media-on-your-website" title="Displaying embedded media on your website">Displaying embedded media on your website</a><ol><li><a href="#iframely" title="Iframely">Iframely</a><ol><li><a href="#semantic-data" title="Semantic data">Semantic data</a></li><li><a href="#non-semantic-data" title="Non-semantic data">Non-semantic data</a></li></ol></li><li><a href="#embedly" title="Embedly">Embedly</a><ol><li><a href="#semantic-data-2" title="Semantic data">Semantic data</a></li><li><a href="#non-semantic-data-2" title="Non-semantic data">Non-semantic data</a></li></ol></li></ol></li><li><a href="#automatic-media-embed-on-paste" title="Automatic media embed on paste">Automatic media embed on paste</a></li><li><a href="#styling-media-in-the-editor-content" title="Styling media in the editor content">Styling media in the editor content</a><ol><li><a href="#styling-non-previewable-media" title="Styling non-previewable media">Styling non-previewable media</a></li></ol></li><li><a href="#common-api" title="Common API">Common API</a></li><li><a href="#contribute" title="Contribute">Contribute</a></li></ol></nav><div class="live-snippet"><script src="https://cdn.ckbox.io/ckbox/latest/ckbox.js"></script>
+<script async charset="utf-8" src="//cdn.iframe.ly/embed.js?cancel=0"></script> 
+</div>
+
+<p>The media embed feature lets you insert embeddable media such as YouTube or Vimeo videos and tweets into your rich text content.</p>
+<h2 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h2>
+<p>You can use the insert media button in the toolbar <span class="editor-icon"><img src="../assets/icons/1ce8c210b4.svg" class="editor-icon__image" alt="Insert media"></span> to embed media. You can also paste a media URL directly into the editor content, and it will be <a href="#automatic-media-embed-on-paste">automatically embedded</a>. Try both approaches with the following URLs:</p>
+<ul>
+<li>
+<input class="example-input" type="text" value="https://www.youtube.com/watch?v=H08tGjXNHO4">
+</li>
+<li>
+<input class="example-input" type="text" value="https://open.spotify.com/album/2IXlgvecaDqOeF3viUZnPI?si=ogVw7KlcQAGZKK4Jz9QzvA">
+</li>
+<li>
+<input class="example-input" type="text" value="https://www.instagram.com/p/BmMZgokAGGQ/?taken-by=nasa">
+</li>
+</ul>
+<div class="live-snippet"><div class="ck ck-content" id="snippet-media-embed">
+	<h3>YouTube</h3>
+
+	<figure class="media">
+		<oembed url="https://www.youtube.com/watch?v=QTceLKXwHLY"></oembed>
+	</figure>
+
+	<h3>Vimeo</h3>
+
+	<figure class="media">
+		<oembed url="https://vimeo.com/1084537"></oembed>
+	</figure>
+
+	<h3>X (form. Twitter)</h3>
+
+	<figure>
+		<oembed url="https://x.com/ckeditor/status/1430561610494627841"></oembed>
+	</figure>
+
+	<h3>Google Maps</h3>
+
+	<figure class="media">
+		<oembed url="https://www.google.com/maps/place/Poland/@51.9537505,19.1343786,6z/data=!3m1!4b1!4m5!3m4!1s0x47009964a4640bbb:0x97573ca49cc55ea!8m2!3d51.919438!4d19.145136?hl=en"></oembed>
+	</figure>
+</div>
+
+<style>
+	.ck.ck-content .media iframe {
+		/* Override default Umberto guide styles. */
+		margin: 0;
+	}
+
+	/* https://github.com/ckeditor/ckeditor5/issues/1324 */
+	input.example-input {
+		min-width: 500px;
+	}
+</style>
+</div>
+<div class="info-box notice notice__info"><p>This demo presents a limited set of features. Visit the <a href="../examples/builds-custom/full-featured-editor.html">feature-rich editor example</a> to see more in action.</p></div>
+<h2 id="installation"><a class="headerlink" href="#installation">#</a> Installation</h2>
+<div class="info-box notice notice__info"><p>⚠️ <strong>New import paths</strong></p><p>Starting with <a href="../updating/guides/update-to-42.html">version 42.0.0</a>, we changed the format of import paths. This guide uses the new, shorter format. Refer to the <a href="../getting-started/legacy/legacy-imports.html">Packages in the legacy setup</a> guide if you use an older version of CKEditor&nbsp;5.</p></div>
+<p>After <a href="../getting-started/installation/cloud/quick-start.html">installing the editor</a>, add the feature to your plugin list and toolbar configuration:</p>
+<div class="code-switcher selfhosted"><div class="code-switcher__toolbar"></div><pre class="highlight"><code class="js">import { ClassicEditor, MediaEmbed } from 'ckeditor5';
+
+ClassicEditor
+	.create( document.querySelector( '#editor' ), {
+		licenseKey: '&lt;YOUR_LICENSE_KEY&gt;', // Or 'GPL'.
+		plugins: [ MediaEmbed, /* ... */ ],
+		toolbar: [ 'mediaEmbed', /* ... */ ]
+		mediaEmbed: {
+			// Configuration.
+		}
+	} )
+	.then( /* ... */ )
+	.catch( /* ... */ );
+</code></pre></div>
+<div class="info-box notice"><p>Depending on how you will configure this feature, you may need to use services like <a href="https://iframely.com/">Iframely</a> or <a href="https://embed.ly/">Embedly</a> to display content of embedded media on your target website. Read more about <a href="#displaying-embedded-media-on-your-website">displaying embedded media</a>.</p></div>
+<h2 id="previewable-and-non-previewable-media"><a class="headerlink" href="#previewable-and-non-previewable-media">#</a> Previewable and non-previewable media</h2>
+<p>When the media embed feature is asked to embed a specific media element via its URL it needs to make a decision how the media will be displayed in the editor.</p>
+<h3 id="previewable-media"><a class="headerlink" href="#previewable-media">#</a> Previewable media</h3>
+<p>If, for instance, the URL to embed is <code>https://www.youtube.com/watch?v=H08tGjXNHO4</code>, the feature can predict that it needs to produce the following HTML to show this YouTube video:</p>
+<pre class="highlight"><code class="html">&lt;div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;"&gt;
+    &lt;iframe src="https://www.youtube.com/embed/${ videoId }"
+        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Yes, it is quite complex, but this is the cost of creating responsive content for today’s web. The crucial part, though, is the iframe element’s <code>src</code> which the media embed feature can predict based on the given video URL and the aspect ratio (which affects <code>padding-bottom</code>).</p>
+<p>Thanks to the ability to hardcode this URL to HTML transformation, the media embed feature can show previews of YouTube, Dailymotion, or Vimeo videos, and Spotify widgets without requesting any external service.</p>
+<h3 id="non-previewable-media"><a class="headerlink" href="#non-previewable-media">#</a> Non-previewable media</h3>
+<p>Unfortunately, to show previews of media such as tweets, Instagram photos, or Facebook posts, the editor would need to retrieve the content of these from an external service. Some of these media providers expose <a href="https://oembed.com/">oEmbed endpoints</a> but not all. These endpoint responses often require further processing to be embeddable. Most importantly, though, the media embed feature is often not able to request these services due to the <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">same-origin policy</a>.</p>
+<p>Also, the media embed feature <a href="https://github.com/ckeditor/ckeditor5-media-embed/issues/16">does not support asynchronous preview providers</a> yet. Therefore, to still allow embedding tweets or Instagram photos, we chose to:</p>
+<ol>
+<li>Show a placeholder of the embedded media in the editor (see how a tweet is presented in the <a href="#demo">demo</a> above).</li>
+<li>Produce a <a href="#semantic-data-output-default">semantic <code>&lt;oembed url="..."&gt;</code> tag</a> in the data output from the editor. This output makes it possible to later use proxy services to <a href="#displaying-embedded-media-on-your-website">display the content of these media on your website</a>.</li>
+</ol>
+<p>You can overcome these limitations with the help of proxy services like Iframely or Embedly. This is explained in the <a href="#using-external-services-for-preview">configuration guide below</a>.</p>
+<h2 id="configuration"><a class="headerlink" href="#configuration">#</a> Configuration</h2>
+<h3 id="data-output-format"><a class="headerlink" href="#data-output-format">#</a> Data output format</h3>
+<p>You can configure the data output format of the feature using the <a href="../api/module_media-embed_mediaembedconfig-MediaEmbedConfig.html#member-previewsInData"><code>config.mediaEmbed.previewsInData</code></a> option.</p>
+<div class="info-box notice notice__info"><p>This option does not change how the media are displayed inside the editor. The previewable ones will still be displayed with previews. It only affects the output data (see below).</p></div>
+<h4 id="semantic-data-output-default"><a class="headerlink" href="#semantic-data-output-default">#</a> Semantic data output (default)</h4>
+<p>By default, the media embed feature outputs semantic <code>&lt;oembed url="..."&gt;</code> tags for previewable and non-previewable media. That being so, it works best when the application processes (expands) the media on the server side or <a href="#displaying-embedded-media-on-your-website">directly in the frontend</a>, preserving the versatile database representation:</p>
+<pre class="highlight"><code class="html">&lt;figure class="media"&gt;
+    &lt;oembed url="https://media-url"&gt;&lt;/oembed&gt;
+&lt;/figure&gt;
+</code></pre>
+<p>You can achieve further customization of the semantic data output through the <a href="../api/module_media-embed_mediaembedconfig-MediaEmbedConfig.html#member-elementName"><code>config.mediaEmbed.elementName</code></a> configuration. As an example, if you set <code>elementName</code> to <code>o-embed</code>:</p>
+<pre class="highlight"><code class="html">&lt;figure class="media"&gt;
+    &lt;o-embed url="https://media-url"&gt;&lt;/o-embed&gt;
+&lt;/figure&gt;
+</code></pre>
+<p>If <code>elementName</code> is overridden to something other than the default value, the existing <code>&lt;oembed&gt;</code> elements will still be shown for backward compatibility purposes.</p>
+<h4 id="including-previews-in-data"><a class="headerlink" href="#including-previews-in-data">#</a> Including previews in data</h4>
+<p>Optionally, by setting <code>mediaEmbed.previewsInData</code> to <code>true</code> you can configure the media embed feature to output media in the same way they look in the editor. If the media element is “previewable”, the media preview (HTML) is saved to the database:</p>
+<pre class="highlight"><code class="html">&lt;figure class="media"&gt;
+    &lt;div data-oembed-url="https://media-url"&gt;
+        &lt;iframe src="https://media-preview-url"&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+&lt;/figure&gt;
+</code></pre>
+<p>Currently, the preview is only available for content providers for which CKEditor&nbsp;5 can predict the <code>&lt;iframe&gt;</code> code: YouTube, Vimeo, Dailymotion, Spotify, etc. For other providers like X (Twitter) or Instagram, the editor cannot produce an <code>&lt;iframe&gt;</code> code. It also does not allow retrieving this code from an external oEmbed service. Therefore, for non-previewable media, it produces the default semantic output:</p>
+<pre class="highlight"><code class="html">&lt;figure class="media"&gt;
+    &lt;oembed url="https://media-url"&gt;&lt;/oembed&gt;
+&lt;/figure&gt;
+</code></pre>
+<p>This means that, unless you <a href="#media-providers">limit the list of providers</a> to only those which are previewable, you need to <a href="#displaying-embedded-media-on-your-website">make sure that the media are displayed on your website</a>.</p>
+<p>Read more about <a href="#previewable-and-non-previewable-media">non-previewable media</a>.</p>
+<h3 id="media-providers"><a class="headerlink" href="#media-providers">#</a> Media providers</h3>
+<p>CKEditor&nbsp;5 comes with several supported media providers that you can extend or alter.</p>
+<p>Names of providers <strong>with previews</strong>:</p>
+<ul>
+<li><code>'dailymotion'</code>,</li>
+<li><code>'spotify'</code>,</li>
+<li><code>'youtube'</code>,</li>
+<li><code>'vimeo'</code>.</li>
+</ul>
+<p>Names of providers <strong>without previews</strong>:</p>
+<ul>
+<li><code>'instagram'</code>,</li>
+<li><code>'twitter'</code>,</li>
+<li><code>'googleMaps'</code>,</li>
+<li><code>'flickr'</code>,</li>
+<li><code>'facebook'</code>.</li>
+</ul>
+<div class="info-box notice notice__notice"><p>The default media provider configuration does not support all possible media URLs – only the most common are included. Services like Iframely or Embedly support thousands of media providers. It is up to you to define which you want to allow.</p></div>
+<h4 id="extending-media-providers"><a class="headerlink" href="#extending-media-providers">#</a> Extending media providers</h4>
+<p>To extend the default list of providers, use <a href="../api/module_media-embed_mediaembedconfig-MediaEmbedConfig.html#member-extraProviders"><code>config.mediaEmbed.extraProviders</code></a>.</p>
+<h4 id="removing-media-providers"><a class="headerlink" href="#removing-media-providers">#</a> Removing media providers</h4>
+<p>To remove certain providers, use <a href="../api/module_media-embed_mediaembedconfig-MediaEmbedConfig.html#member-removeProviders"><code>config.mediaEmbed.removeProviders</code></a>.</p>
+<p>For instance, to leave only the previewable providers, configure this feature as follows:</p>
+<pre class="highlight"><code class="js">ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        // ... Other configuration options ...
+        mediaEmbed: {
+            removeProviders: [ 'instagram', 'twitter', 'googleMaps', 'flickr', 'facebook' ]
+        }
+    } )
+    .then( /* ... */ )
+    .catch( /* ... */ );
+</code></pre>
+<h4 id="overriding-media-providers"><a class="headerlink" href="#overriding-media-providers">#</a> Overriding media providers</h4>
+<p>To override the default providers, use <a href="../api/module_media-embed_mediaembedconfig-MediaEmbedConfig.html#member-providers"><code>config.mediaEmbed.providers</code></a> and define your set according to the <a href="../api/module_media-embed_mediaembedconfig-MediaEmbedProvider.html">provider syntax</a>:</p>
+<pre class="highlight"><code class="js">ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        // ... Other configuration options ...
+        mediaEmbed: {
+            providers: [
+                {
+                    // A URL regular expression or an array of URL regular expressions:
+                    url: /^example\.com\/media\/(\w+)/,
+
+                    // To be defined only if the media are previewable:
+                    html: match =&gt; '...'
+                },
+                // More providers.
+                // ...
+            ]
+        }
+    } )
+    .then( /* ... */ )
+    .catch( /* ... */ );
+</code></pre>
+<p>You can take inspiration from the default configuration of this feature. You can find it in <a href="https://github.com/ckeditor/ckeditor5/blob/master/packages/ckeditor5-media-embed/src/mediaembedediting.ts">https://github.com/ckeditor/ckeditor5/blob/master/packages/ckeditor5-media-embed/src/mediaembedediting.ts</a></p>
+<h2 id="using-external-services-for-preview"><a class="headerlink" href="#using-external-services-for-preview">#</a> Using external services for preview</h2>
+<p>To get around the limitations of showing media embed previews, you can use services like <a href="https://iframely.com/">Iframely</a>. This will allow a rich preview of the content inside CKEditor&nbsp;5. By inserting an Iframely-hosted <code>&lt;iframe&gt;</code>, you can preview the content from hundreds of media providers.</p>
+<p>Follow the <a href="https://iframely.com/docs/ckeditor">Iframely integration with CKEditor&nbsp;5</a> page for a detailed explanation. You can also check the final result in the demo below. If you are using ad-blocking software, it might also block the previews inside the editor.</p>
+<div class="live-snippet"><div class="ck ck-content" id="snippet-media-embed-preview">
+	<h3>Follow us on X for the latest news:</h3>
+	<figure class="media">
+		<oembed url="https://x.com/ckeditor/status/1441013225554948096"></oembed>
+	</figure>
+	<h3>And check our latest posts on Facebook:</h3>
+	<figure class="media">
+		<oembed
+			url="https://www.facebook.com/cksource/posts/4919225381439376">
+		</oembed>
+	</figure>
+</div>
+
+<style>
+	.ck.ck-content .media iframe {
+		/* Override default Umberto guide styles. */
+		margin: 0;
+	}
+
+	/* https://github.com/ckeditor/ckeditor5/issues/1324 */
+	input.example-input {
+		min-width: 500px;
+	}
+</style>
+</div>
+<h2 id="displaying-embedded-media-on-your-website"><a class="headerlink" href="#displaying-embedded-media-on-your-website">#</a> Displaying embedded media on your website</h2>
+<p>By default, the media embed feature produces output that does not contain previews of embedded media, called the <a href="#semantic-data-output-default">semantic output</a>. This means that you need to transform the output <code>&lt;oembed&gt;</code> elements into real media on your target website.</p>
+<p>There are many ways to do that. The simplest, plug-and-play solutions are described here. You can also implement this transformation as part of your backend service or you can use different services than described in this section.</p>
+<div class="info-box notice"><p>While the easiest solution (described below) is to replace embedded media on the client side, it is not necessarily the most optimal way. A more powerful and flexible solution is to request these services on your backend. Refer to the documentation of the service of your choice for more information.</p></div>
+<h3 id="iframely"><a class="headerlink" href="#iframely">#</a> Iframely</h3>
+<p><a href="https://iframely.com">Iframely</a> offers the <a href="https://iframely.com/docs/embedjs">embed.js</a> library which converts <a href="https://iframely.com/docs/providers">various media</a> URLs into rich previews. It works in the frontend and remains fully compatible with the output produced by CKEditor&nbsp;5.</p>
+<p>First, having <a href="https://iframely.com/docs/allow-origins">secured the API key</a>, load the <code>embed.js</code> library from the CDN into your website:</p>
+<pre class="highlight"><code class="html">&lt;head&gt;
+    ...
+    &lt;script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key={API KEY}"&gt;&lt;/script&gt;
+    ...
+&lt;/head&gt;
+</code></pre>
+<h4 id="semantic-data"><a class="headerlink" href="#semantic-data">#</a> Semantic data</h4>
+<p>You can convert all <code>&lt;oembed&gt;</code> elements like the following X (Twitter) post produced by CKEditor&nbsp;5:</p>
+<pre class="highlight"><code class="html">&lt;figure class="media"&gt;
+    &lt;oembed url="https://x.com/ckeditor/status/1021777799844126720"&gt;&lt;/oembed&gt;
+&lt;/figure&gt;
+</code></pre>
+<p>using this short code snippet:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+    document.querySelectorAll( 'oembed[url]' ).forEach( element =&gt; {
+        iframely.load( element, element.attributes.url.value );
+    } );
+&lt;/script&gt;
+</code></pre>
+<h4 id="non-semantic-data"><a class="headerlink" href="#non-semantic-data">#</a> Non-semantic data</h4>
+<p>When you configure the feature to <a href="#including-previews-in-data">include media previews</a> in the output, you can still use Iframely for media embeds like the following one:</p>
+<pre class="highlight"><code class="html">&lt;figure class="media"&gt;
+    &lt;div data-oembed-url="https://x.com/ckeditor/status/1021777799844126720"&gt;
+        [Media preview]
+    &lt;/div&gt;
+&lt;/figure&gt;
+</code></pre>
+<p>You can still convert this data by Iframely with just a few extra lines of code. To do that, in addition to the code snippet from the previous section, use a slightly longer code snippet that discards the media preview saved in the database before using <code>iframely.load()</code>:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+    document.querySelectorAll( 'div[data-oembed-url]' ).forEach( element =&gt; {
+        // Discard the static media preview from the database (empty the &lt;div data-oembed-url="..."&gt;).
+        while ( element.firstChild ) {
+            element.removeChild( element.firstChild );
+        }
+
+        // Generate the media preview using Iframely.
+        iframely.load( element, element.dataset.oembedUrl ) ;
+    } );
+&lt;/script&gt;
+</code></pre>
+<h3 id="embedly"><a class="headerlink" href="#embedly">#</a> Embedly</h3>
+<p>Just like Iframely, <a href="https://embed.ly">Embedly</a> offers the client–side API which converts media URLs into rich previews.</p>
+<p>To start using it, load the library from the CDN into your website:</p>
+<pre class="highlight"><code class="html">&lt;head&gt;
+    ...
+    &lt;script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"&gt;&lt;/script&gt;
+    ...
+&lt;/head&gt;
+</code></pre>
+<h4 id="semantic-data-2"><a class="headerlink" href="#semantic-data-2">#</a> Semantic data</h4>
+<p>You can convert <code>&lt;oembed&gt;</code> elements like the following Twitter (X) post produced by CKEditor&nbsp;5:</p>
+<pre class="highlight"><code class="html">&lt;figure class="media"&gt;
+    &lt;oembed url="https://x.com/ckeditor/status/1021777799844126720"&gt;&lt;/oembed&gt;
+&lt;/figure&gt;
+</code></pre>
+<p>using this code snippet:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+    document.querySelectorAll( 'oembed[url]' ).forEach( element =&gt; {
+        // Create the &lt;a href="..." class="embedly-card"&gt;&lt;/a&gt; element that Embedly uses
+        // to discover the media.
+        const anchor = document.createElement( 'a' );
+
+        anchor.setAttribute( 'href', element.getAttribute( 'url' ) );
+        anchor.className = 'embedly-card';
+
+        element.appendChild( anchor );
+    } );
+&lt;/script&gt;
+</code></pre>
+<p>Embedly automatically discovers links like <code>&lt;a href="..." class="embedly-card"&gt;&lt;/a&gt;</code> and replaces them with rich media previews.</p>
+<h4 id="non-semantic-data-2"><a class="headerlink" href="#non-semantic-data-2">#</a> Non-semantic data</h4>
+<p>In this case, the code is almost the same as with the semantic data but you should discard the media preview saved in the database before using Embedly to avoid code duplication:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+    document.querySelectorAll( 'div[data-oembed-url]' ).forEach( element =&gt; {
+        // Discard the static media preview from the database (empty the &lt;div data-oembed-url="..."&gt;).
+        while ( element.firstChild ) {
+            element.removeChild( element.firstChild );
+        }
+
+        // Create the &lt;a href="..." class="embedly-card"&gt;&lt;/a&gt; element that Embedly uses
+        // to discover the media.
+        const anchor = document.createElement( 'a' );
+
+        anchor.setAttribute( 'href', element.dataset.oembedUrl );
+        anchor.className = 'embedly-card';
+
+        element.appendChild( anchor );
+    } );
+&lt;/script&gt;
+</code></pre>
+<h2 id="automatic-media-embed-on-paste"><a class="headerlink" href="#automatic-media-embed-on-paste">#</a> Automatic media embed on paste</h2>
+<p>By default, the <a href="../api/module_media-embed_mediaembed-MediaEmbed.html"><code>MediaEmbed</code></a> plugin loads the <a href="../api/module_media-embed_automediaembed-AutoMediaEmbed.html"><code>AutoMediaEmbed</code></a> as a dependency.</p>
+<p>The <a href="../api/module_media-embed_automediaembed-AutoMediaEmbed.html"><code>AutoMediaEmbed</code></a> plugin recognizes media links in the pasted content and embeds them shortly after they are injected into the document to speed up the editing. Just like the “traditional” embedding (using the toolbar button), automatic embedding works for all media providers specified in the <a href="#media-providers">configuration</a>.</p>
+<div class="info-box notice"><p>The media URL must be the only content pasted to be properly embedded. Multiple links (<code>"http://media.url http://another.media.url"</code>) as well as bigger chunks of content (<code>"This link http://media.url will not be auto–embedded when pasted."</code>) are ignored.</p></div>
+<p>If the automatic embedding was unexpected, for instance when the link was meant to remain in the content as text, undo the action (by clicking the “Undo” button in the toolbar or using the <kbd>Ctrl</kbd>/<kbd>Cmd</kbd>+<kbd>Z</kbd> keystrokes).</p>
+<h2 id="styling-media-in-the-editor-content"><a class="headerlink" href="#styling-media-in-the-editor-content">#</a> Styling media in the editor content</h2>
+<p>While the editor comes with default styles for popular media providers like Facebook, Instagram or X, you can create additional styles for non-previewable media in your editor content to help users identify them.</p>
+<h3 id="styling-non-previewable-media"><a class="headerlink" href="#styling-non-previewable-media">#</a> Styling non-previewable media</h3>
+<p>The HTML structure of every non-previewable media in the editor is as follows:</p>
+<pre class="highlight"><code class="html">&lt;figure class="media ck-widget" contenteditable="false"&gt;
+    &lt;div class="ck-media__wrapper" data-oembed-url="[ URL of the media ]"&gt;
+        &lt;div class="ck ck-reset_all ck-media__placeholder"&gt;
+            &lt;div class="ck-media__placeholder__icon"&gt;
+                &lt;svg class="ck ck-icon" ...&gt;...&lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;a class="ck-media__placeholder__url" target="new" href="[ URL of the media]"&gt;
+                &lt;span class="ck-media__placeholder__url__text"&gt;[ URL of the media]&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/figure&gt;
+</code></pre>
+<p>For example, you can create a dedicated style for media coming from the <a href="https://ckeditor.com">ckeditor.com</a> domain. To do that, you will need some additional styles included in your website.</p>
+<p>First, you must hide the generic media icon displayed for non-previewable media:</p>
+<pre class="highlight"><code class="css">.ck-media__wrapper[data-oembed-url*="ckeditor.com"] .ck-media__placeholder__icon * {
+    display: none;
+}
+</code></pre>
+<p>Then, give the media a distinctive background color:</p>
+<pre class="highlight"><code class="css">.ck-media__wrapper[data-oembed-url*="ckeditor.com"] .ck-media__placeholder {
+    background: hsl(282, 44%, 47%);
+}
+</code></pre>
+<p>and introduce the custom icon identifying the media:</p>
+<pre class="highlight"><code class="css">.ck-media__wrapper[data-oembed-url*="ckeditor.com"] .ck-media__placeholder__icon {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSIxMDFweCIgaGVpZ2h0PSIxMDFweCIgdmlld0JveD0iMCAwIDEwMSAxMDEiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+ICAgICAgICA8dGl0bGU+bG9nby1lY29zeXN0ZW0tM2NhYTI3MDIxODwvdGl0bGU+ICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPiAgICA8ZGVmcz48L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPiAgICAgICAgPGcgaWQ9ImxvZ28tZWNvc3lzdGVtLTNjYWEyNzAyMTgiIGZpbGw9IiNGRkZGRkYiIGZpbGwtcnVsZT0ibm9uemVybyI+ICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZSIgZmlsbC1vcGFjaXR5PSIwIiB4PSIwIiB5PSIwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSI+PC9yZWN0PiAgICAgICAgICAgIDxwYXRoIGQ9Ik02NC44LDM4Ljg5MTIzODIgQzY2LjEwODU1MzgsMzkuOTE3NzU4MiA2Ny43MjMxODI2LDQwLjQ3MzI5MyA2OS4zODQ0NTk1LDQwLjQ2ODU4MzQgQzczLjQzMTIxNjIsNDAuNDY4NTgzNCA3Ni43MTE1MTM1LDM3LjI1Nzc4MTkgNzYuNzExNTEzNSwzMy4yOTUwOTE4IEM3Ni43MTE1MTM1LDI5LjMzMzAyNTIgNzMuNDMxMjE2MiwyNi4xMjA5NzY4IDY5LjM4NDQ1OTUsMjYuMTIwOTc2OCBDNjUuMzM3NzAyNywyNi4xMjA5NzY4IDYyLjA1ODAyNywyOS4zMzMwMjUyIDYyLjA1ODAyNywzMy4yOTUwOTE4IEM2Mi4wNTgwMjcsMzQuMzY0MzE5OSA2Mi4yOTY3Mjk3LDM1LjM3ODY4MzggNjIuNzI1MDI3LDM2LjI5MDE3NzMgTDU4LjM3MzA1NDEsNDAuNTUwODc5NyBDNTYuMjU3MjU2OCwzOS4xMjEwNDg1IDUzLjc2MjYxNjcsMzguMzYwMzA1NSA1MS4yMTEzNTE0LDM4LjM2NjkxMTIgQzQ4LjMzMzg2NDksMzguMzY2OTExMiA0NS42ODIwMjcsMzkuMzEwODI0NSA0My41NjEwNTQxLDQwLjg5OTM5MTkgTDM5LjY1NjY0ODYsMzcuMDc2MzU2MSBDNDAuMzc1NDcxNiwzNS45NDcwNDM1IDQwLjc1Njg0NDgsMzQuNjM0OTA3OSA0MC43NTU2NzU3LDMzLjI5NTA5MTggQzQwLjc1NTY3NTcsMjkuMzMzMDI1MiAzNy40NzUzNzg0LDI2LjEyMDk3NjggMzMuNDI4NjIxNiwyNi4xMjA5NzY4IEMyOS4zODE4NjQ5LDI2LjEyMDk3NjggMjYuMTAxNTY3NiwyOS4zMzMwMjUyIDI2LjEwMTU2NzYsMzMuMjk1MDkxOCBDMjYuMTAxNTY3NiwzNy4yNTcxNTg1IDI5LjM4MTg2NDksNDAuNDY5MjA2OSAzMy40Mjg2MjE2LDQwLjQ2OTIwNjkgQzM0Ljg0NTkxODksNDAuNDY5MjA2OSAzNi4xNjkzNTE0LDQwLjA3NTE4MjMgMzcuMjkwMTM1MSwzOS4zOTMxMjA4IEw0MS4xOTUxNjIyLDQzLjIxNjE1NjYgQzM5LjU3MjcyOTcsNDUuMjkyODkwNSAzOC42MDc5NzMsNDcuODg5NTg3MiAzOC42MDc5NzMsNTAuNzA2OTg3NiBDMzguNjA2NjIzNyw1My4yMjAyMjEzIDM5LjM4NjcwNSw1NS42NzEzMjggNDAuODM5NTk0Niw1Ny43MTkwMDM5IEwzNi40ODcsNjEuOTgwMzI5NyBDMzUuNTI1MTEwNSw2MS41NDc5NzY5IDM0LjQ4MjY4OTMsNjEuMzI1Mjc3MyAzMy40Mjg2MjE2LDYxLjMyNjk0NzIgQzI5LjM4MTg2NDksNjEuMzI2OTQ3MiAyNi4xMDE1Njc2LDY0LjUzODk5NTYgMjYuMTAxNTY3Niw2OC41MDEwNjIzIEMyNi4xMDE1Njc2LDcyLjQ2Mzc1MjQgMjkuMzgxODY0OSw3NS42NzUxNzczIDMzLjQyODYyMTYsNzUuNjc1MTc3MyBDMzcuNDc1Mzc4NCw3NS42NzUxNzczIDQwLjc1NTY3NTcsNzIuNDYzNzUyNCA0MC43NTU2NzU3LDY4LjUwMTA2MjMgQzQwLjc1NTY3NTcsNjYuODAyMTQzIDQwLjE1MjcwMjcsNjUuMjQxMDA3NyAzOS4xNDM4MTA4LDY0LjAxMjE3NDggTDQzLjA5MjM1MTQsNjAuMTQ2MTIwNCBDNDUuMjg1NDMyNCw2MS45NTYwMTQ5IDQ4LjExODE2MjIsNjMuMDQ3MDY0IDUxLjIxMDcyOTcsNjMuMDQ3MDY0IEM1NC4wODg4Mzc4LDYzLjA0NzA2NCA1Ni43NDAwNTQxLDYyLjEwMzE1MDcgNTguODYxNjQ4Niw2MC41MTM5NTk4IEw2My4xNTcwNTQxLDY0LjcxOTc5OCBDNjIuNDM4MjMxMSw2NS44NDkxMTA2IDYyLjA1Njg1NzksNjcuMTYxMjQ2MiA2Mi4wNTgwMjcsNjguNTAxMDYyMyBDNjIuMDU4MDI3LDcyLjQ2Mzc1MjQgNjUuMzM4MzI0Myw3NS42NzUxNzczIDY5LjM4NDQ1OTUsNzUuNjc1MTc3MyBDNzMuNDMxMjE2Miw3NS42NzUxNzczIDc2LjcxMTUxMzUsNzIuNDYzNzUyNCA3Ni43MTE1MTM1LDY4LjUwMTA2MjMgQzc2LjcxMTUxMzUsNjQuNTM4OTk1NiA3My40MzEyMTYyLDYxLjMyNjk0NzIgNjkuMzg0NDU5NSw2MS4zMjY5NDcyIEM2Ny45NjcxNjIyLDYxLjMyNjk0NzIgNjYuNjQ0MzUxNCw2MS43MjA5NzE4IDY1LjUyMjk0NTksNjIuNDAzNjU2OCBMNjEuMjI3NTQwNSw1OC4xOTc4MTg2IEM2Mi44NDk5NzMsNTYuMTIwNDYxMiA2My44MTQxMDgxLDUzLjUyMzc2NDUgNjMuODE0MTA4MSw1MC43MDY5ODc2IEM2My44MTQxMDgxLDQ3LjY3ODIzNTUgNjIuNzAwMTYyMiw0NC45MDUxMDA1IDYwLjg1MTQ1OTUsNDIuNzU3OTE2IEw2NC44LDM4Ljg5MTIzODIgWiBNNTUuOTc5MTg5MiwxLjMwNjc4MDg3IEw5Mi4wMjA4MTA4LDIxLjY4MDcxODkgQzk1LjEwMTU2NzYsMjMuNDIyNjU2NiA5NywyNi42NDIxODY1IDk3LDMwLjEyNjA2MTkgTDk3LDcwLjg3MzkzODEgQzk3LDc0LjM1NzgxMzUgOTUuMTAxNTY3Niw3Ny41NzczNDM0IDkyLjAyMDgxMDgsNzkuMzE5MjgxMSBMNTUuOTc5MTg5Miw5OS42OTM4NDI2IEM1Mi44ODY4MTA4LDEwMS40MzUzODYgNDkuMTEzMTg5MiwxMDEuNDM1Mzg2IDQ2LjAyMDgxMDgsOTkuNjkzODQyNiBMOS45NzkxODkxOSw3OS4zMTkyODExIEM2Ljg5ODQzMjQzLDc3LjU3NzM0MzQgNSw3NC4zNTc4MTM1IDUsNzAuODczOTM4MSBMNSwzMC4xMjYwNjE5IEM1LDI2LjY0MjE4NjUgNi44OTg0MzI0MywyMy40MjI2NTY2IDkuOTc5MTg5MTksMjEuNjgwNzE4OSBMNDYuMDIwODEwOCwxLjMwNjE1NzQxIEM0OS4xMTMxODkyLC0wLjQzNTM4NTgwMyA1Mi44ODY4MTA4LC0wLjQzNTM4NTgwMyA1NS45NzkxODkyLDEuMzA2MTU3NDEgTDU1Ljk3OTE4OTIsMS4zMDY3ODA4NyBaIE01MS4yMTEzNTE0LDU5Ljc5NjM2MTMgQzQ2LjA4NDIxNjIsNTkuNzk2MzYxMyA0MS45MjgwNTQxLDU1LjcyNzA2MDEgNDEuOTI4MDU0MSw1MC43MDYzNjQxIEM0MS45MjgwNTQxLDQ1LjY4NjkxNTEgNDYuMDg0MjE2Miw0MS42MTY5OTA0IDUxLjIxMTM1MTQsNDEuNjE2OTkwNCBDNTYuMzM4NDg2NSw0MS42MTY5OTA0IDYwLjQ5NDY0ODYsNDUuNjg2OTE1MSA2MC40OTQ2NDg2LDUwLjcwNjk4NzYgQzYwLjQ5NDY0ODYsNTUuNzI3MDYwMSA1Ni4zMzg0ODY1LDU5Ljc5Njk4NDcgNTEuMjExMzUxNCw1OS43OTY5ODQ3IEw1MS4yMTEzNTE0LDU5Ljc5NjM2MTMgWiBNNjkuMzg0NDU5NSw3Mi40MjUwOTgxIEM2Ny4xNzE0ODY1LDcyLjQyNTA5ODEgNjUuMzc3NDg2NSw3MC42NjgxOTc0IDY1LjM3NzQ4NjUsNjguNTAxMDYyMyBDNjUuMzc3NDg2NSw2Ni4zMzQ1NTA2IDY3LjE3MTQ4NjUsNjQuNTc3NjQ5OSA2OS4zODQ0NTk1LDY0LjU3NzY0OTkgQzcxLjU5NzQzMjQsNjQuNTc3NjQ5OSA3My4zOTIwNTQxLDY2LjMzNDU1MDYgNzMuMzkyMDU0MSw2OC41MDEwNjIzIEM3My4zOTIwNTQxLDcwLjY2ODE5NzQgNzEuNTk4MDU0MSw3Mi40MjUwOTgxIDY5LjM4NDQ1OTUsNzIuNDI1MDk4MSBaIE0zMy40Mjg2MjE2LDcyLjQyNTA5ODEgQzMxLjIxNTY0ODYsNzIuNDI1MDk4MSAyOS40MjE2NDg2LDcwLjY2ODE5NzQgMjkuNDIxNjQ4Niw2OC41MDEwNjIzIEMyOS40MjE2NDg2LDY2LjMzNDU1MDYgMzEuMjE1NjQ4Niw2NC41Nzc2NDk5IDMzLjQyODYyMTYsNjQuNTc3NjQ5OSBDMzUuNjQxNTk0Niw2NC41Nzc2NDk5IDM3LjQzNTU5NDYsNjYuMzM0NTUwNiAzNy40MzU1OTQ2LDY4LjUwMTA2MjMgQzM3LjQzNTU5NDYsNzAuNjY4MTk3NCAzNS42NDE1OTQ2LDcyLjQyNTA5ODEgMzMuNDI4NjIxNiw3Mi40MjUwOTgxIFogTTMzLjQyODYyMTYsMzcuMjE4NTA0MiBDMzEuMjE1NjQ4NiwzNy4yMTg1MDQyIDI5LjQyMTY0ODYsMzUuNDYyMjI2OSAyOS40MjE2NDg2LDMzLjI5NTA5MTggQzI5LjQyMTY0ODYsMzEuMTI3OTU2NyAzMS4yMTU2NDg2LDI5LjM3MTY3OTUgMzMuNDI4NjIxNiwyOS4zNzE2Nzk1IEMzNS42NDE1OTQ2LDI5LjM3MTY3OTUgMzcuNDM1NTk0NiwzMS4xMjc5NTY3IDM3LjQzNTU5NDYsMzMuMjk1MDkxOCBDMzcuNDM1NTk0NiwzNS40NjIyMjY5IDM1LjY0MTU5NDYsMzcuMjE4NTA0MiAzMy40Mjg2MjE2LDM3LjIxODUwNDIgWiBNNjkuMzg0NDU5NSwzNy4yMTg1MDQyIEM2Ny4xNzE0ODY1LDM3LjIxODUwNDIgNjUuMzc3NDg2NSwzNS40NjIyMjY5IDY1LjM3NzQ4NjUsMzMuMjk1MDkxOCBDNjUuMzc3NDg2NSwzMS4xMjc5NTY3IDY3LjE3MTQ4NjUsMjkuMzcxNjc5NSA2OS4zODQ0NTk1LDI5LjM3MTY3OTUgQzcxLjU5NzQzMjQsMjkuMzcxNjc5NSA3My4zOTIwNTQxLDMxLjEyNzk1NjcgNzMuMzkyMDU0MSwzMy4yOTUwOTE4IEM3My4zOTIwNTQxLDM1LjQ2MjIyNjkgNzEuNTk4MDU0MSwzNy4yMTg1MDQyIDY5LjM4NDQ1OTUsMzcuMjE4NTA0MiBaIiBpZD0iU2hhcGUiPjwvcGF0aD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==);
+}
+</code></pre>
+<p>Finally, make sure the URL in the placeholder has the right contrast:</p>
+<pre class="highlight"><code class="css">.ck-media__wrapper[data-oembed-url*="ckeditor.com"] .ck-media__placeholder__url .ck-media__placeholder__url__text {
+    color: hsl(282, 100%, 93%);
+}
+
+.ck-media__wrapper[data-oembed-url*="ckeditor.com"] .ck-media__placeholder__url .ck-media__placeholder__url__text:hover {
+    color: hsl(0, 100%, 100%);
+}
+</code></pre>
+<p>Before you load the data, make sure the <code>ckeditor.com</code> provider is <a href="#extending-media-providers">enabled in your configuration</a>. In its most basic form it could look like this:</p>
+<pre class="highlight"><code class="js">mediaEmbed: {
+    extraProviders: [
+        {
+            name: 'ckeditor',
+            url: /^ckeditor\.com/
+        }
+    ]
+}
+</code></pre>
+<p>Having your styles defined and the media provider configured, insert the new media into your editor, for example, the following URL: <code>https://ckeditor.com/path/to/media</code>. You should see something like this:</p>
+<p><img src="../assets/img/features-media-embed-ckeditor.png" data-lightbox="true" alt="The example media style of the media" width="791"></p>
+<h2 id="common-api"><a class="headerlink" href="#common-api">#</a> Common API</h2>
+<p>The <a href="../api/module_media-embed_mediaembed-MediaEmbed.html"><code>MediaEmbed</code></a> plugin registers:</p>
+<ul>
+<li>
+<p>the <code>'mediaEmbed'</code> UI button component,</p>
+</li>
+<li>
+<p>the <code>'mediaEmbed'</code> command implemented by <a href="../api/module_media-embed_mediaembedcommand-MediaEmbedCommand.html"><code>MediaEmbedCommand</code></a>.</p>
+<p>You can insert a new media element or update the selected media URL by executing the following code:</p>
+<pre class="highlight"><code class="js">editor.execute( 'mediaEmbed', 'http://url.to.the/media' );
+</code></pre>
+</li>
+</ul>
+<div class="info-box notice"><p>We recommend using the official <a href="../framework/develpment-tools/inspector.html">CKEditor&nbsp;5 inspector</a> for development and debugging. It will give you tons of useful information about the state of the editor such as internal data structures, selection, commands, and many more.</p></div>
+<h2 id="contribute"><a class="headerlink" href="#contribute">#</a> Contribute</h2>
+<p>The source code of the feature is available on GitHub at <a href="https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-media-embed">https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-media-embed</a>.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22features%2Fmedia-embed.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="index.html" title="CKEditor 5 features overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKEditor 5 features overview</span>
+                              </div></a></li>
+                          <li><a href="feature-digest.html" title="Feature digest">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Feature digest</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="accessibility.html" title="Accessibility support">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Accessibility support</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">AI Assistant</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-ai-assistant">
+                                    <li><a href="ai-assistant/ai-assistant-overview.html" title="Overview">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="ai-assistant/ai-assistant-integration.html" title="Integration">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="autoformat.html" title="Autoformatting">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="text-transformation.html" title="Automatic text transformation">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="autosave.html" title="Autosave">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autosave</span>
+                              </div></a></li>
+                          <li><a href="basic-styles.html" title="Basic text styles">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="indent.html" title="Block indentation">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="block-quote.html" title="Block quote">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="bookmarks.html" title="Bookmarks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Bookmarks</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="case-change.html" title="Case change">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Case change</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="code-blocks.html" title="Code blocks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-collaboration">
+                                    <li><a href="collaboration/collaboration.html" title="Overview">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-comments">
+                                              <li><a href="collaboration/comments/comments.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-integration.html" title="Integration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-only-mode.html" title="Comments-only mode">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-outside-editor.html" title="Comments outside the editor">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-archive.html" title="Comments archive custom UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments archive custom UI</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/comments/comments-walkthrough.html" title="Walkthrough">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Walkthrough</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-track-changes">
+                                              <li><a href="collaboration/track-changes/track-changes.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/track-changes/track-changes-integration.html" title="Integration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/track-changes/track-changes-custom-features.html" title="Custom features">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/track-changes/track-changes-data.html" title="Saving data without suggestions">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-revision-history">
+                                              <li><a href="collaboration/revision-history/revision-history.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/revision-history/revision-history-integration.html" title="Integration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-real-time-collaboration">
+                                              <li><a href="collaboration/real-time-collaboration/real-time-collaboration.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/real-time-collaboration/real-time-collaboration-integration.html" title="Integration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/real-time-collaboration/users-in-real-time-collaboration.html" title="Users in real-time collaboration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="collaboration/users.html" title="Users">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                        </div></a></li>
+                                    <li><a href="collaboration/context-and-collaboration-features.html" title="Context and collaboration features">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-annotations">
+                                              <li><a href="collaboration/annotations/annotations.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-display-mode.html" title="Display mode">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-configuration.html" title="Configuration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-theme.html" title="Custom theme">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-template.html" title="Custom template">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                                  </div></a></li>
+                                              <li><a href="collaboration/annotations/annotations-custom-view.html" title="Custom view">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="minimap.html" title="Content minimap">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Document conversion</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-converters">
+                                    <li><a href="converters/export-pdf.html" title="Export to PDF">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                                    <li><a href="converters/export-word.html" title="Export to Word">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Import from Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="import-word">
+                                              <li><a href="converters/import-word/import-word.html" title="Import from Word">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Import from Word</span>
+                                                  </div></a></li>
+                                              <li><a href="converters/import-word/features-comparison.html" title="Features comparison">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features comparison</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="document-outline.html" title="Document outline">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document outline</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="title.html" title="Document title">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="drag-drop.html" title="Drag and drop">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                              </div></a></li>
+                          <li><a href="editor-placeholder.html" title="Editor placeholder">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">File management</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-file-management">
+                                    <li><a href="file-management/ckbox.html" title="CKBox">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKBox</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                                    <li><a href="file-management/ckfinder.html" title="CKFinder">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="find-and-replace.html" title="Find and replace">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="font.html" title="Font family, size, and color">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font family, size, and color</span>
+                              </div></a></li>
+                          <li><a href="format-painter.html" title="Format painter">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Format painter</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="headings.html" title="Headings">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="highlight.html" title="Highlight">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="horizontal-line.html" title="Horizontal line">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">HTML advanced support</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-html">
+                                    <li><a href="html/general-html-support.html" title="General HTML Support">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                                        </div></a></li>
+                                    <li><a href="html/html-comments.html" title="HTML comment element">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML comment element</span>
+                                        </div></a></li>
+                                    <li><a href="html/html-embed.html" title="HTML embed">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                                        </div></a></li>
+                                    <li><a href="html/full-page-html.html" title="Full page HTML">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Full page HTML</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-images">
+                                    <li><a href="images/images-overview.html" title="Basics">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basics</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-installation.html" title="Installation">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-text-alternative.html" title="Text alternative">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-captions.html" title="Image captions">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-resizing.html" title="Resizing images">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-responsive.html" title="Responsive images">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Responsive images</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-styles.html" title="Image styles">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-linking.html" title="Linking images">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                        </div></a></li>
+                                    <li><a href="images/images-inserting.html" title="Inserting images via URL">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-image-upload">
+                                              <li><a href="images/image-upload/image-upload.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/using-file-managers.html" title="Using file managers">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using file managers</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/base64-upload-adapter.html" title="Base64 upload adapter">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="images/image-upload/simple-upload-adapter.html" title="Simple upload adapter">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="link.html" title="Link">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-lists">
+                                    <li><a href="lists/lists.html" title="Ordered and unordered lists">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                        </div></a></li>
+                                    <li><a href="lists/todo-lists.html" title="To-do lists">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                        </div></a></li>
+                                    <li><a href="lists/multi-level-lists.html" title="Multi-level lists">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-level lists</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                                    <li><a href="lists/lists-editing.html" title="Lists editing behavior">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Lists editing behavior</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="markdown.html" title="Markdown output">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="math-equations.html" title="Math and chemical formulas">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="" title="Media embed">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="mentions.html" title="Mentions">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="merge-fields.html" title="Merge fields">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Merge fields</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="mermaid.html" title="Mermaid flowcharts and diagrams">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mermaid flowcharts and diagrams</span>
+                              </div></a></li>
+                          <li><a href="page-break.html" title="Page break">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-pagination">
+                                    <li><a href="pagination/pagination.html" title="Overview">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="pagination/pagination-integration.html" title="Integration with Export to PDF/Word">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-pasting">
+                                    <li><a href="pasting/paste-from-office-enhanced.html" title="Paste from Office enhanced">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Office enhanced</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                                    <li><a href="pasting/paste-from-office.html" title="Paste from Office">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Office</span>
+                                        </div></a></li>
+                                    <li><a href="pasting/paste-from-google-docs.html" title="Paste from Google Docs">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                        </div></a></li>
+                                    <li><a href="pasting/paste-plain-text.html" title="Paste plain text">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                        </div></a></li>
+                                    <li><a href="pasting/paste-markdown.html" title="Paste Markdown">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste Markdown</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="read-only.html" title="Read-only support">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="remove-format.html" title="Remove formatting">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="restricted-editing.html" title="Restricted editing">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li><a href="select-all.html" title="Select all">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="show-blocks.html" title="Show blocks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Show blocks</span>
+                              </div></a></li>
+                          <li><a href="slash-commands.html" title="Slash commands">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Slash commands</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="source-editing.html" title="Source editing">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="special-characters.html" title="Special characters">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="spelling-and-grammar-checking.html" title="Spell and grammar checker">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spell and grammar checker</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="style.html" title="Styles">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Styles</span>
+                              </div></a></li>
+                          <li><a href="table-of-contents.html" title="Table of contents">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table of contents</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Tables</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="tables">
+                                    <li><a href="tables/tables.html" title="Basics">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basics</span>
+                                        </div></a></li>
+                                    <li><a href="tables/tables-styling.html" title="Styling tables">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Styling tables</span>
+                                        </div></a></li>
+                                    <li><a href="tables/tables-resize.html" title="Table column resizing">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table column resizing</span>
+                                        </div></a></li>
+                                    <li><a href="tables/tables-caption.html" title="Table caption">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table caption</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="template.html" title="Templates">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Templates</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="text-alignment.html" title="Text alignment">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="language.html" title="Text part language">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li><a href="undo-redo.html" title="Undo/Redo">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Undo/Redo</span>
+                              </div></a></li>
+                          <li><a href="watchdog.html" title="Watchdog">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="word-count.html" title="Word and character count">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'features' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'features' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'features' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'features' ] );tags.forEach( function( tag ) {if ( tag !== 'features' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../assets/snippet.js"></script>
+    <script src="../snippets/assets.js"></script>
+    <script src="../snippets/features/build-media-source/snippet.js"></script>
+    <script src="../snippets/features/media-embed/snippet.js"></script>
+    <script src="../snippets/features/media-embed-preview/snippet.js"></script>
+    <script src="../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

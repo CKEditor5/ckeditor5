@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Code style | CKEditor 5 Framework Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:12:53 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Code style | CKEditor 5 Framework Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/framework/contributing/code-style.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Code style | CKEditor 5 Framework Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/framework/contributing/code-style.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../getting-started/index.html">Getting started</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a href="../../updating/index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../index.html">Framework</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Tutorials</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="tutorials">
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Crash course</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="crash-course">
+                                          <li><a href="../tutorials/crash-course/editor.html" title="Editor and configuration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor and configuration</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/plugins.html" title="Plugins">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/model-and-schema.html" title="Model and schema">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model and schema</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/data-conversion.html" title="Data conversion">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data conversion</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/commands.html" title="Commands">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Commands</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/view.html" title="Editor UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor UI</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/events-and-observables.html" title="Events and observables">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Events and observables</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/keystrokes.html" title="Handling keystrokes">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Handling keystrokes</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/crash-course/plugin-configuration.html" title="Plugin configuration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin configuration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../tutorials/creating-simple-plugin-timestamp.html" title="Creating a basic plugin">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a basic plugin</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Creating an advanced plugin</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="abbreviation-plugin">
+                                          <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-1.html" title="Defining a model and a view">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Defining a model and a view</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-2.html" title="Getting user input with a custom UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting user input with a custom UI</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-3.html" title="Improving accessibility and adding a command">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Improving accessibility and adding a command</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Using widgets</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="widget-tutorials">
+                                          <li><a href="../tutorials/widgets/implementing-a-block-widget.html" title="Implementing a block widget">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/widgets/implementing-an-inline-widget.html" title="Implementing an inline widget">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/widgets/using-react-in-a-widget.html" title="Using a React component in a widget">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/widgets/data-from-external-source.html" title="Data from an external source">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data from an external source</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../tutorials/supporting-multiple-versions.html" title="Compatibility of custom plugins">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Compatibility of custom plugins</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Development tools</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="development-tools">
+                                  <li><a href="../develpment-tools/inspector.html" title="Inspector">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inspector</span>
+                                      </div></a></li>
+                                  <li><a href="../develpment-tools/testing-helpers.html" title="Testing helpers">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing helpers</span>
+                                      </div></a></li>
+                                  <li><a href="../develpment-tools/mrgit.html" title="Mr. Git">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mr. Git</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Package Generator</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="package-generator">
+                                          <li><a href="../develpment-tools/package-generator/using-package-generator.html" title="Using package generator">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                              </div></a></li>
+                                          <li><a href="../develpment-tools/package-generator/javascript-package.html" title="JavaScript package">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">JavaScript package</span>
+                                              </div></a></li>
+                                          <li><a href="../develpment-tools/package-generator/typescript-package.html" title="TypeScript package">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">TypeScript package</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-architecture">
+                                  <li><a href="../architecture/intro.html" title="Introduction">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                      </div></a></li>
+                                  <li><a href="../architecture/plugins.html" title="Plugins in CKEditor 5">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins in CKEditor 5</span>
+                                      </div></a></li>
+                                  <li><a href="../architecture/core-editor-architecture.html" title="Core editor architecture">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                      </div></a></li>
+                                  <li><a href="../architecture/editing-engine.html" title="Editing engine">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                      </div></a></li>
+                                  <li><a href="../architecture/ui-library.html" title="UI library">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                      </div></a></li>
+                                  <li><a href="../architecture/ui-components.html" title="UI components">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI components</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-deep-dive">
+                                  <li><a href="../deep-dive/clipboard.html" title="Clipboard">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                      </div></a></li>
+                                  <li><a href="../deep-dive/upload-adapter.html" title="Custom upload adapter">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                      </div></a></li>
+                                  <li><a href="../deep-dive/event-system.html" title="Event system">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                      </div></a></li>
+                                  <li><a href="../deep-dive/observables.html" title="Observables">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                      </div></a></li>
+                                  <li><a href="../deep-dive/schema.html" title="Schema">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-conversion">
+                                          <li><a href="../deep-dive/conversion/intro.html" title="Introduction">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/conversion/downcast.html" title="Model to view (downcast)">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/conversion/upcast.html" title="View to model (upcast)">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list" data-id="framework-deep-dive-conversion-helpers">
+                                                  <li><a href="../deep-dive/conversion/helpers/intro.html" title="Introduction">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/conversion/helpers/downcast.html" title="Downcast helpers">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/conversion/helpers/upcast.html" title="Upcast helpers">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-ui">
+                                          <li><a href="../deep-dive/ui/focus-tracking.html" title="Focus tracking">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/ui/widget-internals.html" title="Widget internals">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/ui/theme-customization.html" title="Theme customization">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/ui/external-ui.html" title="Third-party UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third-party UI</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/ui/document-editor.html" title="Document editor">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/ui/custom-editor-creator.html" title="Creating custom editor">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/ui/localization.html" title="Localization">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../how-tos.html" title="How-tos">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">How-tos</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-contributing">
+                                  <li><a href="contributing.html" title="Contributing">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                      </div></a></li>
+                                  <li><a href="development-environment.html" title="Development environment">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                      </div></a></li>
+                                  <li><a href="testing-environment.html" title="Testing environment">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                      </div></a></li>
+                                  <li><a href="" title="Code style">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Code style</span>
+                                      </div></a></li>
+                                  <li><a href="package-metadata.html" title="Package metadata">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                      </div></a></li>
+                                  <li><a href="git-commit-message-convention.html" title="Git commit message convention">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/framework/contributing/code-style.md" title="Contribute to this guide"><img src="../../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Framework</a>
+          </div>
+          <h1 class="main__content-title">Code style
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#general" title="General">General</a></li><li><a href="#whitespace" title="Whitespace">Whitespace</a></li><li><a href="#indentation" title="Indentation">Indentation</a></li><li><a href="#braces" title="Braces">Braces</a></li><li><a href="#blank-lines" title="Blank lines">Blank lines</a></li><li><a href="#multi-line-statements-and-calls" title="Multi-line statements and calls">Multi-line statements and calls</a></li><li><a href="#strings" title="Strings">Strings</a></li><li><a href="#comments" title="Comments">Comments</a></li><li><a href="#linting" title="Linting">Linting</a></li><li><a href="#visibility-levels" title="Visibility levels">Visibility levels</a><ol><li><a href="#accessibility" title="Accessibility">Accessibility</a></li></ol></li><li><a href="#getters" title="Getters">Getters</a></li><li><a href="#order-within-class-definition" title="Order within class definition">Order within class definition</a></li><li><a href="#tests" title="Tests">Tests</a><ol><li><a href="#test-organization" title="Test organization">Test organization</a></li><li><a href="#test-implementation" title="Test implementation">Test implementation</a></li></ol></li><li><a href="#naming" title="Naming">Naming</a><ol><li><a href="#javascript-code-names" title="JavaScript code names">JavaScript code names</a><ol><li><a href="#private-properties-and-methods" title="Private properties and methods">Private properties and methods</a></li><li><a href="#methods-and-functions" title="Methods and functions">Methods and functions</a></li><li><a href="#properties-and-variables" title="Properties and variables">Properties and variables</a></li></ol></li><li><a href="#buttons-commands-and-plugins" title="Buttons, Commands and Plugins">Buttons, Commands and Plugins</a><ol><li><a href="#buttons" title="Buttons">Buttons</a></li><li><a href="#commands" title="Commands">Commands</a></li><li><a href="#plugins" title="Plugins">Plugins</a></li></ol></li><li><a href="#shortcuts" title="Shortcuts">Shortcuts</a></li><li><a href="#acronyms-and-proper-names" title="Acronyms and proper names">Acronyms and proper names</a></li><li><a href="#css-classes" title="CSS classes">CSS classes</a></li><li><a href="#id-attributes" title="ID attributes">ID attributes</a></li><li><a href="#file-names" title="File names">File names</a><ol><li><a href="#examples" title="Examples">Examples</a></li><li><a href="#standard-files" title="Standard files">Standard files</a></li></ol></li></ol></li><li><a href="#ckeditor-5-custom-eslint-rules" title="CKEditor&nbsp;5 custom ESLint rules">CKEditor&nbsp;5 custom ESLint rules</a><ol><li><a href="#importing-between-packages-ckeditor5-rulesno-relative-imports" title="Importing between packages: ckeditor5-rules/no-relative-imports">Importing between packages: ckeditor5-rules/no-relative-imports</a></li><li><a href="#description-of-an-error-ckeditor5-rulesckeditor-error-message" title="Description of an error: ckeditor5-rules/ckeditor-error-message">Description of an error: ckeditor5-rules/ckeditor-error-message</a></li><li><a href="#dll-builds-ckeditor5-rulesckeditor-imports" title="DLL Builds: ckeditor5-rules/ckeditor-imports">DLL Builds: ckeditor5-rules/ckeditor-imports</a></li><li><a href="#cross-package-imports-ckeditor5-rulesno-cross-package-imports" title="Cross package imports: ckeditor5-rules/no-cross-package-imports">Cross package imports: ckeditor5-rules/no-cross-package-imports</a></li><li><a href="#importing-modules-in-debug-comments-ckeditor5-rulesuse-require-for-debug-mode-imports" title="Importing modules in debug comments: ckeditor5-rules/use-require-for-debug-mode-imports">Importing modules in debug comments: ckeditor5-rules/use-require-for-debug-mode-imports</a></li><li><a href="#non-public-members-marked-as-internal-ckeditor5-rulesnon-public-members-as-internal" title="Non-public members marked as @internal : ckeditor5-rules/non-public-members-as-internal">Non-public members marked as @internal : ckeditor5-rules/non-public-members-as-internal</a></li><li><a href="#importing-a-predefined-build-ckeditor5-rulesno-build-extensions" title="Importing a predefined build: ckeditor5-rules/no-build-extensions">Importing a predefined build: ckeditor5-rules/no-build-extensions</a></li><li><a href="#declaring-module-augmentation-for-the-core-package-ckeditor5-rulesallow-declare-module-only-in-augmentation-file" title="Declaring module augmentation for the core package: ckeditor5-rules/allow-declare-module-only-in-augmentation-file">Declaring module augmentation for the core package: ckeditor5-rules/allow-declare-module-only-in-augmentation-file</a></li><li><a href="#importing-from-modules-ckeditor5-rulesallow-imports-only-from-main-package-entry-point" title="Importing from modules: ckeditor5-rules/allow-imports-only-from-main-package-entry-point">Importing from modules: ckeditor5-rules/allow-imports-only-from-main-package-entry-point</a></li><li><a href="#require-as-const-ckeditor5-rulesrequire-as-const-returns-in-methods" title="Require as const: ckeditor5-rules/require-as-const-returns-in-methods">Require as const: ckeditor5-rules/require-as-const-returns-in-methods</a></li><li><a href="#imports-within-a-package-ckeditor5-rulesno-scoped-imports-within-package" title="Imports within a package: ckeditor5-rules/no-scoped-imports-within-package">Imports within a package: ckeditor5-rules/no-scoped-imports-within-package</a></li><li><a href="#mandatory-file-extensions-in-imports-ckeditor5-rulesrequire-file-extensions-in-imports" title="Mandatory file extensions in imports: ckeditor5-rules/require-file-extensions-in-imports">Mandatory file extensions in imports: ckeditor5-rules/require-file-extensions-in-imports</a></li><li><a href="#require-or-disallow-certain-plugin-flags-ckeditor5-rulesckeditor-plugin-flags" title="Require or disallow certain plugin flags: ckeditor5-rules/ckeditor-plugin-flags">Require or disallow certain plugin flags: ckeditor5-rules/ckeditor-plugin-flags</a></li><li><a href="#no-legacy-imports" title="No legacy imports">No legacy imports</a></li></ol></li></ol></nav>
+<p><a href="development-environment.html">CKEditor&nbsp;5 development environment</a> has ESLint enabled both as a pre-commit hook and on CI. This means that code style issues are detected automatically. Additionally, <code>.editorconfig</code> files are present in every repository to automatically adjust your IDE settings (if it is configured to read them).</p>
+<p>Here is a quick summary of these rules.</p>
+<h2 id="general"><a class="headerlink" href="#general">#</a> General</h2>
+<p><strong>LF for line endings</strong>. Never use CRLF.</p>
+<p>The recommended maximum <strong>line length is 120 characters</strong>. It cannot exceed 140 characters.</p>
+<h2 id="whitespace"><a class="headerlink" href="#whitespace">#</a> Whitespace</h2>
+<p><strong>No trailing spaces</strong>. Empty lines should not contain any spaces.</p>
+<p>Whitespace <strong>inside parenthesis</strong> and <strong>before and after operators</strong>:</p>
+<pre class="highlight"><code class="js">function foo( a, b, c, d, e ) {
+    if ( a &gt; b ) {
+        c = ( d + e ) * 2;
+    }
+}
+
+foo( bar() );
+</code></pre>
+<p>No whitespace for an <strong>empty parenthesis</strong>:</p>
+<pre class="highlight"><code class="js">const a = () =&gt; {
+    // Statements.
+    // ...
+};
+
+a();
+</code></pre>
+<p>No whitespace <strong>before colon and semicolon</strong>:</p>
+<pre class="highlight"><code class="js">let a, b;
+
+a( 1, 2, 3 );
+
+for ( const i = 0; i &lt; 100; i++ ) {
+    // Statements.
+    // ...
+}
+</code></pre>
+<h2 id="indentation"><a class="headerlink" href="#indentation">#</a> Indentation</h2>
+<p>Indentation with <strong>tab</strong>, for both code and comments. Never use spaces.</p>
+<p>If you want to have the code readable, set the <strong>tab</strong> to <strong>4 spaces</strong> in your IDE.</p>
+<pre class="highlight"><code class="js">class Bar {
+    a() {
+        while ( b in a ) {
+            if ( b == c ) {
+                // Statements.
+                // ...
+            }
+        }
+    }
+}
+</code></pre>
+<p><strong>Multiple lines condition</strong>. Use <strong>one tab</strong> for each line:</p>
+<pre class="highlight"><code class="js">if (
+    some != really.complex &amp;&amp;
+    condition || with &amp;&amp;
+    ( multiple == lines )
+) {
+    // Statements.
+    // ...
+}
+
+while (
+    some != really.complex &amp;&amp;
+    condition || with &amp;&amp;
+    ( multiple == lines )
+) {
+    // Statements.
+    // ...
+}
+</code></pre>
+<div class="info-box notice"><p>We do our best to avoid complex conditions. As a rule of thumb, we first recommend finding a way to move the complexity out of the condition, for example, to a separate function with early returns for each “sentence” in such a condition.</p><p>However, overdoing things is not good as well and sometimes such a condition can be perfectly readable (which is the ultimate goal here).</p></div>
+<h2 id="braces"><a class="headerlink" href="#braces">#</a> Braces</h2>
+<p>Braces <strong>start at the same line</strong> as the head statement and end aligned with it:</p>
+<pre class="highlight"><code class="js">function a() {
+    // Statements.
+    // ...
+}
+
+if ( a ) {
+    // Statements.
+    // ...
+} else if ( b ) {
+    // Statements.
+    // ...
+} else {
+    // Statements.
+    // ...
+}
+
+try {
+    // Statements.
+    // ...
+} catch ( e ) {
+    // Statements.
+    // ...
+}
+</code></pre>
+<h2 id="blank-lines"><a class="headerlink" href="#blank-lines">#</a> Blank lines</h2>
+<p>The code should read like a book, so put blank lines between “paragraphs” of code. This is an open and contextual rule, but some recommendations would be to separate the following sections:</p>
+<ul>
+<li>variable, class and function declarations,</li>
+<li><code>if()</code>, <code>for()</code> and similar blocks,</li>
+<li>steps of an algorithm,</li>
+<li><code>return</code> statements,</li>
+<li>comment sections (comments should be preceded with a blank line, but if they are the “paragraph” themselves, they should also be followed with one),</li>
+<li>etc.</li>
+</ul>
+<p>Example:</p>
+<pre class="highlight"><code class="js">class Foo extends Plugin {
+    constructor( editor ) {
+        super( editor );
+
+        /**
+        * Some documentation...
+        */
+        this.foo = new Foo();
+
+        /**
+        * Some documentation...
+        */
+        this.isBar = false;
+    }
+
+    method( bar ) {
+        const editor = this.editor;
+        const selection = editor.model.document.selection;
+
+        for ( const range of selection.getRanges() ) {
+            const position = range.start;
+
+            if ( !position ) {
+                return false;
+            }
+
+            // At this stage this and this need to happen.
+            // We considered doing this differently, but it has its shortcomings.
+            // Refer to the tests and issue #3456 to learn more.
+
+            const result = editor.model.checkSomething( position );
+
+            if ( result ) {
+                return true;
+            }
+        }
+
+        return true;
+    }
+
+    performAlgorithm() {
+        // 1. Do things A and B.
+        this.a();
+        this.b();
+
+        // 2. Check C.
+        if ( c() ) {
+            d();
+        }
+
+        // 3. Check whether we are fine.
+        const areWeFine = 1 || 2 || 3;
+
+        this.check( areWeFine );
+
+        // 4. Finalize.
+        this.finalize( areWeFine );
+
+        return areWeFine;
+    }
+}
+</code></pre>
+<h2 id="multi-line-statements-and-calls"><a class="headerlink" href="#multi-line-statements-and-calls">#</a> Multi-line statements and calls</h2>
+<p>Whenever there is a multi-line function call:</p>
+<ul>
+<li>Put the first parameter in a new line.</li>
+<li>Put every parameter in a separate line indented by one tab.</li>
+<li>Put the last closing parenthesis in a new line, at the same indentation level as the beginning of the call.</li>
+</ul>
+<p>Examples:</p>
+<pre class="highlight"><code class="js">const myObj = new MyClass(
+    'Some long parameters',
+    'To make this',
+    'Multi line'
+);
+
+fooBar(
+    () =&gt; {
+        // Statements.
+        // ...
+    }
+);
+
+fooBar(
+    new MyClass(
+        'Some long parameters',
+        'To make this',
+        'Multi line'
+    )
+);
+
+fooBar(
+    'A very long string',
+    () =&gt; {
+        // Some kind of a callback.
+        // ...
+    },
+    5,
+    new MyClass(
+        'It looks well',
+        paramA,
+        paramB,
+        new ShortClass( 2, 3, 5 ),
+        'Even when nested'
+    )
+);
+</code></pre>
+<div class="info-box notice"><p>These examples are just showcasing how to structure such function calls. However, it is best to avoid them.</p><p>It is generally recommended to avoid having functions that accept more than 3 arguments. Instead, it is better to wrap them in an object so all parameters can be named.</p><p>It is also recommended to split such long statements into multiple shorter ones, for example, by extracting some longer parameters to separate variables.</p></div>
+<h2 id="strings"><a class="headerlink" href="#strings">#</a> Strings</h2>
+<p>Use <strong>single quotes</strong>:</p>
+<pre class="highlight"><code class="js">const a = 'I\'m an example for quotes';
+</code></pre>
+<p>Long strings can be <strong>concatenated with plus</strong> (<code>+</code>):</p>
+<pre class="highlight"><code class="js">const html =
+    'Line 1\n' +
+    'Line 2\n' +
+    'Line 3';
+</code></pre>
+<p>or you can use template strings. The second and third line will be indented in this case:</p>
+<pre class="highlight"><code class="js">const html =
+    `Line 1
+    Line 2
+    Line 3`;
+</code></pre>
+<p>Strings of HTML should use indentation for readability:</p>
+<pre class="highlight"><code class="js">const html =
+    `&lt;p&gt;
+        &lt;span&gt;${ a }&lt;/span&gt;
+    &lt;/p&gt;`;
+</code></pre>
+<h2 id="comments"><a class="headerlink" href="#comments">#</a> Comments</h2>
+<ul>
+<li>Comments are always <strong>preceded by a blank line</strong>.</li>
+<li>Comments start with a <strong>capital first letter</strong> and require a period at the end (since they are sentences).</li>
+<li>There must be a <strong>single space at the start</strong> of the text, right after the comment token.</li>
+</ul>
+<p><strong>Block comments</strong> (<code>/** ... */</code>) are used for <strong>documentation only</strong>. Asterisks are aligned with space:</p>
+<pre class="highlight"><code class="js">/**
+ * Documentation for the following method.
+ *
+ * @returns {Object} Something.
+ */
+someMethod() {
+    // Statements.
+    // ...
+}
+</code></pre>
+<p>All <strong>other comments</strong> use <strong>line comments</strong> (<code>//</code>):</p>
+<pre class="highlight"><code class="js">// A comment about the following statement.
+foo();
+
+// Multiple line comments
+// go through several
+// line comments as well.
+</code></pre>
+<p><strong>Comments related to tickets or issues</strong> should not describe the whole issue fully. A short description should be used instead, together with the ticket number in parenthesis:</p>
+<pre class="highlight"><code class="js">// Do this otherwise because of a Safari bug. (#123)
+foo();
+</code></pre>
+<h2 id="linting"><a class="headerlink" href="#linting">#</a> Linting</h2>
+<p>CKEditor&nbsp;5 development environment uses <a href="https://eslint.org">ESLint</a> and <a href="https://stylelint.io/">stylelint</a>.</p>
+<p>A couple of useful links:</p>
+<ul>
+<li><a href="https://eslint.org/docs/latest/use/configure/">Disabling ESLint with inline comments</a>.</li>
+<li><a href="https://github.com/ckeditor/ckeditor5-linters-config/blob/master/packages/eslint-config-ckeditor5/.eslintrc.js">CKEditor&nbsp;5 ESLint preset</a> (npm: <a href="http://npmjs.com/package/eslint-config-ckeditor5"><code>eslint-config-ckeditor5</code></a>).</li>
+<li><a href="https://github.com/ckeditor/ckeditor5-linters-config/blob/master/packages/stylelint-config-ckeditor5/.stylelintrc">CKEditor&nbsp;5 stylelint preset</a> (npm: <a href="https://www.npmjs.com/package/stylelint-config-ckeditor5"><code>stylelint-config-ckeditor5</code></a>).</li>
+</ul>
+<div class="info-box notice"><p>Avoid using automatic code formatters on existing code. It is fine to automatically format code that you are editing, but you should not be changing the formatting of the code that is already written to not pollute your PRs. You should also not rely solely on automatic corrections.</p></div>
+<h2 id="visibility-levels"><a class="headerlink" href="#visibility-levels">#</a> Visibility levels</h2>
+<p>Each class property (including methods, symbols, getters, or setters) can be public, protected, or private. The default visibility is public, so you should not document that a property is public – there is no need to do this.</p>
+<p>Additional rules apply to private properties:</p>
+<ul>
+<li>The names of private and protected properties that are exposed in a class prototype (or in any other way) should be prefixed with an underscore.</li>
+<li>When documenting a private variable that is not added to a class prototype (or exposed in any other way), <code>//</code> comments should be used and using <code>@private</code> is not necessary.</li>
+<li>A symbol property (like <code>this[ Symbol( 'symbolName' ) ]</code>) should be documented as <code>@property {Type} _symbolName</code>.</li>
+</ul>
+<p>Example:</p>
+<pre class="highlight"><code class="js">class Foo {
+    /**
+    * The constructor (public, as its visibility isn't defined).
+    */
+    constructor() {
+        /**
+        * Public property.
+        */
+        this.foo = 1;
+
+        /**
+        * Protected property.
+        *
+        * @protected
+        */
+        this._bar = 1;
+
+        /**
+        * @private
+        * @property {Number} _bom
+        */
+        this[ Symbol( 'bom' ) ] = 1;
+    }
+
+    /**
+    * @private
+    */
+    _somePrivateMethod() {}
+}
+
+// Some private helper.
+//
+// @returns {Number}
+function doSomething() {
+    return 1;
+}
+</code></pre>
+<h3 id="accessibility"><a class="headerlink" href="#accessibility">#</a> Accessibility</h3>
+<p>The table below shows the accessibility of properties:</p>
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px">
+	<thead>
+		<tr>
+			<th scope="row">&nbsp;</th>
+			<th scope="col">Class</th>
+			<th scope="col">Package</th>
+			<th scope="col">Subclass</th>
+			<th scope="col">World</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row" style="text-align: left;"><code>@public</code></th>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">yes</td>
+		</tr>
+		<tr>
+			<th scope="row" style="text-align: left;"><code>@protected</code></th>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">no</td>
+		</tr>
+		<tr>
+			<th scope="row" style="text-align: left;"><code>@private</code></th>
+			<td style="text-align:center">yes</td>
+			<td style="text-align:center">no</td>
+			<td style="text-align:center">no</td>
+			<td style="text-align:center">no</td>
+		</tr>
+	</tbody>
+</table>
+<p>(yes – accessible, no – not accessible)</p>
+<p>For instance, a protected property is accessible from its own class in which it was defined, from its whole package, and from its subclasses (even if they are not in the same package).</p>
+<div class="info-box notice"><p>Protected properties and methods are often used for testability. Since tests are located in the same package as the code, they can access these properties.</p></div>
+<h2 id="getters"><a class="headerlink" href="#getters">#</a> Getters</h2>
+<p>You can use ES6 getters to simplify class API:</p>
+<pre class="highlight"><code class="js">class Position {
+    // More methods.
+    // ...
+
+    get offset() {
+        return this.path[ this.path.length - 1 ];
+    }
+}
+</code></pre>
+<p>A getter should feel like a natural property. There are several recommendations to follow when creating getters:</p>
+<ul>
+<li>They should be fast.</li>
+<li>They should not throw.</li>
+<li>They should not change the object state.</li>
+<li>They should not return new instances of an object every time (so <code>foo.bar == foo.bar</code> is true). It is OK to create a new instance for the first call and cache it if it is possible.</li>
+</ul>
+<h2 id="order-within-class-definition"><a class="headerlink" href="#order-within-class-definition">#</a> Order within class definition</h2>
+<p>Within the class definition, order the methods and properties as follows:</p>
+<ol>
+<li>Constructor.</li>
+<li>Getters and setters.</li>
+<li>Iterators.</li>
+<li>Public instance methods.</li>
+<li>Public static methods.</li>
+<li>Protected instance methods.</li>
+<li>Protected static methods.</li>
+<li>Private instance methods.</li>
+<li>Private static methods.</li>
+</ol>
+<p>The order within each group is left for the implementer.</p>
+<h2 id="tests"><a class="headerlink" href="#tests">#</a> Tests</h2>
+<p>There are some special rules and tips for tests.</p>
+<h3 id="test-organization"><a class="headerlink" href="#test-organization">#</a> Test organization</h3>
+<ul>
+<li>
+<p>Always use an outer <code>describe()</code> in a test file. Do not allow any globals, especially hooks (<code>beforeEach()</code>, <code>after()</code>, etc.) outside the outermost <code>describe()</code>.</p>
+</li>
+<li>
+<p>The outermost <code>describe()</code> calls should create meaningful groups, so when all tests are run together a failing TC can be identified within the code base. For example:</p>
+<pre class="highlight"><code class="js">describe( 'Editor', () =&gt; {
+    describe( 'constructor()', () =&gt; {
+        it( /* ... */ );
+    } );
+
+    // More test cases.
+    // ...
+} );
+</code></pre>
+<p>Using titles like <code>utils</code> is not fine as there are multiple utilities in the entire project. <code>Table utils</code> would be better.</p>
+</li>
+<li>
+<p>Test descriptions (<code>it()</code>) should be written like documentation (what you do and what should happen), for example, <em>“the foo dialog closes when the X button is clicked”</em>. Also, <em>“…case 1”</em>, <em>“…case 2”</em> in test descriptions are not helpful.</p>
+</li>
+<li>
+<p>Avoid test descriptions like <em>“does not crash when two ranges get merged.”</em> Instead, explain what is actually expected to happen. For instance: <em>“leaves 1 range when two ranges get merged.”</em></p>
+</li>
+<li>
+<p>Most often, using words like “correctly,” “works fine” is a code smell. Think about the requirements – when writing them you do not say that feature X should “work fine.” You document how it should work.</p>
+</li>
+<li>
+<p>Ideally, it should be possible to recreate an algorithm just by reading the test descriptions.</p>
+</li>
+<li>
+<p>Avoid covering multiple cases under one <code>it()</code>. It is OK to have multiple assertions in one test, but not to test, for example, how method <code>foo()</code> works when it is called with 1, then with 2, then 3, etc. There should be a separate test for each case.</p>
+</li>
+<li>
+<p>Every test should clean up after itself, including destroying all editors and removing all elements that have been added.</p>
+</li>
+</ul>
+<h3 id="test-implementation"><a class="headerlink" href="#test-implementation">#</a> Test implementation</h3>
+<ul>
+<li>
+<p>Avoid using real timeouts. Use <a href="https://sinonjs.org/releases/latest/fake-timers/">fake timers</a> instead <strong>when possible</strong>. Timeouts make tests really slow.</p>
+</li>
+<li>
+<p>However, do not over-optimize (especially since performance is not a priority in tests). In most cases, it is completely fine (and hence recommended) to create a separate editor for every <code>it()</code>.</p>
+</li>
+<li>
+<p>We aim at having 100% coverage of <em>all distinctive scenarios</em>. Covering 100% branches in the code is not the goal here – it is a by-product of covering real scenarios.</p>
+<p>Think about this: when you fix a bug by adding a parameter to an existing function call, you do not affect code coverage (that line was called anyway). However, you had a bug, meaning that your test suite did not cover it. Therefore, a test must be created for that code change.</p>
+</li>
+<li>
+<p>It should be <code>expect( x ).to.equal( y )</code>. <strong>NOT</strong>: <s><code>expect( x ).to.be.equal( y )</code></s>.</p>
+</li>
+<li>
+<p>When using Sinon spies, pay attention to the readability of assertions and failure messages.</p>
+<ul>
+<li>
+<p>Use named spies, for example:</p>
+<pre class="highlight"><code class="js">const someCallbackSpy = sinon.spy().named( 'someCallback' );
+const myMethodSpy = sinon.spy( obj, 'myMethod' );
+</code></pre>
+</li>
+<li>
+<p>Use <a href="https://www.chaijs.com/plugins/sinon-chai/">sinon-chai assertions</a></p>
+<pre class="highlight"><code class="js">expect( myMethodSpy ).to.be.calledOnce
+// expected myMethod to be called once but was called twice
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="naming"><a class="headerlink" href="#naming">#</a> Naming</h2>
+<h3 id="javascript-code-names"><a class="headerlink" href="#javascript-code-names">#</a> JavaScript code names</h3>
+<p>Variables, functions, namespaces, parameters and all undocumented cases must be named in <a href="http://en.wikipedia.org/wiki/CamelCase">lowerCamelCase</a>:</p>
+<pre class="highlight"><code class="js">let a;
+let myLongNamedVariable = true;
+
+function foo() {}
+
+function longNamedFunction( example, longNamedParameter ) {}
+</code></pre>
+<p>Classes must be named in <a href="http://en.wikipedia.org/wiki/CamelCase">UpperCamelCase</a>:</p>
+<pre class="highlight"><code class="js">class MyClass() {}
+
+const a = new MyClass();
+</code></pre>
+<p>Mixins must be named in <a href="http://en.wikipedia.org/wiki/CamelCase">UpperCamelCase</a>, post-fixed with “Mixin”:</p>
+<pre class="highlight"><code class="js">const SomeMixin = {
+    method1: /* ... */,
+    method2: /* ... */
+};
+</code></pre>
+<p>Global namespacing variables must be named in <a href="http://en.wikipedia.org/wiki/All_caps">ALLCAPS</a>:</p>
+<pre class="highlight"><code class="js">const CKEDITOR_TRANSLATIONS = {};
+</code></pre>
+<h4 id="private-properties-and-methods"><a class="headerlink" href="#private-properties-and-methods">#</a> Private properties and methods</h4>
+<p>Private properties and methods are <strong>prefixed with an underscore</strong>:</p>
+<pre class="highlight"><code class="js">CKEDITOR._counter;
+something._doInternalTask();
+</code></pre>
+<h4 id="methods-and-functions"><a class="headerlink" href="#methods-and-functions">#</a> Methods and functions</h4>
+<p>Methods and functions are <strong>almost always</strong> verbs or actions:</p>
+<pre class="highlight"><code class="js">// Good
+execute();
+this.getNextNumber()
+
+// Bad
+this.editable();
+this.status();
+</code></pre>
+<h4 id="properties-and-variables"><a class="headerlink" href="#properties-and-variables">#</a> Properties and variables</h4>
+<p>Properties and variables are <strong>almost always</strong> nouns:</p>
+<pre class="highlight"><code class="js">const editor = this.editor;
+this.name;
+this.editable;
+</code></pre>
+<p><strong>Boolean properties and variables</strong> are <strong>always</strong> prefixed by an auxiliary verb:</p>
+<pre class="highlight"><code class="js">this.isDirty;
+this.hasChildren;
+this.canObserve;
+this.mustRefresh;
+</code></pre>
+<h3 id="buttons-commands-and-plugins"><a class="headerlink" href="#buttons-commands-and-plugins">#</a> Buttons, Commands and Plugins</h3>
+<h4 id="buttons"><a class="headerlink" href="#buttons">#</a> Buttons</h4>
+<p>All buttons should follow the <strong>verb + noun</strong> or the <strong>noun</strong> convention. Examples:</p>
+<ul>
+<li>The <strong>verb + noun</strong> convention:
+<ul>
+<li><code>insertTable</code></li>
+<li><code>selectAll</code></li>
+<li><code>uploadImage</code></li>
+</ul>
+</li>
+<li>The <strong>noun</strong> convention:
+<ul>
+<li><code>bold</code></li>
+<li><code>mediaEmbed</code></li>
+<li><code>restrictedEditing</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="commands"><a class="headerlink" href="#commands">#</a> Commands</h4>
+<p>As for commands, it is trickier. There are more combinations of their names possible than there are for buttons. Examples:</p>
+<ul>
+<li>The <strong>feature-related</strong> convention:
+<ul>
+<li><strong>noun-based</strong> case:
+<ul>
+<li><code>codeBlock</code></li>
+<li><code>fontColor</code></li>
+<li><code>shiftEnter</code></li>
+</ul>
+</li>
+<li><strong>verb-based</strong> case:
+<ul>
+<li><code>indent</code></li>
+<li><code>removeFormat</code></li>
+<li><code>selectAll</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The <strong>feature + sub-feature</strong> convention:
+<ul>
+<li><code>imageStyle</code></li>
+<li><code>imageTextAlternative</code></li>
+<li><code>tableAlignment</code></li>
+</ul>
+</li>
+</ul>
+<p>For commands, the <strong>noun + verb</strong> (or the <strong>feature + action</strong>) naming conventions <strong>should not be used</strong>, because it does not sound natural (<em>what do</em> vs. <em>do what</em>). In most cases the proper name should start with the <strong>action</strong> followed by the <strong>feature</strong> name:</p>
+<ul>
+<li><code>checkTodoList</code></li>
+<li><code>insertTable</code></li>
+<li><code>uploadImage</code></li>
+</ul>
+<h4 id="plugins"><a class="headerlink" href="#plugins">#</a> Plugins</h4>
+<p>Plugins should follow the <strong>feature</strong> or the <strong>feature + sub-feature</strong> convention. Examples:</p>
+<ul>
+<li>The <strong>feature</strong> convention:
+<ul>
+<li><code>Bold</code></li>
+<li><code>Paragraph</code></li>
+<li><code>SpecialCharacters</code></li>
+</ul>
+</li>
+<li>The <strong>feature + sub-feature</strong> convention:
+<ul>
+<li><code>ImageResize</code></li>
+<li><code>ListProperties</code></li>
+<li><code>TableClipboard</code></li>
+</ul>
+</li>
+</ul>
+<p>Plugins must be named in <a href="http://en.wikipedia.org/wiki/CamelCase">UpperCamelCase</a>.</p>
+<h3 id="shortcuts"><a class="headerlink" href="#shortcuts">#</a> Shortcuts</h3>
+<p>For local variables <strong>commonly accepted short versions</strong> for long names are fine:</p>
+<pre class="highlight"><code class="js">const attr, doc, el, fn, deps, err, id, args, uid, evt, env;
+</code></pre>
+<p>The following are <strong>the only short versions accepted for property names</strong>:</p>
+<pre class="highlight"><code class="js">this.lang;
+this.config;
+this.id;
+this.env;
+</code></pre>
+<h3 id="acronyms-and-proper-names"><a class="headerlink" href="#acronyms-and-proper-names">#</a> Acronyms and proper names</h3>
+<p>Acronyms and, partially, proper names are naturally written in uppercase. This may stand against code style rules described above – especially when there is a need to include an acronym or a proper name in a variable or class name. In such case, one should follow these rules:</p>
+<ul>
+<li>Acronyms:
+<ul>
+<li>All lowercase if at the beginning of the variable name: <code>let domError</code>.</li>
+<li>Default camel case at the beginning of the class name: <code>class DomError</code>.</li>
+<li>Default camel case inside the variable or class name: <code>function getDomError()</code>.</li>
+</ul>
+</li>
+<li>Proper names:
+<ul>
+<li>All lowercase if at the beginning of the variable: <code>let ckeditorError</code>.</li>
+<li>Original case if at the beginning of the class name: <code>class CKEditorError</code>.</li>
+<li>Original case inside the variable or class name: <code>function getCKEditorError()</code>.</li>
+</ul>
+</li>
+</ul>
+<p>However, two-letter acronyms and proper names (if originally written uppercase) should be uppercase. For example: <code>getUI</code>, not <code>getUi</code>.</p>
+<div class="info-box notice"><p>Two most frequently used acronyms which cause problems:</p><ul>
+<li><strong>DOM</strong> – It should be e.g. <code>getDomNode()</code>,</li>
+<li><strong>HTML</strong> – It should be e.g. <code>toHtml()</code>.</li>
+</ul>
+</div>
+<h3 id="css-classes"><a class="headerlink" href="#css-classes">#</a> CSS classes</h3>
+<p>CSS class naming pattern is based on <a href="https://en.bem.info/">BEM</a> methodology and code style. All names are in lowercase with an optional dash (<code>-</code>) between the words.</p>
+<p>Top–level building <strong>blocks</strong> begin with a mandatory <code>ck-</code> prefix:</p>
+<pre class="highlight"><code class="css">.ck-dialog
+.ck-toolbar
+.ck-dropdown-menu
+</code></pre>
+<p><strong>Elements</strong> belonging to the block namespace are delimited by double underscore (<code>__</code>):</p>
+<pre class="highlight"><code class="css">.ck-dialog__header
+.ck-toolbar__group
+.ck-dropdown-menu__button-collapser
+</code></pre>
+<p><strong>Modifiers</strong> are delimited by a single underscore (<code>_</code>). Key-value modifiers<br>
+follow the <code>block-or-element_key_value</code> naming pattern:</p>
+<pre class="highlight"><code class="css">/* Block modifier */
+.ck-dialog_hidden
+/* Element modifier */
+.ck-toolbar__group_collapsed
+/* Block modifier as key_value  */
+.ck-dropdown-menu_theme_some-theme
+</code></pre>
+<p>In HTML:</p>
+<pre class="highlight"><code class="html">&lt;div class="ck-reset_all ck-dialog ck-dialog_theme_lark ck-dialog_visible"&gt;
+    &lt;div class="ck-dialog__top ck-dialog__top_small"&gt;
+        &lt;h1 class="ck-dialog__top-title"&gt;Title of the dialog&lt;/h1&gt;
+        ...
+    &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code></pre>
+<h3 id="id-attributes"><a class="headerlink" href="#id-attributes">#</a> ID attributes</h3>
+<p>HTML ID attribute naming pattern follows <a href="#css-classes">CSS classes</a> naming guidelines. Each ID must begin with the <code>ck-</code> prefix and consist of dash–separated (<code>-</code>) words in lowercase:</p>
+<pre class="highlight"><code class="html">&lt;div id="ck"&gt;...&lt;/div&gt;
+&lt;div id="ck-unique-div"&gt;...&lt;/div&gt;
+&lt;div id="ck-a-very-long-unique-identifier"&gt;...&lt;/div&gt;
+</code></pre>
+<h3 id="file-names"><a class="headerlink" href="#file-names">#</a> File names</h3>
+<p>File and directory names must follow a standard that makes their syntax easy to predict:</p>
+<ul>
+<li>All lowercase.</li>
+<li>Only alphanumeric characters are accepted.</li>
+<li>Words are separated by dashes (<code>-</code>) (<a href="https://en.wikipedia.org/wiki/Letter_case#Special_case_styles">kebab-case</a>).
+<ul>
+<li>Code entities are considered single words, so the <code>DataProcessor</code> class is defined in the <code>dataprocessor.js</code> file.</li>
+<li>However, a test file covering for “mutations in multi-root editors”: <code>mutations-in-multi-root-editors.js</code>.</li>
+</ul>
+</li>
+<li>HTML files have the <code>.html</code> extension.</li>
+</ul>
+<h4 id="examples"><a class="headerlink" href="#examples">#</a> Examples</h4>
+<ul>
+<li><code>ckeditor.js</code></li>
+<li><code>tools.js</code></li>
+<li><code>editor.js</code></li>
+<li><code>dataprocessor.js</code></li>
+<li><code>build-all.js</code> and <code>build-min.js</code></li>
+<li><code>test-core-style-system.html</code></li>
+</ul>
+<h4 id="standard-files"><a class="headerlink" href="#standard-files">#</a> Standard files</h4>
+<p>Widely used standard files do not obey the above rules:</p>
+<ul>
+<li><code>README.md</code>, <code>LICENSE.md</code>, <code>CONTRIBUTING.md</code>, <code>CHANGES.md</code></li>
+<li><code>.gitignore</code> and all standard “dot-files”</li>
+<li><code>node_modules</code></li>
+</ul>
+<h2 id="ckeditor-5-custom-eslint-rules"><a class="headerlink" href="#ckeditor-5-custom-eslint-rules">#</a> CKEditor&nbsp;5 custom ESLint rules</h2>
+<p>In addition to the rules provided by ESLint, CKEditor&nbsp;5 uses a few custom rules described below.</p>
+<h3 id="importing-between-packages-ckeditor5-rulesno-relative-imports"><a class="headerlink" href="#importing-between-packages-ckeditor5-rulesno-relative-imports">#</a> Importing between packages: <code>ckeditor5-rules/no-relative-imports</code></h3>
+<p>While importing modules from the same package, it is allowed to use relative paths, like this:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `packages/ckeditor5-engine/src/model/model.js`
+
+import Position from './position';
+import insertContent from './utils/insertcontent';
+</code></pre>
+<p>While importing modules from other packages, it is not allowed to use relative paths, and the import must be done using the package name, like this:</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `packages/ckeditor5-engine/src/model/model.js`
+
+import CKEditorError from '../../../ckeditor5-utils/src/ckeditorerror';
+</code></pre>
+<p>Even if the import statement works locally, it will throw an error when developers install packages from npm.</p>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `packages/ckeditor5-engine/src/model/model.js`
+
+import { CKEditorError } from 'ckeditor5';
+</code></pre>
+<p><a href="https://github.com/ckeditor/ckeditor5/issues/7128">History of the change.</a></p>
+<h3 id="description-of-an-error-ckeditor5-rulesckeditor-error-message"><a class="headerlink" href="#description-of-an-error-ckeditor5-rulesckeditor-error-message">#</a> Description of an error: <code>ckeditor5-rules/ckeditor-error-message</code></h3>
+<p>Each time a new error is created, it needs a description to be displayed on the <a href="../../support/error-codes.html">error codes</a> page, like this:</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="js">// Missing the error's description.
+
+throw new CKEditorError( 'ckeditor5-example-error', this );
+
+// ESLint shouldn't expect the definition of the error as it is already described.
+
+throw new CKEditorError( 'editor-wrong-element', this );
+</code></pre>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="js">// This error occurs for the first time in the project, so it needs to be defined.
+
+/**
+ * Description of why the error was thrown and how to fix the code.
+ *
+ * @error ckeditor5-example-error
+ */
+throw new CKEditorError( 'ckeditor5-example-error', this );
+
+// This error is already described, so we don't need to provide its documentation.
+// We need to disable ESLint for checking the rule.
+// It is a good practice to include a note that explains where it is described.
+
+// Documented in core/editor/editor.js
+// eslint-disable-next-line ckeditor5-rules/ckeditor-error-message
+throw new CKEditorError( 'editor-wrong-element', this );
+</code></pre>
+<p><a href="https://github.com/ckeditor/ckeditor5/issues/7822">History of the change.</a></p>
+<h3 id="dll-builds-ckeditor5-rulesckeditor-imports"><a class="headerlink" href="#dll-builds-ckeditor5-rulesckeditor-imports">#</a> DLL Builds: <code>ckeditor5-rules/ckeditor-imports</code></h3>
+<p>To make CKEditor&nbsp;5 plugins compatible with each other, we needed to introduce limitations when importing files from packages.</p>
+<p>Packages marked as “Base DLL build” can import between themselves without any restrictions. Names of these packages are specified in the <a href="../../getting-started/legacy/advanced/alternative-setups/dll-builds.html#anatomy-of-a-dll-build">DLL builds</a> guide.</p>
+<p>The other CKEditor&nbsp;5 features (non-DLL) can import “Base DLL” packages using the <code>ckeditor5</code> package.</p>
+<p>When importing modules from the <code>ckeditor5</code> package, all imports must come from the <code>src/</code> directory. Other directories are not published on npm, so such imports will not work.</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `packages/ckeditor5-basic-styles/src/bold.js`
+
+import { Plugin } from '@ckeditor/ckeditor5-core';
+
+// The import uses the `ckeditor5` package, but the specified path does not exist when installing the package from npm.
+
+import { Plugin } from 'ckeditor5/packages/ckeditor5-core';
+</code></pre>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `packages/ckeditor5-basic-styles/src/bold.js`
+
+import { Plugin } from 'ckeditor5/src/core';
+</code></pre>
+<p>Also, non-DLL packages should not import between non-DLL packages to avoid code duplications when building DLL builds.</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `packages/ckeditor5-link/src/linkimage.js`
+
+import { createImageViewElement } from '@ckeditor/ckeditor5-image'
+</code></pre>
+<p>To use the <code>createImageViewElement()</code> function, consider implementing a utility plugin that will expose the required function in the <code>ckeditor5-image</code> package.</p>
+<p>When importing a DLL package from another DLL package, an import statement must use the full name of the imported package instead of using the <code>ckeditor5</code> notation.</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `packages/ckeditor5-widget/src/widget.js`
+
+import { Plugin } from 'ckeditor5/src/core';
+</code></pre>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `packages/ckeditor5-widget/src/widget.js`
+
+import { Plugin } from 'ckeditor5';
+</code></pre>
+<p>History of changes:</p>
+<ul>
+<li><a href="https://github.com/ckeditor/ckeditor5/issues/8581">Force importing using the <code>ckeditor5</code> package.</a></li>
+<li><a href="https://github.com/ckeditor/ckeditor5/issues/10030">Imports from the <code>ckeditor5</code> package must use the <code>src/</code> directory.</a></li>
+<li><a href="https://github.com/ckeditor/ckeditor5/issues/10375">Imports between DLL packages must use full names of packages.</a></li>
+</ul>
+<h3 id="cross-package-imports-ckeditor5-rulesno-cross-package-imports"><a class="headerlink" href="#cross-package-imports-ckeditor5-rulesno-cross-package-imports">#</a> Cross package imports: <code>ckeditor5-rules/no-cross-package-imports</code></h3>
+<p>It is allowed to import modules from other packages:</p>
+<pre class="highlight"><code class="js">import { toArray } from 'ckeditor5/src/utils';
+</code></pre>
+<p>However, some packages cannot import modules from CKEditor&nbsp;5 as it could lead to code duplication and errors in runtime. Hence, the rule disables this kind of import.</p>
+<p>Currently, it applies to the <code>@ckeditor/ckeditor5-watchdog</code> package.</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the `packages/ckeditor5-watchdog/` directory.
+
+import { toArray } from 'ckeditor5/src/utils';
+import { toArray } from 'ckeditor5';
+</code></pre>
+<p><a href="https://github.com/ckeditor/ckeditor5/issues/9318">History of the change.</a></p>
+<h3 id="importing-modules-in-debug-comments-ckeditor5-rulesuse-require-for-debug-mode-imports"><a class="headerlink" href="#importing-modules-in-debug-comments-ckeditor5-rulesuse-require-for-debug-mode-imports">#</a> Importing modules in debug comments: <code>ckeditor5-rules/use-require-for-debug-mode-imports</code></h3>
+<p>The debug mode allows importing additional modules for testing purposes. Unfortunately, the debug comment is not removed, so webpack reports the following error.</p>
+<pre class="highlight"><code class="">Module parse failed: 'import' and 'export' may only appear at the top level (15204:20)
+File was processed with these loaders:
+ * ./node_modules/@ckeditor/ckeditor5-dev-tests/lib/utils/ck-debug-loader.js
+You may need an additional loader to handle the result of these loaders.
+|  */
+|
+&gt; /* @if CK_DEBUG */  import { CKEditorError } from 'ckeditor5/src/utils';
+|
+| /**
+</code></pre>
+<p>Modules need to be imported with a <code>require()</code> function.</p>
+<p>To create a code executed only in the debug mode, follow the description of the <code>--debug</code> flag in the <a href="testing-environment.html#running-manual-tests">testing environment</a> guide.</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="js">// @if CK_DEBUG // import defaultExport from 'module-name';
+// @if CK_DEBUG // import * as name from 'module-name';
+// @if CK_DEBUG // import { testFunction } from 'module-name';
+// @if CK_DEBUG // import { default as alias } from 'module-name';
+// @if CK_DEBUG // import { exported as alias } from 'module-name';
+// @if CK_DEBUG // import 'module-name';
+</code></pre>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="js">// @if CK_DEBUG // const defaultExport = require( 'module-name' ).default;
+// @if CK_DEBUG // const name = require( 'module-name' );
+// @if CK_DEBUG // const { testFunction } = require( 'module-name' );
+// @if CK_DEBUG // const alias = require( 'module-name' ).default;
+// @if CK_DEBUG // const { exported: alias } = require( 'module-name' );
+// @if CK_DEBUG // require( 'module-name' );
+</code></pre>
+<p><a href="https://github.com/ckeditor/ckeditor5/issues/12479">History of the change.</a></p>
+<h3 id="non-public-members-marked-as-internal-ckeditor5-rulesnon-public-members-as-internal"><a class="headerlink" href="#non-public-members-marked-as-internal-ckeditor5-rulesnon-public-members-as-internal">#</a> Non-public members marked as @internal : <code>ckeditor5-rules/non-public-members-as-internal</code></h3>
+<div class="info-box notice notice__warning"><p>This rule should only be used on <code>.ts</code> files.</p></div>
+<p>To remove non-public members from type definitions, use the <code>@internal</code> tag in the member’s JSDoc.</p>
+<p>Then you can use the <code>"stripInternal": true</code> option in <code>tsconfig.json</code> to remove them from declaration types.</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="ts">class ClassWithSecrets {
+    private _shouldNotBeEmitted: string;
+}
+</code></pre>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="ts">class ClassWithSecrets {
+    /**
+    * @internal
+    */
+    private _shouldNotBeEmitted: string;
+}
+</code></pre>
+<h3 id="importing-a-predefined-build-ckeditor5-rulesno-build-extensions"><a class="headerlink" href="#importing-a-predefined-build-ckeditor5-rulesno-build-extensions">#</a> Importing a predefined build: <code>ckeditor5-rules/no-build-extensions</code></h3>
+<div class="info-box notice notice__info"><p>This rule only applies to code snippets from the documentation.</p></div>
+<p>While importing a predefined build, only this build is allowed to be imported, like this:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `packages/ckeditor5-alignment/docs/_snippets/features/text-alignment.js`.
+
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+</code></pre>
+<p>Importing anything from the <code>src</code> directory to extend a CKEditor&nbsp;5 build is not allowed. Other directories from a predefined build are not published on npm, so such imports will not work.</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `packages/ckeditor5-alignment/docs/_snippets/features/text-alignment.js`.
+
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic/src/ckeditor';
+</code></pre>
+<pre class="highlight"><code class="js">// Assume we edit a file located in the path: `docs/_snippets/features/placeholder.js`.
+
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic/src/ckeditor';
+</code></pre>
+<p><a href="https://github.com/ckeditor/ckeditor5/issues/13689">History of the change.</a></p>
+<h3 id="declaring-module-augmentation-for-the-core-package-ckeditor5-rulesallow-declare-module-only-in-augmentation-file"><a class="headerlink" href="#declaring-module-augmentation-for-the-core-package-ckeditor5-rulesallow-declare-module-only-in-augmentation-file">#</a> Declaring module augmentation for the core package: <code>ckeditor5-rules/allow-declare-module-only-in-augmentation-file</code></h3>
+<div class="info-box notice notice__warning"><p>This rule should only be used on <code>.ts</code> files.</p></div>
+<p>The main entry points (<code>index.ts</code> files) in most modules have a side effect import <code>import './augmentation'</code> which uses module augmentation to populate the editor types with information about available plugins, configurations and commands.</p>
+<p>This rule forces all <code>declare module '@ckeditor/ckeditor5-core'</code> to be defined in this <code>augmentation.ts</code> file.</p>
+<h3 id="importing-from-modules-ckeditor5-rulesallow-imports-only-from-main-package-entry-point"><a class="headerlink" href="#importing-from-modules-ckeditor5-rulesallow-imports-only-from-main-package-entry-point">#</a> Importing from modules: <code>ckeditor5-rules/allow-imports-only-from-main-package-entry-point</code></h3>
+<p>This rule ensures that all imports from the <code>@ckeditor/*</code> packages are done through the main package entry points. This is required for the editor types to work properly and to ease migration to the installation methods introduced in CKEditor&nbsp;5 v42.0.0.</p>
+<p>👎&nbsp; Example of incorrect code for this rule:</p>
+<pre class="highlight"><code class="ts">// Importing from the `/src/` folder is not allowed.
+import Table from '@ckeditor/ckeditor5-table/src/table';
+
+// Importing from the `/theme/` folder is not allowed.
+import BoldIcon from '@ckeditor/ckeditor5-core/theme/icons/bold.svg';
+</code></pre>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="ts">// ✔️ Importing from the main entry point is allowed.
+import { Table } from 'ckeditor5';
+</code></pre>
+<h3 id="require-as-const-ckeditor5-rulesrequire-as-const-returns-in-methods"><a class="headerlink" href="#require-as-const-ckeditor5-rulesrequire-as-const-returns-in-methods">#</a> Require <code>as const</code>: <code>ckeditor5-rules/require-as-const-returns-in-methods</code></h3>
+<div class="info-box notice notice__warning"><p>This rule should only be used on <code>.ts</code> files.</p></div>
+<p>In TypeScript, the types inferred from some values are simplified. For example, the type of <code>const test = [1, 2, 3];</code> is <code>number[]</code>, but in some cases a more specific type may be needed. Using <code>as const</code> can help with this. For example, the type of <code>const test1 = [1, 2, 3] as const;</code> is <code>readonly [1, 2, 3]</code>.</p>
+<p>The <code>require-as-const-returns-in-methods</code> rule requires some methods that depend on the exact type of returned data (for example, <code>'delete'</code> literal string instead of the generic <code>string</code> in the <code>pluginName</code> method, or <code>readonly [typeof Table]</code> instead of <code>[]</code> in the <code>requires</code> method) to have all return statements with <code>as const</code>.</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="ts">export default class Delete extends Plugin {
+    public static get pluginName(): string {
+        return 'Delete';
+    }
+}
+</code></pre>
+<pre class="highlight"><code class="ts">export default class Delete extends Plugin {
+    public static get pluginName(): 'Delete' {
+        return 'Delete';
+    }
+}
+</code></pre>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="ts">export default class Delete extends Plugin {
+    public static get pluginName() {
+        return 'Delete' as const;
+    }
+}
+</code></pre>
+<h3 id="imports-within-a-package-ckeditor5-rulesno-scoped-imports-within-package"><a class="headerlink" href="#imports-within-a-package-ckeditor5-rulesno-scoped-imports-within-package">#</a> Imports within a package: <code>ckeditor5-rules/no-scoped-imports-within-package</code></h3>
+<p>All imports defined in every package, that point to a file from the same package, must be relative. You cannot use the scoped imports, if the target file is located in the same package as the import declaration. The resolved scoped import points to the package inside the <code>node_modules</code>, but not to the current working directory, and the source code in these two places may differ from each other.</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="ts">// Assume we edit a file located in the path: `packages/ckeditor5-alignment/src/alignment.ts`.
+
+// Both imports are incorrect.
+import { AlignmentEditing } from '@ckeditor/ckeditor5-alignment';
+import AlignmentEditing from '@ckeditor/ckeditor5-alignment/src/alignmentediting';
+</code></pre>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="ts">// Assume we edit a file located in the path: `packages/ckeditor5-alignment/src/alignment.ts`.
+
+import AlignmentEditing from './alignmentediting';
+</code></pre>
+<p><a href="https://github.com/ckeditor/ckeditor5/issues/14329">History of the change.</a></p>
+<h3 id="mandatory-file-extensions-in-imports-ckeditor5-rulesrequire-file-extensions-in-imports"><a class="headerlink" href="#mandatory-file-extensions-in-imports-ckeditor5-rulesrequire-file-extensions-in-imports">#</a> Mandatory file extensions in imports: <code>ckeditor5-rules/require-file-extensions-in-imports</code></h3>
+<p>As required by the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ECMAScript (ESM)</a> standard, all imports and re-exports must include a file extension. If they do not include it, this rule will try to automatically detect the correct file extension. It is impossible in these two cases:</p>
+<ul>
+<li>The file extension is different that <code>.ts</code>, <code>.js</code>, or <code>.json</code>.</li>
+<li>The file does not exist in the file system.</li>
+</ul>
+<p>The second case is common for the documentation files, because its pieces are located in different directories and repositories. These pieces are merged during the build step, but before that, the imports are technically invalid.</p>
+<p>In such cases, you must add the file extension manually. Imports with file extensions are not validated.</p>
+<h3 id="require-or-disallow-certain-plugin-flags-ckeditor5-rulesckeditor-plugin-flags"><a class="headerlink" href="#require-or-disallow-certain-plugin-flags-ckeditor5-rulesckeditor-plugin-flags">#</a> Require or disallow certain plugin flags: <code>ckeditor5-rules/ckeditor-plugin-flags</code></h3>
+<div class="info-box notice notice__warning"><p>This rule should only be used on <code>.ts</code> files.</p></div>
+<p>This rule ensures that plugin flags are either correctly set or not set at all. It checks whether the flags have the correct type and value, preventing common mistakes and ensuring compliance with the CKEditor&nbsp;5 plugin API.</p>
+<p>Options:</p>
+<ul>
+<li><code>requiredFlags</code> – (optional) An array of flags that must be set in the plugin.</li>
+<li><code>disallowedFlags</code> – (optional) An array of flags that must not be set in the plugin.</li>
+</ul>
+<p>The example configuration below requires the <code>isFooPlugin</code> flag to be set to <code>true</code> and disallows the <code>isBarPlugin</code> flag:</p>
+<pre class="highlight"><code class="json">{
+    "requiredFlags": [
+        {
+            "name": "isFooPlugin",
+            "returnValue": true
+        }
+    ],
+    "disallowedFlags": [ "isBarPlugin" ]
+}
+</code></pre>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="ts">export default class MyPlugin extends Plugin {
+    static get pluginName() {
+        return 'MyPlugin';
+    }
+
+    public static override get isBarPlugin(): false {
+        return false;
+    }
+}
+</code></pre>
+<p>The <code>isBarPlugin</code> flag is disallowed, and the plugin has it set to <code>false</code>. Additionally, the <code>isFooPlugin</code> flag is required but not defined.</p>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="ts">export default class MyPlugin extends Plugin {
+    static get pluginName() {
+        return 'MyPlugin';
+    }
+
+    public static override get isFooPlugin(): true {
+        return true;
+    }
+}
+</code></pre>
+<p>The <code>isFooPlugin</code> flag is required and set to <code>true</code>, and the <code>isBarPlugin</code> flag is not defined.</p>
+<h3 id="no-legacy-imports"><a class="headerlink" href="#no-legacy-imports">#</a> No legacy imports</h3>
+<p>This rule ensures that imports are done using the <a href="../../updating/nim-migration/migration-to-new-installation-methods.html">new installation methods</a>. All imports should be done using either the <code>ckeditor5</code> package to get the editor core and all open-source plugins, or <code>ckeditor5-premium-features</code> to get the premium features.</p>
+<p>👎&nbsp; Examples of incorrect code for this rule:</p>
+<pre class="highlight"><code class="js">// Import from `ckeditor5/src/*`.
+import { Plugin } from 'ckeditor5/src/core.js';
+
+// Import from individual open-source package.
+import { Plugin } from '@ckeditor/ckeditor5-core';
+
+// Import from individual premium package.
+import { AIAssistant } from '@ckeditor/ckeditor5-ai';
+</code></pre>
+<p>👍&nbsp; Examples of correct code for this rule:</p>
+<pre class="highlight"><code class="js">import { Plugin } from 'ckeditor5';
+import { AIAssistant } from 'ckeditor5-premium-features';
+</code></pre>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22framework%2Fcontributing%2Fcode-style.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Tutorials</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="tutorials">
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Crash course</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="crash-course">
+                                              <li><a href="../tutorials/crash-course/editor.html" title="Editor and configuration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor and configuration</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/plugins.html" title="Plugins">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/model-and-schema.html" title="Model and schema">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model and schema</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/data-conversion.html" title="Data conversion">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data conversion</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/commands.html" title="Commands">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Commands</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/view.html" title="Editor UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor UI</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/events-and-observables.html" title="Events and observables">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Events and observables</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/keystrokes.html" title="Handling keystrokes">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Handling keystrokes</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/crash-course/plugin-configuration.html" title="Plugin configuration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin configuration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../tutorials/creating-simple-plugin-timestamp.html" title="Creating a basic plugin">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a basic plugin</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Creating an advanced plugin</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="abbreviation-plugin">
+                                              <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-1.html" title="Defining a model and a view">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Defining a model and a view</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-2.html" title="Getting user input with a custom UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting user input with a custom UI</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/abbreviation-plugin/abbreviation-plugin-level-3.html" title="Improving accessibility and adding a command">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Improving accessibility and adding a command</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Using widgets</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="widget-tutorials">
+                                              <li><a href="../tutorials/widgets/implementing-a-block-widget.html" title="Implementing a block widget">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/widgets/implementing-an-inline-widget.html" title="Implementing an inline widget">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/widgets/using-react-in-a-widget.html" title="Using a React component in a widget">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/widgets/data-from-external-source.html" title="Data from an external source">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data from an external source</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../tutorials/supporting-multiple-versions.html" title="Compatibility of custom plugins">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Compatibility of custom plugins</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Development tools</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="development-tools">
+                                    <li><a href="../develpment-tools/inspector.html" title="Inspector">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inspector</span>
+                                        </div></a></li>
+                                    <li><a href="../develpment-tools/testing-helpers.html" title="Testing helpers">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing helpers</span>
+                                        </div></a></li>
+                                    <li><a href="../develpment-tools/mrgit.html" title="Mr. Git">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mr. Git</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Package Generator</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="package-generator">
+                                              <li><a href="../develpment-tools/package-generator/using-package-generator.html" title="Using package generator">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                                  </div></a></li>
+                                              <li><a href="../develpment-tools/package-generator/javascript-package.html" title="JavaScript package">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">JavaScript package</span>
+                                                  </div></a></li>
+                                              <li><a href="../develpment-tools/package-generator/typescript-package.html" title="TypeScript package">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">TypeScript package</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-architecture">
+                                    <li><a href="../architecture/intro.html" title="Introduction">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                        </div></a></li>
+                                    <li><a href="../architecture/plugins.html" title="Plugins in CKEditor 5">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugins in CKEditor 5</span>
+                                        </div></a></li>
+                                    <li><a href="../architecture/core-editor-architecture.html" title="Core editor architecture">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                        </div></a></li>
+                                    <li><a href="../architecture/editing-engine.html" title="Editing engine">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                        </div></a></li>
+                                    <li><a href="../architecture/ui-library.html" title="UI library">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                        </div></a></li>
+                                    <li><a href="../architecture/ui-components.html" title="UI components">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI components</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="framework-deep-dive">
+                                    <li><a href="../deep-dive/clipboard.html" title="Clipboard">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                        </div></a></li>
+                                    <li><a href="../deep-dive/upload-adapter.html" title="Custom upload adapter">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                        </div></a></li>
+                                    <li><a href="../deep-dive/event-system.html" title="Event system">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                        </div></a></li>
+                                    <li><a href="../deep-dive/observables.html" title="Observables">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                        </div></a></li>
+                                    <li><a href="../deep-dive/schema.html" title="Schema">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-conversion">
+                                              <li><a href="../deep-dive/conversion/intro.html" title="Introduction">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/conversion/downcast.html" title="Model to view (downcast)">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/conversion/upcast.html" title="View to model (upcast)">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list" data-id="framework-deep-dive-conversion-helpers">
+                                                        <li><a href="../deep-dive/conversion/helpers/intro.html" title="Introduction">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/conversion/helpers/downcast.html" title="Downcast helpers">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/conversion/helpers/upcast.html" title="Upcast helpers">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-deep-dive-ui">
+                                              <li><a href="../deep-dive/ui/focus-tracking.html" title="Focus tracking">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/ui/widget-internals.html" title="Widget internals">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/ui/theme-customization.html" title="Theme customization">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/ui/external-ui.html" title="Third-party UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third-party UI</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/ui/document-editor.html" title="Document editor">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/ui/custom-editor-creator.html" title="Creating custom editor">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/ui/localization.html" title="Localization">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../how-tos.html" title="How-tos">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">How-tos</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="framework-contributing">
+                                    <li><a href="contributing.html" title="Contributing">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                        </div></a></li>
+                                    <li><a href="development-environment.html" title="Development environment">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                        </div></a></li>
+                                    <li><a href="testing-environment.html" title="Testing environment">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                        </div></a></li>
+                                    <li><a href="" title="Code style">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Code style</span>
+                                        </div></a></li>
+                                    <li><a href="package-metadata.html" title="Package metadata">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                        </div></a></li>
+                                    <li><a href="git-commit-message-convention.html" title="Git commit message convention">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'framework' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'framework' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'framework' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'framework' ] );tags.forEach( function( tag ) {if ( tag !== 'framework' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

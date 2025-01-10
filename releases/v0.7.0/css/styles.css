@@ -1,0 +1,334 @@
+/*
+ * Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400);
+
+body, html {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	line-height: 1.5;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	background: url( ../img/bg.jpg ) calc(50% + 100px) top no-repeat #201F24;
+	color: #fff;
+	font-weight: 300;
+}
+
+h1,
+h2 {
+	font-weight: 300;
+}
+
+a {
+	color: #88d01c;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Responsive design failsafe */
+.header__nav__wrapper {
+	padding: 0 2em;
+}
+
+header h1,
+main,
+footer {
+	padding: 0 1em;
+}
+
+/* ---- Header --------------------------------------------------- */
+.header__nav__wrapper {
+	margin: 0 auto;
+	display: block;
+	line-height: 100px;
+	background-color: rgba(39, 39, 41, 0.62);
+	text-align: left;
+	overflow: hidden;
+}
+
+.header__nav__inner {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.header__nav__inner a img {
+	vertical-align: middle;
+}
+
+.header__nav__inner_left {
+	float: left;
+}
+
+.header__nav__inner_left a img {
+	height: 22px;
+}
+
+.header__nav__inner_right {
+	float: right;
+}
+
+.header__nav__inner_right a {
+	color: #fff;
+}
+
+.header__nav__inner_right a img {
+	margin-right: .6em;
+}
+
+.header__nav__inner_right a + a {
+	margin-left: 2em;
+}
+
+header h1 {
+	font-size: 2.4em;
+	margin: 4em 0 1.5em;
+}
+
+/* ---- CKEditor --------------------------------------------------- */
+main .ck-editor .ck-editor__editable_inline {
+	color: #333;
+}
+
+main .ck-editor,
+main .message {
+	position: relative;
+	z-index: 1;
+	max-width: 720px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+main .ck-editor .ck-editor__editable_inline {
+	padding: 1em 2em;
+}
+
+.ck-editor .ck-editor__editable_inline h2,
+.ck-editor .ck-editor__editable_inline h3,
+.ck-editor .ck-editor__editable_inline h4,
+.ck-editor .ck-editor__editable_inline strong {
+  font-weight: 400;
+}
+
+.ck-editor .ck-widget.ck-widget_selected,
+.ck-editor .ck-widget.ck-widget_selected:hover {
+	outline: 3px solid #69A2DF;
+}
+
+.ck-editor .ck-editor__editable.ck-blurred .ck-widget.ck-widget_selected {
+	outline: 3px solid #DDD;
+}
+
+.ck-editor .ck-widget:hover {
+	outline: 3px solid #FFD25C;
+}
+
+.image,
+.image img {
+	max-width: 100%;
+}
+
+/* ---- Changelog --------------------------------------------------- */
+#changelog {
+	max-width: 900px;
+	margin: 5em auto;
+}
+
+#changelog__timeline {
+	margin: 2em 0;
+	overflow: hidden;
+	position: relative;
+}
+
+#changelog__timeline:before,
+#changelog__timeline section:before {
+	content: "";
+	width: .2em;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	bottom: 0;
+}
+
+#changelog__timeline:before {
+	border-radius: 100px;
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 10em);
+	bottom: 1em;
+}
+
+#changelog__timeline section {
+	position: relative;
+	overflow: hidden;
+	padding-top: .2em;
+}
+
+#changelog__timeline section:before,
+#changelog__timeline section:after {
+	background: #88d01c;
+}
+
+#changelog__timeline section:first-of-type {
+	margin-top: 8em;
+}
+
+#changelog__timeline section:last-of-type {
+	padding-bottom: 2em;
+}
+
+#changelog__timeline section:nth-child(odd) {
+	padding-right: 54%;
+	text-align: right;
+}
+
+#changelog__timeline section:nth-child(even) {
+	padding-left: 54%;
+	text-align: left;
+}
+
+#changelog__timeline section:after {
+	content: "";
+	width: 1em;
+	height: 1em;
+	border-radius: 100px;
+	position: absolute;
+	top: .6em;
+	left: 50%;
+	margin-left: -.4em;
+	z-index: 2;
+	box-shadow: 0 0 0 .6em rgba(136, 208, 28, 0.24);
+}
+
+#changelog__timeline section:first-of-type:before {
+	top: .5em;
+}
+
+#changelog__timeline section:last-of-type:before {
+	bottom: 1em;
+}
+
+#changelog__timeline section:last-of-type:after {
+	top: auto;
+	bottom: 1em;
+}
+
+#changelog__timeline section h2 {
+	margin-top: 0;
+	margin-bottom: 0em;
+	font-size: 1.3em;
+}
+
+#changelog__timeline section time {
+	display: block;
+	font-size: .7em;
+	opacity: .3;
+	margin-bottom: 2em;
+	text-transform: uppercase;
+}
+
+#changelog__timeline section p {
+	letter-spacing: 1px;
+}
+
+/* ---- Footer --------------------------------------------------- */
+footer {
+	overflow: hidden;
+	margin: 3em 0;
+}
+
+footer nav ul {
+	margin: 3em 0;
+	padding: 0;
+}
+
+footer nav ul li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+footer nav ul li + li {
+	margin-left: 4em;
+}
+
+footer nav a {
+	color: #fff;
+	text-decoration: none;
+}
+
+footer nav a img {
+	vertical-align: top;
+	margin-right: .4em
+}
+
+footer .copy {
+	color: #555;
+	font-size: .8em;
+}
+
+footer .copy a {
+	color: #4a6f12;
+}
+
+/* ---- Message --------------------------------------------------- */
+.message {
+	background: #fff;
+	color: #333;
+	padding: 2em;
+	text-align: center;
+}
+
+/* ---- RWD --------------------------------------------------- */
+@media only screen and (max-device-width: 800px) {
+	body, html {
+		font-size: 150%;
+	}
+
+	.header__nav__wrapper {
+		text-align: center;
+		line-height: 80px;
+		background: none;
+	}
+
+	.header__nav__inner_left,
+	.header__nav__inner_right {
+		float: none;
+	}
+
+	.header__nav__inner_left {
+		margin: 4em 0 0;
+	}
+
+	.header__nav__inner_right {
+		display: none;
+	}
+
+	.header__nav__inner_left a img {
+		height: 50px;
+	}
+
+	header h1 {
+		margin-top: 2em;
+	}
+
+	/* ---- CKEditor ---------------------------- */
+	.ck-editor,
+	.message {
+		max-width: none;
+	}
+
+	.ck-reset, .ck-reset_all, .ck-reset_all * {
+		font-size: inherit;
+	}
+
+	/* ---- Changelog ---------------------------- */
+	#changelog__timeline section:nth-child(odd) {
+		padding-right: 60%;
+	}
+
+	#changelog__timeline section:nth-child(even) {
+		padding-left: 60%;
+	}
+}

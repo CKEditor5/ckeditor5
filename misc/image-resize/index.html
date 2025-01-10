@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor 5 – Image resize proof of concept</title>
+	<style>
+		body {
+			max-width: 800px;
+			margin: 20px auto;
+
+			font-size: 14px;
+			font-family: Helvetica, Arial, sans-serif;
+		}
+
+		body > .ck-content:not(.ck-focused) {
+			border: 1px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.info {
+			background: rgb(255, 218, 150);
+			border: 3px dashed #000;
+			padding: 1em 2em;
+			margin-top: 2em;
+			margin-bottom: 2em;
+		}
+
+		.ck .ck-content .image {
+			overflow: visible;
+		}
+
+		.ck .ck-content .image-style-side {
+			max-width: 100%;
+		}
+
+		#resizer-options {
+			position: fixed;
+			right: 0px;
+			width: 300px;
+			border: 2px solid blue;
+			padding: 10px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+<h1>CKEditor 5 – <a href="https://github.com/ckeditor/ckeditor5-image/issues/241">image resize</a> proof of concept</h1>
+
+<section class="info">
+	<p>⚠️ This demo is an early proof of concept of the image resize in <a href="https://ckeditor.com/ckeditor-5/">CKEditor 5</a>.
+	For more details and updates, check out the <a href="https://github.com/ckeditor/ckeditor5-image/issues/241">issue</a> on GitHub.</p>
+</section>
+
+<section id="resizer-options">
+	<h1>Options</h1>
+
+	<p>Use the options below to adjust resizer behavior.</p>
+
+	<h2>Resizing strategy</h2>
+
+	<p>
+		<select name="strategy" id="strategy">
+			<option value="center">Center</option>
+			<option value="top-anchored" selected>Top-anchored center</option>
+			<option value="side">Side</option>
+		</select>
+	</p>
+
+	<h2>Visible resizers</h2>
+	<ol>
+		<li>
+			<input type="checkbox" name="handler[]" value="top-left" id="resizer-checkbox__top-left">
+			<label for="resizer-checkbox__top-left">top-left</label>
+		</li>
+		<li>
+			<input type="checkbox" name="handler[]" value="top-right" id="resizer-checkbox__top-right">
+			<label for="resizer-checkbox__top-right">top-right</label>
+		</li>
+		<li>
+			<input type="checkbox" name="handler[]" value="bottom-right" id="resizer-checkbox__bottom-right">
+			<label for="resizer-checkbox__bottom-right">bottom-right</label>
+		</li>
+		<li>
+			<input type="checkbox" name="handler[]" value="bottom-left" id="resizer-checkbox__bottom-left">
+			<label for="resizer-checkbox__bottom-left">bottom-left</label>
+		</li>
+	</ol>
+
+	<p>
+		<input type="checkbox" name="resize-image" value="true" id="resize-image" checked>
+		<label for="resize-image">Resize using image directly<br><small>(not implemented for side resize)</small></label>
+	</p>
+
+</section>
+
+<div id="classic-editor">
+	<h2>The three greatest things you learn from traveling</h2>
+
+	<p>Like all the great things on earth traveling teaches us by example. Here are some of the most precious lessons I’ve learned over the years of traveling.</p>
+
+	<figure>
+		<img src="../../img/sample.jpg" alt="Sample image" style="width: 475px">
+	</figure>
+
+	<h3>Appreciation of diversity</h3>
+
+	<p>Getting used to an entirely different culture can be challenging. While it’s also nice to learn about cultures online or from books, nothing comes close to experiencing cultural diversity in person. You learn to appreciate each and every single one of the differences while you become more culturally fluid.</p>
+
+	<blockquote>
+		<p>The real voyage of discovery consists not in seeking new landscapes, but having new eyes.</p>
+		<p><strong>Marcel Proust</strong></p>
+	</blockquote>
+
+	<h3>Improvisation</h3>
+
+	<p>Life doesn't allow us to execute every single plan perfectly. This especially seems to be the case when you travel. You plan it down to every minute with a big checklist; but when it comes to executing it, something always comes up and you’re left with your improvising skills. You learn to adapt as you go. Here’s how my travel checklist looks now:</p>
+
+	<ul>
+		<li>buy the ticket</li>
+		<li>start your adventure</li>
+	</ul>
+
+	<figure class="image image-style-side">
+		<img src="../../img/sample.jpg" alt="Sample image" style="width: 275px">
+	</figure>
+
+	<h3>Confidence</h3>
+
+	<p>Going to a new place can be quite terrifying. While change and uncertainty makes us scared, traveling teaches us how ridiculous it is to be afraid of something before it happens. The moment you face your fear and see there was nothing to be afraid of, is the moment you discover bliss.</p>
+
+	<p>Going to a new place can be quite terrifying. While change and uncertainty makes us scared, traveling teaches us how ridiculous it is to be afraid of something before it happens. The moment you face your fear and see there was nothing to be afraid of, is the moment you discover bliss.</p>
+
+	<h2>The three greatest things you learn from traveling</h2>
+
+	<p>Like all the great things on earth traveling teaches us by example. Here are some of the most precious lessons I’ve learned over the years of traveling.</p>
+</div>
+
+<script src="build/ckeditor.js"></script>
+<script src="build/translations/ar.js"></script>
+<script>
+	ClassicEditor
+		.create( document.querySelector( '#classic-editor' ) )
+		.then( editor => {
+			window.editor = editor;
+			console.log( 'Created editor. You can use window.editor to access it.', editor );
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+
+	( function() {
+		const optionsWrapper = document.getElementById( 'resizer-options' );
+		const defaultConfig = {
+			handler: [ 'top-left', 'top-right', 'bottom-right', 'bottom-left' ]
+		};
+		const dynamicStylesheet = document.createElement( 'style' );
+		const cssRules = {};
+
+		for ( const checkbox of optionsWrapper.querySelectorAll( 'input[name="handler[]"]' ) ) {
+			checkbox.addEventListener( 'change', function() {
+				const ruleValue = `.ck-widget__resizer.ck-widget__resizer-${ this.value } { display: none; }`;
+
+				if ( this.value in cssRules ) {
+					dynamicStylesheet.sheet.deleteRule( cssRules[ this.value ] );
+					delete cssRules[ this.value ];
+				}
+
+				if ( !this.checked ) {
+					cssRules[ this.value ] = dynamicStylesheet.sheet.insertRule( ruleValue );
+				}
+			} );
+
+			if ( defaultConfig.handler.includes( checkbox.value ) ) {
+				checkbox.checked = true;
+			}
+		}
+
+		document.head.appendChild( dynamicStylesheet );
+
+		// Resize using image
+		document.getElementById( 'resize-image' ).addEventListener( 'change', function() {
+			window.pocResizeUsingImage = this.checked;
+		} );
+
+		// Resize strategy
+		document.getElementById( 'strategy' ).addEventListener( 'change', function() {
+			const strategies = {
+				'center': ClassicEditor.resizerStrategies.ResizerCentral,
+				'side': ClassicEditor.resizerStrategies.ResizerSide
+			};
+
+			window.editor.plugins.get( 'WidgetResizer' ).set( 'resizerStrategy', strategies[ this.value ] );
+		} );
+	}() );
+</script>
+
+</body>
+</html>

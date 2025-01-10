@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Migration to v31.x - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:52 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Migration to v31.x - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/updating/migration-to-31.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Migration to v31.x - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/updating/migration-to-31.html">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../index.html">CKEditor 5</a></li>
+          <li><a href="../installation/index.html">Installation</a></li>
+          <li><a href="../features/index.html">Features</a></li>
+          <li><a href="../examples/index.html">Examples</a></li>
+          <li><a class="top__menu__item--active" href="index.html">Updating</a></li>
+          <li><a href="../support/index.html">Support</a></li>
+          <li><a href="../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="index.html">Updating</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="updating.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating your editor</span>
+                              </div></a></li>
+                          <li><a href="changelog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Recent release changelog</span>
+                              </div></a></li>
+                          <li><a href="migration-to-34.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v34.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-33.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v33.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-32.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v32.x</span>
+                              </div></a></li>
+                          <li><a href="">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migration to v31.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-30.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v30.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-29.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v29.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-28.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v28.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-27.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v27.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-26.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v26.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-25.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v25.x</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="support"><a href="../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/updating/migration-to-31.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="index.html">Updating</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../assets/2.1.3/img/book.svg" alt="guide">Migration to CKEditor 5 v31.x
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#migration-to-ckeditor-5-v3110">Migration to CKEditor 5 v31.1.0</a><ol><li><a href="#interactive-content-filtering-in-the-link-frameworkguidesarchitectureediting-engineediting-pipeline-editing-pipeline">Interactive content filtering in the editing pipeline</a><ol><li><a href="#interactive-attributes">Interactive attributes</a></li><li><a href="#blocking-script-elements">Blocking script elements</a></li></ol></li><li><a href="#the-table-and-tablecell-attributes-names-change">The table and tableCell attributes&#x2019; names change</a></li></ol></li><li><a href="#migration-to-ckeditor-5-v3100">Migration to CKEditor 5 v31.0.0</a><ol><li><a href="#html-embed-commands">HTML embed commands</a></li></ol></li></ol></nav>
+<div class="info-box notice"><p>When updating your CKEditor 5 installation, make sure <strong>all the packages are the same version</strong> to avoid errors.</p><p>For custom builds, you may try removing the <code>package-lock.json</code> or <code>yarn.lock</code> files (if applicable) and reinstalling all packages before rebuilding the editor. For best results, make sure you use the most recent package versions.</p></div>
+<h2 id="migration-to-ckeditor-5-v3110"><a class="headerlink" href="#migration-to-ckeditor-5-v3110">#</a> Migration to CKEditor 5 v31.1.0</h2>
+<p>For the entire list of changes introduced in version 31.1.0, see the <a href="https://github.com/ckeditor/ckeditor5/blob/master/CHANGELOG.md#3110-2021-12-03" target="_blank" rel="noopener">changelog for CKEditor 5 v31.1.0</a>.</p>
+<p>Listed below are the most important changes that require your attention when upgrading to CKEditor 5 v31.1.0.</p>
+<h3 id="interactive-content-filtering-in-the-link-frameworkguidesarchitectureediting-engineediting-pipeline-editing-pipeline"><a class="headerlink" href="#interactive-content-filtering-in-the-link-frameworkguidesarchitectureediting-engineediting-pipeline-editing-pipeline">#</a> Interactive content filtering in the <a href="../framework/guides/architecture/editing-engine.html#editing-pipeline">editing pipeline</a></h3>
+<h4 id="interactive-attributes"><a class="headerlink" href="#interactive-attributes">#</a> Interactive attributes</h4>
+<p>Starting from v31.1.0, the editor engine will detect attributes that may interrupt the editing experience and rename them to <code>data-ck-unsafe-attribute-[original attribute name]</code>, for instance:</p>
+<pre class="highlight"><code class="html">&lt;!-- Before v31.1.0 --&gt;
+&lt;p onclick=&quot;alert( &apos;Paragraph clicked!&apos; )&quot;&gt;Interactive paragraph&lt;/p&gt;
+
+&lt;!-- After v31.1.0 --&gt;
+&lt;p data-ck-unsafe-attribute-onclick=&quot;alert( &apos;Paragraph clicked!&apos; )&quot;&gt;Interactive paragraph&lt;/p&gt;
+</code></pre>
+<div class="info-box notice"><p>Please keep in mind, that this new mechanism does not affect the <a href="../installation/advanced/saving-data.html">data saved by the editor</a> (e.g. the output of <code>editor.getData()</code>). The filtering only applies during the editing when the user interacts with the editor.</p></div>
+<p>If you are the author of a plugin that generates this kind of content in the <a href="../framework/guides/architecture/editing-engine.html#editing-pipeline">editing pipeline</a> and you want it to be preserved, you can configure this when creating the element using <a href="../api/module_engine_view_downcastwriter-DowncastWriter.html"><code>DowncastWriter</code></a> during the <a href="../framework/guides/architecture/editing-engine.html#conversion">model&#x2013;view conversion</a>. Methods such as <a href="../api/module_engine_view_downcastwriter-DowncastWriter.html#function-createContainerElement"><code>createContainerElement</code></a>, <a href="../api/module_engine_view_downcastwriter-DowncastWriter.html#function-createAttributeElement"><code>createAttributeElement</code></a>, or <a href="../api/module_engine_view_downcastwriter-DowncastWriter.html#function-createEmptyElement"><code>createEmptyElement</code></a> accept an option that will disable filtering of specific attributes:</p>
+<pre class="highlight"><code class="js">/* Before v31.1.0. */
+const paragraph = writer.createContainerElement( &apos;p&apos;,
+    {
+        class: &apos;clickable-paragraph&apos;,
+        onclick: &apos;alert( &quot;Paragraph clicked!&quot; )&apos;
+    }
+);
+
+/* After v31.1.0. */
+const paragraph = writer.createContainerElement( &apos;p&apos;,
+    {
+        class: &apos;clickable-paragraph&apos;,
+        onclick: &apos;alert( &quot;Paragraph clicked!&quot; )&apos;
+    },
+    {
+        // Make sure the &quot;onclick&quot; attribute will pass through.
+        renderUnsafeAttributes: [ &apos;onclick&apos; ]
+    }
+);
+</code></pre>
+<h4 id="blocking-script-elements"><a class="headerlink" href="#blocking-script-elements">#</a> Blocking script elements</h4>
+<p>Also starting from v31.1.0, any <code>&lt;script&gt;</code> element that would find its way to the editing layer of the editor (and the user interacting with it) will be filtered out (renamed to <code>&lt;span data-ck-unsafe-element=&quot;script&quot;&gt;&lt;/span&gt;</code>).</p>
+<p>Please keep in mind that this mechanism will not change the output of the editor (e.g. the result of <code>editor.getData()</code> will include full <code>&lt;script&gt;...&lt;/script&gt;</code> tags) and there is no way to opt out of it.</p>
+<h3 id="the-table-and-tablecell-attributes-names-change"><a class="headerlink" href="#the-table-and-tablecell-attributes-names-change">#</a> The <code>table</code> and <code>tableCell</code> attributes&#x2019; names change</h3>
+<p>Names of the <code>table</code> elements&#x2019; attributes have changed. A <code>table</code> prefix has been added to all the names.</p>
+<p>The affected attributes include: <code>borderStyle</code>, <code>borderColor</code>, <code>borderWidth</code>, <code>backgroundColor</code>, <code>alignment</code>, <code>width</code> and <code>height</code>.</p>
+<p>These are now respectively: <code>tableBorderStyle</code>, <code>tableBorderColor</code>, <code>tableBorderWidth</code>, <code>tableBackgroundColor</code>, <code>tableAlignment</code>, <code>tableWidth</code> and <code>tableHeight</code>.</p>
+<p>Names of the <code>tableCell</code> elements&#x2019; attributes have changed. A <code>tableCell</code> prefix has been added to all the names.</p>
+<p>The affected attributes include: <code>backgroundColor</code>, <code>padding</code>, <code>width</code>, <code>height</code>, <code>borderStyle</code>, <code>borderColor</code>, <code>borderWidth</code>, <code>verticalAlignment</code> and <code>horizontalAlignment</code>.</p>
+<p>These were changed to <code>tableCellBackgroundColor</code>, <code>tableCellPadding</code>, <code>tableCellWidth</code>, <code>tableCellHeight</code>, <code>tableCellBorderStyle</code>, <code>tableCellBorderColor</code>, <code>tableCellBorderWidth</code>, <code>tableCellVerticalAlignment</code> and <code>tableCellHorizontalAlignment</code> respectively.</p>
+<h2 id="migration-to-ckeditor-5-v3100"><a class="headerlink" href="#migration-to-ckeditor-5-v3100">#</a> Migration to CKEditor 5 v31.0.0</h2>
+<p>For the entire list of changes introduced in version 31.0.0, see the <a href="https://github.com/ckeditor/ckeditor5/blob/master/CHANGELOG.md#3100-2021-10-25" target="_blank" rel="noopener">changelog for CKEditor 5 v31.0.0</a>.</p>
+<p>Listed below are the most important changes that require your attention when upgrading to CKEditor 5 v31.0.0.</p>
+<h3 id="html-embed-commands"><a class="headerlink" href="#html-embed-commands">#</a> HTML embed commands</h3>
+<p>Starting from v31.0.0, the <code>&apos;insertHtmlEmbed&apos;</code> and <code>&apos;updateHtmlEmbed&apos;</code> commands are no longer available. They have been replaced with a new, unified command: <code>&apos;htmlEmbed&apos;</code>.</p>
+<pre class="highlight"><code class="js">/* Before v31.0.0. */
+
+// Inserts an empty HTML embed.
+editor.execute( &apos;insertHtmlEmbed&apos; );
+
+// Updates the content of a selected HTML embed.
+editor.execute( &apos;updateHtmlEmbed&apos;, &apos;&lt;p&gt;HTML string&lt;/p&gt;&apos; );
+
+/* After v31.0.0. */
+
+// Inserts an empty HTML embed.
+editor.execute( &apos;htmlEmbed&apos; );
+
+// Inserts an HTML embed with some initial content.
+editor.execute( &apos;htmlEmbed&apos;, &apos;&lt;b&gt;Initial content&lt;/b&gt;.&apos; );
+
+// Updates the content of a selected HTML embed.
+editor.execute( &apos;htmlEmbed&apos;, &apos;&lt;b&gt;New content.&lt;/b&gt;&apos; );
+</code></pre>
+<p>The <code>InsertHtmlEmbedCommand</code> and <code>UpdateHtmlEmbedCommand</code> classes have been removed, too. Use the <code>HtmlEmbedCommand</code> class for integration with the HTML embed feature.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22updating%2Fmigration-to-31.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li><a href="updating.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating your editor</span>
+                              </div></a></li>
+                          <li><a href="changelog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Recent release changelog</span>
+                              </div></a></li>
+                          <li><a href="migration-to-34.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v34.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-33.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v33.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-32.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v32.x</span>
+                              </div></a></li>
+                          <li><a href="">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migration to v31.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-30.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v30.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-29.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v29.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-28.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v28.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-27.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v27.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-26.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v26.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-25.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v25.x</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'updating' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'updating' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'updating' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'updating' ] );tags.forEach( function( tag ) {if ( tag !== 'updating' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

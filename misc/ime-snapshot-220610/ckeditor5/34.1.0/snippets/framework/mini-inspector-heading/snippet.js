@@ -1,0 +1,36 @@
+/*!
+ * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md.
+ */
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/umberto/source/ckeditor5/34.1.0/_snippets/framework/mini-inspector-heading.js":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/umberto/source/ckeditor5/34.1.0/_snippets/framework/mini-inspector-heading.js ***!
+  \****************************************************************************************************/
+/***/ (() => {
+
+eval("/**\n * @license Copyright (c) 2003-2022, CKSource Holding sp. z o.o. All rights reserved.\n * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license\n */\n\n/* globals DecoupledEditor, MiniCKEditorInspector, Essentials, console, window, document */\n\nfunction CustomHeading( editor ) {\n\teditor.model.schema.register( 'heading', {\n\t\tallowAttributes: [ 'level' ],\n\t\tinheritAllFrom: '$block'\n\t} );\n\n\teditor.conversion.elementToElement( {\n\t\tmodel: 'heading',\n\t\tview: 'h1'\n\t} );\n}\n\nDecoupledEditor.create( document.querySelector( '#mini-inspector-heading' ), {\n\tplugins: [ Essentials, CustomHeading ]\n} )\n\t.then( editor => {\n\t\twindow.editor = editor;\n\n\t\tMiniCKEditorInspector.attach(\n\t\t\teditor,\n\t\t\tdocument.querySelector( '#mini-inspector-heading-container' )\n\t\t);\n\t} )\n\t.catch( err => {\n\t\tconsole.error( err.stack );\n\t} );\n\n\n//# sourceURL=webpack://ckeditor5/./node_modules/umberto/source/ckeditor5/34.1.0/_snippets/framework/mini-inspector-heading.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./node_modules/umberto/source/ckeditor5/34.1.0/_snippets/framework/mini-inspector-heading.js"]();
+/******/ 	
+/******/ })()
+;

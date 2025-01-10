@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update to version 33.x | CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:12:50 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Update to version 33.x | CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/updating/guides/update-to-33.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Update to version 33.x | CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/updating/guides/update-to-33.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../getting-started/index.html">Getting started</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../index.html">Updating</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Migrations from npm to CDN</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="migrations">
+                                  <li><a href="../migrations/vanilla-js.html" title="Vanilla JS">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/testing-suite.html" title="Vanilla JS testing suite">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS testing suite</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/react.html" title="React">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/vuejs-v3.html" title="Vue.js 3+">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/angular.html" title="Angular">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">New installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="nim-migration">
+                                  <li><a href="../nim-migration/migration-to-new-installation-methods.html" title="Migrating to new installation methods">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating to new installation methods</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/predefined-builds.html" title="Migrating from predefined builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from predefined builds</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/online-builder.html" title="Migrating from legacy Online Builder">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from legacy Online Builder</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/customized-builds.html" title="Migrating from customized builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from customized builds</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/dll-builds.html" title="Migrating from DLL builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from DLL builds</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/custom-plugins.html" title="Migrating custom plugins">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating custom plugins</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">CKEditor 4 migration</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="ckeditor4-migration">
+                                  <li><a href="../ckeditor4/migration-from-ckeditor-4.html" title="Migration from CKEditor 4">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-plugin-compatibility.html" title="Plugin equivalents">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin equivalents</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-configuration-compatibility.html" title="Configuration options compatibility">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration options compatibility</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-troubleshooting.html" title="Troubleshooting">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Troubleshooting</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../maintaining.html" title="Maintaining your editor">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your editor</span>
+                              </div></a></li>
+                          <li><a href="../release-process.html" title="Release process">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Release process</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Update guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="update-guides">
+                                  <li><a href="updating-ckeditor-5.html" title="Updating CKEditor 5">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating CKEditor 5</span>
+                                      </div></a></li>
+                                  <li><a href="changelog.html" title="Changelog">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Changelog</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-44.html" title="Update to v44.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v44.x</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-43.html" title="Update to v43.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v43.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-42.html" title="Update to v42.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v42.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-41.html" title="Update to v41.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v41.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-40.html" title="Update to v40.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v40.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-39.html" title="Update to v39.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v39.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-38.html" title="Update to v38.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v38.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-37.html" title="Update to v37.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v37.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-36.html" title="Update to v36.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v36.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-35.html" title="Update to v35.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v35.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-34.html" title="Update to v34.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v34.x</span>
+                                      </div></a></li>
+                                  <li><a href="" title="Update to v33.x">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Update to v33.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-32.html" title="Update to v32.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v32.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-31.html" title="Update to v31.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v31.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-30.html" title="Update to v30.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v30.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-29.html" title="Update to v29.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v29.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-28.html" title="Update to v28.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v28.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-27.html" title="Update to v27.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v27.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-26.html" title="Update to v26.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v26.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-25.html" title="Update to v25.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v25.x</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../versioning-policy.html" title="Versioning policy">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Versioning policy</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/updating/update-to-33.md" title="Contribute to this guide"><img src="../../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Updating</a>
+          </div>
+          <h1 class="main__content-title">Update to CKEditor 5 v33.x
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#update-to-ckeditor-5-v3300" title="Update to CKEditor&nbsp;5 v33.0.0">Update to CKEditor&nbsp;5 v33.0.0</a><ol><li><a href="#new-import-paths-in-the-ckeditor5-list-package" title="New import paths in the ckeditor5-list package">New import paths in the ckeditor5-list package</a></li><li><a href="#additional-dependencies-in-ckeditor-5-collaboration-features" title="Additional dependencies in CKEditor&nbsp;5 collaboration features">Additional dependencies in CKEditor&nbsp;5 collaboration features</a></li><li><a href="#mandatory-consumption-of-all-model-items-in-the-downcast-conversion-pipeline" title="Mandatory consumption of all model items in the downcast conversion pipeline">Mandatory consumption of all model items in the downcast conversion pipeline</a></li><li><a href="#the-triggerby-option-in-the-downcast-pipeline-is-now-obsolete" title="The triggerBy option in the downcast pipeline is now obsolete">The triggerBy option in the downcast pipeline is now obsolete</a></li><li><a href="#new-downcast-converters-for-the-link-featurestables-table-feature" title="New downcast converters for the table feature">New downcast converters for the table feature</a></li><li><a href="#responsibility-shift-in-the-lowlevel-downcast-converters" title="Responsibility shift in the low–level downcast converters">Responsibility shift in the low–level downcast converters</a></li><li><a href="#the-differrefreshitem-method-is-now-obsolete" title="The Differ#refreshItem() method is now obsolete">The Differ#refreshItem() method is now obsolete</a></li><li><a href="#comments-editor-configuration-is-now-required" title="Comments editor configuration is now required">Comments editor configuration is now required</a></li></ol></li><li><a href="#new-api" title="New API">New API</a><ol><li><a href="#new-elementtostructure-downcast-helper" title="New elementToStructure() downcast helper">New elementToStructure() downcast helper</a></li><li><a href="#new-api-to-trigger-downcast-reconversion" title="New API to trigger downcast (re)conversion">New API to trigger downcast (re)conversion</a></li><li><a href="#improved-api-of-downcastwritercreatecontainerelement" title="Improved API of DowncastWriter#createContainerElement()">Improved API of DowncastWriter#createContainerElement()</a></li></ol></li></ol></nav>
+<div class="info-box notice"><p>When updating your CKEditor&nbsp;5 installation, ensure <strong>all the packages are the same version</strong> to avoid errors.</p><p>For custom builds, you may try removing the <code>package-lock.json</code> or <code>yarn.lock</code> files (if applicable) and reinstalling all packages before rebuilding the editor. For best results, make sure you use the most recent package versions.</p></div>
+<h2 id="update-to-ckeditor-5-v3300"><a class="headerlink" href="#update-to-ckeditor-5-v3300">#</a> Update to CKEditor&nbsp;5 v33.0.0</h2>
+<p><em>Released on March 9, 2022.</em></p>
+<p>For the entire list of changes introduced in version 33.0.0, see the <a href="https://github.com/ckeditor/ckeditor5/releases/tag/v33.0.0">release notes for CKEditor&nbsp;5 v33.0.0</a>.</p>
+<p>Below are the most important changes that require your attention when upgrading to CKEditor&nbsp;5 v33.0.0.</p>
+<h3 id="new-import-paths-in-the-ckeditor5-list-package"><a class="headerlink" href="#new-import-paths-in-the-ckeditor5-list-package">#</a> New import paths in the <code>ckeditor5-list</code> package</h3>
+<p>Starting with v33.0.0, some import paths have changed in the <a href="https://www.npmjs.com/package/@ckeditor/ckeditor5-list"><code>ckeditor5-list</code></a> package. If your application imports individual plugins to integrate or build CKEditor&nbsp;5, you should update the paths accordingly:</p>
+<pre class="highlight"><code class="js">// ❌ Old import paths:
+import ListEditing from '@ckeditor/ckeditor5-list/src/listediting';
+import ListUI from '@ckeditor/ckeditor5-list/src/listui';
+import TodoListEditing from '@ckeditor/ckeditor5-list/src/todolistediting';
+import ListPropertiesEditing from '@ckeditor/ckeditor5-list/src/listpropertiesediting';
+
+// ✅ New import paths (with subdirectories):
+import ListEditing from '@ckeditor/ckeditor5-list/src/list/listediting';
+import ListUI from '@ckeditor/ckeditor5-list/src/list/listui';
+import TodoListEditing from '@ckeditor/ckeditor5-list/src/todolist/todolistediting';
+import ListPropertiesEditing from '@ckeditor/ckeditor5-list/src/listproperties/listpropertiesediting';
+</code></pre>
+<div class="info-box notice"><p><strong>Import paths for top-level plugins such as <a href="../../api/module_list_list-List.html"><code>List</code></a>, <a href="../../api/module_list_listproperties-ListProperties.html"><code>ListProperties</code></a>, <a href="../../api/module_list_todolist-TodoList.html"><code>TodoList</code></a>, etc. remain the same</strong>. If you are not sure which import path you should use, you can always <a href="https://github.com/ckeditor/ckeditor5/tree/master/packages/ckeditor5-list/src">browse the GitHub source code</a> that corresponds to the contents of the package on npm.</p></div>
+<h3 id="additional-dependencies-in-ckeditor-5-collaboration-features"><a class="headerlink" href="#additional-dependencies-in-ckeditor-5-collaboration-features">#</a> Additional dependencies in CKEditor&nbsp;5 collaboration features</h3>
+<p>The <a href="../../getting-started/legacy/advanced/alternative-setups/dll-builds.html">DLL builds</a> support was introduced for collaboration features. As a result, some imports, plugin requirements and cross-package dependencies have changed to allow for the new building process.</p>
+<p>From now on, extra plugins will be required when you add the following CKEditor&nbsp;5 collaboration features to the editor:</p>
+<ul>
+<li>
+<p><strong><a href="../../api/module_track-changes_trackchanges-TrackChanges.html"><code>TrackChanges</code></a></strong> will also require adding <a href="../../api/module_comments_comments-Comments.html"><code>Comments</code></a> to the list of the editor plugins:</p>
+<pre class="highlight"><code class="js">// ❌ Old imports:
+import TrackChanges from '@ckeditor/ckeditor5-track-changes/src/trackchanges';
+// ✅ New imports:
+import TrackChanges from '@ckeditor/ckeditor5-track-changes/src/trackchanges';
+import Comments from '@ckeditor/ckeditor5-comments/src/comments';
+</code></pre>
+</li>
+<li>
+<p><strong><a href="../../api/module_real-time-collaboration_realtimecollaborativeediting-RealTimeCollaborativeEditing.html"><code>RealTimeCollaborativeEditing</code></a></strong> will also require <a href="../../api/module_cloud-services_cloudservices-CloudServices.html"><code>CloudServices</code></a>:</p>
+<pre class="highlight"><code class="js">// ❌ Old imports:
+import RealTimeCollaborativeEditing from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativeediting';
+// ✅ New imports:
+import RealTimeCollaborativeEditing from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativeediting';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
+</code></pre>
+</li>
+<li>
+<p><strong><a href="../../api/module_real-time-collaboration_realtimecollaborativecomments-RealTimeCollaborativeComments.html"><code>RealTimeCollaborativeComments</code></a></strong> will also require <a href="../../api/module_cloud-services_cloudservices-CloudServices.html"><code>CloudServices</code></a> and <a href="../../api/module_comments_comments-Comments.html"><code>Comments</code></a>:</p>
+<pre class="highlight"><code class="js">// ❌ Old imports:
+import RealTimeCollaborativeComments from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativecomments';
+// ✅ New imports:
+import RealTimeCollaborativeComments from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativecomments';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
+import Comments from '@ckeditor/ckeditor5-comments/src/comments';
+</code></pre>
+</li>
+<li>
+<p><strong><a href="../../api/module_real-time-collaboration_realtimecollaborativetrackchanges-RealTimeCollaborativeTrackChanges.html"><code>RealTimeCollaborativeTrackChanges</code></a></strong> will also require <a href="../../api/module_cloud-services_cloudservices-CloudServices.html"><code>CloudServices</code></a>, <a href="../../api/module_comments_comments-Comments.html"><code>Comments</code></a>, and <a href="../../api/module_track-changes_trackchanges-TrackChanges.html"><code>TrackChanges</code></a>:</p>
+<pre class="highlight"><code class="js">// ❌ Old imports:
+import RealTimeCollaborativeTrackChanges from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativetrackchanges';
+// ✅ New imports:
+import RealTimeCollaborativeTrackChanges from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativetrackchanges';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
+import Comments from '@ckeditor/ckeditor5-comments/src/comments';
+import TrackChanges from '@ckeditor/ckeditor5-track-changes/src/trackchanges';
+</code></pre>
+</li>
+<li>
+<p><strong><a href="../../api/module_real-time-collaboration_realtimecollaborativerevisionhistory-RealTimeCollaborativeRevisionHistory.html"><code>RealTimeCollaborativeRevisionHistory</code></a></strong> will also require <a href="../../api/module_cloud-services_cloudservices-CloudServices.html"><code>CloudServices</code></a>:</p>
+<pre class="highlight"><code class="js">// ❌ Old imports:
+import RealTimeCollaborativeRevisionHistory from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativerevisionhistory';
+// ✅ New imports:
+import RealTimeCollaborativeRevisionHistory from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativerevisionhistory';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
+</code></pre>
+</li>
+<li>
+<p><strong><a href="../../api/module_real-time-collaboration_realtimecollaborativecomments_cloudservicescommentsadapter-CloudServicesCommentsAdapter.html"><code>CloudServicesCommentsAdapter</code></a></strong> will also require <a href="../../api/module_cloud-services_cloudservices-CloudServices.html"><code>CloudServices</code></a> and <a href="../../api/module_comments_comments_commentsrepository-CommentsRepository.html"><code>CommentsRepository</code></a>:</p>
+<pre class="highlight"><code class="js">// ❌ Old imports:
+import CloudServicesCommentsAdapter from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativecomments/cloudservicescommentsadapter';
+// ✅ New imports:
+import CloudServicesCommentsAdapter from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativecomments/cloudservicescommentsadapter';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
+import CommentsRepository from '@ckeditor/ckeditor5-comments/src/comments/commentsrepository';
+</code></pre>
+</li>
+<li>
+<p><strong><a href="../../api/module_real-time-collaboration_realtimecollaborativetrackchanges_cloudservicestrackchangesadapter-CloudServicesTrackChangesAdapter.html"><code>CloudServicesTrackChangesAdapter</code></a></strong> will also require <a href="../../api/module_cloud-services_cloudservices-CloudServices.html"><code>CloudServices</code></a>, <a href="../../api/module_comments_comments_commentsrepository-CommentsRepository.html"><code>CommentsRepository</code></a>, and <a href="../../api/module_track-changes_trackchangesediting-TrackChangesEditing.html"><code>TrackChangesEditing</code></a>:</p>
+<pre class="highlight"><code class="js">// ❌ Old imports:
+import CloudServicesTrackChangesAdapter from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativetrackchanges/cloudservicestrackchangesadapter';
+
+// ✅ New imports:
+import CloudServicesTrackChangesAdapter from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativetrackchanges/cloudservicestrackchangesadapter';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
+import CommentsRepository from '@ckeditor/ckeditor5-comments/src/comments/commentsrepository';
+import TrackChangesEditing from '@ckeditor/ckeditor5-track-changes/src/trackchangesediting';
+</code></pre>
+</li>
+<li>
+<p><strong><a href="../../api/module_real-time-collaboration_realtimecollaborativerevisionhistory_cloudservicesrevisionhistoryadapter-CloudServicesRevisionHistoryAdapter.html"><code>CloudServicesRevisionHistoryAdapter</code></a></strong> will also require <a href="../../api/module_cloud-services_cloudservices-CloudServices.html"><code>CloudServices</code></a>:</p>
+<pre class="highlight"><code class="js">// ❌ Old imports:
+import CloudServicesRevisionHistoryAdapter from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativerevisionhistory/cloudservicesrevisionhistoryadapter';
+
+// ✅ New imports:
+import CloudServicesRevisionHistoryAdapter from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativerevisionhistory/cloudservicesrevisionhistoryadapter';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
+</code></pre>
+</li>
+</ul>
+<h3 id="mandatory-consumption-of-all-model-items-in-the-downcast-conversion-pipeline"><a class="headerlink" href="#mandatory-consumption-of-all-model-items-in-the-downcast-conversion-pipeline">#</a> Mandatory consumption of all model items in the downcast conversion pipeline</h3>
+<p>Starting with v33.0.0, all <a href="../../api/module_engine_model_item-Item.html">items</a> in the <a href="../../framework/architecture/editing-engine.html#model">model</a> must be consumed in the <a href="../../framework/deep-dive/conversion/downcast.html">downcast conversion</a> pipeline to prevent errors and unpredictable behavior of the editor features. If a model item is not consumed, the <code>conversion-model-consumable-not-consumed</code> error will be thrown. To learn more about the causes of this error and possible solutions, refer to the <a href="../../support/error-codes.html#error-conversion-model-consumable-not-consumed">API documentation</a>.</p>
+<h3 id="the-triggerby-option-in-the-downcast-pipeline-is-now-obsolete"><a class="headerlink" href="#the-triggerby-option-in-the-downcast-pipeline-is-now-obsolete">#</a> The <code>triggerBy</code> option in the downcast pipeline is now obsolete</h3>
+<div class="info-box notice"><p>The v33.0.0 release introduces a massive upgrade to the conversion system. You can find a detailed summary of all these changes in the <a href="https://github.com/ckeditor/ckeditor5/issues/11268#issuecomment-1061655977">developer notes on GitHub</a>.</p></div>
+<p>If some of your downcast pipeline converters used the experimental <code>triggerBy</code> property to trigger (re)conversion upon changes of attributes or children, you need to update them. For instance:</p>
+<pre class="highlight"><code class="js">// ❌ The old conversion using obsolete "triggerBy":
+editor.conversion.for( 'downcast' ).elementToElement( {
+    model: 'myElement',
+    view: ( modelElement, { writer } ) =&gt; {
+        return writer.createContainerElement( 'div', {
+            'data-owner-id': modelElement.getAttribute( 'ownerId' ),
+            class: `my-element my-element-${ modelElement.getAttribute( 'type' ) }`
+        } );
+    },
+    triggerBy: {
+        attributes: [ 'ownerId', 'type' ],
+        children: 'childModelElement'
+    }
+} );
+
+// ✅ The new conversion syntax:
+editor.conversion.for( 'downcast' ).elementToElement( {
+    model: {
+        name: 'myElement',
+        attributes: [ 'ownerId', 'type' ],
+        children: true
+    },
+    view: ( modelElement, { writer } ) =&gt; {
+        // The same converter code.
+    }
+} );
+</code></pre>
+<div class="info-box notice"><p>The new syntax is available both in <a href="../../api/module_engine_conversion_downcasthelpers-DowncastHelpers.html#function-elementToElement"><code>elementToElement</code></a> and <a href="../../api/module_engine_conversion_downcasthelpers-DowncastHelpers.html#function-elementToStructure"><code>elementToStructure</code></a> helpers.</p></div>
+<h3 id="new-downcast-converters-for-the-link-featurestables-table-feature"><a class="headerlink" href="#new-downcast-converters-for-the-link-featurestables-table-feature">#</a> New downcast converters for the <a href="../../features/tables/tables.html">table feature</a></h3>
+<p>The conversion brought by the <a href="../../api/module_table_tableediting-TableEditing.html"><code>TableEditing</code></a> plugin was refined in this version and now relies heavily on the <a href="../../api/module_engine_conversion_downcasthelpers-DowncastHelpers.html#function-elementToStructure"><code>elementToStructure</code></a> downcast conversion helper.</p>
+<p>If your integration extends or overwrites that conversion (the <code>table</code>, <code>tableRow</code>, <code>tableCell</code> model elements and/or their attributes), you might need to undertake some actions to align your custom features with the latest editor API. The extent of necessary changes may vary depending on how advanced your customizations are.</p>
+<h3 id="responsibility-shift-in-the-lowlevel-downcast-converters"><a class="headerlink" href="#responsibility-shift-in-the-lowlevel-downcast-converters">#</a> Responsibility shift in the low–level downcast converters</h3>
+<p><a href="../../api/module_engine_conversion_downcastdispatcher-DowncastDispatcher.html">Downcast dispatcher</a> will now fire events for model items no matter if they were <a href="../../api/module_engine_conversion_modelconsumable-ModelConsumable.html#function-consume">consumed</a> or not. This means that the low–level (event-driven) downcast converters listening to these events must first <a href="../../api/module_engine_conversion_viewconsumable-ViewConsumable.html#function-test">test</a> whether the item has already been consumed to prevent double conversion and errors:</p>
+<pre class="highlight"><code class="js">editor.conversion.for( 'downcast' ).add( dispatcher =&gt; {
+    dispatcher.on( '...', ( evt, data, conversionApi ) =&gt; {
+        // Before converting, check whether the change has not been consumed yet.
+        if ( !conversionApi.consumable.test( data.item, evt.name ) ) {
+            return;
+        }
+
+        // Converter code...
+    } );
+} );
+</code></pre>
+<p>Also, starting with CKEditor&nbsp;5 v33.0.0, your custom converters <a href="#mandatory-consumption-of-all-model-items-in-the-downcast-conversion-pipeline">must consume</a> all model items to prevent further errors.</p>
+<h3 id="the-differrefreshitem-method-is-now-obsolete"><a class="headerlink" href="#the-differrefreshitem-method-is-now-obsolete">#</a> The <code>Differ#refreshItem()</code> method is now obsolete</h3>
+<p><code>Differ#refreshItem()</code> is obsolete and was replaced by <a href="../../api/module_engine_controller_editingcontroller-EditingController.html#function-reconvertItem"><code>reconvertItem</code></a>:</p>
+<pre class="highlight"><code class="js">// ❌ Old API:
+editor.model.document.differ.refreshItem( ... );
+
+// ✅ New API:
+editor.editing.reconvertItem( ... );
+</code></pre>
+<h3 id="comments-editor-configuration-is-now-required"><a class="headerlink" href="#comments-editor-configuration-is-now-required">#</a> Comments editor configuration is now required</h3>
+<p>Since we removed the cross-package dependencies inside the project, the configuration for the comments editor became required. The editor used in the comments section is also a CKEditor&nbsp;5 instance. It is configured the same way as the regular editor.</p>
+<p>After the update, you should configure the comments editor using the <code>config.comments.editorConfig</code> option:</p>
+<pre class="highlight"><code class="js">import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
+import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
+import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+import List from '@ckeditor/ckeditor5-list/src/list';
+
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        // ...
+
+        comments: {
+            editorConfig: {
+                extraPlugins: [ Autoformat, Bold, Italic, List ]
+            }
+        }
+    } )
+    .then( /* ... */ )
+    .catch( /* ... */ );
+</code></pre>
+<div class="info-box notice"><p>Before the change, the comments editor included the <code>Bold</code>, <code>Italic</code>, <code>Autoformat</code>, and <code>List</code> plugins.</p><p>If you want to keep the same user experience after updating the editor, you need to configure the comments editor as shown in the example above.</p></div>
+<p>If this configuration is not provided, a warning will be logged in the console and the comments editor will be initialized with the most basic features: typing, paragraph, and undo.</p>
+<p>To hide the warning (and use the basic configuration), provide an empty configuration for the comments editor:</p>
+<pre class="highlight"><code class="js">ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        // ...
+
+        comments: {
+            editorConfig: {}
+        }
+    } );
+</code></pre>
+<h2 id="new-api"><a class="headerlink" href="#new-api">#</a> New API</h2>
+<h3 id="new-elementtostructure-downcast-helper"><a class="headerlink" href="#new-elementtostructure-downcast-helper">#</a> New <code>elementToStructure()</code> downcast helper</h3>
+<p>The new <a href="../../api/module_engine_conversion_downcasthelpers-DowncastHelpers.html#function-elementToStructure"><code>elementToStructure</code></a> helper was introduced to streamline downcast conversion to complex view structures. Unlike <a href="../../api/module_engine_conversion_downcasthelpers-DowncastHelpers.html#function-elementToElement"><code>elementToElement</code></a>, it allows placing children of an element in configurable slots in the view structure without the need to develop complex converters using the low–level event–driven API.</p>
+<p>To learn more about this new helper, refer to the <a href="../../api/module_engine_conversion_downcasthelpers-DowncastHelpers.html#function-elementToStructure">API documentation</a> or check out the <a href="../../framework/deep-dive/conversion/downcast.html#converting-element-to-structure">official conversion guide</a> with plenty of examples and details.</p>
+<h3 id="new-api-to-trigger-downcast-reconversion"><a class="headerlink" href="#new-api-to-trigger-downcast-reconversion">#</a> New API to trigger downcast (re)conversion</h3>
+<p>The <a href="#the-triggerby-option-in-the-downcast-pipeline-is-now-obsolete"><code>triggerBy</code> property is obsolete</a> and a new API was created to trigger the downcast conversion of a model element upon changes to its attributes or children (also known as <em>reconversion</em>):</p>
+<pre class="highlight"><code class="js">editor.conversion.for( 'downcast' ).elementToElement( {
+    model: {
+        name: 'myElement',
+
+        // Changes to these attributes will (re)convert myElement.
+        attributes: [ 'ownerId', 'type' ],
+
+        // If some children are added or removed, myElement will be (re)converted.
+        children: true
+    },
+    view: ( modelElement, { writer } ) =&gt; {
+        // ...
+    }
+} );
+</code></pre>
+<p>The new syntax of the <code>model</code> property is available in the <a href="../../api/module_engine_conversion_downcasthelpers-DowncastHelpers.html#function-elementToElement"><code>elementToElement</code></a> and <a href="../../api/module_engine_conversion_downcasthelpers-DowncastHelpers.html#function-elementToStructure"><code>elementToStructure</code></a> helpers. Refer to the respective API documentation for more details.</p>
+<h3 id="improved-api-of-downcastwritercreatecontainerelement"><a class="headerlink" href="#improved-api-of-downcastwritercreatecontainerelement">#</a> Improved API of <code>DowncastWriter#createContainerElement()</code></h3>
+<p>Starting from v33.0.0, you can specify the children of a container element directly in the <a href="../../api/module_engine_view_downcastwriter-DowncastWriter.html#function-createContainerElement:WITHOUT_CHILDREN"><code>createContainerElement</code></a> method:</p>
+<pre class="highlight"><code class="js">// ❌ Old API:
+const element = writer.createContainerElement( 'p', { id: '1234' } );
+
+writer.insert( writer.createPositionAt( element, 0 ), childElementA );
+writer.insert( writer.createPositionAt( element, 1 ), childElementB );
+// ...
+
+// ✅ New API:
+writer.createContainerElement( 'p', { id: '1234' }, [
+    childElementA,
+    childElementB,
+
+    // ...
+] );
+</code></pre>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22updating%2Fguides%2Fupdate-to-33.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Migrations from npm to CDN</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="migrations">
+                                    <li><a href="../migrations/vanilla-js.html" title="Vanilla JS">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/testing-suite.html" title="Vanilla JS testing suite">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS testing suite</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/react.html" title="React">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/vuejs-v3.html" title="Vue.js 3+">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/angular.html" title="Angular">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">New installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="nim-migration">
+                                    <li><a href="../nim-migration/migration-to-new-installation-methods.html" title="Migrating to new installation methods">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating to new installation methods</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/predefined-builds.html" title="Migrating from predefined builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from predefined builds</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/online-builder.html" title="Migrating from legacy Online Builder">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from legacy Online Builder</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/customized-builds.html" title="Migrating from customized builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from customized builds</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/dll-builds.html" title="Migrating from DLL builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from DLL builds</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/custom-plugins.html" title="Migrating custom plugins">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating custom plugins</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">CKEditor 4 migration</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="ckeditor4-migration">
+                                    <li><a href="../ckeditor4/migration-from-ckeditor-4.html" title="Migration from CKEditor 4">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-plugin-compatibility.html" title="Plugin equivalents">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin equivalents</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-configuration-compatibility.html" title="Configuration options compatibility">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration options compatibility</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-troubleshooting.html" title="Troubleshooting">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Troubleshooting</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../maintaining.html" title="Maintaining your editor">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your editor</span>
+                              </div></a></li>
+                          <li><a href="../release-process.html" title="Release process">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Release process</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Update guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="update-guides">
+                                    <li><a href="updating-ckeditor-5.html" title="Updating CKEditor 5">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating CKEditor 5</span>
+                                        </div></a></li>
+                                    <li><a href="changelog.html" title="Changelog">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Changelog</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-44.html" title="Update to v44.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v44.x</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-43.html" title="Update to v43.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v43.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-42.html" title="Update to v42.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v42.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-41.html" title="Update to v41.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v41.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-40.html" title="Update to v40.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v40.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-39.html" title="Update to v39.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v39.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-38.html" title="Update to v38.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v38.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-37.html" title="Update to v37.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v37.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-36.html" title="Update to v36.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v36.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-35.html" title="Update to v35.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v35.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-34.html" title="Update to v34.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v34.x</span>
+                                        </div></a></li>
+                                    <li><a href="" title="Update to v33.x">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Update to v33.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-32.html" title="Update to v32.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v32.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-31.html" title="Update to v31.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v31.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-30.html" title="Update to v30.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v30.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-29.html" title="Update to v29.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v29.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-28.html" title="Update to v28.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v28.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-27.html" title="Update to v27.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v27.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-26.html" title="Update to v26.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v26.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-25.html" title="Update to v25.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v25.x</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../versioning-policy.html" title="Versioning policy">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Versioning policy</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'updating' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'updating' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'updating' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'updating' ] );tags.forEach( function( tag ) {if ( tag !== 'updating' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

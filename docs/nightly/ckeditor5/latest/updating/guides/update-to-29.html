@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update to version 29.x | CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:12:49 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Update to version 29.x | CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/updating/guides/update-to-29.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Update to version 29.x | CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/updating/guides/update-to-29.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../getting-started/index.html">Getting started</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../index.html">Updating</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Migrations from npm to CDN</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="migrations">
+                                  <li><a href="../migrations/vanilla-js.html" title="Vanilla JS">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/testing-suite.html" title="Vanilla JS testing suite">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS testing suite</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/react.html" title="React">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/vuejs-v3.html" title="Vue.js 3+">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/angular.html" title="Angular">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">New installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="nim-migration">
+                                  <li><a href="../nim-migration/migration-to-new-installation-methods.html" title="Migrating to new installation methods">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating to new installation methods</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/predefined-builds.html" title="Migrating from predefined builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from predefined builds</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/online-builder.html" title="Migrating from legacy Online Builder">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from legacy Online Builder</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/customized-builds.html" title="Migrating from customized builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from customized builds</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/dll-builds.html" title="Migrating from DLL builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from DLL builds</span>
+                                      </div></a></li>
+                                  <li><a href="../nim-migration/custom-plugins.html" title="Migrating custom plugins">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating custom plugins</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">CKEditor 4 migration</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="ckeditor4-migration">
+                                  <li><a href="../ckeditor4/migration-from-ckeditor-4.html" title="Migration from CKEditor 4">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-plugin-compatibility.html" title="Plugin equivalents">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin equivalents</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-configuration-compatibility.html" title="Configuration options compatibility">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration options compatibility</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-troubleshooting.html" title="Troubleshooting">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Troubleshooting</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../maintaining.html" title="Maintaining your editor">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your editor</span>
+                              </div></a></li>
+                          <li><a href="../release-process.html" title="Release process">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Release process</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Update guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="update-guides">
+                                  <li><a href="updating-ckeditor-5.html" title="Updating CKEditor 5">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating CKEditor 5</span>
+                                      </div></a></li>
+                                  <li><a href="changelog.html" title="Changelog">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Changelog</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-44.html" title="Update to v44.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v44.x</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-43.html" title="Update to v43.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v43.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-42.html" title="Update to v42.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v42.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-41.html" title="Update to v41.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v41.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-40.html" title="Update to v40.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v40.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-39.html" title="Update to v39.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v39.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-38.html" title="Update to v38.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v38.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-37.html" title="Update to v37.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v37.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-36.html" title="Update to v36.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v36.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-35.html" title="Update to v35.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v35.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-34.html" title="Update to v34.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v34.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-33.html" title="Update to v33.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v33.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-32.html" title="Update to v32.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v32.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-31.html" title="Update to v31.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v31.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-30.html" title="Update to v30.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v30.x</span>
+                                      </div></a></li>
+                                  <li><a href="" title="Update to v29.x">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Update to v29.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-28.html" title="Update to v28.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v28.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-27.html" title="Update to v27.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v27.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-26.html" title="Update to v26.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v26.x</span>
+                                      </div></a></li>
+                                  <li><a href="update-to-25.html" title="Update to v25.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v25.x</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../versioning-policy.html" title="Versioning policy">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Versioning policy</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/updating/update-to-29.md" title="Contribute to this guide"><img src="../../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Updating</a>
+          </div>
+          <h1 class="main__content-title">Update to CKEditor 5 v29.x
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#update-to-ckeditor-5-v2910" title="Update to CKEditor&nbsp;5 v29.1.0">Update to CKEditor&nbsp;5 v29.1.0</a><ol><li><a href="#matcher-pattern-api-change" title="Matcher pattern API change">Matcher pattern API change</a></li><li><a href="#link-decorators-api-change" title="Link decorators API change">Link decorators API change</a></li></ol></li><li><a href="#update-to-ckeditor-5-v2900" title="Update to CKEditor&nbsp;5 v29.0.0">Update to CKEditor&nbsp;5 v29.0.0</a><ol><li><a href="#inline-images" title="Inline images">Inline images</a></li><li><a href="#image-caption" title="Image caption">Image caption</a></li><li><a href="#image-styles" title="Image styles">Image styles</a></li><li><a href="#image-toolbar" title="Image toolbar">Image toolbar</a></li><li><a href="#inserting-images" title="Inserting images">Inserting images</a></li><li><a href="#image-utilities" title="Image utilities">Image utilities</a></li><li><a href="#easyimage-plugin" title="EasyImage plugin">EasyImage plugin</a></li><li><a href="#ckfinder-plugin" title="CKFinder plugin">CKFinder plugin</a></li></ol></li></ol></nav>
+<div class="info-box notice"><p>When updating your CKEditor&nbsp;5 installation, ensure <strong>all the packages are the same version</strong> to avoid errors.</p><p>For custom builds, you may try removing the <code>package-lock.json</code> or <code>yarn.lock</code> files (if applicable) and reinstalling all packages before rebuilding the editor. For best results, make sure you use the most recent package versions.</p></div>
+<h2 id="update-to-ckeditor-5-v2910"><a class="headerlink" href="#update-to-ckeditor-5-v2910">#</a> Update to CKEditor&nbsp;5 v29.1.0</h2>
+<p><em>Released on August 4, 2021.</em></p>
+<p>For the entire list of changes introduced in version 29.1.0, see the <a href="https://github.com/ckeditor/ckeditor5/releases/tag/v29.1.0">release notes for CKEditor&nbsp;5 v29.1.0</a>.</p>
+<p>Below are the most important changes that require your attention when upgrading to CKEditor&nbsp;5 v29.1.0.</p>
+<h3 id="matcher-pattern-api-change"><a class="headerlink" href="#matcher-pattern-api-change">#</a> Matcher pattern API change</h3>
+<p>Starting from v29.1.0, the <a href="../../api/module_engine_view_matcher-Matcher.html"><code>Matcher</code></a> feature deprecated matching <code>style</code> and <code>class</code> HTML attributes using <code>attributes</code> key-value pairs pattern.</p>
+<p>The <a href="../../api/module_engine_view_matcher-Matcher.html"><code>Matcher</code></a> feature allows to match styles and classes by using dedicated <code>styles</code> and <code>classes</code> patterns. Since v29.0.0 it is also possible to match every possible value for these attributes by using the Boolean type with the <code>true</code> value. To avoid confusion about which pattern to use to match classes and styles, we decided to deprecate matching classes and styles using the <code>attributes</code> pattern.</p>
+<p>Here is an example of changes you may need for proper integration with the <a href="../../api/module_engine_view_matcher-Matcher.html"><code>Matcher</code></a> feature new API:</p>
+<pre class="highlight"><code class="js">// Old code.
+new Matcher( {
+    name: 'a',
+    attributes: {
+        'data-custom-attribute-1': /.*/,
+        'data-custom-attribute-2': /.*/,
+        style: true,
+        class: true
+    }
+} );
+
+// New code.
+new Matcher( {
+    name: 'a',
+    attributes: {
+        'data-custom-attribute-1': /.*/,
+        'data-custom-attribute-2': /.*/
+    },
+    styles: true,
+    classes: true
+} );
+</code></pre>
+<h3 id="link-decorators-api-change"><a class="headerlink" href="#link-decorators-api-change">#</a> Link decorators API change</h3>
+<p><a href="#matcher-pattern-api-change">Matcher pattern API change</a> also improves how to define the <a href="../../api/module_link_linkconfig-LinkDecoratorDefinition.html">link decorators</a> (both <a href="../../api/module_link_linkconfig-LinkDecoratorManualDefinition.html">manual decorator</a> and <a href="../../api/module_link_linkconfig-LinkDecoratorAutomaticDefinition.html">automatic decorator</a>). Similar to the <a href="../../api/module_engine_view_matcher-Matcher.html"><code>Matcher</code></a> feature API, you should define the <code>style</code> and <code>class</code> HTML attributes using the <code>classes</code> and <code>styles</code> properties.</p>
+<p>Here is an example of changes you may need for proper integration with the <a href="../../api/module_link_linkconfig-LinkDecoratorDefinition.html">link decorators</a> API change:</p>
+<pre class="highlight"><code class="js">// Old code.
+ClassicEditor
+    .create( ..., {
+        // ...
+        link: {
+            decorators: {
+                addGreenLink: {
+                    mode: 'automatic',
+                    attributes: {
+                        class: 'my-green-link',
+                        style: 'color:green;'
+                    }
+                }
+            }
+        }
+    } )
+// New code.
+ClassicEditor
+    .create( ..., {
+        // ...
+        link: {
+            decorators: {
+                addGreenLink: {
+                    mode: 'automatic',
+                    classes: 'my-green-link',
+                    styles: {
+                        color: 'green'
+                    }
+                }
+            }
+        }
+    } )
+</code></pre>
+<h2 id="update-to-ckeditor-5-v2900"><a class="headerlink" href="#update-to-ckeditor-5-v2900">#</a> Update to CKEditor&nbsp;5 v29.0.0</h2>
+<p><em>Released on July 7, 2021.</em></p>
+<p>This migration guide enumerates the most important changes that require your attention when upgrading to CKEditor&nbsp;5 v29.0.0 due to changes introduced in the <a href="../../api/module_image_image-Image.html"><code>Image</code></a> plugin and some other image-related features.</p>
+<p>For the entire list of changes introduced in version 29.0.0, see the <a href="https://github.com/ckeditor/ckeditor5/releases/tag/v29.0.0">release notes for CKEditor&nbsp;5 v29.0.0</a>.</p>
+<p>To get to know the new editor UI for the image features, visit the <a href="../../features/images/images-overview.html">image feature guide</a>, especially:</p>
+<ul>
+<li><a href="../../features/images/images-styles.html#semantical-styles">Images in the structured content</a></li>
+<li><a href="../../features/images/images-styles.html#presentational-styles">Images in the document-like content</a></li>
+</ul>
+<h3 id="inline-images"><a class="headerlink" href="#inline-images">#</a> Inline images</h3>
+<p>Starting from v29.0.0, the existing <a href="../../api/module_image_image-Image.html"><code>Image</code></a> plugin loads two independent plugins: <a href="../../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> and <a href="../../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a>, therefore both of them are included in all of the <a href="../../getting-started/legacy/installation-methods/predefined-builds.html#available-builds">predefined editor builds</a> by default.</p>
+<ul>
+<li>The <a href="../../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> is a newly introduced plugin supporting the inline <code>&lt;img&gt;</code> tag nested in text (for example inside a paragraph).</li>
+<li>The <a href="../../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a> maintains the functionality of the previous <a href="../../api/module_image_image-Image.html"><code>Image</code></a> plugin before v29.0.0. In the model, it uses the <code>imageBlock</code> element (known as <code>image</code> before v29.0.0).</li>
+</ul>
+<div class="info-box notice"><p><strong>Note:</strong> It is possible to load only one of these plugins, but only when <a href="../../getting-started/legacy/advanced/alternative-setups/integrating-from-source-webpack.html">building the editor from source</a>.</p></div>
+<h3 id="image-caption"><a class="headerlink" href="#image-caption">#</a> Image caption</h3>
+<p>An image caption is no longer automatically shown when selecting the image widget. You can now toggle its visibility with a <a href="../../api/module_image_imagecaption_toggleimagecaptioncommand-ToggleImageCaptionCommand.html"><code>ToggleImageCaptionCommand</code></a> executed by the <code>'toggleImageCaption'</code> toolbar button, both registered by the <a href="../../api/module_image_imagecaption-ImageCaption.html"><code>ImageCaption</code></a> plugin. The button is added to the default image toolbar in all the <a href="../../getting-started/legacy/installation-methods/predefined-builds.html#available-builds">predefined editor builds</a>.</p>
+<div class="info-box notice"><p>To provide a valid data output, you can only add captions to block images. Adding a caption to an inline image will automatically convert it to a block image (which can be undone by the user).</p></div>
+<h3 id="image-styles"><a class="headerlink" href="#image-styles">#</a> Image styles</h3>
+<p>Since the appearance of the image in the document depends on the image type (block/inline), the <a href="../../api/module_image_imagestyle-ImageStyle.html"><code>ImageStyle</code></a> plugin is now in charge of switching between these types. Thus, we introduced the following changes:</p>
+<ul>
+<li>
+<p><a href="../../api/module_image_imageconfig-ImageConfig.html#member-styles">A new set of buttons</a> is available to manage the image type and appearance.</p>
+</li>
+<li>
+<p>You can group the buttons provided by the <a href="../../api/module_image_imagestyle-ImageStyle.html"><code>ImageStyle</code></a> plugin into dropdowns.</p>
+<ul>
+<li>A few <a href="../../api/module_image_imagestyle_utils.html#constant-DEFAULT_DROPDOWN_DEFINITIONS">default dropdowns</a> are provided.</li>
+<li>In the editor configuration, you can declare a <a href="../../api/module_image_imageconfig-ImageStyleDropdownDefinition.html">custom dropdown</a>.</li>
+</ul>
+</li>
+<li>
+<p>The name of the default block image style has changed from <code>full</code> to <code>block</code> (as the default style for the inline images is called <code>inline</code>), the default <a href="../../getting-started/legacy/advanced/content-styles.html">content styles</a> for these images remain the same. The button label has also changed and now reads <code>Centered image</code> so that it reflects the actual appearance of the image. If you customized the default appearance of the block images, you can change the button label by <a href="../../api/module_image_imageconfig-ImageConfig.html#member-styles">modifying the existing image style</a>.</p>
+</li>
+<li>
+<p>The format of the <code>config.image.styles</code> has changed. You must wrap the list of the styles with the <code>options</code> array. Read more about the <a href="../../api/module_image_imageconfig-ImageConfig.html#member-styles"><code>image.styles</code> configuration</a>.</p>
+<pre class="highlight"><code class="js">// Before v29.0.0.
+Editor.create( document.querySelector( '#editor' ), {
+    ...
+    image: {
+        styles: [ 'inline', 'full', 'side' ]
+    }
+} );
+
+// Since v29.0.0.
+Editor.create( document.querySelector( '#editor' ), {
+    ...
+    image: {
+        styles: {
+            options: [ 'inline', 'block', 'side' ]
+        }
+    }
+} );
+</code></pre>
+</li>
+<li>
+<p>The format of the <code>imageStyle</code> has changed. It must now provide information about the image types supporting a particular style. Read more about the <a href="../../api/module_image_imageconfig-ImageStyleOptionDefinition.html"><code>ImageStyleOptionDefinition</code></a>.</p>
+<pre class="highlight"><code class="js">// Before v29.0.0.
+Editor.create( document.querySelector( '#editor' ), {
+    ...
+    image: {
+        styles: [ {
+            name: 'alignLeft',
+            title: 'Left aligned image',
+            icon: objectLeft,
+            className: 'image-style-align-left'
+        } ]
+    }
+} );
+
+// Since v29.0.0.
+Editor.create( document.querySelector( '#editor' ), {
+    ...
+    image: {
+        styles: {
+            options: [ {
+                name: 'alignLeft',
+                title: 'Left aligned image',
+                icon: objectLeft,
+                // Image types (names of the model elements) supporting this style.
+                modelElements: [ 'imageBlock', 'imageInline' ],
+                className: 'image-style-align-left'
+            } ]
+        }
+    }
+} );
+</code></pre>
+</li>
+<li>
+<p>Several changes have been also made to the <a href="../../api/module_image_imagestyle-ImageStyle.html"><code>ImageStyle</code></a> plugin API:</p>
+<ul>
+<li>In the <a href="../../api/module_image_imagestyle_utils.html">image style utilities</a> module:
+<ul>
+<li>The <code>defaultIcons</code> were renamed to <a href="../../api/module_image_imagestyle_utils.html#constant-DEFAULT_ICONS"><code>DEFAULT_ICONS</code></a>.</li>
+<li>The <code>defaultStyles</code> were renamed to <a href="../../api/module_image_imagestyle_utils.html#constant-DEFAULT_OPTIONS"><code>DEFAULT_OPTIONS</code></a>.</li>
+<li>The <code>normalizeImageStyles()</code> function was removed from the public API.</li>
+</ul>
+</li>
+<li>The <code>ImageStyleCommand#defaultStyle</code> and <code>ImageStyleCommand#styles</code> were removed from the public API.</li>
+</ul>
+</li>
+</ul>
+<h3 id="image-toolbar"><a class="headerlink" href="#image-toolbar">#</a> Image toolbar</h3>
+<p>Until v29.0.0, custom editor builds without <a href="../../api/module_image_imagestyle-ImageStyle.html"><code>ImageStyle</code></a> and <a href="../../api/module_image_imagetoolbar-ImageToolbar.html"><code>ImageToolbar</code></a> plugins were possible. Only block images were supported and captions were added by the user upon selecting the image.</p>
+<p>Since v29.0.0, <a href="../../features/images/images-styles.html">image styles</a> and <a href="../../features/images/images-overview.html#image-contextual-toolbar">toolbar</a> allow users to choose the type of image (inline or block) and give them a way to add or remove captions from block images via configurable buttons.</p>
+<p>The user experience will degrade if either of these features is missing and this makes the <a href="../../api/module_image_imageconfig-ImageConfig.html#member-toolbar">image toolbar</a> configuration essential.</p>
+<div class="info-box notice"><p><a href="../../getting-started/legacy/installation-methods/predefined-builds.html">Pre-configured editor builds</a> come with <a href="../../api/module_image_imagestyle-ImageStyle.html"><code>ImageStyle</code></a> and <a href="../../api/module_image_imagetoolbar-ImageToolbar.html"><code>ImageToolbar</code></a> plugins (and configuration) out-of-the-box. This information is mainly for developers who use <a href="../../getting-started/legacy/installation-methods/quick-start-other.html">custom editor builds</a> in their integrations.</p></div>
+<p>We recommend one of the following configurations as the minimum setup for the image toolbar:</p>
+<ul>
+<li>
+<p>For structured content editing (implemented by default in the classic, balloon, balloon block, and inline <a href="../../getting-started/legacy/installation-methods/predefined-builds.html">editor builds</a>):</p>
+<pre class="highlight"><code class="js">Editor.create( document.querySelector( '#editor' ), {
+    ...
+    image: {
+        toolbar: [
+            'imageStyle:inline',
+            'imageStyle:block',
+            'imageStyle:side',
+            '|',
+            'toggleImageCaption',
+            'imageTextAlternative'
+        ]
+    }
+} );
+</code></pre>
+</li>
+<li>
+<p>For document-like editing (implemented by default in the <a href="../../getting-started/legacy/installation-methods/predefined-builds.html#document-editor">decoupled document build</a>).</p>
+<pre class="highlight"><code class="js">Editor.create( document.querySelector( '#editor' ), {
+    ...
+    image: {
+        toolbar: [
+            'toggleImageCaption',
+            'imageStyle:inline',
+            // A dropdown containing `alignLeft` and `alignRight` options.
+            'imageStyle:wrapText',
+            // A dropdown containing `alignBlockLeft`, `block` (default) and  `alignBlockRight` options.
+            'imageStyle:breakText'
+        ]
+    }
+} );
+</code></pre>
+</li>
+</ul>
+<p>See the <a href="../../features/images/images-overview.html#image-contextual-toolbar">image feature guide</a> to learn more about the configuration of the image toolbar.</p>
+<h3 id="inserting-images"><a class="headerlink" href="#inserting-images">#</a> Inserting images</h3>
+<p>Since v29.0.0 inserting (also: pasting, dropping) an image in the middle of text will no longer split it if the <a href="../../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> plugin is loaded (default). If you prefer the old behavior in your integration, you can specify this in the <a href="../../api/module_image_imageconfig-ImageInsertConfig.html"><code>ImageInsert</code> plugin configuration</a>.</p>
+<h3 id="image-utilities"><a class="headerlink" href="#image-utilities">#</a> Image utilities</h3>
+<ul>
+<li>
+<p>The image utilities are now wrapped by the <a href="../../api/module_image_imageutils-ImageUtils.html"><code>ImageUtils</code></a> plugin.</p>
+<pre class="highlight"><code class="js">// Before v29.0.0.
+import { isImage } from './utils';
+
+const selectedElement = editor.model.document.selection.getSelectedElement();
+
+if ( isImage( selectedElement ) ) {
+    // ...
+}
+
+// Since v29.0.0.
+// ...
+const imageUtils = this.editor.plugins.get( 'ImageUtils' );
+const selectedElement = editor.model.document.selection.getSelectedElement();
+
+if ( imageUtils.isImage( selectedElement ) ) {
+    // ...
+}
+</code></pre>
+</li>
+<li>
+<p>The <a href="../../api/module_image_imageutils-ImageUtils.html#function-insertImage"><code>insertImage()</code></a> function:</p>
+<ul>
+<li>No longer requires the <code>model</code> model instance to run.</li>
+<li>Allows <a href="../../api/module_engine_model_selection-Selectable.html"><code>Selectable</code></a> as a second argument (before only <a href="../../api/module_engine_model_position-Position.html"><code>Position</code></a> was accepted).</li>
+<li>Supports the optional <code>imageType</code> argument to force the type of the image to be inserted.</li>
+</ul>
+<pre class="highlight"><code class="js">// Before v29.0.0.
+import { insertImage } from './utils';
+
+const src = 'path/to/image.jpg';
+const model = ths.editor.model;
+const selection = model.document.selection;
+const position = model.createPositionAt( selection.getSelectedElement() );
+
+insertImage( model, { src }, position );
+
+// Since v29.0.0.
+const src = 'path/to/image.jpg';
+const selection = this.editor.model.document.selection;
+const imageUtils = this.editor.plugins.get( 'ImageUtils' );
+const imageType = 'imageBlock';
+
+imageUtils.insertImage( { src }, selection, imageType );
+</code></pre>
+</li>
+<li>
+<p>The <a href="../../api/module_image_imageutils-ImageUtils.html#function-isImage"><code>isImage()</code></a> function recognizes both inline and block images (before only block images).</p>
+</li>
+<li>
+<p>There are two new helpers: <a href="../../api/module_image_imageutils-ImageUtils.html#function-isBlockImageView"><code>isBlockImageView()</code></a> and <a href="../../api/module_image_imageutils-ImageUtils.html#function-isInlineImageView"><code>isInlineImageView()</code></a>.</p>
+</li>
+</ul>
+<p>We removed the following helpers from the public API:</p>
+<ul>
+<li><code>getSelectedImageWidget()</code>,</li>
+<li><code>getViewImgFromWidget()</code>,</li>
+<li><code>isImageAllowed()</code>,</li>
+<li><code>isImageWidget()</code>,</li>
+<li><code>toImageWidget()</code></li>
+</ul>
+<h3 id="easyimage-plugin"><a class="headerlink" href="#easyimage-plugin">#</a> <code>EasyImage</code> plugin</h3>
+<p>The <a href="../../api/module_easy-image_easyimage-EasyImage.html"><code>EasyImage</code></a> plugin is no longer automatically importing the <a href="../../api/module_image_image-Image.html"><code>Image</code></a> plugin as a dependency. This allows using it alone with either <a href="../../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a> or <a href="../../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> without loading the other one.</p>
+<p>This decoupling does not have an impact on integrations based on <a href="../../getting-started/legacy/installation-methods/predefined-builds.html">predefined builds</a> or using the <a href="https://ckeditor.com/ckeditor-5/builder/?redirect=docs">CKEditor&nbsp;5 Builder</a>.</p>
+<p>However, for integrations that <a href="../../getting-started/legacy/advanced/alternative-setups/integrating-from-source-webpack.html">build the editor from source</a>, this means that to get Easy Image working properly, the <code>Image</code> plugin (or either the <a href="../../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a> or <a href="../../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> plugin) must be imported separately:</p>
+<pre class="highlight"><code class="js">import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
+import Image from '@ckeditor/ckeditor5-image/src/image';
+
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        plugins: [ EasyImage, Image, ... ],
+        toolbar: [ 'uploadImage', ... ],
+
+        // ...
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<p>Check out the comprehensive <a href="../../features/images/images-installation.html">installation guide to images</a> in CKEditor&nbsp;5 to learn more.</p>
+<h3 id="ckfinder-plugin"><a class="headerlink" href="#ckfinder-plugin">#</a> <code>CKFinder</code> plugin</h3>
+<p>The <a href="../../api/module_ckfinder_ckfinder-CKFinder.html"><code>CKFinder</code></a> plugin is no longer automatically importing the <a href="../../api/module_image_image-Image.html"><code>Image</code></a> plugin as a dependency. This allows using it alone with either <a href="../../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a> or <a href="../../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> without loading the other one.</p>
+<p>This decoupling does not have an impact on integrations based on <a href="../../getting-started/legacy/installation-methods/predefined-builds.html">predefined builds</a> or using the <a href="https://ckeditor.com/ckeditor-5/builder/?redirect=docs">CKEditor&nbsp;5 Builder</a>.</p>
+<p>However, for integrations that <a href="../../getting-started/legacy/advanced/alternative-setups/integrating-from-source-webpack.html">build the editor from source</a>, this means that to get CKFinder working properly, you must import the <code>Image</code> plugin (or either the <a href="../../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a> or <a href="../../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> plugin) separately:</p>
+<pre class="highlight"><code class="js">import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfider';
+import Image from '@ckeditor/ckeditor5-image/src/image';
+
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        plugins: [ CKFinder, Image, ... ],
+        toolbar: [ 'uploadImage', ... ],
+        ckfinder: {
+            // Feature configuration.
+        }
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<p>Check out the comprehensive <a href="../../features/images/images-installation.html">installation guide to images</a> in CKEditor&nbsp;5 to learn more.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22updating%2Fguides%2Fupdate-to-29.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Migrations from npm to CDN</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="migrations">
+                                    <li><a href="../migrations/vanilla-js.html" title="Vanilla JS">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/testing-suite.html" title="Vanilla JS testing suite">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS testing suite</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/react.html" title="React">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/vuejs-v3.html" title="Vue.js 3+">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/angular.html" title="Angular">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">New installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="nim-migration">
+                                    <li><a href="../nim-migration/migration-to-new-installation-methods.html" title="Migrating to new installation methods">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating to new installation methods</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/predefined-builds.html" title="Migrating from predefined builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from predefined builds</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/online-builder.html" title="Migrating from legacy Online Builder">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from legacy Online Builder</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/customized-builds.html" title="Migrating from customized builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from customized builds</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/dll-builds.html" title="Migrating from DLL builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from DLL builds</span>
+                                        </div></a></li>
+                                    <li><a href="../nim-migration/custom-plugins.html" title="Migrating custom plugins">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating custom plugins</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">CKEditor 4 migration</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="ckeditor4-migration">
+                                    <li><a href="../ckeditor4/migration-from-ckeditor-4.html" title="Migration from CKEditor 4">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-plugin-compatibility.html" title="Plugin equivalents">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin equivalents</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-configuration-compatibility.html" title="Configuration options compatibility">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration options compatibility</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-troubleshooting.html" title="Troubleshooting">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Troubleshooting</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../maintaining.html" title="Maintaining your editor">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your editor</span>
+                              </div></a></li>
+                          <li><a href="../release-process.html" title="Release process">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Release process</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Update guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="update-guides">
+                                    <li><a href="updating-ckeditor-5.html" title="Updating CKEditor 5">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating CKEditor 5</span>
+                                        </div></a></li>
+                                    <li><a href="changelog.html" title="Changelog">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Changelog</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-44.html" title="Update to v44.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v44.x</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-43.html" title="Update to v43.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v43.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-42.html" title="Update to v42.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v42.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-41.html" title="Update to v41.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v41.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-40.html" title="Update to v40.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v40.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-39.html" title="Update to v39.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v39.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-38.html" title="Update to v38.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v38.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-37.html" title="Update to v37.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v37.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-36.html" title="Update to v36.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v36.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-35.html" title="Update to v35.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v35.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-34.html" title="Update to v34.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v34.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-33.html" title="Update to v33.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v33.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-32.html" title="Update to v32.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v32.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-31.html" title="Update to v31.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v31.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-30.html" title="Update to v30.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v30.x</span>
+                                        </div></a></li>
+                                    <li><a href="" title="Update to v29.x">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Update to v29.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-28.html" title="Update to v28.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v28.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-27.html" title="Update to v27.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v27.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-26.html" title="Update to v26.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v26.x</span>
+                                        </div></a></li>
+                                    <li><a href="update-to-25.html" title="Update to v25.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v25.x</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../versioning-policy.html" title="Versioning policy">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Versioning policy</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'updating' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'updating' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'updating' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'updating' ] );tags.forEach( function( tag ) {if ( tag !== 'updating' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

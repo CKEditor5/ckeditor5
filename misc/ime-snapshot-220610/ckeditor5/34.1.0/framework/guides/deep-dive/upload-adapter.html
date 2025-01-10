@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom upload adapter - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:46:00 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Custom upload adapter - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/upload-adapter.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Custom upload adapter - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/deep-dive/upload-adapter.html">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../index.html">CKEditor 5</a></li>
+          <li><a href="../../../installation/index.html">Installation</a></li>
+          <li><a href="../../../features/index.html">Features</a></li>
+          <li><a href="../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../support/index.html">Support</a></li>
+          <li><a class="top__menu__item--active" href="../../index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../index.html">Framework</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="../development-tools.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development tools</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../architecture/intro.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                              </div></a></li>
+                                          <li><a href="../architecture/core-editor-architecture.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                              </div></a></li>
+                                          <li><a href="../architecture/editing-engine.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                              </div></a></li>
+                                          <li><a href="../architecture/ui-library.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Developing custom plugins</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../plugins/creating-simple-plugin.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a simple plugin</span>
+                                              </div></a></li>
+                                          <li><a href="../plugins/package-generator.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced tutorials</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../tutorials/implementing-a-block-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/implementing-an-inline-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                              </div></a></li>
+                                          <li><a href="../tutorials/using-react-in-a-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="clipboard.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                              </div></a></li>
+                                          <li><a href="">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="event-system.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                              </div></a></li>
+                                          <li><a href="observables.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                              </div></a></li>
+                                          <li><a href="schema.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list">
+                                                  <li><a href="conversion/intro.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                      </div></a></li>
+                                                  <li><a href="conversion/downcast.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                      </div></a></li>
+                                                  <li><a href="conversion/upcast.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                      </div></a></li>
+                                                  <li>
+                                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                    </div>
+                                                    <ul class="tree__item-nested-list">
+                                                          <li><a href="conversion/helpers/intro.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                              </div></a></li>
+                                                          <li><a href="conversion/helpers/downcast.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                              </div></a></li>
+                                                          <li><a href="conversion/helpers/upcast.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                              </div></a></li>
+                                                    </ul>
+                                                  </li>
+                                            </ul>
+                                          </li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list">
+                                                  <li><a href="ui/focus-tracking.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                      </div></a></li>
+                                                  <li><a href="ui/widget-internals.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                      </div></a></li>
+                                                  <li><a href="ui/theme-customization.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                      </div></a></li>
+                                                  <li><a href="ui/external-ui.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third–party UI</span>
+                                                      </div></a></li>
+                                                  <li><a href="ui/document-editor.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                      </div></a></li>
+                                                  <li><a href="ui/custom-editor-creator.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                      </div></a></li>
+                                                  <li><a href="ui/localization.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../contributing/contributing.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/development-environment.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/testing-environment.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/code-style.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/package-metadata.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/git-commit-message-convention.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="api-reference"><a href="../../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted custom-adapter">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/packages/ckeditor5-image/docs/framework/guides/deep-dive/upload-adapter.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Framework</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../../assets/2.1.3/img/book.svg" alt="guide">Custom image upload adapter
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#glossary-of-terms">Glossary of terms</a></li><li><a href="#how-does-the-image-upload-work">How does the image upload work?</a></li><li><a href="#the-anatomy-of-the-adapter">The anatomy of the adapter</a></li><li><a href="#implementing-a-custom-upload-adapter">Implementing a custom upload adapter</a><ol><li><a href="#using-xmlhttprequest-in-an-adapter">Using XMLHttpRequest in an adapter</a></li><li><a href="#responsive-images-and-srcset-attribute">Responsive images and srcset attribute</a></li><li><a href="#passing-additional-data-to-the-response">Passing additional data to the response</a></li><li><a href="#activating-a-custom-upload-adapter">Activating a custom upload adapter</a></li><li><a href="#the-complete-implementation">The complete implementation</a></li></ol></li><li><a href="#whats-next">What&#x2019;s next?</a></li></ol></nav>
+<p>In this guide you will learn the basic concepts of the file upload architecture in CKEditor 5 WYSIWYG editor which will help you implement your own custom upload adapter.</p>
+<p>While this guide is mainly focused on the image upload (the most common kind of upload), keep in mind that the presented concepts and the API allow developing all sorts of file upload adapters for different file types like PDFs, movies, etc.</p>
+<div class="info-box notice"><p>If you do not feel like getting through this guide but you want a simple upload adapter that works, check out the <a href="../../../features/images/image-upload/simple-upload-adapter.html">Simple upload adapter</a> plugin we implemented for you.</p></div>
+<div class="info-box notice"><p>Check out the comprehensive <a href="../../../features/images/image-upload/image-upload.html">Image upload overview</a> to learn about other ways to upload images into CKEditor 5.</p></div>
+<h2 id="glossary-of-terms"><a class="headerlink" href="#glossary-of-terms">#</a> Glossary of terms</h2>
+<p>Before we start, let&#x2019;s make sure all terms used in this guide are clear.</p>
+<table>
+	<thead>
+		<tr>
+			<th>Term</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Upload adapter</td>
+			<td>
+				<p>A piece of code (a class) that handles the image upload from the moment it is requested by the user (e.g. when the file is dropped into the content) to the moment the server returns a response to the requested upload. A bridge between the feature and the server.</p>
+				<p>Upload adapters are used by other plugins like <a href="../../../api/module_image_imageupload-ImageUpload.html">image upload</a> to connect to the server and fetch the response. For every user action (e.g. when a file is dropped into the content), a new upload adapter instance is created.</p>
+				<p>CKEditor 5 comes with some <a href="../../../features/images/image-upload/image-upload.html#official-upload-adapters">official upload adapters</a> but you can also <a href="#implementing-a-custom-upload-adapter">implement your own adapters</a>.</p>
+				<p>See the <a href="#how-does-the-image-upload-work">&quot;How does the image upload work?&quot;</a> section to learn more.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="../../../api/module_upload_filerepository-UploadAdapter.html"><code>UploadAdapter</code></a> interface</td>
+			<td>
+				<p>An interface defining the minimal API required to create an upload adapter. In other words, it tells you what methods your upload adapter class must have in order to work.</p>
+				<p>See <a href="#the-anatomy-of-the-adapter">&quot;The anatomy of the adapter&quot;</a> section to learn more.</p>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="../../../api/module_upload_filerepository-FileRepository.html">File repository</a> plugin</td>
+			<td>
+				<p>A central point for managing file upload in CKEditor 5. It glues upload adapters and features using them:</p>
+				<ul>
+					<li>Upload adapters are enabled in the editor by defining the <a href="../../../api/module_upload_filerepository-FileRepository.html#member-createUploadAdapter"><code>FileRepository.createUploadAdapter()</code></a> factory method.</li>
+					<li>Features like <a href="../../../api/module_image_imageupload-ImageUpload.html">image upload</a> use the <code>FileRepository</code> API to create a new upload adapter instance each time an upload is requested by the user.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="../../../api/module_image_imageupload-ImageUpload.html">Image upload</a> plugin</td>
+			<td>
+				<p>A top&#x2013;level plugin that responds to actions of the users (e.g. when a file is dropped into the content) by uploading files to the server and updating the edited content once the upload finishes. This particular plugin handles user actions related to uploading images.</p>
+				<p>It uses the <code>FileRepository</code> API to spawn upload adapter instances, triggers the image upload (<code>UploadAdapter.upload()</code>) and finally uses the data returned by the adapter&apos;s upload promise to update the image in the editor content.</p>
+				<p>See the <a href="#how-does-the-image-upload-work">&quot;How does the image upload work?&quot;</a> section to learn more.</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<h2 id="how-does-the-image-upload-work"><a class="headerlink" href="#how-does-the-image-upload-work">#</a> How does the image upload work?</h2>
+<p>Before you can implement your own custom upload adapter, you should learn about the image upload process in CKEditor 5. The whole process boils down to the following steps:</p>
+<ol>
+<li>
+<p>First, an image (or images) need to get into the rich-text editor content. There are many ways to do that, for instance:</p>
+<ul>
+<li>pasting an image from clipboard,</li>
+<li>dragging a file from the file system,</li>
+<li>selecting an image through a file system dialog.</li>
+</ul>
+<p>The images are intercepted by the <a href="../../../api/module_image_imageupload-ImageUpload.html">image upload</a> plugin (which is enabled in all official <a href="../../../installation/advanced/alternative-setups/predefined-builds.html">editor builds</a>).</p>
+</li>
+<li>
+<p>For every image, the image upload plugin <a href="../../../api/module_upload_filerepository-FileRepository.html#function-createLoader">creates an instance of a file loader</a>.</p>
+<ul>
+<li>The role of the <strong>file loader</strong> is to read the file from the disk and upload it to the server by using the upload adapter.</li>
+<li>The role of the <strong>upload adapter</strong> is, therefore, to securely send the file to the server and pass the response from the server (e.g. the URL to the saved file) back to the file loader (or handle an error, if there was one).</li>
+</ul>
+</li>
+<li>
+<p>While the images are being uploaded, the image upload plugin:</p>
+<ul>
+<li>Creates placeholders of these images.</li>
+<li>Inserts them into the editor.</li>
+<li>Displays the progress bar for each of them.</li>
+<li>When an image is deleted from the editor content before the upload finishes, it aborts the upload process.</li>
+</ul>
+</li>
+<li>
+<p>Once the file is uploaded, the upload adapter notifies the editor about this fact by resolving its <code>Promise</code>. It passes the URL (or URLs in case of responsive images) to the image upload plugin which replaces the <code>src</code> and <code>srcset</code> attributes of the image placeholder in the editor content.</p>
+</li>
+</ol>
+<p>This is just an overview of the image upload process. Actually, the whole thing is more complicated. For instance, images can be copied and pasted within the WYSIWYG editor (while the upload takes place) and all potential upload errors must be handled, too. The good news is these tasks are handled transparently by the <a href="../../../api/module_image_imageupload-ImageUpload.html">image upload</a> plugin so you do not have to worry about them.</p>
+<p>To sum up, for the image upload to work in the rich-text editor, two conditions must be true:</p>
+<ul>
+<li>
+<p><strong>The <a href="../../../api/module_image_imageupload-ImageUpload.html">image upload</a> plugin must be enabled</strong> in the editor. It is enabled by default in all official <a href="../../../installation/advanced/alternative-setups/predefined-builds.html">builds</a>, but if you are <a href="../../../installation/getting-started/quick-start.html#building-the-editor-from-source">customizing</a> CKEditor 5, do not forget to include it.</p>
+</li>
+<li>
+<p><strong>The upload adapter needs to be defined</strong>. This can be done by using (enabling <em>and</em> configuring):</p>
+<ul>
+<li><a href="../../../features/images/image-upload/image-upload.html#official-upload-adapters">One of the existing upload adapters</a>.</li>
+<li><a href="#implementing-a-custom-upload-adapter">Your custom upload adapter</a> and handling uploaded files on your server back&#x2013;end.</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-anatomy-of-the-adapter"><a class="headerlink" href="#the-anatomy-of-the-adapter">#</a> The anatomy of the adapter</h2>
+<p>A custom upload adapter allows you to take the <strong>full control</strong> over the process of sending the files to the server as well as passing the response from the server back to the rich-text editor.</p>
+<p>Any upload adapter, whether an image upload adapter or a generic file upload adapter, must implement the <a href="../../../api/module_upload_filerepository-UploadAdapter.html"><code>UploadAdapter</code> interface</a> in order to work, i.e. it must bring its own <code>upload()</code> and <code>abort()</code> methods.</p>
+<ul>
+<li>The <a href="../../../api/module_upload_filerepository-UploadAdapter.html#function-upload"><code>upload()</code></a> method must return a promise:
+<ul>
+<li><strong>resolved</strong> by a successful upload with an object containing information about the uploaded file (see the section about <a href="#responsive-images-and-srcset-attribute">responsive images</a> to learn more),</li>
+<li><strong>rejected</strong> because of an error, in which case nothing is inserted into the content.</li>
+</ul>
+</li>
+<li>The <a href="../../../api/module_upload_filerepository-UploadAdapter.html#function-abort"><code>abort()</code></a> method must allow the editor to abort the upload process. It is necessary, for instance, when the image was removed from the content by the user before the upload finished or the editor instance was <a href="../../../api/module_core_editor_editor-Editor.html#function-destroy">destroyed</a>.</li>
+</ul>
+<p>In its simplest form, a custom adapter implementing the <code>UploadAdapter</code> interface will look as follows. Note that <code>server.upload()</code>, <code>server.onUploadProgress()</code> and <code>server.abortUpload()</code>  should be replaced by specific implementations (dedicated for your application) and only demonstrate the minimal communication necessary for the upload to work:</p>
+<pre class="highlight"><code class="js">class MyUploadAdapter {
+    constructor( loader ) {
+        // The file loader instance to use during the upload.
+        this.loader = loader;
+    }
+
+    // Starts the upload process.
+    upload() {
+        // Update the loader&apos;s progress.
+        server.onUploadProgress( data =&gt; {
+            loader.uploadTotal = data.total;
+            loader.uploaded = data.uploaded;
+        } );
+
+        // Return a promise that will be resolved when the file is uploaded.
+        return loader.file
+            .then( file =&gt; server.upload( file ) );
+    }
+
+    // Aborts the upload process.
+    abort() {
+        // Reject the promise returned from the upload() method.
+        server.abortUpload();
+    }
+}
+</code></pre>
+<p>Define the <a href="../../../api/module_upload_filerepository-FileRepository.html#member-createUploadAdapter"><code>FileRepository.createUploadAdapter()</code></a> factory method which uses the <code>MyUploadAdapter</code> class to enable the upload adapter in the editor:</p>
+<pre class="highlight"><code class="js">editor.plugins.get( &apos;FileRepository&apos; ).createUploadAdapter = ( loader ) =&gt; {
+    return new MyUploadAdapter( loader );
+};
+</code></pre>
+<h2 id="implementing-a-custom-upload-adapter"><a class="headerlink" href="#implementing-a-custom-upload-adapter">#</a> Implementing a custom upload adapter</h2>
+<p>In this section, you are going to implement and enable a custom upload adapter. The adapter will use the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener"><code>XMLHttpRequest</code></a> to send files returned by the loader to a pre&#x2013;configured URL on the server, handling the <code>error</code>, <code>abort</code>, <code>load</code>, and <code>progress</code> events fired by the request.</p>
+<div class="info-box notice"><p>If you do not feel like getting through this guide but you want a simple <code>XMLHttpRequest</code>&#x2013;based upload adapter that works, check out the <a href="../../../features/images/image-upload/simple-upload-adapter.html">Simple upload adapter</a> plugin we implemented for you. It comes with pretty much the same functionality. Just install it, configure it, and you are ready to go.</p></div>
+<div class="info-box notice"><p>If the <a href="../../../features/images/image-upload/simple-upload-adapter.html">Simple upload adapter</a> is not enough for you and you want a custom upload adapter developed on top this guide, go straight to the <a href="#the-complete-implementation">full source code</a> and start experimenting.</p></div>
+<div class="info-box notice"><p>Note that this is just an example implementation and <code>XMLHttpRequest</code> might not necessarily be the best solution for your application.</p><p>Use the provided code snippets as an inspiration for your own custom upload adapter &#x2014; it is up to you to choose the technologies and APIs to use. For instance, you may want to check out the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener"><code>fetch()</code> API</a> that works with <code>Promises</code> out of the box.</p></div>
+<p>To start off, define the <code>MyUploadAdapter</code> class with its constructor.</p>
+<pre class="highlight"><code class="js">class MyUploadAdapter {
+    constructor( loader ) {
+        // The file loader instance to use during the upload. It sounds scary but do not
+        // worry &#x2014; the loader will be passed into the adapter later on in this guide.
+        this.loader = loader;
+    }
+
+    // ...
+}
+</code></pre>
+<p>Implement the minimal <code>UploadAdapter</code> adapter interface as explained in <a href="#the-anatomy-of-the-adapter">&#x201C;The anatomy of the adapter&#x201D;</a> section. The details of the implementation are explained in the following chapters of this guide.</p>
+<pre class="highlight"><code class="js">class MyUploadAdapter {
+    // ...
+
+    // Starts the upload process.
+    upload() {
+        return this.loader.file
+            .then( file =&gt; new Promise( ( resolve, reject ) =&gt; {
+                this._initRequest();
+                this._initListeners( resolve, reject, file );
+                this._sendRequest( file );
+            } ) );
+    }
+
+    // Aborts the upload process.
+    abort() {
+        if ( this.xhr ) {
+            this.xhr.abort();
+        }
+    }
+
+    // ...
+}
+</code></pre>
+<h3 id="using-xmlhttprequest-in-an-adapter"><a class="headerlink" href="#using-xmlhttprequest-in-an-adapter">#</a> Using <code>XMLHttpRequest</code> in an adapter</h3>
+<p>Let&#x2019;s see what the <code>_initRequest()</code> method looks like in your custom upload adapter. It should prepare the <code>XMLHttpRequest</code> object before it can be used to upload an image.</p>
+<div class="info-box notice"><p>Note that for the sake of keeping the code simple, in this example implementation no particular security mechanism is used that would prevent your application and services from being abused.</p><p>We <strong>strongly recommend</strong> using both authentication and <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29" target="_blank" rel="noopener"><abbr title="Cross-site request forgery">CSRF</abbr> protection</a> mechanisms (i.e. CSRF tokens) in your application. For instance, they can be implemented as <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/setRequestHeader" target="_blank" rel="noopener"><code>XMLHttpRequest</code></a> headers.</p></div>
+<pre class="highlight"><code class="js">class MyUploadAdapter {
+    // ...
+
+    // Initializes the XMLHttpRequest object using the URL passed to the constructor.
+    _initRequest() {
+        const xhr = this.xhr = new XMLHttpRequest();
+
+        // Note that your request may look different. It is up to you and your editor
+        // integration to choose the right communication channel. This example uses
+        // a POST request with JSON as a data structure but your configuration
+        // could be different.
+        xhr.open( &apos;POST&apos;, &apos;http://example.com/image/upload/path&apos;, true );
+        xhr.responseType = &apos;json&apos;;
+    }
+}
+</code></pre>
+<p>Now let&#x2019;s focus on the <code>_initListeners()</code> method which attaches the <code>error</code>, <code>abort</code>, <code>load</code>, and <code>progress</code> event listeners to the <code>XMLHttpRequest</code> object created in the last step.</p>
+<p>A successful image upload will finish when the upload promise is resolved upon the <code>load</code> event fired by the <code>XMLHttpRequest</code> request. The promise must be resolved with an object containing information about the image. See the documentation of the <a href="../../../api/module_upload_filerepository-UploadAdapter.html#function-upload"><code>upload()</code></a> method to learn more.</p>
+<pre class="highlight"><code class="js">class MyUploadAdapter {
+    // ...
+
+    // Initializes XMLHttpRequest listeners.
+    _initListeners( resolve, reject, file ) {
+        const xhr = this.xhr;
+        const loader = this.loader;
+        const genericErrorText = `Couldn&apos;t upload file: ${ file.name }.`;
+
+        xhr.addEventListener( &apos;error&apos;, () =&gt; reject( genericErrorText ) );
+        xhr.addEventListener( &apos;abort&apos;, () =&gt; reject() );
+        xhr.addEventListener( &apos;load&apos;, () =&gt; {
+            const response = xhr.response;
+
+            // This example assumes the XHR server&apos;s &quot;response&quot; object will come with
+            // an &quot;error&quot; which has its own &quot;message&quot; that can be passed to reject()
+            // in the upload promise.
+            //
+            // Your integration may handle upload errors in a different way so make sure
+            // it is done properly. The reject() function must be called when the upload fails.
+            if ( !response || response.error ) {
+                return reject( response &amp;&amp; response.error ? response.error.message : genericErrorText );
+            }
+
+            // If the upload is successful, resolve the upload promise with an object containing
+            // at least the &quot;default&quot; URL, pointing to the image on the server.
+            // This URL will be used to display the image in the content. Learn more in the
+            // UploadAdapter#upload documentation.
+            resolve( {
+                default: response.url
+            } );
+        } );
+
+        // Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded
+        // properties which are used e.g. to display the upload progress bar in the editor
+        // user interface.
+        if ( xhr.upload ) {
+            xhr.upload.addEventListener( &apos;progress&apos;, evt =&gt; {
+                if ( evt.lengthComputable ) {
+                    loader.uploadTotal = evt.total;
+                    loader.uploaded = evt.loaded;
+                }
+            } );
+        }
+    }
+}
+</code></pre>
+<p>Last but not least, the <code>_sendRequest()</code> method sends the <code>XMLHttpRequest</code>. In this example, the <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" target="_blank" rel="noopener"><code>FormData</code></a> interface is used to pass the file provided by the <a href="../../../api/module_upload_filerepository-FileRepository.html#function-createLoader">file loader</a>.</p>
+<div class="info-box notice"><p>Note that both the data format and actual data passed to <code>XMLHttpRequest.send()</code> in this example implementation are arbitrary. Your implementation could be different and it will depend on the back&#x2013;end of your application and interfaces it provides.</p></div>
+<pre class="highlight"><code class="js">class MyUploadAdapter {
+    // ...
+
+    // Prepares the data and sends the request.
+    _sendRequest( file ) {
+        // Prepare the form data.
+        const data = new FormData();
+
+        data.append( &apos;upload&apos;, file );
+
+        // Important note: This is the right place to implement security mechanisms
+        // like authentication and CSRF protection. For instance, you can use
+        // XMLHttpRequest.setRequestHeader() to set the request headers containing
+        // the CSRF token generated earlier by your application.
+
+        // Send the request.
+        this.xhr.send( data );
+    }
+}
+</code></pre>
+<h3 id="responsive-images-and-srcset-attribute"><a class="headerlink" href="#responsive-images-and-srcset-attribute">#</a> Responsive images and <code>srcset</code> attribute</h3>
+<p>If the upload is successful, a <code>Promise</code> returned by the <a href="../../../api/module_upload_filerepository-UploadAdapter.html#function-upload"><code>MyUploadAdapter.upload()</code></a> method can resolve with more than just a <code>default</code> path to the uploaded image (see the implementation of <code>MyUploadAdapter._initListeners()</code>), which usually looks like this:</p>
+<pre class="highlight"><code class="js">{
+    default: &apos;http://example.com/images/image&#x2013;default-size.png&apos;
+}
+</code></pre>
+<p>Other image sizes can also be provided in the response, allowing <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" target="_blank" rel="noopener">responsive images</a> in the editor. The response containing more than just one image size could look like this:</p>
+<pre class="highlight"><code class="js">{
+    default: &apos;http://example.com/images/image&#x2013;default-size.png&apos;,
+    &apos;160&apos;: &apos;http://example.com/images/image&#x2013;size-160.image.png&apos;,
+    &apos;500&apos;: &apos;http://example.com/images/image&#x2013;size-500.image.png&apos;,
+    &apos;1000&apos;: &apos;http://example.com/images/image&#x2013;size-1000.image.png&apos;,
+    &apos;1052&apos;: &apos;http://example.com/images/image&#x2013;default-size.png&apos;
+}
+</code></pre>
+<div class="info-box notice"><p>When returning multiple images, the widest returned one should be the default one. It is essential to correctly set the <code>width</code> attribute of the image in the rich-text editor content.</p></div>
+<p>The <a href="../../../api/module_image_imageupload-ImageUpload.html">image upload</a> plugin, which is capable of handling multiple image sizes returned by the upload adapter, will automatically add the URLs to other images sizes to the <code>srcset</code> attribute of the image in the content.</p>
+<div class="info-box notice"><p>The <a href="../../../features/images/image-upload/easy-image.html">Easy Image</a> feature provides responsive image support <a href="../../../features/images/image-upload/easy-image.html#responsive-images">out of the box</a>.</p></div>
+<p>Knowing that, you can implement the <code>XMLHttpRequest#load</code> listener that resolves the upload promise in the <a href="#using-xmlhttprequest-in-an-adapter">previous section</a> so that it passes the entire <code>urls</code> property of the server response to the image upload plugin:</p>
+<pre class="highlight"><code class="js">// ...
+
+xhr.addEventListener( &apos;load&apos;, () =&gt; {
+    const response = xhr.response;
+
+    // ...
+
+    // response.urls = {
+    // 	default: &apos;http://example.com/images/image&#x2013;default-size.png&apos;,
+    // 	&apos;160&apos;: &apos;...&apos;,
+    // 	&apos;500&apos;: &apos;...&apos;,
+    // 	// ...
+    // 	&apos;1052&apos;: &apos;http://example.com/images/image&#x2013;default-size.png&apos;
+    // }
+    resolve( response.urls );
+} );
+</code></pre>
+<h3 id="passing-additional-data-to-the-response"><a class="headerlink" href="#passing-additional-data-to-the-response">#</a> Passing additional data to the response</h3>
+<p>There is a chance you might need to pass some data from the server to provide additional data to some features. In order to do that, you need to wrap all URLs in the <code>urls</code> property and pass additional data in the top level of the object.</p>
+<p>For image uploading, you can later retrieve the data in the <a href="../../../api/module_image_imageupload_imageuploadediting-ImageUploadEditing.html#event-uploadComplete"><code>uploadComplete</code></a> event, which allows setting new attributes and overriding the existing ones on the model image based on the data just after the image is uploaded.</p>
+<pre class="highlight"><code class="js">{
+    urls: {
+        default: &apos;http://example.com/images/image&#x2013;default-size.png&apos;,
+        // Optional different sizes of images.
+    },
+    customProperty: &apos;foo&apos;
+}
+</code></pre>
+<h3 id="activating-a-custom-upload-adapter"><a class="headerlink" href="#activating-a-custom-upload-adapter">#</a> Activating a custom upload adapter</h3>
+<p>Having implemented the adapter, you must figure out how to enable it in the WYSIWYG editor. The good news is that it is pretty easy, and you do not need to <a href="../../../installation/getting-started/quick-start.html#building-the-editor-from-source">rebuild the editor</a> to do that!</p>
+<p>You are going to extend the basic implementation presented in <a href="#the-anatomy-of-the-adapter">&#x201C;The anatomy of the adapter&#x201D;</a> section of this guide so your custom adapter becomes an editor plugin. To do that, create a simple standalone plugin (<code>MyCustomUploadAdapterPlugin</code>) that will <a href="../../../api/module_upload_filerepository-FileRepository.html#function-createLoader">create an instance of the file loader</a> and glue it with your custom <code>MyUploadAdapter</code>.</p>
+<pre class="highlight"><code class="js">import ClassicEditor from &apos;@ckeditor/ckeditor5-build-classic&apos;;
+
+class MyUploadAdapter {
+    // ...
+}
+
+function MyCustomUploadAdapterPlugin( editor ) {
+    editor.plugins.get( &apos;FileRepository&apos; ).createUploadAdapter = ( loader ) =&gt; {
+        // Configure the URL to the upload script in your back-end here!
+        return new MyUploadAdapter( loader );
+    };
+}
+</code></pre>
+<p>Enable the <code>MyCustomUploadAdapterPlugin</code> in the editor by using the <a href="../../../api/module_core_editor_editorconfig-EditorConfig.html#member-extraPlugins"><code>config.extraPlugins</code></a> option:</p>
+<pre class="highlight"><code class="js">ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        extraPlugins: [ MyCustomUploadAdapterPlugin ],
+
+        // ...
+    } )
+    .catch( error =&gt; {
+        console.log( error );
+    } );
+</code></pre>
+<p>Run the editor and see if your implementation works. Drop an image into the WYSIWYG editor content and it should be uploaded to the server thanks to the <code>MyUploadAdapter</code>.</p>
+<h3 id="the-complete-implementation"><a class="headerlink" href="#the-complete-implementation">#</a> The complete implementation</h3>
+<p>Here is what the complete implementation of an <code>XMLHttpRequest</code>&#x2013;based upload adapter looks like. You can use this code as a foundation to build custom upload adapters for your applications.</p>
+<pre class="highlight"><code class="js">class MyUploadAdapter {
+    constructor( loader ) {
+        // The file loader instance to use during the upload.
+        this.loader = loader;
+    }
+
+    // Starts the upload process.
+    upload() {
+        return this.loader.file
+            .then( file =&gt; new Promise( ( resolve, reject ) =&gt; {
+                this._initRequest();
+                this._initListeners( resolve, reject, file );
+                this._sendRequest( file );
+            } ) );
+    }
+
+    // Aborts the upload process.
+    abort() {
+        if ( this.xhr ) {
+            this.xhr.abort();
+        }
+    }
+
+    // Initializes the XMLHttpRequest object using the URL passed to the constructor.
+    _initRequest() {
+        const xhr = this.xhr = new XMLHttpRequest();
+
+        // Note that your request may look different. It is up to you and your editor
+        // integration to choose the right communication channel. This example uses
+        // a POST request with JSON as a data structure but your configuration
+        // could be different.
+        xhr.open( &apos;POST&apos;, &apos;http://example.com/image/upload/path&apos;, true );
+        xhr.responseType = &apos;json&apos;;
+    }
+
+    // Initializes XMLHttpRequest listeners.
+    _initListeners( resolve, reject, file ) {
+        const xhr = this.xhr;
+        const loader = this.loader;
+        const genericErrorText = `Couldn&apos;t upload file: ${ file.name }.`;
+
+        xhr.addEventListener( &apos;error&apos;, () =&gt; reject( genericErrorText ) );
+        xhr.addEventListener( &apos;abort&apos;, () =&gt; reject() );
+        xhr.addEventListener( &apos;load&apos;, () =&gt; {
+            const response = xhr.response;
+
+            // This example assumes the XHR server&apos;s &quot;response&quot; object will come with
+            // an &quot;error&quot; which has its own &quot;message&quot; that can be passed to reject()
+            // in the upload promise.
+            //
+            // Your integration may handle upload errors in a different way so make sure
+            // it is done properly. The reject() function must be called when the upload fails.
+            if ( !response || response.error ) {
+                return reject( response &amp;&amp; response.error ? response.error.message : genericErrorText );
+            }
+
+            // If the upload is successful, resolve the upload promise with an object containing
+            // at least the &quot;default&quot; URL, pointing to the image on the server.
+            // This URL will be used to display the image in the content. Learn more in the
+            // UploadAdapter#upload documentation.
+            resolve( {
+                default: response.url
+            } );
+        } );
+
+        // Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded
+        // properties which are used e.g. to display the upload progress bar in the editor
+        // user interface.
+        if ( xhr.upload ) {
+            xhr.upload.addEventListener( &apos;progress&apos;, evt =&gt; {
+                if ( evt.lengthComputable ) {
+                    loader.uploadTotal = evt.total;
+                    loader.uploaded = evt.loaded;
+                }
+            } );
+        }
+    }
+
+    // Prepares the data and sends the request.
+    _sendRequest( file ) {
+        // Prepare the form data.
+        const data = new FormData();
+
+        data.append( &apos;upload&apos;, file );
+
+        // Important note: This is the right place to implement security mechanisms
+        // like authentication and CSRF protection. For instance, you can use
+        // XMLHttpRequest.setRequestHeader() to set the request headers containing
+        // the CSRF token generated earlier by your application.
+
+        // Send the request.
+        this.xhr.send( data );
+    }
+}
+
+// ...
+
+function MyCustomUploadAdapterPlugin( editor ) {
+    editor.plugins.get( &apos;FileRepository&apos; ).createUploadAdapter = ( loader ) =&gt; {
+        // Configure the URL to the upload script in your back-end here!
+        return new MyUploadAdapter( loader );
+    };
+}
+
+// ...
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        extraPlugins: [ MyCustomUploadAdapterPlugin ],
+
+        // ...
+    } )
+    .catch( error =&gt; {
+        console.log( error );
+    } );
+</code></pre>
+<h2 id="whats-next"><a class="headerlink" href="#whats-next">#</a> What&#x2019;s next?</h2>
+<p>Check out the comprehensive <a href="../../../features/images/image-upload/image-upload.html">image upload overview</a> guide to learn more about different ways of uploading images in CKEditor 5. See the <a href="../../../features/images/images-overview.html">image feature</a> guide to find out more about handling images in CKEditor 5.</p>
+<style>
+.custom-adapter td:first-child {
+	white-space: nowrap;
+}
+</style>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22framework%2Fguides%2Fdeep-dive%2Fupload-adapter.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="../development-tools.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development tools</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../architecture/intro.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                  </div></a></li>
+                                              <li><a href="../architecture/core-editor-architecture.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                                  </div></a></li>
+                                              <li><a href="../architecture/editing-engine.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                                  </div></a></li>
+                                              <li><a href="../architecture/ui-library.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Developing custom plugins</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../plugins/creating-simple-plugin.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a simple plugin</span>
+                                                  </div></a></li>
+                                              <li><a href="../plugins/package-generator.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced tutorials</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../tutorials/implementing-a-block-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/implementing-an-inline-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                                  </div></a></li>
+                                              <li><a href="../tutorials/using-react-in-a-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="clipboard.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                                  </div></a></li>
+                                              <li><a href="">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="event-system.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                                  </div></a></li>
+                                              <li><a href="observables.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                                  </div></a></li>
+                                              <li><a href="schema.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list">
+                                                        <li><a href="conversion/intro.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                            </div></a></li>
+                                                        <li><a href="conversion/downcast.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                            </div></a></li>
+                                                        <li><a href="conversion/upcast.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                            </div></a></li>
+                                                        <li>
+                                                          <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                          </div>
+                                                          <ul class="tree__item-nested-list">
+                                                                  <li><a href="conversion/helpers/intro.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                                      </div></a></li>
+                                                                  <li><a href="conversion/helpers/downcast.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                                      </div></a></li>
+                                                                  <li><a href="conversion/helpers/upcast.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                                      </div></a></li>
+                                                          </ul>
+                                                        </li>
+                                                </ul>
+                                              </li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list">
+                                                        <li><a href="ui/focus-tracking.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                            </div></a></li>
+                                                        <li><a href="ui/widget-internals.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                            </div></a></li>
+                                                        <li><a href="ui/theme-customization.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                            </div></a></li>
+                                                        <li><a href="ui/external-ui.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third–party UI</span>
+                                                            </div></a></li>
+                                                        <li><a href="ui/document-editor.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                            </div></a></li>
+                                                        <li><a href="ui/custom-editor-creator.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                            </div></a></li>
+                                                        <li><a href="ui/localization.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../contributing/contributing.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/development-environment.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/testing-environment.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/code-style.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/package-metadata.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/git-commit-message-convention.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'framework' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'framework' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'framework' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'framework' ] );tags.forEach( function( tag ) {if ( tag !== 'framework' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

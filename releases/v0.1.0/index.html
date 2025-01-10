@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor 5 Developer Preview (v0.1.0)</title>
+	<script src="lib/ckeditor5/0.1.0/ckeditor.min.js"></script>
+	<script src="js/app.js"></script>
+	<link rel="stylesheet" href="lib/ckeditor5/0.1.0/ckeditor.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<!-- Hotjar Tracking Code for https://ckeditor5.github.io -->
+	<script>
+		(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:246564,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+</head>
+<body>
+	<!-- Google Tag Manager -->
+	<noscript>
+		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-K5JDCK" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	</noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-K5JDCK');</script>
+	<!-- End Google Tag Manager -->
+	<header>
+		<a href="/" title="CKEditor 5 Developer Preview (v0.1.0)"><img src="img/logo.svg" alt="CKEditor 5" /></a>
+		<h1>Developer Preview (v0.1.0)</h1>
+		<p>
+			This is the very first demo&ndash;able version of <a href="https://github.com/ckeditor/ckeditor5">CKEditor 5</a>,<br/>
+			the new future-proof editing framework for the web.<br/>
+			Find out more in the <a href="http://ckeditor.com/blog/First-Developer-Preview-of-CKEditor-5-Available">&ldquo;First Developer Preview of CKEditor 5 Available&rdquo; blog post</a>.
+		</p>
+	</header>
+
+	<main>
+		<div class="editor-container">
+			<div id="editor">
+				<h2>About CKEditor 5, v0.1.0</h2>
+
+				<p>This is the <strong>first developer preview</strong> of CKEditor 5.</p>
+
+				<p>After 2 years of work, building the next generation editor from scratch and closing over 400 tickets, we created a highly <strong>extensible and flexible architecture</strong> which consists of an <strong>amazing editing framework</strong> and <strong>editing solutions</strong> that will be built on top of it.</p>
+
+				<h3>Notes</h3>
+
+				<p>CKEditor 5 is <em>under heavy development</em> and this demo is not production-ready software.</p>
+
+				<p>It has <em>bugs</em> that we are aware of - and that we will be working on in the next few iterations of the project. Stay tuned for some updates soon!</p>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<nav>
+			<ul>
+				<li>
+					<a href="https://github.com/ckeditor/ckeditor5" title="Visit Project's GitHub page">
+						<img src="img/gh.svg" alt="GitHub" /> CKEditor 5 on GitHub
+					</a>
+				</li>
+				<li>
+					<a href="http://www.facebook.com/ckeditor" title="Like Us on Facebook">Like Us</a>
+					/
+					<a href="http://twitter.com/ckeditor" title="Follow Us on Twitter">Follow Us</a>
+				</li>
+			</ul>
+		</nav>
+
+		<p class="copy">Copyright &copy; 2003-2016, <a href="http://cksource.com">CKSource</a> &ndash; Frederico Knabben.
+			All rights reserved.</p>
+	</footer>
+
+	<script>
+
+		( function() {
+			'use strict';
+
+			try {
+				ClassicEditor.create( document.querySelector( '#editor' ), {
+					toolbar: [ 'headings', 'bold', 'italic', 'undo', 'redo' ]
+				} ).then( function( editor ) {
+					window.editor = editor;
+				} )
+				.catch( function( err ) {
+					console.error( err.stack );
+				} );
+			} catch( e ) {
+				_.showCompatibilityMessage();
+			}
+		} )();
+
+	</script>
+</body>
+</html>

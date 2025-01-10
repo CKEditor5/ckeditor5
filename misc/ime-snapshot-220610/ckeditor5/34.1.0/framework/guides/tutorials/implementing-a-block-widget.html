@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Implementing a block widget - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:46:01 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Implementing a block widget - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/tutorials/implementing-a-block-widget.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Implementing a block widget - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/tutorials/implementing-a-block-widget.html">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../../snippets/framework/tutorials/block-widget/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../index.html">CKEditor 5</a></li>
+          <li><a href="../../../installation/index.html">Installation</a></li>
+          <li><a href="../../../features/index.html">Features</a></li>
+          <li><a href="../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../support/index.html">Support</a></li>
+          <li><a class="top__menu__item--active" href="../../index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../index.html">Framework</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="../development-tools.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development tools</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../architecture/intro.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                              </div></a></li>
+                                          <li><a href="../architecture/core-editor-architecture.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                              </div></a></li>
+                                          <li><a href="../architecture/editing-engine.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                              </div></a></li>
+                                          <li><a href="../architecture/ui-library.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Developing custom plugins</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../plugins/creating-simple-plugin.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a simple plugin</span>
+                                              </div></a></li>
+                                          <li><a href="../plugins/package-generator.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced tutorials</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                              </div></a></li>
+                                          <li><a href="implementing-an-inline-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                              </div></a></li>
+                                          <li><a href="using-react-in-a-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../deep-dive/clipboard.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/event-system.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/observables.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/schema.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list">
+                                                  <li><a href="../deep-dive/conversion/intro.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/conversion/downcast.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/conversion/upcast.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                      </div></a></li>
+                                                  <li>
+                                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                    </div>
+                                                    <ul class="tree__item-nested-list">
+                                                          <li><a href="../deep-dive/conversion/helpers/intro.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                              </div></a></li>
+                                                          <li><a href="../deep-dive/conversion/helpers/downcast.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                              </div></a></li>
+                                                          <li><a href="../deep-dive/conversion/helpers/upcast.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                              </div></a></li>
+                                                    </ul>
+                                                  </li>
+                                            </ul>
+                                          </li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list">
+                                                  <li><a href="../deep-dive/ui/focus-tracking.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/widget-internals.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/theme-customization.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/external-ui.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third–party UI</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/document-editor.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/custom-editor-creator.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/localization.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../contributing/contributing.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/development-environment.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/testing-environment.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/code-style.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/package-metadata.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/git-commit-message-convention.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="api-reference"><a href="../../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/framework/guides/tutorials/implementing-a-block-widget.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Framework</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../../assets/2.1.3/img/book.svg" alt="guide">Implementing a block widget
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#before-you-start">Before you start</a></li><li><a href="#lets-start">Let&#x2019;s start</a></li><li><a href="#plugin-structure">Plugin structure</a></li><li><a href="#the-model-and-the-view-layers">The model and the view layers</a><ol><li><a href="#defining-the-schema">Defining the schema</a></li><li><a href="#defining-converters">Defining converters</a></li><li><a href="#whats-in-the-model">What&#x2019;s in the model?</a></li><li><a href="#behavior-before-widgetizing-simple-box">Behavior before &#x201C;widgetizing&#x201D; simple box</a></li><li><a href="#making-simple-box-a-widget">Making simple box a widget</a></li><li><a href="#behavior-after-widgetizing-simple-box">Behavior after &#x201C;widgetizing&#x201D; simple box</a></li></ol></li><li><a href="#creating-a-command">Creating a command</a></li><li><a href="#creating-a-button">Creating a button</a></li><li><a href="#demo">Demo</a></li><li><a href="#full-source-code">Full source code</a></li></ol></nav>
+<p>In this tutorial, you will learn how to implement a more complex CKEditor 5 plugin.</p>
+<p>You will build a &#x201C;Simple box&#x201D; feature which will allow the user to insert a custom box with a title and body fields into the document. You will use the widget utilities and work with the model-view conversion in order to properly set up the behavior of this feature. Later on, you will create a UI which will allow for inserting new simple boxes into the document with the toolbar button.</p>
+<div class="info-box notice"><p>If you want to see the final product of this tutorial before you plunge in, check out the <a href="#demo">demo</a>.</p></div>
+<!-- TODO: and allow controlling simple box properties such as alignment and width. -->
+<h2 id="before-you-start"><a class="headerlink" href="#before-you-start">#</a> Before you start</h2>
+<p>While it is not strictly necessary to read the <a href="../quick-start.html">Quick start</a> guide before going through this tutorial, it may help you to get more comfortable with CKEditor 5 Framework before you dive into this tutorial.</p>
+<p>The tutorial will also reference various parts of the <a href="../architecture/intro.html">CKEditor 5 architecture</a> section as you go. While reading them is not necessary to finish this tutorial, it is recommended to read these guides at some point to get a better understanding of the mechanisms used in this tutorial.</p>
+<div class="info-box notice"><p>If you want to use your own event handler for events triggered by your widget, you must wrap it with a container that has a <code>data-cke-ignore-events</code> attribute to exclude it from the editor&#x2019;s default handlers. Refer to <a href="../deep-dive/ui/widget-internals.html#exclude-dom-events-from-default-handlers">Exclude DOM events from default handlers</a> for more details.</p></div>
+<h2 id="lets-start"><a class="headerlink" href="#lets-start">#</a> Let&#x2019;s start</h2>
+<p>This guide assumes that you are familiar with npm and your project uses npm already. If not, see the <a href="https://docs.npmjs.com/getting-started/what-is-npm" target="_blank" rel="noopener">npm documentation</a> or call <code>npm init</code> in an empty directory and keep your fingers crossed.</p>
+<p>First, install packages needed to build and set up a basic CKEditor 5 instance.</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    css-loader@5 \
+    postcss-loader@4 \
+    raw-loader@4 \
+    style-loader@2 \
+    webpack@5 \
+    webpack-cli@4 \
+    @ckeditor/ckeditor5-dev-utils \
+    @ckeditor/ckeditor5-editor-classic \
+    @ckeditor/ckeditor5-essentials \
+    @ckeditor/ckeditor5-paragraph \
+    @ckeditor/ckeditor5-heading \
+    @ckeditor/ckeditor5-list \
+    @ckeditor/ckeditor5-basic-styles \
+    @ckeditor/ckeditor5-theme-lark
+</code></pre>
+<p>Create a minimal webpack configuration:</p>
+<pre class="highlight"><code class="js">// webpack.config.js
+
+&apos;use strict&apos;;
+
+const path = require( &apos;path&apos; );
+const { styles } = require( &apos;@ckeditor/ckeditor5-dev-utils&apos; );
+
+module.exports = {
+    entry: &apos;./app.js&apos;,
+
+    output: {
+        path: path.resolve( __dirname, &apos;dist&apos; ),
+        filename: &apos;bundle.js&apos;
+    },
+
+    module: {
+        rules: [
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+                use: [ &apos;raw-loader&apos; ]
+            },
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
+                use: [
+                    {
+                        loader: &apos;style-loader&apos;,
+                        options: {
+                            injectType: &apos;singletonStyleTag&apos;,
+                            attributes: {
+                                &apos;data-cke&apos;: true
+                            }
+                        }
+                    },
+                    &apos;css-loader&apos;,
+                    {
+                        loader: &apos;postcss-loader&apos;,
+                        options: {
+                            postcssOptions: styles.getPostCssConfig( {
+                                themeImporter: {
+                                    themePath: require.resolve( &apos;@ckeditor/ckeditor5-theme-lark&apos; )
+                                },
+                                minify: true
+                            } )
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    // Useful for debugging.
+    devtool: &apos;source-map&apos;,
+
+    // By default webpack logs warnings if the bundle is bigger than 200kb.
+    performance: { hints: false }
+};
+</code></pre>
+<p>Create your project&#x2019;s entry point:</p>
+<pre class="highlight"><code class="js">// app.js
+
+import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Heading from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import List from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Essentials, Paragraph, Heading, List, Bold, Italic ],
+        toolbar: [ &apos;heading&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;numberedList&apos;, &apos;bulletedList&apos; ]
+    } )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+
+        // Expose for playing in the console.
+        window.editor = editor;
+    } )
+    .catch( error =&gt; {
+        console.error( error.stack );
+    } );
+</code></pre>
+<p>And an <code>index.html</code> page:</p>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;CKEditor 5 Framework &#x2013; Implementing a simple widget&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;editor&quot;&gt;
+            &lt;p&gt;Editor content goes here.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Finally, build your project:</p>
+<pre class="highlight"><code class="bash">p@m /workspace/creating-a-plugin&gt; ./node_modules/.bin/webpack --mode development
+Hash: a4a7cf092b8d69199848
+Version: webpack 4.28.4
+Time: 5467ms
+Built at: 2019-01-15 10:49:01
+        Asset      Size  Chunks                    Chunk Names
+    bundle.js  3.52 MiB    main  [emitted]  [big]  main
+bundle.js.map   3.2 MiB    main  [emitted]         main
+Entrypoint main [big] = bundle.js bundle.js.map
+[./app.js] 824 bytes {main} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 472 bytes {main} [built]
+[./node_modules/webpack/buildin/harmony-module.js] (webpack)/buildin/harmony-module.js 573 bytes {main} [built]
+    + 904 hidden modules
+</code></pre>
+<p>And now see if everything worked well by opening the index page in your browser. You should see a CKEditor 5 instance like this:</p>
+<p><img src="../../../assets/img/tutorial-implementing-a-widget-1.png" data-lightbox="true" alt="Screenshot of a classic editor initialized from source."></p>
+<h2 id="plugin-structure"><a class="headerlink" href="#plugin-structure">#</a> Plugin structure</h2>
+<p>Once the editor is up and running you can start implementing the plugin. The entire plugin code can be kept in a single file, however, it is recommended to split its &#x201C;editing&#x201D; and &#x201C;UI&#x201D; layers and create a master plugin which loads both. This way, you ensure better separation of concerns and allow for recomposing the features (e.g. picking the editing part of an existing feature but writing your own UI for it). All official CKEditor 5 plugins follow this pattern.</p>
+<p>Additionally, you will split the code of commands, buttons and other &#x201C;self-contained&#x201D; components to separate files, too. In order not to mix up these files with your project&#x2019;s <code>app.js</code> and <code>webpack.config.js</code> files, create this directory structure:</p>
+<pre class="highlight"><code class>&#x251C;&#x2500;&#x2500; app.js
+&#x251C;&#x2500;&#x2500; dist
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; bundle.js
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; bundle.js.map
+&#x251C;&#x2500;&#x2500; index.html
+&#x251C;&#x2500;&#x2500; node_modules
+&#x251C;&#x2500;&#x2500; package.json
+&#x251C;&#x2500;&#x2500; simplebox
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; simplebox.js
+&#x2502;&#xA0;&#xA0; &#x251C;&#x2500;&#x2500; simpleboxediting.js
+&#x2502;&#xA0;&#xA0; &#x2514;&#x2500;&#x2500; simpleboxui.js
+&#x2502;
+&#x2502;&#xA0;&#xA0; ... the rest of plugin files goes here as well
+&#x2502;
+&#x2514;&#x2500;&#x2500; webpack.config.js
+</code></pre>
+<p>Now define the 3 plugins.</p>
+<p>First, the master (glue) plugin. Its role is to simply load the &#x201C;editing&#x201D; and &#x201C;UI&#x201D; parts.</p>
+<pre class="highlight"><code class="js">// simplebox/simplebox.js
+
+import SimpleBoxEditing from &apos;./simpleboxediting&apos;;
+import SimpleBoxUI from &apos;./simpleboxui&apos;;
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+export default class SimpleBox extends Plugin {
+    static get requires() {
+        return [ SimpleBoxEditing, SimpleBoxUI ];
+    }
+}
+</code></pre>
+<p>Now, the remaining two plugins:</p>
+<pre class="highlight"><code class="js">// simplebox/simpleboxui.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+export default class SimpleBoxUI extends Plugin {
+    init() {
+        console.log( &apos;SimpleBoxUI#init() got called&apos; );
+    }
+}
+</code></pre>
+<pre class="highlight"><code class="js">// simplebox/simpleboxediting.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+export default class SimpleBoxEditing extends Plugin {
+    init() {
+        console.log( &apos;SimpleBoxEditing#init() got called&apos; );
+    }
+}
+</code></pre>
+<p>Finally, you need to load the <code>SimpleBox</code> plugin in your <code>app.js</code> file:</p>
+<pre class="highlight"><code class="js">// app.js
+
+import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Heading from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import List from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+
+import SimpleBox from &apos;./simplebox/simplebox&apos;;                                 // ADDED
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [
+            Essentials, Paragraph, Heading, List, Bold, Italic,
+            SimpleBox                                                          // ADDED
+        ],
+        toolbar: [ &apos;heading&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;numberedList&apos;, &apos;bulletedList&apos; ]
+    } )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+
+        // Expose for playing in the console.
+        window.editor = editor;
+    } )
+    .catch( error =&gt; {
+        console.error( error.stack );
+    } );
+</code></pre>
+<p>Rebuild your project, refresh the browser and you should see that the the <code>SimpleBoxEditing</code> and <code>SmpleBoxUI</code> plugins were loaded:</p>
+<p><img src="../../../assets/img/tutorial-implementing-a-widget-2.png" data-lightbox="true" alt="Screenshot of a classic editor initialized from source with the &#x201C;SimpleBoxEditing#init() got called&#x201D; and &#x201C;SimpleBoxUI#init() got called&#x201D; messages on the console."></p>
+<h2 id="the-model-and-the-view-layers"><a class="headerlink" href="#the-model-and-the-view-layers">#</a> The model and the view layers</h2>
+<p>CKEditor 5 implements an MVC architecture and its custom data model, while still being a tree structure, does not map to the DOM 1:1. You can think about the model as about an even more semantical representation of the editor content, while the DOM is one of its possible representations.</p>
+<div class="info-box notice"><p>Read more about the <a href="../architecture/editing-engine.html#overview">editing engine architecture</a>.</p></div>
+<p>Since your simple box feature is meant to be a box with a title and description fields, define its model representation like this:</p>
+<pre class="highlight"><code class="html">&lt;simpleBox&gt;
+    &lt;simpleBoxTitle&gt;&lt;/simpleBoxTitle&gt;
+    &lt;simpleBoxDescription&gt;&lt;/simpleBoxDescription&gt;
+&lt;/simpleBox&gt;
+</code></pre>
+<h3 id="defining-the-schema"><a class="headerlink" href="#defining-the-schema">#</a> Defining the schema</h3>
+<p>You need to start with defining the model&#x2019;s schema. You need to define 3 elements and their types as well as allowed parent/children.</p>
+<div class="info-box notice"><p>Read more about the <a href="../architecture/editing-engine.html#schema">schema</a>.</p></div>
+<p>Update the <code>SimpleBoxEditing</code> plugin with this definition.</p>
+<pre class="highlight"><code class="js">// simplebox/simpleboxediting.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+export default class SimpleBoxEditing extends Plugin {
+    init() {
+        console.log( &apos;SimpleBoxEditing#init() got called&apos; );
+
+        this._defineSchema();                                                  // ADDED
+    }
+
+    _defineSchema() {                                                          // ADDED
+        const schema = this.editor.model.schema;
+
+        schema.register( &apos;simpleBox&apos;, {
+            // Behaves like a self-contained object (e.g. an image).
+            isObject: true,
+
+            // Allow in places where other blocks are allowed (e.g. directly in the root).
+            allowWhere: &apos;$block&apos;
+        } );
+
+        schema.register( &apos;simpleBoxTitle&apos;, {
+            // Cannot be split or left by the caret.
+            isLimit: true,
+
+            allowIn: &apos;simpleBox&apos;,
+
+            // Allow content which is allowed in blocks (i.e. text with attributes).
+            allowContentOf: &apos;$block&apos;
+        } );
+
+        schema.register( &apos;simpleBoxDescription&apos;, {
+            // Cannot be split or left by the caret.
+            isLimit: true,
+
+            allowIn: &apos;simpleBox&apos;,
+
+            // Allow content which is allowed in the root (e.g. paragraphs).
+            allowContentOf: &apos;$root&apos;
+        } );
+    }
+}
+</code></pre>
+<p>Defining the schema will not have any effect on the editor just yet. It is information which can be used by plugins and the editor engine to understand how actions like pressing the <kbd>Enter</kbd> key, clicking on an element, typing text, inserting an image, etc. should behave.</p>
+<p>For the simple box plugin to start doing anything you need to define model-view converters. Do that now!</p>
+<h3 id="defining-converters"><a class="headerlink" href="#defining-converters">#</a> Defining converters</h3>
+<p>Converters tell the editor how to convert the view to the model (e.g. when loading the data to the editor or handling pasted content) and how to render the model to the view (for editing purposes, or when retrieving the editor data).</p>
+<div class="info-box notice"><p>Read more about the <a href="../deep-dive/conversion/downcast.html">conversion in the editor</a>.</p></div>
+<p>This is the moment when you need to think about how you want to render the <code>&lt;simpleBox&gt;</code> element and its children to the DOM (what the user will see) and to the data. CKEditor 5 allows converting the model to a different structure for editing purposes and a different one to be stored as &#x201C;data&#x201D; or exchanged with other applications when copy-pasting the content. However, for simplicity, use the same representation in both pipelines for now.</p>
+<p>The structure in the view that you want to achieve:</p>
+<pre class="highlight"><code class="html">&lt;section class=&quot;simple-box&quot;&gt;
+    &lt;h1 class=&quot;simple-box-title&quot;&gt;&lt;/h1&gt;
+    &lt;div class=&quot;simple-box-description&quot;&gt;&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<p>Use the <a href="../../../api/module_engine_conversion_conversion-Conversion.html#function-elementToElement"><code>conversion.elementToElement()</code></a> method to define all the converters.</p>
+<div class="info-box notice"><p>You can use this high-level two-way converters definition because you define the same converters for the <a href="../architecture/editing-engine.html#data-pipeline">data</a> and <a href="../architecture/editing-engine.html#editing-pipeline">editing</a> pipelines.</p><p>Later on you will switch to more fine-grained converters to get more control over the conversion.</p></div>
+<p>You need to define converters for 3 model elements. Update the <code>SimpleBoxEditing</code> plugin with this code:</p>
+<pre class="highlight"><code class="js">// simplebox/simpleboxediting.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+export default class SimpleBoxEditing extends Plugin {
+    init() {
+        console.log( &apos;SimpleBoxEditing#init() got called&apos; );
+
+        this._defineSchema();
+        this._defineConverters();                                              // ADDED
+    }
+
+    _defineSchema() {
+        // ...
+    }
+
+    _defineConverters() {                                                      // ADDED
+        const conversion = this.editor.conversion;
+
+        conversion.elementToElement( {
+            model: &apos;simpleBox&apos;,
+            view: {
+                name: &apos;section&apos;,
+                classes: &apos;simple-box&apos;
+            }
+        } );
+
+        conversion.elementToElement( {
+            model: &apos;simpleBoxTitle&apos;,
+            view: {
+                name: &apos;h1&apos;,
+                classes: &apos;simple-box-title&apos;
+            }
+        } );
+
+        conversion.elementToElement( {
+            model: &apos;simpleBoxDescription&apos;,
+            view: {
+                name: &apos;div&apos;,
+                classes: &apos;simple-box-description&apos;
+            }
+        } );
+    }
+}
+</code></pre>
+<p>Once you have converters, you can try to see the simple box in action. You have not defined a way to insert a new simple box into the document yet, so load it via the editor data. In order to do that, you need to modify the <code>index.html</code> file:</p>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;CKEditor 5 Framework &#x2013; Implementing a simple widget&lt;/title&gt;
+
+        &lt;style&gt;
+            .simple-box {
+                padding: 10px;
+                margin: 1em 0;
+
+                background: rgba( 0, 0, 0, 0.1 );
+                border: solid 1px hsl(0, 0%, 77%);
+                border-radius: 2px;
+            }
+
+            .simple-box-title, .simple-box-description {
+                padding: 10px;
+                margin: 0;
+
+                background: #FFF;
+                border: solid 1px hsl(0, 0%, 77%);
+            }
+
+            .simple-box-title {
+                margin-bottom: 10px;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;editor&quot;&gt;
+            &lt;p&gt;This is a simple box:&lt;/p&gt;
+
+            &lt;section class=&quot;simple-box&quot;&gt;
+                &lt;h1 class=&quot;simple-box-title&quot;&gt;Box title&lt;/h1&gt;
+                &lt;div class=&quot;simple-box-description&quot;&gt;
+                    &lt;p&gt;The description goes here.&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;It can contain lists,&lt;/li&gt;
+                        &lt;li&gt;and other block elements like headings.&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+        &lt;/div&gt;
+
+        &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Rebuild your project and voila &#x2014; that&#x2019;s your first simple box instance:</p>
+<p><img src="../../../assets/img/tutorial-implementing-a-widget-3.png" data-lightbox="true" alt="Screenshot of a classic editor with an instance of a simple box inside."></p>
+<h3 id="whats-in-the-model"><a class="headerlink" href="#whats-in-the-model">#</a> What&#x2019;s in the model?</h3>
+<p>The HTML that you added to the <code>index.html</code> file is your editor&#x2019;s data. This is what <code>editor.getData()</code> would return. Also, for now, this also the DOM structure which is rendered by the CKEditor 5 engine in the editable region:</p>
+<p><img src="../../../assets/img/tutorial-implementing-a-widget-4.png" data-lightbox="true" alt="Screenshot of a DOM structure of the simple box instance &#x2013; it looks exactly like the data loaded into the editor."></p>
+<p>However, what&#x2019;s in the model?</p>
+<p>To learn that, use the official <a href="../development-tools.html#ckeditor-5-inspector">CKEditor 5 inspector</a>. Once <a href="../development-tools.html#ckeditor-5-inspector">installed</a>, you need to load it in the <code>app.js</code> file:</p>
+<pre class="highlight"><code class="js">// app.js
+
+import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Heading from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import List from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+
+import SimpleBox from &apos;./simplebox/simplebox&apos;;
+
+import CKEditorInspector from &apos;@ckeditor/ckeditor5-inspector&apos;;                 // ADDED
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [
+            Essentials, Paragraph, Heading, List, Bold, Italic,
+            SimpleBox
+        ],
+        toolbar: [ &apos;heading&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;numberedList&apos;, &apos;bulletedList&apos; ]
+    } )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+
+        CKEditorInspector.attach( &apos;editor&apos;, editor );
+
+        window.editor = editor;
+    } )
+    .catch( error =&gt; {
+        console.error( error.stack );
+    } );
+</code></pre>
+<p>After rebuilding your project and refreshing the page you will see the inspector:</p>
+<p><img src="../../../assets/img/tutorial-implementing-a-widget-4b.png" data-lightbox="true" alt="Screenshot of a the simple box widget&#x2019;s structure displayed by CKEditor 5 inspector."></p>
+<p>You will see the following HTML-like string:</p>
+<pre class="highlight"><code class="html">&lt;paragraph&gt;[]This is a simple box:&lt;/paragraph&gt;
+&lt;simpleBox&gt;
+    &lt;simpleBoxTitle&gt;Box title&lt;/simpleBoxTitle&gt;
+    &lt;simpleBoxDescription&gt;
+        &lt;paragraph&gt;The description goes here.&lt;/paragraph&gt;
+        &lt;listItem listIndent=&quot;0&quot; listType=&quot;bulleted&quot;&gt;It can contain lists,&lt;/listItem&gt;
+        &lt;listItem listIndent=&quot;0&quot; listType=&quot;bulleted&quot;&gt;and other block elements like headings.&lt;/listItem&gt;
+    &lt;/simpleBoxDescription&gt;
+&lt;/simpleBox&gt;
+</code></pre>
+<p>As you can see, this structure is quite different than the HTML input/output. If you look closely, you will also notice the <code>[]</code> characters in the first paragraph &#x2014; this is the selection position.</p>
+<p>Play a bit with the editor features (bold, italic, headings, lists, selection) to see how the model structure changes.</p>
+<div class="info-box notice"><p>You can also use some <a href="../development-tools.html#testing-helpers">useful helpers like <code>getData()</code> and <code>setData()</code></a> to learn more about the state of the editor model or write assertions in tests.</p></div>
+<h3 id="behavior-before-widgetizing-simple-box"><a class="headerlink" href="#behavior-before-widgetizing-simple-box">#</a> Behavior before &#x201C;widgetizing&#x201D; simple box</h3>
+<p>It is time to check if the simple box behaves like you would like it to. You can observe the following:</p>
+<ul>
+<li>You can type text in the title, but pressing <kbd>Enter</kbd> will not split it and <kbd>Backspace</kbd> will not delete it entirely. This is because it was marked as an <code>isLimit</code> element in the schema.</li>
+<li>You cannot apply a list in the title and cannot turn it into a heading (other than <code>&lt;h1 class=&quot;simple-box-title&quot;&gt;</code> which it is already). This is because it allows only the content that is allowed in other block elements (like paragraphs). You can, however, apply italic inside the title (because italic is allowed in other blocks).</li>
+<li>The description behaves like the title, but it allows more content inside &#x2014; lists and other headings.</li>
+<li>If you try to select the entire simple box instance and press <kbd>Delete</kbd>, it will be deleted as a whole. The same when you copy and paste it. This is because it was marked as an <code>isObject</code> element in the schema.</li>
+<li>You cannot easily select the entire simple box instance by clicking on it. Also, the cursor pointer does not change when you hover it. In other words, it seems a bit &#x201C;dead&#x201D;. This is because you have not defined the view behavior yet.</li>
+</ul>
+<p>Pretty cool so far, right? With a very little code, you were able to define the behavior of your simple box plugin which maintains the integrity of these elements. The engine ensures that the user does not break these instances.</p>
+<p>See what else you can improve.</p>
+<h3 id="making-simple-box-a-widget"><a class="headerlink" href="#making-simple-box-a-widget">#</a> Making simple box a widget</h3>
+<div class="info-box notice"><p>If you are familiar with the {@link @ckeditor4 guide/dev/deep_dive/widgets/README Widget System of CKEditor 4} you will notice significant differences in how widgets are implemented in CKEditor 5.</p><p>CKEditor 4 implementation exposes a declarative API that controls the entire behavior of a widget (from its schema and internal model to the styles, clicking behavior, context menu and the dialog).</p><p>In CKEditor 5 the widget system was redesigned. Most of its responsibilities were taken over by the engine, some were extracted to a separate package (<a href="../../../api/widget.html"><code>@ckeditor/ckeditor5-widget</code></a>) and some have to be handled by other utilities provided by CKEditor 5 Framework.</p><p>CKEditor 5 implementation is, therefore, open for extensions and recomposition. You can choose the behaviors that you want (just like you did so far in this tutorial by defining a schema) and skip others or implement them by yourself.</p></div>
+<p>The converters that you defined convert the model <code>&lt;simpleBox*&gt;</code> elements to plain <a href="../../../api/module_engine_view_containerelement-ContainerElement.html"><code>ContainerElement</code></a>s in the view (and back during upcasting).</p>
+<p>You want to change this behavior a bit so the structure created in the editing view is enhanced with the <a href="../../../api/module_widget_utils.html#function-toWidget"><code>toWidget()</code></a> and <a href="../../../api/module_widget_utils.html#function-toWidgetEditable"><code>toWidgetEditable()</code></a> utilities. You do not want to affect the data view, though. Therefore, you will need to define converters for the editing and data downcasting separately.</p>
+<p>If you find the concept of downcasting and upcasting confusing, read the <a href="../architecture/editing-engine.html#conversion">introduction to conversion</a>.</p>
+<p>Before you start coding, you need to install the <a href="../../../api/widget.html"><code>@ckeditor/ckeditor5-widget</code></a> package:</p>
+<pre class="highlight"><code class="bash">npm install --save @ckeditor/ckeditor5-widget
+</code></pre>
+<p>Now it is time to revisit the <code>_defineConverters()</code> method that you defined earlier. You will use the <a href="../../../api/module_engine_conversion_upcasthelpers-UpcastHelpers.html#function-elementToElement"><code>elementToElement()</code> upcast helper</a> and the <a href="../../../api/module_engine_conversion_downcasthelpers-DowncastHelpers.html#function-elementToElement"><code>elementToElement()</code> downcast helper</a> instead of the two-way <code>elementToElement()</code> converter helper.</p>
+<p>Additionally, you need to ensure that the <a href="../../../api/module_widget_widget-Widget.html"><code>Widget</code></a> plugin is loaded. If you omit it, the elements in the view will have all the classes (e.g. <code>ck-widget</code>) but there will be no &#x201C;behaviors&#x201D; loaded (e.g. clicking a widget will not select it).</p>
+<pre class="highlight"><code class="js">// simplebox/simpleboxediting.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+// ADDED 2 imports
+import { toWidget, toWidgetEditable } from &apos;@ckeditor/ckeditor5-widget/src/utils&apos;;
+import Widget from &apos;@ckeditor/ckeditor5-widget/src/widget&apos;;
+
+export default class SimpleBoxEditing extends Plugin {
+    static get requires() {                                                    // ADDED
+        return [ Widget ];
+    }
+
+    init() {
+        console.log( &apos;SimpleBoxEditing#init() got called&apos; );
+
+        this._defineSchema();
+        this._defineConverters();
+    }
+
+    _defineSchema() {
+        // ...
+    }
+
+    _defineConverters() {                                                      // MODIFIED
+        const conversion = this.editor.conversion;
+
+        // &lt;simpleBox&gt; converters
+        conversion.for( &apos;upcast&apos; ).elementToElement( {
+            model: &apos;simpleBox&apos;,
+            view: {
+                name: &apos;section&apos;,
+                classes: &apos;simple-box&apos;
+            }
+        } );
+        conversion.for( &apos;dataDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBox&apos;,
+            view: {
+                name: &apos;section&apos;,
+                classes: &apos;simple-box&apos;
+            }
+        } );
+        conversion.for( &apos;editingDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBox&apos;,
+            view: ( modelElement, { writer: viewWriter } ) =&gt; {
+                const section = viewWriter.createContainerElement( &apos;section&apos;, { class: &apos;simple-box&apos; } );
+
+                return toWidget( section, viewWriter, { label: &apos;simple box widget&apos; } );
+            }
+        } );
+
+        // &lt;simpleBoxTitle&gt; converters
+        conversion.for( &apos;upcast&apos; ).elementToElement( {
+            model: &apos;simpleBoxTitle&apos;,
+            view: {
+                name: &apos;h1&apos;,
+                classes: &apos;simple-box-title&apos;
+            }
+        } );
+        conversion.for( &apos;dataDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBoxTitle&apos;,
+            view: {
+                name: &apos;h1&apos;,
+                classes: &apos;simple-box-title&apos;
+            }
+        } );
+        conversion.for( &apos;editingDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBoxTitle&apos;,
+            view: ( modelElement, { writer: viewWriter } ) =&gt; {
+                // Note: You use a more specialized createEditableElement() method here.
+                const h1 = viewWriter.createEditableElement( &apos;h1&apos;, { class: &apos;simple-box-title&apos; } );
+
+                return toWidgetEditable( h1, viewWriter );
+            }
+        } );
+
+        // &lt;simpleBoxDescription&gt; converters
+        conversion.for( &apos;upcast&apos; ).elementToElement( {
+            model: &apos;simpleBoxDescription&apos;,
+            view: {
+                name: &apos;div&apos;,
+                classes: &apos;simple-box-description&apos;
+            }
+        } );
+        conversion.for( &apos;dataDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBoxDescription&apos;,
+            view: {
+                name: &apos;div&apos;,
+                classes: &apos;simple-box-description&apos;
+            }
+        } );
+        conversion.for( &apos;editingDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBoxDescription&apos;,
+            view: ( modelElement, { writer: viewWriter } ) =&gt; {
+                // Note: You use a more specialized createEditableElement() method here.
+                const div = viewWriter.createEditableElement( &apos;div&apos;, { class: &apos;simple-box-description&apos; } );
+
+                return toWidgetEditable( div, viewWriter );
+            }
+        } );
+    }
+}
+</code></pre>
+<div class="info-box notice"><p>As you can see, the code became much more verbose and far longer. This is because you used lower-level converters. We plan to provide more handy widget conversion utilities in the future. Read more (and &#x1F44D;) in <a href="https://github.com/ckeditor/ckeditor5/issues/1228" target="_blank" rel="noopener">this ticket</a>.</p></div>
+<h3 id="behavior-after-widgetizing-simple-box"><a class="headerlink" href="#behavior-after-widgetizing-simple-box">#</a> Behavior after &#x201C;widgetizing&#x201D; simple box</h3>
+<p>You can rebuild your project now and see how your simple box plugin has changed.</p>
+<p><img src="../../../assets/img/tutorial-implementing-a-widget-5.png" data-lightbox="true" alt="Screenshot of the widget&#x2019;s focus outline."></p>
+<p>You should observe that:</p>
+<ul>
+<li>The <code>&lt;section&gt;</code>, <code>&lt;h1&gt;</code>, and <code>&lt;div&gt;</code> elements have the <code>contentEditable</code> attribute on them (plus some classes). This attribute tells the browser whether an element is considered &#x201C;editable&#x201D;. Passing the element through <code>toWidget()</code> will make its content non-editable. Conversely, passing it through <code>toWidgetEditable()</code> will make its content editable again.</li>
+<li>You can now click the widget (the gray area) to select it. Once it is selected, it is easier to copy-paste it.</li>
+<li>The widget and its nested editable regions react to hovering, selection, and focus (outline).</li>
+</ul>
+<p>In other words, the simple box instance became much more responsive.</p>
+<p>Additionally, if you call <code>editor.getData()</code> you will get the same HTML as before &#x201C;widgetizing&#x201D; the simple box. This is thanks to using <code>toWidget()</code> and <code>toNestedEditable()</code> only in the <code>editingDowncast</code> pipeline.</p>
+<p>This is all that you need from the model and the view layers for now. In terms of &#x201C;editability&#x201D; and data input/output it is fully functional. Now find a way to insert new simple boxes into the document!</p>
+<h2 id="creating-a-command"><a class="headerlink" href="#creating-a-command">#</a> Creating a command</h2>
+<p>A <a href="../architecture/core-editor-architecture.html#commands">command</a> is a combination of an action and a state. You can interact with most of the editor features by commands that they expose. This allows not only executing these features (e.g. bolding a fragment of text) but also checking if this action can be executed in the selection&#x2019;s current location as well as observing other state properties (such as whether the currently selected text is bolded).</p>
+<p>In case of the simple box the situation is simple:</p>
+<ul>
+<li>you need an &#x201C;insert a new simple box&#x201D; action,</li>
+<li>and &#x201C;can you insert a new simple box here (at the current selection position)&#x201D;.</li>
+</ul>
+<p>Create a new file <code>insertsimpleboxcommand.js</code> in the <code>simplebox/</code> directory. You will use the <a href="../../../api/module_engine_model_model-Model.html#function-insertContent"><code>model.insertContent()</code></a> method which will be able to, for example, split a paragraph if you try to insert a simple box in the middle of it (which is not allowed by the schema).</p>
+<pre class="highlight"><code class="js">// simplebox/insertsimpleboxcommand.js
+
+import Command from &apos;@ckeditor/ckeditor5-core/src/command&apos;;
+
+export default class InsertSimpleBoxCommand extends Command {
+    execute() {
+        this.editor.model.change( writer =&gt; {
+            // Insert &lt;simpleBox&gt;*&lt;/simpleBox&gt; at the current selection position
+            // in a way that will result in creating a valid model structure.
+            this.editor.model.insertContent( createSimpleBox( writer ) );
+        } );
+    }
+
+    refresh() {
+        const model = this.editor.model;
+        const selection = model.document.selection;
+        const allowedIn = model.schema.findAllowedParent( selection.getFirstPosition(), &apos;simpleBox&apos; );
+
+        this.isEnabled = allowedIn !== null;
+    }
+}
+
+function createSimpleBox( writer ) {
+    const simpleBox = writer.createElement( &apos;simpleBox&apos; );
+    const simpleBoxTitle = writer.createElement( &apos;simpleBoxTitle&apos; );
+    const simpleBoxDescription = writer.createElement( &apos;simpleBoxDescription&apos; );
+
+    writer.append( simpleBoxTitle, simpleBox );
+    writer.append( simpleBoxDescription, simpleBox );
+
+    // There must be at least one paragraph for the description to be editable.
+    // See https://github.com/ckeditor/ckeditor5/issues/1464.
+    writer.appendElement( &apos;paragraph&apos;, simpleBoxDescription );
+
+    return simpleBox;
+}
+</code></pre>
+<p>Import the command and register it in the <code>SimpleBoxEditing</code> plugin:</p>
+<pre class="highlight"><code class="js">// simplebox/simpleboxediting.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+import { toWidget, toWidgetEditable } from &apos;@ckeditor/ckeditor5-widget/src/utils&apos;;
+import Widget from &apos;@ckeditor/ckeditor5-widget/src/widget&apos;;
+
+import InsertSimpleBoxCommand from &apos;./insertsimpleboxcommand&apos;;                 // ADDED
+
+export default class SimpleBoxEditing extends Plugin {
+    static get requires() {
+        return [ Widget ];
+    }
+
+    init() {
+        console.log( &apos;SimpleBoxEditing#init() got called&apos; );
+
+        this._defineSchema();
+        this._defineConverters();
+
+        // ADDED
+        this.editor.commands.add( &apos;insertSimpleBox&apos;, new InsertSimpleBoxCommand( this.editor ) );
+    }
+
+    _defineSchema() {
+        // ...
+    }
+
+    _defineConverters() {
+        // ...
+    }
+}
+</code></pre>
+<p>You can now execute this command in order to insert a new simple box. Calling:</p>
+<pre class="highlight"><code class="js">editor.execute( &apos;insertSimpleBox&apos; );
+</code></pre>
+<p>Should result in:</p>
+<p><img src="../../../assets/img/tutorial-implementing-a-widget-6.png" data-lightbox="true" alt="Screenshot of a simple box instance inserted at the beginning of the editor content."></p>
+<p>You can also try inspecting the <code>isEnabled</code> property value (or just checking it in CKEditor 5 inspector):</p>
+<pre class="highlight"><code class="js">console.log( editor.commands.get( &apos;insertSimpleBox&apos; ).isEnabled );
+</code></pre>
+<p>It is always <code>true</code> except when the selection is in one place &#x2014; in other simple box&#x2019;s title. You can also observe that executing the command when the selection is in that place takes no effect.</p>
+<p>Change one more thing before you move forward &#x2014; disallow <code>simpleBox</code> inside <code>simpleBoxDescription</code>, too. This can be done by <a href="../../../api/module_engine_model_schema-Schema.html#function-addChildCheck">defining a custom child check</a>:</p>
+<pre class="highlight"><code class="js">// simplebox/simpleboxediting.js
+
+// ... imports
+
+export default class SimpleBoxEditing extends Plugin {
+    static get requires() {
+        return [ Widget ];
+    }
+
+    init() {
+        console.log( &apos;SimpleBoxEditing#init() got called&apos; );
+
+        this._defineSchema();
+        this._defineConverters();
+
+        this.editor.commands.add( &apos;insertSimpleBox&apos;, new InsertSimpleBoxCommand( this.editor ) );
+    }
+
+    _defineSchema() {
+        const schema = this.editor.model.schema;
+
+        schema.register( &apos;simpleBox&apos;, {
+            // Behaves like a self-contained object (e.g. an image).
+            isObject: true,
+
+            // Allow in places where other blocks are allowed (e.g. directly in the root).
+            allowWhere: &apos;$block&apos;
+        } );
+
+        schema.register( &apos;simpleBoxTitle&apos;, {
+            // Cannot be split or left by the caret.
+            isLimit: true,
+
+            allowIn: &apos;simpleBox&apos;,
+
+            // Allow content which is allowed in blocks (i.e. text with attributes).
+            allowContentOf: &apos;$block&apos;
+        } );
+
+        schema.register( &apos;simpleBoxDescription&apos;, {
+            // Cannot be split or left by the caret.
+            isLimit: true,
+
+            allowIn: &apos;simpleBox&apos;,
+
+            // Allow content which is allowed in the root (e.g. paragraphs).
+            allowContentOf: &apos;$root&apos;
+        } );
+
+        // ADDED
+        schema.addChildCheck( ( context, childDefinition ) =&gt; {
+            if ( context.endsWith( &apos;simpleBoxDescription&apos; ) &amp;&amp; childDefinition.name == &apos;simpleBox&apos; ) {
+                return false;
+            }
+        } );
+    }
+
+    _defineConverters() {
+        // ...
+    }
+}
+</code></pre>
+<p>Now the command should be disabled also when the selection is inside the description of another simple box instance.</p>
+<h2 id="creating-a-button"><a class="headerlink" href="#creating-a-button">#</a> Creating a button</h2>
+<p>It is time to allow the editor users to insert the widget into the content. The best way to do that is through a UI button in the toolbar. You can quickly create one using the <a href="../../../api/module_ui_button_buttonview-ButtonView.html"><code>ButtonView</code></a> class brought by the <a href="../architecture/ui-library.html">UI framework</a> of CKEditor 5.</p>
+<p>The button should execute the <a href="#creating-a-command">command</a> when clicked and become inactive if the widget cannot be inserted into some particular position of the selection (<a href="#defining-the-schema">as defined in the schema</a>).</p>
+<p>See what it looks like in practice and extend the <code>SimpleBoxUI</code> plugin <a href="#plugin-structure">created earlier</a>:</p>
+<pre class="highlight"><code class="js">// simplebox/simpleboxui.js
+
+import ButtonView from &apos;@ckeditor/ckeditor5-ui/src/button/buttonview&apos;;
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+export default class SimpleBoxUI extends Plugin {
+    init() {
+        console.log( &apos;SimpleBoxUI#init() got called&apos; );
+
+        const editor = this.editor;
+        const t = editor.t;
+
+        // The &quot;simpleBox&quot; button must be registered among the UI components of the editor
+        // to be displayed in the toolbar.
+        editor.ui.componentFactory.add( &apos;simpleBox&apos;, locale =&gt; {
+            // The state of the button will be bound to the widget command.
+            const command = editor.commands.get( &apos;insertSimpleBox&apos; );
+
+            // The button will be an instance of ButtonView.
+            const buttonView = new ButtonView( locale );
+
+            buttonView.set( {
+                // The t() function helps localize the editor. All strings enclosed in t() can be
+                // translated and change when the language of the editor changes.
+                label: t( &apos;Simple Box&apos; ),
+                withText: true,
+                tooltip: true
+            } );
+
+            // Bind the state of the button to the command.
+            buttonView.bind( &apos;isOn&apos;, &apos;isEnabled&apos; ).to( command, &apos;value&apos;, &apos;isEnabled&apos; );
+
+            // Execute the command when the button is clicked (executed).
+            this.listenTo( buttonView, &apos;execute&apos;, () =&gt; editor.execute( &apos;insertSimpleBox&apos; ) );
+
+            return buttonView;
+        } );
+    }
+}
+</code></pre>
+<p>The last thing you need to do is tell the editor to display the button in the toolbar. To do that, you will need to slightly modify the code that runs the editor instance and include the button in the <a href="../../../api/module_core_editor_editorconfig-EditorConfig.html#member-toolbar">toolbar configuration</a>:</p>
+<pre class="highlight"><code class="js">ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Essentials, Paragraph, Heading, List, Bold, Italic, SimpleBox ],
+        // Insert the &quot;simpleBox&quot; button into the editor toolbar.
+        toolbar: [ &apos;heading&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;numberedList&apos;, &apos;bulletedList&apos;, &apos;simpleBox&apos; ]
+    } )
+    .then( editor =&gt; {
+        // ...
+    } )
+    .catch( error =&gt; {
+        // ...
+    } );
+</code></pre>
+<p>Refresh the web page and try it yourself:</p>
+<p><img src="../../../assets/img/tutorial-implementing-a-widget-7.png" data-lightbox="true" alt="Screenshot of the simple box widget being inserted using the toolbar button."></p>
+<h2 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h2>
+<p>You can see the block widget implementation in action in the editor below. You can also check out the full <a href="#full-source-code">source code</a> of this tutorial if you want to develop your own block widgets.</p>
+<div class="live-snippet"><style>
+	.simple-box {
+		padding: 10px;
+		margin: 1em 0;
+
+		background: rgba( 0, 0, 0, 0.1 );
+		border: solid 1px hsl(0, 0%, 77%);
+		border-radius: 2px;
+	}
+
+	.simple-box-title, .simple-box-description {
+		padding: 10px;
+		margin: 0;
+
+		background: #FFF;
+		border: solid 1px hsl(0, 0%, 77%);
+	}
+
+	.simple-box-title {
+		margin-bottom: 10px;
+	}
+</style>
+
+<div id="snippet-block-widget">
+	<p>This is a simple box:</p>
+
+	<section class="simple-box">
+		<h1 class="simple-box-title">Box title</h1>
+		<div class="simple-box-description">
+			<p>The description goes here.</p>
+			<ul>
+				<li>It can contain lists,</li>
+				<li>and other block elements like headings.</li>
+			</ul>
+		</div>
+	</section>
+</div>
+</div>
+<h2 id="full-source-code"><a class="headerlink" href="#full-source-code">#</a> Full source code</h2>
+<p>The following code contains a complete implementation of the <code>SimpleBox</code> plugin (and all its dependencies) and the code to run the editor. You can paste it into the <a href="#plugin-structure"><code>app.js</code></a> file and it will run out&#x2013;of&#x2013;the&#x2013;box:</p>
+<pre class="highlight"><code class="js">import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+import Heading from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import List from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+import { toWidget, toWidgetEditable } from &apos;@ckeditor/ckeditor5-widget/src/utils&apos;;
+import Widget from &apos;@ckeditor/ckeditor5-widget/src/widget&apos;;
+import Command from &apos;@ckeditor/ckeditor5-core/src/command&apos;;
+import ButtonView from &apos;@ckeditor/ckeditor5-ui/src/button/buttonview&apos;;
+
+class SimpleBox extends Plugin {
+    static get requires() {
+        return [ SimpleBoxEditing, SimpleBoxUI ];
+    }
+}
+
+class SimpleBoxUI extends Plugin {
+    init() {
+        console.log( &apos;SimpleBoxUI#init() got called&apos; );
+
+        const editor = this.editor;
+        const t = editor.t;
+
+        // The &quot;simpleBox&quot; button must be registered among the UI components of the editor
+        // to be displayed in the toolbar.
+        editor.ui.componentFactory.add( &apos;simpleBox&apos;, locale =&gt; {
+            // The state of the button will be bound to the widget command.
+            const command = editor.commands.get( &apos;insertSimpleBox&apos; );
+
+            // The button will be an instance of ButtonView.
+            const buttonView = new ButtonView( locale );
+
+            buttonView.set( {
+                // The t() function helps localize the editor. All strings enclosed in t() can be
+                // translated and change when the language of the editor changes.
+                label: t( &apos;Simple Box&apos; ),
+                withText: true,
+                tooltip: true
+            } );
+
+            // Bind the state of the button to the command.
+            buttonView.bind( &apos;isOn&apos;, &apos;isEnabled&apos; ).to( command, &apos;value&apos;, &apos;isEnabled&apos; );
+
+            // Execute the command when the button is clicked (executed).
+            this.listenTo( buttonView, &apos;execute&apos;, () =&gt; editor.execute( &apos;insertSimpleBox&apos; ) );
+
+            return buttonView;
+        } );
+    }
+}
+
+class SimpleBoxEditing extends Plugin {
+    static get requires() {
+        return [ Widget ];
+    }
+
+    init() {
+        console.log( &apos;SimpleBoxEditing#init() got called&apos; );
+
+        this._defineSchema();
+        this._defineConverters();
+
+        this.editor.commands.add( &apos;insertSimpleBox&apos;, new InsertSimpleBoxCommand( this.editor ) );
+    }
+
+    _defineSchema() {
+        const schema = this.editor.model.schema;
+
+        schema.register( &apos;simpleBox&apos;, {
+            // Behaves like a self-contained object (e.g. an image).
+            isObject: true,
+
+            // Allow in places where other blocks are allowed (e.g. directly in the root).
+            allowWhere: &apos;$block&apos;
+        } );
+
+        schema.register( &apos;simpleBoxTitle&apos;, {
+            // Cannot be split or left by the caret.
+            isLimit: true,
+
+            allowIn: &apos;simpleBox&apos;,
+
+            // Allow content which is allowed in blocks (i.e. text with attributes).
+            allowContentOf: &apos;$block&apos;
+        } );
+
+        schema.register( &apos;simpleBoxDescription&apos;, {
+            // Cannot be split or left by the caret.
+            isLimit: true,
+
+            allowIn: &apos;simpleBox&apos;,
+
+            // Allow content which is allowed in the root (e.g. paragraphs).
+            allowContentOf: &apos;$root&apos;
+        } );
+
+        schema.addChildCheck( ( context, childDefinition ) =&gt; {
+            if ( context.endsWith( &apos;simpleBoxDescription&apos; ) &amp;&amp; childDefinition.name == &apos;simpleBox&apos; ) {
+                return false;
+            }
+        } );
+    }
+
+    _defineConverters() {
+        const conversion = this.editor.conversion;
+
+        // &lt;simpleBox&gt; converters
+        conversion.for( &apos;upcast&apos; ).elementToElement( {
+            model: &apos;simpleBox&apos;,
+            view: {
+                name: &apos;section&apos;,
+                classes: &apos;simple-box&apos;
+            }
+        } );
+        conversion.for( &apos;dataDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBox&apos;,
+            view: {
+                name: &apos;section&apos;,
+                classes: &apos;simple-box&apos;
+            }
+        } );
+        conversion.for( &apos;editingDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBox&apos;,
+            view: ( modelElement, { writer: viewWriter } ) =&gt; {
+                const section = viewWriter.createContainerElement( &apos;section&apos;, { class: &apos;simple-box&apos; } );
+
+                return toWidget( section, viewWriter, { label: &apos;simple box widget&apos; } );
+            }
+        } );
+
+        // &lt;simpleBoxTitle&gt; converters
+        conversion.for( &apos;upcast&apos; ).elementToElement( {
+            model: &apos;simpleBoxTitle&apos;,
+            view: {
+                name: &apos;h1&apos;,
+                classes: &apos;simple-box-title&apos;
+            }
+        } );
+        conversion.for( &apos;dataDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBoxTitle&apos;,
+            view: {
+                name: &apos;h1&apos;,
+                classes: &apos;simple-box-title&apos;
+            }
+        } );
+        conversion.for( &apos;editingDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBoxTitle&apos;,
+            view: ( modelElement, { writer: viewWriter } ) =&gt; {
+                // Note: You use a more specialized createEditableElement() method here.
+                const h1 = viewWriter.createEditableElement( &apos;h1&apos;, { class: &apos;simple-box-title&apos; } );
+
+                return toWidgetEditable( h1, viewWriter );
+            }
+        } );
+
+        // &lt;simpleBoxDescription&gt; converters
+        conversion.for( &apos;upcast&apos; ).elementToElement( {
+            model: &apos;simpleBoxDescription&apos;,
+            view: {
+                name: &apos;div&apos;,
+                classes: &apos;simple-box-description&apos;
+            }
+        } );
+        conversion.for( &apos;dataDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBoxDescription&apos;,
+            view: {
+                name: &apos;div&apos;,
+                classes: &apos;simple-box-description&apos;
+            }
+        } );
+        conversion.for( &apos;editingDowncast&apos; ).elementToElement( {
+            model: &apos;simpleBoxDescription&apos;,
+            view: ( modelElement, { writer: viewWriter } ) =&gt; {
+                // Note: You use a more specialized createEditableElement() method here.
+                const div = viewWriter.createEditableElement( &apos;div&apos;, { class: &apos;simple-box-description&apos; } );
+
+                return toWidgetEditable( div, viewWriter );
+            }
+        } );
+    }
+}
+
+class InsertSimpleBoxCommand extends Command {
+    execute() {
+        this.editor.model.change( writer =&gt; {
+            // Insert &lt;simpleBox&gt;*&lt;/simpleBox&gt; at the current selection position
+            // in a way that will result in creating a valid model structure.
+            this.editor.model.insertContent( createSimpleBox( writer ) );
+        } );
+    }
+
+    refresh() {
+        const model = this.editor.model;
+        const selection = model.document.selection;
+        const allowedIn = model.schema.findAllowedParent( selection.getFirstPosition(), &apos;simpleBox&apos; );
+
+        this.isEnabled = allowedIn !== null;
+    }
+}
+
+function createSimpleBox( writer ) {
+    const simpleBox = writer.createElement( &apos;simpleBox&apos; );
+    const simpleBoxTitle = writer.createElement( &apos;simpleBoxTitle&apos; );
+    const simpleBoxDescription = writer.createElement( &apos;simpleBoxDescription&apos; );
+
+    writer.append( simpleBoxTitle, simpleBox );
+    writer.append( simpleBoxDescription, simpleBox );
+
+    // There must be at least one paragraph for the description to be editable.
+    // See https://github.com/ckeditor/ckeditor5/issues/1464.
+    writer.appendElement( &apos;paragraph&apos;, simpleBoxDescription );
+
+    return simpleBox;
+}
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Essentials, Bold, Italic, Heading, List, Paragraph, SimpleBox ],
+        toolbar: [ &apos;heading&apos;, &apos;|&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;numberedList&apos;, &apos;bulletedList&apos;, &apos;simpleBox&apos; ],
+    } )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+
+        window.editor = editor;
+    } )
+    .catch( err =&gt; {
+        console.error( err.stack );
+    } );
+</code></pre>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22framework%2Fguides%2Ftutorials%2Fimplementing-a-block-widget.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="../development-tools.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development tools</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../architecture/intro.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                  </div></a></li>
+                                              <li><a href="../architecture/core-editor-architecture.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                                  </div></a></li>
+                                              <li><a href="../architecture/editing-engine.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                                  </div></a></li>
+                                              <li><a href="../architecture/ui-library.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Developing custom plugins</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../plugins/creating-simple-plugin.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a simple plugin</span>
+                                                  </div></a></li>
+                                              <li><a href="../plugins/package-generator.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced tutorials</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                                  </div></a></li>
+                                              <li><a href="implementing-an-inline-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                                  </div></a></li>
+                                              <li><a href="using-react-in-a-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../deep-dive/clipboard.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/event-system.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/observables.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/schema.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list">
+                                                        <li><a href="../deep-dive/conversion/intro.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/conversion/downcast.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/conversion/upcast.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                            </div></a></li>
+                                                        <li>
+                                                          <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                          </div>
+                                                          <ul class="tree__item-nested-list">
+                                                                  <li><a href="../deep-dive/conversion/helpers/intro.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                                      </div></a></li>
+                                                                  <li><a href="../deep-dive/conversion/helpers/downcast.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                                      </div></a></li>
+                                                                  <li><a href="../deep-dive/conversion/helpers/upcast.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                                      </div></a></li>
+                                                          </ul>
+                                                        </li>
+                                                </ul>
+                                              </li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list">
+                                                        <li><a href="../deep-dive/ui/focus-tracking.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/widget-internals.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/theme-customization.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/external-ui.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third–party UI</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/document-editor.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/custom-editor-creator.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/localization.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../contributing/contributing.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/development-environment.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/testing-environment.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/code-style.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/package-metadata.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/git-commit-message-convention.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'framework' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'framework' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'framework' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'framework' ] );tags.forEach( function( tag ) {if ( tag !== 'framework' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../../assets/snippet.js"></script>
+    <script src="../../../snippets/assets.js"></script>
+    <script src="../../../snippets/framework/tutorials/block-widget/snippet.js"></script>
+    <script src="../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

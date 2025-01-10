@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom view - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:39 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Custom view - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/annotations/annotations-custom-view.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Custom view - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/annotations/annotations-custom-view.html">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../../snippets/features/annotations-custom-view/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../index.html">CKEditor 5</a></li>
+          <li><a href="../../../installation/index.html">Installation</a></li>
+          <li><a class="top__menu__item--active" href="../../index.html">Features</a></li>
+          <li><a href="../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../support/index.html">Support</a></li>
+          <li><a href="../../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../../index.html">Features</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../../autoformat.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="../../text-transformation.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="../../basic-styles.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="../../indent.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="../../block-quote.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="../../code-blocks.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../collaboration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../comments/comments.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-only-mode.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-outside-editor.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../track-changes/track-changes.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../track-changes/track-changes-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../track-changes/track-changes-custom-features.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                              </div></a></li>
+                                          <li><a href="../track-changes/track-changes-data.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../real-time-collaboration/real-time-collaboration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../real-time-collaboration/real-time-collaboration-integration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../real-time-collaboration/users-in-real-time-collaboration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../users.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                      </div></a></li>
+                                  <li><a href="../context-and-collaboration-features.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="annotations.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="annotations-display-mode.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                              </div></a></li>
+                                          <li><a href="annotations-custom-configuration.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                              </div></a></li>
+                                          <li><a href="annotations-custom-theme.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                              </div></a></li>
+                                          <li><a href="annotations-custom-template.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                              </div></a></li>
+                                          <li><a href="">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../minimap.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li><a href="../../title.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="../../editor-placeholder.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li><a href="../../export-pdf.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../export-word.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../find-and-replace.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="../../font.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font</span>
+                              </div></a></li>
+                          <li><a href="../../general-html-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                              </div></a></li>
+                          <li><a href="../../headings.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="../../highlight.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="../../horizontal-line.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li><a href="../../html-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../images/images-overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-installation.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-text-alternative.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-captions.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-resizing.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-styles.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-linking.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../../images/image-upload/image-upload.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/easy-image.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Easy Image</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/ckfinder.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder file manager</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/base64-upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/simple-upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/images-inserting.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../keyboard-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Keyboard support</span>
+                              </div></a></li>
+                          <li><a href="../../link.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../lists/lists.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                      </div></a></li>
+                                  <li><a href="../../lists/todo-lists.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../markdown.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="../../math-equations.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../media-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="../../mentions.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="../../page-break.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../pagination/pagination.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../../pagination/pagination-integration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../pasting/paste-from-word.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Word</span>
+                                      </div></a></li>
+                                  <li><a href="../../pasting/paste-from-google-docs.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                      </div></a></li>
+                                  <li><a href="../../pasting/paste-plain-text.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                      </div></a></li>
+                                  <li><a href="../../pasting/drag-drop.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../read-only.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="../../remove-format.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="../../restricted-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../revision-history/revision-history.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../../revision-history/revision-history-integration.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../select-all.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="../../source-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="../../special-characters.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="../../spelling-and-grammar-checking.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spelling and grammar checking</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../table.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Tables</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="../../text-alignment.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="../../language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Toolbar</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../../toolbar/toolbar.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbar</span>
+                                      </div></a></li>
+                                  <li><a href="../../toolbar/blocktoolbar.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block toolbar</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../ui-language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                              </div></a></li>
+                          <li><a href="../../watchdog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="../../word-count.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="examples"><a href="../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/issues/new" target="_blank" rel="noopener" title="Report an issue"><img src="../../../../../assets/2.1.3/img/exclamation-circle.svg" alt="Report an issue"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Features</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../../assets/2.1.3/img/book.svg" alt="guide">Custom view for annotations
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#using-base-views">Using base views</a></li><li><a href="#default-view-template">Default view template</a></li><li><a href="#creating-and-enabling-a-custom-view">Creating and enabling a custom view</a><ol><li><a href="#reading-data-and-binding-with-template">Reading data and binding with template</a></li><li><a href="#performing-actions">Performing actions</a></li></ol></li><li><a href="#example-comment-thread-actions-dropdown">Example: Comment thread actions dropdown</a><ol><li><a href="#creating-a-custom-thread-view-with-a-new-template">Creating a custom thread view with a new template</a></li><li><a href="#linking-buttons-with-actions">Linking buttons with actions</a></li><li><a href="#altering-the-first-comment-view">Altering the first comment view</a></li><li><a href="#final-solution">Final solution</a></li><li><a href="#live-demo">Live demo</a></li></ol></li></ol></nav>
+<p>Providing a custom view is the most powerful way to customize annotations in CKEditor 5 collaboration features.</p>
+<p>In this case, you will need to provide the whole view: the template, UI elements and any necessary  behavior logic. This gives you more control than just template modifications, as you can provide any custom view you need. However, you can still use some of the default building blocks to speed up your development.</p>
+<div class="info-box notice"><p>It is highly recommended to get familiar with the <a href="annotations-custom-template.html">Custom template for annotations</a> guide before continuing.</p></div>
+<h2 id="using-base-views"><a class="headerlink" href="#using-base-views">#</a> Using base views</h2>
+<p>Providing a custom view is based on the same solution as <a href="annotations-custom-template.html">providing a custom template</a>. You will need to create your own class for the view. In this case, you will be interested in extending base view classes:</p>
+<ul>
+<li><a href="../../../api/module_comments_comments_ui_view_basecommentthreadview-BaseCommentThreadView.html"><code>BaseCommentThreadView</code></a> &#x2013; Base view for comment thread views.</li>
+<li><a href="../../../api/module_comments_comments_ui_view_basecommentview-BaseCommentView.html"><code>BaseCommentView</code></a> &#x2013; Base view for comment views.</li>
+<li><a href="../../../api/module_track-changes_ui_view_basesuggestionthreadview-BaseSuggestionThreadView.html"><code>BaseSuggestionThreadView</code></a> &#x2013; Base view for suggestion thread views.</li>
+</ul>
+<p>Base view classes provide some core functionality that is necessary for the view to operate, no matter what the view looks like or what its template is.</p>
+<p>Note that the default view classes also extend the base view classes.</p>
+<h2 id="default-view-template"><a class="headerlink" href="#default-view-template">#</a> Default view template</h2>
+<p>The default template used to create comment thread views is shown here: <a href="../../../api/module_comments_comments_ui_view_commentthreadview-CommentThreadView.html#function-getTemplate"><code>CommentThreadView#getTemplate()</code></a>.</p>
+<p>The default template used to create suggestion thread views is shown here: <a href="../../../api/module_track-changes_ui_view_suggestionthreadview-SuggestionThreadView.html#function-getTemplate"><code>SuggestionThreadView#getTemplate()</code></a>.</p>
+<h2 id="creating-and-enabling-a-custom-view"><a class="headerlink" href="#creating-and-enabling-a-custom-view">#</a> Creating and enabling a custom view</h2>
+<p>As a reminder, the code snippet below shows how to enable a custom view for CKEditor 5 collaboration features:</p>
+<pre class="highlight"><code class="js">import BaseCommentThreadView from &apos;@ckeditor/ckeditor5-comments/src/comments/ui/view/basecommentthreadview.js&apos;;
+
+class CustomCommentThreadView extends BaseCommentThreadView {
+    // ...
+}
+
+// ...
+
+Editor.defaultConfig.comments = {
+    CommentThreadView: CustomCommentThreadView
+}
+</code></pre>
+<p>The only obligatory action that needs to be done in your custom view constructor is setting up a template:</p>
+<pre class="highlight"><code class="js">class CustomCommentThreadView extends BaseCommentThreadView {
+    constructor( ...args ) {
+        super( ...args );
+
+        this.setTemplate( {
+            // ... Template definition here.
+        } );
+    }
+}
+</code></pre>
+<p>It is your responsibility to construct the template and all the UI elements that are needed for the view.</p>
+<h3 id="reading-data-and-binding-with-template"><a class="headerlink" href="#reading-data-and-binding-with-template">#</a> Reading data and binding with template</h3>
+<p>Your view is passed a model object that is available under the <code>_model</code> property. It should be used to set (or bind to) the initial data of your view&#x2019;s properties.</p>
+<p>Some of your view&#x2019;s properties may be used to control the view template. For example, you can bind a view property so that when it is set to <code>true</code>, the template main element will receive an additional CSS class. To bind view properties with a template, the properties need to be <a href="../../../api/module_utils_observablemixin-ObservableMixin.html#function-set">observable</a>. Of course, you can bind already existing observable properties with your template.</p>
+<p>You can also <a href="../../../api/module_utils_observablemixin-ObservableMixin.html#function-bind">bind two observable properties</a> in a way that the value of one property will depend on the other. You can also directly <a href="../../../api/module_utils_observablemixin-ObservableMixin.html#event-change:%7Bproperty%7D">listen to the changes of an observable property</a>.</p>
+<pre class="highlight"><code class="js">// Set an observable property.
+this.set( &apos;isImportant&apos;, false );
+
+// ...
+
+this.setTemplate( {
+    tag: &apos;div&apos;,
+
+    attributes: {
+        class: [
+            // Bind the new observable property with the template.
+            this.bindTemplate.if( &apos;isImportant&apos;, &apos;ck-comment--important&apos; ),
+            // Bind an existing observable property with the template.
+            this.bindTemplate.if( &apos;isDirty&apos;, &apos;ck-comment--unsaved&apos; )
+        ]
+    }
+} );
+</code></pre>
+<h3 id="performing-actions"><a class="headerlink" href="#performing-actions">#</a> Performing actions</h3>
+<p>The view needs to communicate with other parts of the system. When a user performs an action, something needs to be executed, for example: a comment should be removed. This communication is achieved by firing events (with appropriate data). See the example below:</p>
+<pre class="highlight"><code class="js">this.removeButton = new ButtonView();
+this.removeButton.on( &apos;execute&apos;, () =&gt; this.fire( &apos;removeCommentThread&apos; ) );
+</code></pre>
+<p>The list of all events that a given view class can fire is available in the <a href="../../../api/module_comments_comments_ui_view_basecommentthreadview-BaseCommentThreadView.html">API documentation of the <code>BaseCommentThreadView</code> class</a>.</p>
+<h2 id="example-comment-thread-actions-dropdown"><a class="headerlink" href="#example-comment-thread-actions-dropdown">#</a> Example: Comment thread actions dropdown</h2>
+<p>In this example you will create a custom comment thread view with action buttons (edit, remove) moved to a dropdown UI element. The dropdown will be added inside a new element, placed above the thread UI.</p>
+<h3 id="creating-a-custom-thread-view-with-a-new-template"><a class="headerlink" href="#creating-a-custom-thread-view-with-a-new-template">#</a> Creating a custom thread view with a new template</h3>
+<p>First, create a foundation for your custom solution:</p>
+<pre class="highlight"><code class="js">// customcommentthreadview.js
+
+import BaseCommentThreadView from &apos;@ckeditor/ckeditor5-comments/src/comments/ui/view/basecommentthreadview.js&apos;;
+
+class CustomCommentThreadView extends BaseCommentThreadView {
+    constructor( ...args ) {
+        super( ...args );
+
+        // This template definition is partially based on the default comment thread view.
+        this.setTemplate( {
+            tag: &apos;div&apos;,
+
+            attributes: {
+                class: [
+                    &apos;ck-thread&apos;,
+                    this.bindTemplate.if( &apos;isActive&apos;, &apos;ck-thread--active&apos; )
+                ],
+                // Needed for managing focus after adding a new comment.
+                tabindex: -1
+            },
+
+            children: [
+                // Adding the top bar element that will hold the dropdown.
+                {
+                    tag: &apos;div&apos;,
+                    attributes: {
+                        class: &apos;ck-thread-top-bar&apos;
+                    },
+                    children: [
+                        this._createActionsDropdown()
+                    ]
+                },
+                // The rest of the view is as in the default view.
+                {
+                    tag: &apos;div&apos;,
+                    attributes: {
+                        class: &apos;ck-thread__container&apos;
+                    },
+                    children: [
+                        this.commentsListView,
+                        this.commentThreadInputView
+                    ]
+                }
+            ]
+        } );
+    }
+
+    _createActionsDropdown() {
+        // ...
+    }
+}
+</code></pre>
+<p>Then, you need to create a dropdown UI element and fill it with items:</p>
+<pre class="highlight"><code class="js">import { createDropdown, addListToDropdown } from &apos;@ckeditor/ckeditor5-ui/src/dropdown/utils&apos;;
+import UIModel from &apos;@ckeditor/ckeditor5-ui/src/model&apos;;
+import Collection from &apos;@ckeditor/ckeditor5-utils/src/collection&apos;;
+
+// ...
+
+_createActionsDropdown() {
+    const dropdownView = createDropdown( this.locale );
+
+    dropdownView.buttonView.set( {
+        label: &apos;Actions&apos;,
+        withText: true
+    } );
+
+    const items = new Collection();
+
+    const editButtonModel = new UIModel( {
+        withText: true,
+        label: &apos;Edit&apos;,
+        action: &apos;edit&apos;
+    } );
+
+    items.add( {
+        type: &apos;button&apos;,
+        model: editButtonModel
+    } );
+
+    const removeButtonModel = new UIModel( {
+        withText: true,
+        label: &apos;Delete&apos;,
+        action: &apos;delete&apos;
+    } );
+
+    items.add( {
+        type: &apos;button&apos;,
+        model: removeButtonModel
+    } );
+
+    addListToDropdown( dropdownView, items );
+
+    dropdownView.on( &apos;execute&apos;, evt =&gt; {
+        // ...
+    } );
+
+    return dropdownView;
+}
+</code></pre>
+<p>Note that the dropdown should not be visible if the current local user is not the author of the thread.</p>
+<p>Since the first comment in the comment thread represents the whole thread, you can base on the properties of the first comment.</p>
+<p>If there are no comments in the thread, it means that this is a new thread so the local user is the author.</p>
+<pre class="highlight"><code class="js">constructor( ...args ) {
+    super( ...args );
+
+    // The template definition is partially based on the default comment thread view.
+    const templateDefinition = {
+        tag: &apos;div&apos;,
+
+        attributes: {
+            class: [
+                &apos;ck-thread&apos;,
+                this.bindTemplate.if( &apos;isActive&apos;, &apos;ck-thread--active&apos; )
+            ],
+            // Needed for managing focus after adding a new comment.
+            tabindex: -1
+        },
+
+        children: [
+            {
+                tag: &apos;div&apos;,
+                attributes: {
+                    class: &apos;ck-thread__container&apos;
+                },
+                children: [
+                    this.commentsListView,
+                    this.commentThreadInputView
+                ]
+            }
+        ]
+    };
+
+    const isNewThread = this.length == 0;
+    const isAuthor = isNewThread || this._localUser == this._model.comments.get( 0 ).author;
+
+    // Add the actions dropdown only if the local user is the author of the comment thread.
+    if ( isAuthor ) {
+        templateDefinition.children.unshift(
+            {
+                tag: &apos;div&apos;,
+                attributes: {
+                    class: &apos;ck-thread-top-bar&apos;
+                },
+
+                children: [
+                    this._createActionsDropdown()
+                ]
+            }
+        );
+    }
+
+    this.setTemplate( templateDefinition );
+}
+</code></pre>
+<p>As far as disabling the UI is concerned, the actions in the dropdown should be disabled if the comment thread is in the read-only mode. Also, the edit button should be hidden if there are no comments in the thread.</p>
+<pre class="highlight"><code class="js">const editButtonModel = new UIModel( {
+    withText: true,
+    label: &apos;Edit&apos;,
+    action: &apos;edit&apos;
+} );
+
+// The button should be enabled when the read-only mode is off.
+// So, `isEnabled` should be a negative of `isReadOnly`.
+editButtonModel.bind( &apos;isEnabled&apos; )
+    .to( this._model, &apos;isReadOnly&apos;, isReadOnly =&gt; !isReadOnly );
+
+// Hide the button if the thread has no comments yet.
+editButtonModel.bind( &apos;isVisible&apos; )
+    .to( this, &apos;length&apos;, length =&gt; length &gt; 0 );
+
+items.add( {
+    type: &apos;button&apos;,
+    model: editButtonModel
+} );
+
+const removeButtonModel = new UIModel( {
+    withText: true,
+    label: &apos;Delete&apos;,
+    action: &apos;delete&apos;
+} );
+
+removeButtonModel.bind( &apos;isEnabled&apos; )
+    .to( this._model, &apos;isReadOnly&apos;, isReadOnly =&gt; !isReadOnly );
+
+items.add( {
+    type: &apos;button&apos;,
+    model: removeButtonModel
+} );
+</code></pre>
+<p>Finally, some styling will be required for the new UI elements:</p>
+<pre class="highlight"><code class="css">/* customcommentthreadview.css */
+
+.ck-thread-top-bar {
+    padding: 2px 4px 3px 4px;
+    background: #404040;
+    text-align: right;
+}
+
+.ck-thread-top-bar .ck.ck-dropdown {
+    font-size: 14px;
+    width: 100px;
+}
+
+.ck-thread-top-bar .ck.ck-dropdown .ck-button.ck-dropdown__button {
+    color: #000000;
+    background: #EEEEEE;
+}
+</code></pre>
+<p>Add it in <code>customcommentthreadview.js</code>:</p>
+<pre class="highlight"><code class="js">import &apos;./customcommentthreadview.css&apos;;
+</code></pre>
+<h3 id="linking-buttons-with-actions"><a class="headerlink" href="#linking-buttons-with-actions">#</a> Linking buttons with actions</h3>
+<p>The edit button should turn the first comment into edit mode:</p>
+<pre class="highlight"><code class="js">dropdownView.on( &apos;execute&apos;, evt =&gt; {
+    const action = evt.source.action;
+
+    if ( action == &apos;edit&apos; ) {
+        this.commentsListView.commentViews.get( 0 ).switchToEditMode();
+    }
+
+    // ...
+} );
+</code></pre>
+<p>The delete button should remove the comment thread.</p>
+<p>As described earlier, your view should fire events to communicate with other parts of the system:</p>
+<pre class="highlight"><code class="js">dropdownView.on( &apos;execute&apos;, evt =&gt; {
+    const action = evt.source.action;
+
+    if ( action == &apos;edit&apos; ) {
+        this.commentsListView.commentViews.get( 0 ).switchToEditMode();
+    }
+
+    if ( action == &apos;delete&apos; ) {
+        this.fire( &apos;removeCommentThread&apos; );
+    }
+} );
+</code></pre>
+<h3 id="altering-the-first-comment-view"><a class="headerlink" href="#altering-the-first-comment-view">#</a> Altering the first comment view</h3>
+<p>Your new custom comment thread view is ready.</p>
+<p>For comment views, you will use the default comment views. However, there is one thing you need to take care of. Since you moved comment thread controls to a separate dropdown, you should hide these buttons from the first comment view.</p>
+<p>This modification will be added in a custom comment thread view. It should not be done in a custom comment view because that would have an impact on comments in suggestion threads.</p>
+<p>The first comment view can be obtained from the <code>commentsListView</code> property. If there are no comments yet, you can listen to the property and apply the custom behavior when the first comment view is added.</p>
+<pre class="highlight"><code class="js">constructor( ...args ) {
+    // ...
+
+    if ( this.length &gt; 0 ) {
+        // If there is a comment when the thread is created, apply custom behavior to it.
+        this._modifyFirstCommentView();
+    } else {
+        // If there are no comments (an empty thread was created by the user),
+        // listen to `this.commentsListView` and wait for the first comment to be added.
+        this.listenTo( this.commentsListView.commentViews, &apos;add&apos;, evt =&gt; {
+            // And apply the custom behavior when it is added.
+            this._modifyFirstCommentView();
+
+            evt.off();
+        } );
+    }
+}
+
+// ...
+
+_modifyFirstCommentView() {
+    // Get the first comment.
+    const commentView = this.commentsListView.commentViews.get( 0 );
+
+    // By default, the comment button is bound to the model state
+    // and the buttons are visible only if the current local user is the author.
+    // You need to remove this binding and make buttons for the first
+    // comment always invisible.
+    commentView.removeButton.unbind( &apos;isVisible&apos; );
+    commentView.removeButton.isVisible = false;
+
+    commentView.editButton.unbind( &apos;isVisible&apos; );
+    commentView.editButton.isVisible = false;
+}
+</code></pre>
+<h3 id="final-solution"><a class="headerlink" href="#final-solution">#</a> Final solution</h3>
+<p>Below you can find the final code for the created components, together with the complete HTML code and an example of <code>appData</code>.</p>
+<pre class="highlight"><code class="css">/* customcommentthreadview.css */
+
+.ck-thread-top-bar {
+    padding: 2px 4px 3px 4px;
+    background: #404040;
+    text-align: right;
+}
+
+.ck-thread-top-bar .ck.ck-dropdown {
+    font-size: 14px;
+    width: 100px;
+}
+
+.ck-thread-top-bar .ck.ck-dropdown .ck-button.ck-dropdown__button {
+    color: #000000;
+    background: #EEEEEE;
+}
+</code></pre>
+<pre class="highlight"><code class="js">// customcommentthreadview.js
+
+import { createDropdown, addListToDropdown } from &apos;@ckeditor/ckeditor5-ui/src/dropdown/utils&apos;;
+import UIModel from &apos;@ckeditor/ckeditor5-ui/src/model&apos;;
+import Collection from &apos;@ckeditor/ckeditor5-utils/src/collection&apos;;
+
+import BaseCommentThreadView from &apos;@ckeditor/ckeditor5-comments/src/comments/ui/view/basecommentthreadview.js&apos;;
+
+import &apos;./customcommentthreadview.css&apos;;
+
+export default class CustomCommentThreadView extends BaseCommentThreadView {
+    constructor( ...args ) {
+        super( ...args );
+
+        // The template definition is partially based on the default comment thread view.
+        const templateDefinition = {
+            tag: &apos;div&apos;,
+
+            attributes: {
+                class: [
+                    &apos;ck-thread&apos;,
+                    this.bindTemplate.if( &apos;isActive&apos;, &apos;ck-thread--active&apos; )
+                ],
+                // Needed for managing focus after adding a new comment.
+                tabindex: -1
+            },
+
+            children: [
+                {
+                    tag: &apos;div&apos;,
+                    attributes: {
+                        class: &apos;ck-thread__container&apos;
+                    },
+                    children: [
+                        this.commentsListView,
+                        this.commentThreadInputView
+                    ]
+                }
+            ]
+        };
+
+        const isNewThread = this.length == 0;
+        const isAuthor = isNewThread || this._localUser == this._model.comments.get( 0 ).author;
+
+        // Add the actions dropdown only if the local user is the author of the comment thread.
+        if ( isAuthor ) {
+            templateDefinition.children.unshift(
+                {
+                    tag: &apos;div&apos;,
+                    attributes: {
+                        class: &apos;ck-thread-top-bar&apos;
+                    },
+
+                    children: [
+                        this._createActionsDropdown()
+                    ]
+                }
+            );
+        }
+
+        this.setTemplate( templateDefinition );
+
+        if ( this.length &gt; 0 ) {
+            // If there is a comment when the thread is created, apply custom behavior to it.
+            this._modifyFirstCommentView();
+        } else {
+            // If there are no comments (an empty thread was created by a user),
+            // listen to `this.commentsListView` and wait for the first comment to be added.
+            this.listenTo( this.commentsListView.commentViews, &apos;add&apos;, evt =&gt; {
+                // And apply the custom behavior when it is added.
+                this._modifyFirstCommentView();
+
+                evt.off();
+            } );
+        }
+    }
+
+    _createActionsDropdown() {
+        const dropdownView = createDropdown( this.locale );
+
+        dropdownView.buttonView.set( {
+            label: &apos;Actions&apos;,
+            withText: true
+        } );
+
+        const items = new Collection();
+
+        const editButtonModel = new UIModel( {
+            withText: true,
+            label: &apos;Edit&apos;,
+            action: &apos;edit&apos;
+        } );
+
+        // The button should be enabled when the read-only mode is off.
+        // So, `isEnabled` should be a negative of `isReadOnly`.
+        editButtonModel.bind( &apos;isEnabled&apos; )
+            .to( this._model, &apos;isReadOnly&apos;, isReadOnly =&gt; !isReadOnly );
+
+        // Hide the button if the thread has no comments yet.
+        editButtonModel.bind( &apos;isVisible&apos; )
+            .to( this, &apos;length&apos;, length =&gt; length &gt; 0 );
+
+        items.add( {
+            type: &apos;button&apos;,
+            model: editButtonModel
+        } );
+
+        const removeButtonModel = new UIModel( {
+            withText: true,
+            label: &apos;Delete&apos;,
+            action: &apos;delete&apos;
+        } );
+
+        removeButtonModel.bind( &apos;isEnabled&apos; )
+            .to( this._model, &apos;isReadOnly&apos;, isReadOnly =&gt; !isReadOnly );
+
+        items.add( {
+            type: &apos;button&apos;,
+            model: removeButtonModel
+        } );
+
+        addListToDropdown( dropdownView, items );
+
+        dropdownView.on( &apos;execute&apos;, evt =&gt; {
+            const action = evt.source.action;
+
+            if ( action == &apos;edit&apos; ) {
+                this.commentsListView.commentViews.get( 0 ).switchToEditMode();
+            }
+
+            if ( action == &apos;delete&apos; ) {
+                this.fire( &apos;removeCommentThread&apos; );
+            }
+        } );
+
+        return dropdownView;
+    }
+
+    _modifyFirstCommentView() {
+        // Get the first comment.
+        const commentView = this.commentsListView.commentViews.get( 0 );
+
+        // By default, the comment button is bound to the model state
+        // and the buttons are visible only if the current local user is the author.
+        // You need to remove this binding and make buttons for the first
+        // comment always invisible.
+        commentView.removeButton.unbind( &apos;isVisible&apos; );
+        commentView.removeButton.isVisible = false;
+
+        commentView.editButton.unbind( &apos;isVisible&apos; );
+        commentView.editButton.isVisible = false;
+    }
+}
+</code></pre>
+<pre class="highlight"><code class="js">// build.js
+
+import ClassicEditorBase from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+import Comments from &apos;@ckeditor/ckeditor5-track-changes/src/comments&apos;;
+import TrackChanges from &apos;@ckeditor/ckeditor5-track-changes/src/trackchanges&apos;;
+
+import CustomCommentThreadView from &apos;./customcommentthreadview&apos;;
+
+class ClassicEditor extends ClassicEditorBase {}
+
+ClassicEditor.builtinPlugins = [ Essentials, Paragraph, Bold, Italic, Comments, TrackChanges ];
+
+ClassicEditor.defaultConfig = {
+    language: &apos;en&apos;,
+    comments: {
+        CommentThreadView: CustomCommentThreadView,
+
+        editorConfig: {
+            extraPlugins: [ Bold, Italic ]
+        }
+    }
+};
+
+export default ClassicEditor;
+</code></pre>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;CKEditor 5 collaboration with comments&lt;/title&gt;
+        &lt;style type=&quot;text/css&quot;&gt;
+            #container {
+                /* To create the column layout. */
+                display: flex;
+
+                /* To make the container relative to its children. */
+                position: relative;
+            }
+
+            #container .ck.ck-editor {
+                /* To stretch the editor to max 700px
+                (just to look nice for this example but it can be any size). */
+                width: 100%;
+                max-width: 700px;
+            }
+
+            #sidebar {
+                /* Set some size for the sidebar (it can be any). */
+                min-width: 300px;
+
+                /* Add some distance. */
+                padding: 0 10px;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;container&quot;&gt;
+            &lt;div id=&quot;editor&quot;&gt;&lt;/div&gt;
+            &lt;div id=&quot;sidebar&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+    &lt;script src=&quot;../build/ckeditor.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        // Application data will be available under a global variable `appData`.
+        const appData = {
+            // Users data.
+            users: [
+                {
+                    id: &apos;user-1&apos;,
+                    name: &apos;Joe Doe&apos;,
+                    // Note that the avatar is optional.
+                    avatar: &apos;https://randomuser.me/api/portraits/thumb/men/26.jpg&apos;
+                },
+                {
+                    id: &apos;user-2&apos;,
+                    name: &apos;Ella Harper&apos;,
+                    avatar: &apos;https://randomuser.me/api/portraits/thumb/women/65.jpg&apos;
+                }
+            ],
+
+            // The ID of the current user.
+            userId: &apos;user-1&apos;,
+
+            // Comment threads data.
+            commentThreads: [
+                {
+                    threadId: &apos;thread-1&apos;,
+                    comments: [
+                        {
+                            commentId: &apos;comment-1&apos;,
+                            authorId: &apos;user-1&apos;,
+                            content: &apos;&lt;p&gt;Are we sure we want to use a made-up disorder name?&lt;/p&gt;&apos;,
+                            createdAt: new Date()
+                        },
+                        {
+                            commentId: &apos;comment-2&apos;,
+                            authorId: &apos;user-2&apos;,
+                            content: &apos;&lt;p&gt;Why not?&lt;/p&gt;&apos;,
+                            createdAt: new Date()
+                        },
+                        {
+                            commentId: &apos;comment-3&apos;,
+                            authorId: &apos;user-1&apos;,
+                            content: &apos;&lt;p&gt;This comment should have normal action buttons.&lt;/p&gt;&apos;,
+                            createdAt: new Date()
+                        }
+                    ]
+                },
+                {
+                    threadId: &apos;thread-2&apos;,
+                    comments: [
+                        {
+                            commentId: &apos;comment-4&apos;,
+                            authorId: &apos;user-2&apos;,
+                            content: &apos;&lt;p&gt;A comment by another user.&lt;/p&gt;&apos;,
+                            createdAt: new Date()
+                        }
+                    ]
+                }
+            ],
+
+            // Initial editor data.
+            initialData:
+                `&lt;h2&gt;
+                    &lt;comment-start name=&quot;thread-1&quot;&gt;&lt;/comment-start&gt;
+                    Bilingual Personality Disorder
+                    &lt;comment-end name=&quot;thread-1&quot;&gt;&lt;/comment-end&gt;
+                &lt;/h2&gt;
+                &lt;p&gt;
+                    This may be the first time you hear about this made-up disorder but it actually isn&#x2019;t so far from the truth.
+                    &lt;comment-start name=&quot;thread-2&quot;&gt;&lt;/comment-start&gt;
+                    As recent studies show,
+                    &lt;comment-end name=&quot;thread-2&quot;&gt;&lt;/comment-end&gt; the language you speak has more effects on you than you realize.
+                    According to the studies, the language a person speaks affects their cognition,
+                    behavior, emotions and hence &lt;strong&gt;their personality&lt;/strong&gt;.
+                &lt;/p&gt;
+                &lt;p&gt;
+                    This shouldn&#x2019;t come as a surprise
+                    &lt;a href=&quot;https://en.wikipedia.org/wiki/Lateralization_of_brain_function&quot;&gt;since we already know&lt;/a&gt;
+                    that different regions of the brain become more active depending on the activity.
+                    The structure, information and especially &lt;strong&gt;the culture&lt;/strong&gt; of languages varies substantially
+                    and the language a person speaks is an essential element of daily life.
+                &lt;/p&gt;`
+        };
+
+        class CommentsIntegration {
+            constructor( editor ) {
+                this.editor = editor;
+            }
+
+            init() {
+                const usersPlugin = this.editor.plugins.get( &apos;Users&apos; );
+                const commentsRepositoryPlugin = this.editor.plugins.get( &apos;CommentsRepository&apos; );
+
+                // Load the users data.
+                for ( const user of appData.users ) {
+                    usersPlugin.addUser( user );
+                }
+
+                // Set the current user.
+                usersPlugin.defineMe( appData.userId );
+
+                // Load the comment threads data.
+                for ( const commentThread of appData.commentThreads ) {
+                    commentsRepositoryPlugin.addCommentThread( commentThread );
+                }
+            }
+        }
+
+        ClassicEditor
+            .create( document.querySelector( &apos;#editor&apos; ), {
+                initialData: appData.initialData,
+                extraPlugins: [ CommentsIntegration ],
+                licenseKey: &apos;your-license-key&apos;,
+                sidebar: {
+                    container: document.querySelector( &apos;#sidebar&apos; )
+                },
+                toolbar: {
+                    items: [ &apos;bold&apos;, &apos;italic&apos;, &apos;|&apos;, &apos;comment&apos;, &apos;trackChanges&apos; ]
+                }
+            } )
+            .catch( error =&gt; console.error( error ) );
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="live-demo"><a class="headerlink" href="#live-demo">#</a> Live demo</h3>
+<div class="live-snippet"><div class="live-snippet__container loaded comments-integration">
+	<div class="row">
+		<div class="editor"></div>
+		<div class="sidebar"></div>
+	</div>
+</div></div>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22features%2Fcollaboration%2Fannotations%2Fannotations-custom-view.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li><a href="../../autoformat.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="../../text-transformation.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="../../basic-styles.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="../../indent.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="../../block-quote.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="../../code-blocks.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../collaboration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../comments/comments.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-only-mode.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-outside-editor.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../track-changes/track-changes.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../track-changes/track-changes-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../track-changes/track-changes-custom-features.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                                  </div></a></li>
+                                              <li><a href="../track-changes/track-changes-data.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../real-time-collaboration/real-time-collaboration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../real-time-collaboration/real-time-collaboration-integration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../real-time-collaboration/users-in-real-time-collaboration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../users.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                        </div></a></li>
+                                    <li><a href="../context-and-collaboration-features.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="annotations.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="annotations-display-mode.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                                  </div></a></li>
+                                              <li><a href="annotations-custom-configuration.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                                  </div></a></li>
+                                              <li><a href="annotations-custom-theme.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                                  </div></a></li>
+                                              <li><a href="annotations-custom-template.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                                  </div></a></li>
+                                              <li><a href="">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../minimap.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li><a href="../../title.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="../../editor-placeholder.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li><a href="../../export-pdf.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../export-word.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../find-and-replace.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="../../font.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font</span>
+                              </div></a></li>
+                          <li><a href="../../general-html-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                              </div></a></li>
+                          <li><a href="../../headings.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="../../highlight.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="../../horizontal-line.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li><a href="../../html-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../images/images-overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-installation.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-text-alternative.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-captions.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-resizing.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-styles.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-linking.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../../images/image-upload/image-upload.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/easy-image.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Easy Image</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/ckfinder.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder file manager</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/base64-upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/simple-upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/images-inserting.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../keyboard-support.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Keyboard support</span>
+                              </div></a></li>
+                          <li><a href="../../link.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../lists/lists.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                        </div></a></li>
+                                    <li><a href="../../lists/todo-lists.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../markdown.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="../../math-equations.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../media-embed.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="../../mentions.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="../../page-break.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../pagination/pagination.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../../pagination/pagination-integration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../pasting/paste-from-word.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Word</span>
+                                        </div></a></li>
+                                    <li><a href="../../pasting/paste-from-google-docs.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                        </div></a></li>
+                                    <li><a href="../../pasting/paste-plain-text.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                        </div></a></li>
+                                    <li><a href="../../pasting/drag-drop.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../read-only.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="../../remove-format.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="../../restricted-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../revision-history/revision-history.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../../revision-history/revision-history-integration.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../select-all.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="../../source-editing.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="../../special-characters.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="../../spelling-and-grammar-checking.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spelling and grammar checking</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../table.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Tables</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="../../text-alignment.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="../../language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Toolbar</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../../toolbar/toolbar.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbar</span>
+                                        </div></a></li>
+                                    <li><a href="../../toolbar/blocktoolbar.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block toolbar</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../ui-language.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                              </div></a></li>
+                          <li><a href="../../watchdog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="../../word-count.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'features' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'features' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'features' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'features' ] );tags.forEach( function( tag ) {if ( tag !== 'features' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../../assets/snippet.js"></script>
+    <script src="../../../snippets/assets.js"></script>
+    <script src="../../../snippets/features/annotations-custom-view/snippet.js"></script>
+    <script src="../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

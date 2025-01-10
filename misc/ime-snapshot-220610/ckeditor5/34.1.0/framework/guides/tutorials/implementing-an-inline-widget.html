@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Implementing an inline widget - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:46:00 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Implementing an inline widget - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/tutorials/implementing-an-inline-widget.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Implementing an inline widget - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/framework/guides/tutorials/implementing-an-inline-widget.html">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../../snippets/framework/tutorials/inline-widget/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../snippets/assets.css" type="text/css" data-cke="true">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../index.html">CKEditor 5</a></li>
+          <li><a href="../../../installation/index.html">Installation</a></li>
+          <li><a href="../../../features/index.html">Features</a></li>
+          <li><a href="../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../support/index.html">Support</a></li>
+          <li><a class="top__menu__item--active" href="../../index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../../../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../../index.html">Framework</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                  <li><a href="../overview.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../quick-start.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                      </div></a></li>
+                                  <li><a href="../development-tools.html">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development tools</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../architecture/intro.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                              </div></a></li>
+                                          <li><a href="../architecture/core-editor-architecture.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                              </div></a></li>
+                                          <li><a href="../architecture/editing-engine.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                              </div></a></li>
+                                          <li><a href="../architecture/ui-library.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Developing custom plugins</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../plugins/creating-simple-plugin.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a simple plugin</span>
+                                              </div></a></li>
+                                          <li><a href="../plugins/package-generator.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced tutorials</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="implementing-a-block-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                              </div></a></li>
+                                          <li><a href="">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                              </div></a></li>
+                                          <li><a href="using-react-in-a-widget.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../deep-dive/clipboard.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/upload-adapter.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/event-system.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/observables.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                              </div></a></li>
+                                          <li><a href="../deep-dive/schema.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list">
+                                                  <li><a href="../deep-dive/conversion/intro.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/conversion/downcast.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/conversion/upcast.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                      </div></a></li>
+                                                  <li>
+                                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                    </div>
+                                                    <ul class="tree__item-nested-list">
+                                                          <li><a href="../deep-dive/conversion/helpers/intro.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                              </div></a></li>
+                                                          <li><a href="../deep-dive/conversion/helpers/downcast.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                              </div></a></li>
+                                                          <li><a href="../deep-dive/conversion/helpers/upcast.html">
+                                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                              </div></a></li>
+                                                    </ul>
+                                                  </li>
+                                            </ul>
+                                          </li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list">
+                                                  <li><a href="../deep-dive/ui/focus-tracking.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/widget-internals.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/theme-customization.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/external-ui.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third–party UI</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/document-editor.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/custom-editor-creator.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                      </div></a></li>
+                                                  <li><a href="../deep-dive/ui/localization.html">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list">
+                                          <li><a href="../contributing/contributing.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/development-environment.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/testing-environment.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/code-style.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/package-metadata.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                              </div></a></li>
+                                          <li><a href="../contributing/git-commit-message-convention.html">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="api-reference"><a href="../../../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/framework/guides/tutorials/implementing-an-inline-widget.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Framework</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../../../assets/2.1.3/img/book.svg" alt="guide">Implementing an inline widget
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#before-you-start-&#xFE0F;">Before you start &#x26A0;&#xFE0F;</a></li><li><a href="#bootstrapping-the-project">Bootstrapping the project</a></li><li><a href="#the-model-and-the-view-layers">The model and the view layers</a><ol><li><a href="#defining-the-schema">Defining the schema</a></li><li><a href="#defining-converters">Defining converters</a></li><li><a href="#feature-styles">Feature styles</a></li><li><a href="#command">Command</a></li><li><a href="#lets-see-it">Let&#x2019;s see it!</a></li><li><a href="#fixing-position-mapping">Fixing position mapping</a></li></ol></li><li><a href="#creating-the-ui">Creating the UI</a></li><li><a href="#demo">Demo</a></li><li><a href="#full-source-code">Full source code</a></li></ol></nav>
+<p>In this tutorial, you will learn how to implement an inline widget.</p>
+<p>You will build a &#x201C;placeholder&#x201D; feature that allows the users to insert predefined placeholders, like a date or a surname, into the document. You will use widget utilities and conversion in order to define the behavior of this feature. Later on, you will use dropdown utilities to create a dropdown that will allow for inserting new placeholders. You will also learn how to use the editor configuration to define allowed placeholder names.</p>
+<div class="info-box notice"><p>If you want to see the final product of this tutorial before you plunge in, check out the <a href="#demo">demo</a>.</p></div>
+<h2 id="before-you-start-&#xFE0F;"><a class="headerlink" href="#before-you-start-&#xFE0F;">#</a> Before you start &#x26A0;&#xFE0F;</h2>
+<p>This guide assumes that you are familiar with the widgets concept introduced in the <a href="implementing-a-block-widget.html">Implementing a block widget</a> tutorial. The tutorial will also reference various concepts from the <a href="../architecture/intro.html">CKEditor 5 architecture</a>.</p>
+<h2 id="bootstrapping-the-project"><a class="headerlink" href="#bootstrapping-the-project">#</a> Bootstrapping the project</h2>
+<p>The overall project structure will be similar to one described in <a href="implementing-a-block-widget.html#lets-start">Let&#x2019;s start</a> and <a href="implementing-a-block-widget.html#plugin-structure">Plugin structure</a> sections of the &#x201C;Implementing a block widget&#x201D; tutorial.</p>
+<p>First, install required dependencies:</p>
+<pre class="highlight"><code class="bash">npm install --save \
+    css-loader@5 \
+    postcss-loader@4 \
+    raw-loader@4 \
+    style-loader@2 \
+    webpack@5 \
+    webpack-cli@4 \
+    @ckeditor/ckeditor5-basic-styles \
+    @ckeditor/ckeditor5-core \
+    @ckeditor/ckeditor5-dev-utils \
+    @ckeditor/ckeditor5-editor-classic \
+    @ckeditor/ckeditor5-essentials \
+    @ckeditor/ckeditor5-heading \
+    @ckeditor/ckeditor5-list \
+    @ckeditor/ckeditor5-paragraph \
+    @ckeditor/ckeditor5-theme-lark \
+    @ckeditor/ckeditor5-ui \
+    @ckeditor/ckeditor5-utils \
+    @ckeditor/ckeditor5-widget \
+    @ckeditor/ckeditor5-inspector
+</code></pre>
+<p>Create a minimal webpack configuration:</p>
+<pre class="highlight"><code class="js">// webpack.config.js
+
+&apos;use strict&apos;;
+
+const path = require( &apos;path&apos; );
+const { styles } = require( &apos;@ckeditor/ckeditor5-dev-utils&apos; );
+
+module.exports = {
+    entry: &apos;./app.js&apos;,
+
+    output: {
+        path: path.resolve( __dirname, &apos;dist&apos; ),
+        filename: &apos;bundle.js&apos;
+    },
+
+    module: {
+        rules: [
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+                use: [ &apos;raw-loader&apos; ]
+            },
+            {
+                test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
+                use: [
+                    {
+                        loader: &apos;style-loader&apos;,
+                        options: {
+                            injectType: &apos;singletonStyleTag&apos;,
+                            attributes: {
+                                &apos;data-cke&apos;: true
+                            }
+                        }
+                    },
+                    &apos;css-loader&apos;,
+                    {
+                        loader: &apos;postcss-loader&apos;,
+                        options: {
+                            postcssOptions: styles.getPostCssConfig( {
+                                themeImporter: {
+                                    themePath: require.resolve( &apos;@ckeditor/ckeditor5-theme-lark&apos; )
+                                },
+                                minify: true
+                            } )
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    // Useful for debugging.
+    devtool: &apos;source-map&apos;,
+
+    // By default webpack logs warnings if the bundle is bigger than 200kb.
+    performance: { hints: false }
+};
+</code></pre>
+<p>Add an <code>index.html</code> page:</p>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;CKEditor 5 Framework &#x2013; Implementing a simple widget&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;editor&quot;&gt;
+            &lt;p&gt;Editor content goes here.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>The application entry point (<code>app.js</code>):</p>
+<pre class="highlight"><code class="js">// app.js
+
+import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Heading from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import List from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+
+import Placeholder from &apos;./placeholder/placeholder&apos;;
+
+import CKEditorInspector from &apos;@ckeditor/ckeditor5-inspector&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Essentials, Paragraph, Heading, List, Bold, Italic, Placeholder ],
+        toolbar: [ &apos;heading&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;numberedList&apos;, &apos;bulletedList&apos; ]
+    } )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+
+        CKEditorInspector.attach( &apos;editor&apos;, editor );
+
+        // Expose for playing in the console.
+        window.editor = editor;
+    } )
+    .catch( error =&gt; {
+        console.error( error.stack );
+    } );
+</code></pre>
+<p>Before building the project you still need to define the <code>Placeholder</code> plugin. The project will have a structure as below:</p>
+<pre class="highlight"><code class>&#x251C;&#x2500;&#x2500; app.js
+&#x251C;&#x2500;&#x2500; dist
+&#x2502;   &#x251C;&#x2500;&#x2500; bundle.js
+&#x2502;   &#x2514;&#x2500;&#x2500; bundle.js.map
+&#x251C;&#x2500;&#x2500; index.html
+&#x251C;&#x2500;&#x2500; node_modules
+&#x251C;&#x2500;&#x2500; package.json
+&#x251C;&#x2500;&#x2500; placeholder
+&#x2502;   &#x251C;&#x2500;&#x2500; placeholder.js
+&#x2502;   &#x251C;&#x2500;&#x2500; placeholdercommand.js
+&#x2502;   &#x251C;&#x2500;&#x2500; placeholderediting.js
+&#x2502;   &#x251C;&#x2500;&#x2500; placeholderui.js
+&#x2502;   &#x2514;&#x2500;&#x2500; theme
+&#x2502;       &#x2514;&#x2500;&#x2500; placeholder.css
+&#x2502;
+&#x2502;   ... the rest of the plugin files go here as well.
+&#x2502;
+&#x2514;&#x2500;&#x2500; webpack.config.js
+</code></pre>
+<p>You can see that the placeholder feature has an established plugin structure: the master (glue) plugin (<code>placeholder/placeholder.js</code>), the &#x201C;editing&#x201D; (<code>placeholder/placeholderediting.js</code>) and the &#x201C;UI&#x201D; (<code>placeholder/placeholderui.js</code>) parts.</p>
+<p>The master (glue) plugin:</p>
+<pre class="highlight"><code class="js">// placeholder/placeholder.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+import PlaceholderEditing from &apos;./placeholderediting&apos;;
+import PlaceholderUI from &apos;./placeholderui&apos;;
+
+export default class Placeholder extends Plugin {
+    static get requires() {
+        return [ PlaceholderEditing, PlaceholderUI ];
+    }
+}
+</code></pre>
+<p>The UI part (empty for now):</p>
+<pre class="highlight"><code class="js">// placeholder/placeholderui.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+export default class PlaceholderUI extends Plugin {
+    init() {
+        console.log( &apos;PlaceholderUI#init() got called&apos; );
+    }
+}
+</code></pre>
+<p>And the editing part (empty for now):</p>
+<pre class="highlight"><code class="js">// placeholder/placeholderediting.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+export default class PlaceholderEditing extends Plugin {
+    init() {
+        console.log( &apos;PlaceholderEditing#init() got called&apos; );
+    }
+}
+</code></pre>
+<p>At this stage you can build the project and open it in the browser to verify if it is building correctly.</p>
+<h2 id="the-model-and-the-view-layers"><a class="headerlink" href="#the-model-and-the-view-layers">#</a> The model and the view layers</h2>
+<p>The placeholder feature will be <a href="../../../api/module_engine_model_schema-SchemaItemDefinition.html">defined as an inline</a> (text-like) element so it will be inserted into other editor blocks, like <code>&lt;paragraph&gt;</code>, that allow text. The placeholder will have a <code>name</code> attribute. This means that the model containing some text and a placeholder will look like this:</p>
+<pre class="highlight"><code class="html">&lt;paragraph&gt;
+    Hello &lt;placeholder name=&quot;name&quot;&gt;&lt;/placeholder&gt;!
+&lt;/paragraph&gt;
+</code></pre>
+<h3 id="defining-the-schema"><a class="headerlink" href="#defining-the-schema">#</a> Defining the schema</h3>
+<p>The <code>&lt;placeholder&gt;</code> element should be treated as <code>$text</code> so it must be defined with <code>isInline: true</code>. You want to allow it wherever the <code>$text</code> is allowed so you add <code>allowWhere: &apos;$text&apos;</code>. Finally, you will also need the <code>name</code> attribute.</p>
+<p>You will also use this opportunity to import the theme file (<code>theme/placeholder.css</code>).</p>
+<pre class="highlight"><code class="js">// placeholder/placeholderediting.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+import &apos;./theme/placeholder.css&apos;;                                              // ADDED
+
+export default class PlaceholderEditing extends Plugin {
+    init() {
+        console.log( &apos;PlaceholderEditing#init() got called&apos; );
+
+        this._defineSchema();                                                  // ADDED
+    }
+
+    _defineSchema() {                                                          // ADDED
+        const schema = this.editor.model.schema;
+
+        schema.register( &apos;placeholder&apos;, {
+            // Allow wherever text is allowed:
+            allowWhere: &apos;$text&apos;,
+
+            // The placeholder will act as an inline node:
+            isInline: true,
+
+            // The inline widget is self-contained so it cannot be split by the caret and can be selected:
+            isObject: true,
+
+            // The inline widget can have the same attributes as text (for example linkHref, bold).
+            allowAttributesOf: &apos;$text&apos;,
+
+            // The placeholder can have many types, like date, name, surname, etc:
+            allowAttributes: [ &apos;name&apos; ]
+        } );
+    }
+}
+</code></pre>
+<p>The schema is defined so now you can define the model-view converters.</p>
+<h3 id="defining-converters"><a class="headerlink" href="#defining-converters">#</a> Defining converters</h3>
+<p>The HTML structure (data output) of the converter will be a <code>&lt;span&gt;</code> with a <code>placeholder</code> class. The text inside the <code>&lt;span&gt;</code> will be the placeholder&#x2019;s name.</p>
+<pre class="highlight"><code class="html">&lt;span class=&quot;placeholder&quot;&gt;{name}&lt;/span&gt;
+</code></pre>
+<ul>
+<li><a href="../deep-dive/conversion/upcast.html"><strong>Upcast conversion</strong></a>. This view-to-model converter will look for <code>&lt;span&gt;</code>s with the <code>placeholder</code> class, read the <code>&lt;span&gt;</code>&apos;s text and create model <code>&lt;placeholder&gt;</code> elements with the <code>name</code> attribute set accordingly.</li>
+<li><a href="../deep-dive/conversion/downcast.html"><strong>Downcast conversion</strong></a>. The model-to-view conversion will be slightly different for &#x201C;editing&#x201D; and &#x201C;data&#x201D; pipelines as the &#x201C;editing downcast&#x201D; pipeline will use widget utilities to enable widget-specific behavior in the editing view. In both pipelines, the element will be rendered using the same structure.</li>
+</ul>
+<pre class="highlight"><code class="js">import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+// ADDED 2 imports
+import { toWidget } from &apos;@ckeditor/ckeditor5-widget/src/utils&apos;;
+import Widget from &apos;@ckeditor/ckeditor5-widget/src/widget&apos;;
+
+import &apos;./theme/placeholder.css&apos;;
+
+export default class PlaceholderEditing extends Plugin {
+    static get requires() {                                                    // ADDED
+        return [ Widget ];
+    }
+
+    init() {
+        console.log( &apos;PlaceholderEditing#init() got called&apos; );
+
+        this._defineSchema();
+        this._defineConverters();                                              // ADDED
+    }
+
+    _defineSchema() {
+        // ...
+    }
+
+    _defineConverters() {                                                      // ADDED
+        const conversion = this.editor.conversion;
+
+        conversion.for( &apos;upcast&apos; ).elementToElement( {
+            view: {
+                name: &apos;span&apos;,
+                classes: [ &apos;placeholder&apos; ]
+            },
+            model: ( viewElement, { writer: modelWriter } ) =&gt; {
+                // Extract the &quot;name&quot; from &quot;{name}&quot;.
+                const name = viewElement.getChild( 0 ).data.slice( 1, -1 );
+
+                return modelWriter.createElement( &apos;placeholder&apos;, { name } );
+            }
+        } );
+
+        conversion.for( &apos;editingDowncast&apos; ).elementToElement( {
+            model: &apos;placeholder&apos;,
+            view: ( modelItem, { writer: viewWriter } ) =&gt; {
+                const widgetElement = createPlaceholderView( modelItem, viewWriter );
+
+                // Enable widget handling on a placeholder element inside the editing view.
+                return toWidget( widgetElement, viewWriter );
+            }
+        } );
+
+        conversion.for( &apos;dataDowncast&apos; ).elementToElement( {
+            model: &apos;placeholder&apos;,
+            view: ( modelItem, { writer: viewWriter } ) =&gt; createPlaceholderView( modelItem, viewWriter )
+        } );
+
+        // Helper method for both downcast converters.
+        function createPlaceholderView( modelItem, viewWriter ) {
+            const name = modelItem.getAttribute( &apos;name&apos; );
+
+            const placeholderView = viewWriter.createContainerElement( &apos;span&apos;, {
+                class: &apos;placeholder&apos;
+            } );
+
+            // Insert the placeholder name (as a text).
+            const innerText = viewWriter.createText( &apos;{&apos; + name + &apos;}&apos; );
+            viewWriter.insert( viewWriter.createPositionAt( placeholderView, 0 ), innerText );
+
+            return placeholderView;
+        }
+    }
+}
+</code></pre>
+<h3 id="feature-styles"><a class="headerlink" href="#feature-styles">#</a> Feature styles</h3>
+<p>As you could notice, the editing part imports the <code>./theme/placeholder.css</code> CSS file which describes how the placeholder is displayed in th editing view:</p>
+<pre class="highlight"><code class="css">/* placeholder/theme/placeholder.css */
+
+.placeholder {
+    background: #ffff00;
+    padding: 4px 2px;
+    outline-offset: -2px;
+    line-height: 1em;
+    margin: 0 1px;
+}
+
+.placeholder::selection {
+    display: none;
+}
+</code></pre>
+<h3 id="command"><a class="headerlink" href="#command">#</a> Command</h3>
+<p>The <a href="../architecture/core-editor-architecture.html#commands">command</a> for the placeholder feature will insert a <code>&lt;placeholder&gt;</code> element (if allowed by the schema) at the selection. The command will accept the <code>options.value</code> parameter (other CKEditor 5 commands also use this pattern) to set the placeholder name.</p>
+<pre class="highlight"><code class="js">// placeholder/placeholdercommand.js
+
+import Command from &apos;@ckeditor/ckeditor5-core/src/command&apos;;
+
+export default class PlaceholderCommand extends Command {
+    execute( { value } ) {
+        const editor = this.editor;
+        const selection = editor.model.document.selection;
+
+        editor.model.change( writer =&gt; {
+            // Create a &lt;placeholder&gt; elment with the &quot;name&quot; attribute (and all the selection attributes)...
+            const placeholder = writer.createElement( &apos;placeholder&apos;, {
+                ...Object.fromEntries( selection.getAttributes() ),
+                name: value
+            } );
+
+            // ... and insert it into the document.
+            editor.model.insertContent( placeholder );
+
+            // Put the selection on the inserted element.
+            writer.setSelection( placeholder, &apos;on&apos; );
+        } );
+    }
+
+    refresh() {
+        const model = this.editor.model;
+        const selection = model.document.selection;
+
+        const isAllowed = model.schema.checkChild( selection.focus.parent, &apos;placeholder&apos; );
+
+        this.isEnabled = isAllowed;
+    }
+}
+</code></pre>
+<p>Import the created command and add it to the editor commands:</p>
+<pre class="highlight"><code class="js">// placeholder/placeholderediting.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+import { toWidget } from &apos;@ckeditor/ckeditor5-widget/src/utils&apos;;
+import Widget from &apos;@ckeditor/ckeditor5-widget/src/widget&apos;;
+
+import PlaceholderCommand from &apos;./placeholdercommand&apos;;                         // ADDED
+import &apos;./theme/placeholder.css&apos;;
+
+export default class PlaceholderEditing extends Plugin {
+    static get requires() {
+        return [ Widget ];
+    }
+
+    init() {
+        console.log( &apos;PlaceholderEditing#init() got called&apos; );
+
+        this._defineSchema();
+        this._defineConverters();
+
+        // ADDED
+        this.editor.commands.add( &apos;placeholder&apos;, new PlaceholderCommand( this.editor ) );
+    }
+
+    _defineSchema() {
+        // ...
+    }
+
+    _defineConverters() {
+        // ...
+    }
+}
+</code></pre>
+<h3 id="lets-see-it"><a class="headerlink" href="#lets-see-it">#</a> Let&#x2019;s see it!</h3>
+<p>You can rebuild the project now. You should be able to execute the <code>placeholder</code> command to insert a new placeholder:</p>
+<pre class="highlight"><code class="js">editor.execute( &apos;placeholder&apos;, { value: &apos;time&apos; } );
+</code></pre>
+<p>This should result in:</p>
+<p><img src="../../../assets/img/tutorial-implementing-an-inline-widget-1.png" data-lightbox="true" alt="Screenshot of a placeholder widget in action in CKEditor 5 WYSIWYG editor."></p>
+<h3 id="fixing-position-mapping"><a class="headerlink" href="#fixing-position-mapping">#</a> Fixing position mapping</h3>
+<p>If you play more with the widget (e.g. try to select it by dragging the mouse from its right to the left edge) you will see the following error logged to the console:</p>
+<pre class="highlight"><code class>Uncaught CKEditorError: model-nodelist-offset-out-of-bounds: Given offset cannot be found in the node list.
+</code></pre>
+<p>This error is thrown because there is a difference in text node mapping between the model and the view due to the different structures:</p>
+<pre class="highlight"><code class="html">model:
+
+foo&lt;placeholder name=&quot;time&quot;&gt;&lt;/placeholder&gt;bar
+
+view:
+
+foo&lt;span class=&quot;placeholder&quot;&gt;{name}&lt;/span&gt;bar
+</code></pre>
+<p>You could say that in the view there is &#x201C;more&#x201D; text than in the model. This means that some positions in the view cannot automatically map to positions in the model. Namely &#x2014; those are positions inside the <code>&lt;span&gt;</code> element.</p>
+<p>Fortunately, CKEditor 5 <a href="../../../api/module_engine_conversion_mapper-Mapper.html#event-viewToModelPosition">allows customizing the mapping logic</a>. Also, since mapping to an empty model element is a pretty common scenario, there is a ready-to-use utility <a href="../../../api/module_widget_utils.html#function-viewToModelPositionOutsideModelElement"><code>viewToModelPositionOutsideModelElement()</code></a> that you can use here like that:</p>
+<pre class="highlight"><code class="js">// placeholder/placeholderediting.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+// MODIFIED
+import {
+    toWidget,
+    viewToModelPositionOutsideModelElement
+} from &apos;@ckeditor/ckeditor5-widget/src/utils&apos;;
+import Widget from &apos;@ckeditor/ckeditor5-widget/src/widget&apos;;
+
+import PlaceholderCommand from &apos;./placeholdercommand&apos;;
+
+import &apos;./theme/placeholder.css&apos;;
+
+export default class PlaceholderEditing extends Plugin {
+    static get requires() {
+        return [ Widget ];
+    }
+
+    init() {
+        console.log( &apos;PlaceholderEditing#init() got called&apos; );
+
+        this._defineSchema();
+        this._defineConverters();
+
+        this.editor.commands.add( &apos;placeholder&apos;, new PlaceholderCommand( this.editor ) );
+
+        // ADDED
+        this.editor.editing.mapper.on(
+            &apos;viewToModelPosition&apos;,
+            viewToModelPositionOutsideModelElement( this.editor.model, viewElement =&gt; viewElement.hasClass( &apos;placeholder&apos; ) )
+        );
+    }
+
+    _defineSchema() {
+        // ...
+    }
+
+    _defineConverters() {
+        // ...
+    }
+}
+</code></pre>
+<p>After adding the custom mapping, the mapping will work perfectly. Every position inside the view <code>&lt;span&gt;</code> element will be mapped to a position outside the <code>&lt;placeholder&gt;</code> in the model.</p>
+<h2 id="creating-the-ui"><a class="headerlink" href="#creating-the-ui">#</a> Creating the UI</h2>
+<p>The UI part will provide a dropdown button from which the user can select a placeholder to insert into the editor.</p>
+<p>CKEditor 5 Framework includes helpers to create different <a href="../architecture/ui-library.html#dropdowns">dropdowns</a> like toolbar or list dropdowns.</p>
+<p>In this tutorial, you will create a dropdown with a list of available placeholders.</p>
+<pre class="highlight"><code class="js">// placeholder/placeholderui.js
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+
+import { addListToDropdown, createDropdown } from &apos;@ckeditor/ckeditor5-ui/src/dropdown/utils&apos;;
+
+import Collection from &apos;@ckeditor/ckeditor5-utils/src/collection&apos;;
+import Model from &apos;@ckeditor/ckeditor5-ui/src/model&apos;;
+
+export default class PlaceholderUI extends Plugin {
+    init() {
+        const editor = this.editor;
+        const t = editor.t;
+        const placeholderNames = [ &apos;date&apos;, &apos;first name&apos;, &apos;surname&apos; ];
+
+        // The &quot;placeholder&quot; dropdown must be registered among the UI components of the editor
+        // to be displayed in the toolbar.
+        editor.ui.componentFactory.add( &apos;placeholder&apos;, locale =&gt; {
+            const dropdownView = createDropdown( locale );
+
+            // Populate the list in the dropdown with items.
+            addListToDropdown( dropdownView, getDropdownItemsDefinitions( placeholderNames ) );
+
+            dropdownView.buttonView.set( {
+                // The t() function helps localize the editor. All strings enclosed in t() can be
+                // translated and change when the language of the editor changes.
+                label: t( &apos;Placeholder&apos; ),
+                tooltip: true,
+                withText: true
+            } );
+
+            // Disable the placeholder button when the command is disabled.
+            const command = editor.commands.get( &apos;placeholder&apos; );
+            dropdownView.bind( &apos;isEnabled&apos; ).to( command );
+
+            // Execute the command when the dropdown item is clicked (executed).
+            this.listenTo( dropdownView, &apos;execute&apos;, evt =&gt; {
+                editor.execute( &apos;placeholder&apos;, { value: evt.source.commandParam } );
+                editor.editing.view.focus();
+            } );
+
+            return dropdownView;
+        } );
+    }
+}
+
+function getDropdownItemsDefinitions( placeholderNames ) {
+    const itemDefinitions = new Collection();
+
+    for ( const name of placeholderNames ) {
+        const definition = {
+            type: &apos;button&apos;,
+            model: new Model( {
+                commandParam: name,
+                label: name,
+                withText: true
+            } )
+        };
+
+        // Add the item definition to the collection.
+        itemDefinitions.add( definition );
+    }
+
+    return itemDefinitions;
+}
+</code></pre>
+<p>Add the dropdown to the toolbar:</p>
+<pre class="highlight"><code class="js">// app.js
+
+import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Heading from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import List from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+
+import Placeholder from &apos;./placeholder/placeholder&apos;;
+
+import CKEditorInspector from &apos;@ckeditor/ckeditor5-inspector&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Essentials, Paragraph, Heading, List, Bold, Italic, Placeholder ],
+
+        // Insert the &quot;placeholder&quot; dropdown into the editor toolbar.
+        toolbar: [ &apos;heading&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;numberedList&apos;, &apos;bulletedList&apos;, &apos;|&apos;, &apos;placeholder&apos; ]
+    } )
+    .then( editor =&gt; {
+        // ...
+    } )
+    .catch( error =&gt; {
+        // ...
+    } );
+</code></pre>
+<p>To make this plugin extensible, placeholder types will be read from the editor configuration.</p>
+<p>The first step is to define the placeholder configuration in the editing plugin:</p>
+<pre class="highlight"><code class="js">// ... imports
+
+export default class PlaceholderEditing extends Plugin {
+    static get requires() {
+        return [ Widget ];
+    }
+
+    init() {
+        console.log( &apos;PlaceholderEditing#init() got called&apos; );
+
+        this._defineSchema();
+        this._defineConverters();
+
+        this.editor.commands.add( &apos;placeholder&apos;, new PlaceholderCommand( this.editor ) );
+
+        this.editor.editing.mapper.on(
+            &apos;viewToModelPosition&apos;,
+            viewToModelPositionOutsideModelElement( this.editor.model, viewElement =&gt; viewElement.hasClass( &apos;placeholder&apos; ) )
+        );
+
+        this.editor.config.define( &apos;placeholderConfig&apos;, {                           // ADDED
+            types: [ &apos;date&apos;, &apos;first name&apos;, &apos;surname&apos; ]
+        } );
+    }
+
+    _defineConverters() {
+        // ...
+    }
+
+    _defineSchema() {
+        // ...
+    }
+}
+</code></pre>
+<p>Now modify the UI plugin so it will read placeholder types from the configuration:</p>
+<pre class="highlight"><code class="js">// placeholder/placeholderui.js
+
+export default class PlaceholderUI extends Plugin {
+    init() {
+        const editor = this.editor;
+
+        const placeholderNames = editor.config.get( &apos;placeholderConfig.types&apos; );            // CHANGED
+
+        editor.ui.componentFactory.add( &apos;placeholder&apos;, locale =&gt; {
+            // ...
+        } );
+    }
+}
+</code></pre>
+<p>The plugin is now ready to accept the configuration. Check how this works by adding the <code>placeholderConfig</code> configuration in the editor&#x2019;s <code>create()</code> method:</p>
+<pre class="highlight"><code class="js">// ... imports
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Essentials, Paragraph, Heading, List, Bold, Italic, Widget, Placeholder ],
+        toolbar: [ &apos;heading&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;numberedList&apos;, &apos;bulletedList&apos;, &apos;|&apos;, &apos;placeholder&apos; ],
+        placeholderConfig: {
+            types: [ &apos;date&apos;, &apos;color&apos;, &apos;first name&apos;, &apos;surname&apos; ]                             // ADDED
+        }
+    } )
+    // ...
+</code></pre>
+<p>If you open the dropdown in the toolbar, you will see a new list of placeholders to insert.</p>
+<p><img src="../../../assets/img/tutorial-implementing-an-inline-widget-2.png" data-lightbox="true" alt="Screenshot of the placeholder widgets being inserted using the dropdown in CKEditor 5 WYSIWYG editor."></p>
+<h2 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h2>
+<p>You can see the placeholder widget implementation in action in the editor below. You can also check out the full <a href="#full-source-code">source code</a> of this tutorial if you want to develop your own inline widgets.</p>
+<div class="live-snippet"><style>
+	.placeholder {
+		background: #ffff00;
+		padding: 4px 2px;
+		outline-offset: -2px;
+		line-height: 1em;
+		margin: 0 1px;
+	}
+
+	.placeholder::selection {
+		display: none;
+	}
+</style>
+
+<div id="snippet-inline-widget">
+	<p>Hello <span class="placeholder">{first name}</span> <span class="placeholder">{surname}</span>!</p>
+</div>
+</div>
+<h2 id="full-source-code"><a class="headerlink" href="#full-source-code">#</a> Full source code</h2>
+<p>The following code snippet contains a complete implementation of the <code>Placeholder</code> plugin (and all its dependencies) and the code to run the editor. You can paste it into the <code>app.js</code> file and it will run out&#x2013;of&#x2013;the&#x2013;box:</p>
+<pre class="highlight"><code class="js">import ClassicEditor from &apos;@ckeditor/ckeditor5-editor-classic/src/classiceditor&apos;;
+import Essentials from &apos;@ckeditor/ckeditor5-essentials/src/essentials&apos;;
+import Paragraph from &apos;@ckeditor/ckeditor5-paragraph/src/paragraph&apos;;
+import Heading from &apos;@ckeditor/ckeditor5-heading/src/heading&apos;;
+import List from &apos;@ckeditor/ckeditor5-list/src/list&apos;;
+import Bold from &apos;@ckeditor/ckeditor5-basic-styles/src/bold&apos;;
+import Italic from &apos;@ckeditor/ckeditor5-basic-styles/src/italic&apos;;
+
+import Plugin from &apos;@ckeditor/ckeditor5-core/src/plugin&apos;;
+import { toWidget, viewToModelPositionOutsideModelElement } from &apos;@ckeditor/ckeditor5-widget/src/utils&apos;;
+import Widget from &apos;@ckeditor/ckeditor5-widget/src/widget&apos;;
+import Command from &apos;@ckeditor/ckeditor5-core/src/command&apos;;
+
+import { addListToDropdown, createDropdown } from &apos;@ckeditor/ckeditor5-ui/src/dropdown/utils&apos;;
+import Collection from &apos;@ckeditor/ckeditor5-utils/src/collection&apos;;
+import Model from &apos;@ckeditor/ckeditor5-ui/src/model&apos;;
+
+class Placeholder extends Plugin {
+    static get requires() {
+        return [ PlaceholderEditing, PlaceholderUI ];
+    }
+}
+
+class PlaceholderCommand extends Command {
+    execute( { value } ) {
+        const editor = this.editor;
+        const selection = editor.model.document.selection;
+
+        editor.model.change( writer =&gt; {
+            // Create a &lt;placeholder&gt; elment with the &quot;name&quot; attribute (and all the selection attributes)...
+            const placeholder = writer.createElement( &apos;placeholder&apos;, {
+                ...Object.fromEntries( selection.getAttributes() ),
+                name: value
+            } );
+
+            // ... and insert it into the document.
+            editor.model.insertContent( placeholder );
+
+            // Put the selection on the inserted element.
+            writer.setSelection( placeholder, &apos;on&apos; );
+        } );
+    }
+
+    refresh() {
+        const model = this.editor.model;
+        const selection = model.document.selection;
+
+        const isAllowed = model.schema.checkChild( selection.focus.parent, &apos;placeholder&apos; );
+
+        this.isEnabled = isAllowed;
+    }
+}
+
+class PlaceholderUI extends Plugin {
+    init() {
+        const editor = this.editor;
+        const t = editor.t;
+        const placeholderNames = editor.config.get( &apos;placeholderConfig.types&apos; );
+
+        // The &quot;placeholder&quot; dropdown must be registered among the UI components of the editor
+        // to be displayed in the toolbar.
+        editor.ui.componentFactory.add( &apos;placeholder&apos;, locale =&gt; {
+            const dropdownView = createDropdown( locale );
+
+            // Populate the list in the dropdown with items.
+            addListToDropdown( dropdownView, getDropdownItemsDefinitions( placeholderNames ) );
+
+            dropdownView.buttonView.set( {
+                // The t() function helps localize the editor. All strings enclosed in t() can be
+                // translated and change when the language of the editor changes.
+                label: t( &apos;Placeholder&apos; ),
+                tooltip: true,
+                withText: true
+            } );
+
+            // Disable the placeholder button when the command is disabled.
+            const command = editor.commands.get( &apos;placeholder&apos; );
+            dropdownView.bind( &apos;isEnabled&apos; ).to( command );
+
+            // Execute the command when the dropdown item is clicked (executed).
+            this.listenTo( dropdownView, &apos;execute&apos;, evt =&gt; {
+                editor.execute( &apos;placeholder&apos;, { value: evt.source.commandParam } );
+                editor.editing.view.focus();
+            } );
+
+            return dropdownView;
+        } );
+    }
+}
+
+function getDropdownItemsDefinitions( placeholderNames ) {
+    const itemDefinitions = new Collection();
+
+    for ( const name of placeholderNames ) {
+        const definition = {
+            type: &apos;button&apos;,
+            model: new Model( {
+                commandParam: name,
+                label: name,
+                withText: true
+            } )
+        };
+
+        // Add the item definition to the collection.
+        itemDefinitions.add( definition );
+    }
+
+    return itemDefinitions;
+}
+
+class PlaceholderEditing extends Plugin {
+    static get requires() {
+        return [ Widget ];
+    }
+
+    init() {
+        console.log( &apos;PlaceholderEditing#init() got called&apos; );
+
+        this._defineSchema();
+        this._defineConverters();
+
+        this.editor.commands.add( &apos;placeholder&apos;, new PlaceholderCommand( this.editor ) );
+
+        this.editor.editing.mapper.on(
+            &apos;viewToModelPosition&apos;,
+            viewToModelPositionOutsideModelElement( this.editor.model, viewElement =&gt; viewElement.hasClass( &apos;placeholder&apos; ) )
+        );
+        this.editor.config.define( &apos;placeholderConfig&apos;, {
+            types: [ &apos;date&apos;, &apos;first name&apos;, &apos;surname&apos; ]
+        } );
+    }
+
+    _defineSchema() {
+        const schema = this.editor.model.schema;
+
+        schema.register( &apos;placeholder&apos;, {
+            // Allow wherever text is allowed:
+            allowWhere: &apos;$text&apos;,
+
+            // The placeholder will act as an inline node:
+            isInline: true,
+
+            // The inline widget is self-contained so it cannot be split by the caret and it can be selected:
+            isObject: true,
+
+            // The inline widget can have the same attributes as text (for example linkHref, bold).
+            allowAttributesOf: &apos;$text&apos;,
+
+            // The placeholder can have many types, like date, name, surname, etc:
+            allowAttributes: [ &apos;name&apos; ]
+        } );
+    }
+
+    _defineConverters() {
+        const conversion = this.editor.conversion;
+
+        conversion.for( &apos;upcast&apos; ).elementToElement( {
+            view: {
+                name: &apos;span&apos;,
+                classes: [ &apos;placeholder&apos; ]
+            },
+            model: ( viewElement, { writer: modelWriter } ) =&gt; {
+                // Extract the &quot;name&quot; from &quot;{name}&quot;.
+                const name = viewElement.getChild( 0 ).data.slice( 1, -1 );
+
+                return modelWriter.createElement( &apos;placeholder&apos;, { name } );
+            }
+        } );
+
+        conversion.for( &apos;editingDowncast&apos; ).elementToElement( {
+            model: &apos;placeholder&apos;,
+            view: ( modelItem, { writer: viewWriter } ) =&gt; {
+                const widgetElement = createPlaceholderView( modelItem, viewWriter );
+
+                // Enable widget handling on a placeholder element inside the editing view.
+                return toWidget( widgetElement, viewWriter );
+            }
+        } );
+
+        conversion.for( &apos;dataDowncast&apos; ).elementToElement( {
+            model: &apos;placeholder&apos;,
+            view: ( modelItem, { writer: viewWriter } ) =&gt; createPlaceholderView( modelItem, viewWriter )
+        } );
+
+        // Helper method for both downcast converters.
+        function createPlaceholderView( modelItem, viewWriter ) {
+            const name = modelItem.getAttribute( &apos;name&apos; );
+
+            const placeholderView = viewWriter.createContainerElement( &apos;span&apos;, {
+                class: &apos;placeholder&apos;
+            } );
+
+            // Insert the placeholder name (as a text).
+            const innerText = viewWriter.createText( &apos;{&apos; + name + &apos;}&apos; );
+            viewWriter.insert( viewWriter.createPositionAt( placeholderView, 0 ), innerText );
+
+            return placeholderView;
+        }
+    }
+}
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ Essentials, Paragraph, Heading, List, Bold, Italic, Placeholder ],
+        toolbar: [ &apos;heading&apos;, &apos;|&apos;, &apos;bold&apos;, &apos;italic&apos;, &apos;numberedList&apos;, &apos;bulletedList&apos;, &apos;|&apos;, &apos;placeholder&apos; ],
+        placeholderConfig: {
+            types: [ &apos;date&apos;, &apos;color&apos;, &apos;first name&apos;, &apos;surname&apos; ]
+        }
+    } )
+    .then( editor =&gt; {
+        console.log( &apos;Editor was initialized&apos;, editor );
+
+        // Expose for playing in the console.
+        window.editor = editor;
+    } )
+    .catch( error =&gt; {
+        console.error( error.stack );
+    } );
+</code></pre>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22framework%2Fguides%2Ftutorials%2Fimplementing-an-inline-widget.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list">
+                                    <li><a href="../overview.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../quick-start.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                                        </div></a></li>
+                                    <li><a href="../development-tools.html">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development tools</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Architecture</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../architecture/intro.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                  </div></a></li>
+                                              <li><a href="../architecture/core-editor-architecture.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Core editor architecture</span>
+                                                  </div></a></li>
+                                              <li><a href="../architecture/editing-engine.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editing engine</span>
+                                                  </div></a></li>
+                                              <li><a href="../architecture/ui-library.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI library</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Developing custom plugins</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../plugins/creating-simple-plugin.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating a simple plugin</span>
+                                                  </div></a></li>
+                                              <li><a href="../plugins/package-generator.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using package generator</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced tutorials</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="implementing-a-block-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Implementing a block widget</span>
+                                                  </div></a></li>
+                                              <li><a href="">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Implementing an inline widget</span>
+                                                  </div></a></li>
+                                              <li><a href="using-react-in-a-widget.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using a React component in a widget</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Deep dive</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../deep-dive/clipboard.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Clipboard</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/upload-adapter.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/event-system.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Event system</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/observables.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Observables</span>
+                                                  </div></a></li>
+                                              <li><a href="../deep-dive/schema.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Schema</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list">
+                                                        <li><a href="../deep-dive/conversion/intro.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/conversion/downcast.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Model to view (downcast)</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/conversion/upcast.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">View to model (upcast)</span>
+                                                            </div></a></li>
+                                                        <li>
+                                                          <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Conversion helpers</span>
+                                                          </div>
+                                                          <ul class="tree__item-nested-list">
+                                                                  <li><a href="../deep-dive/conversion/helpers/intro.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Introduction</span>
+                                                                      </div></a></li>
+                                                                  <li><a href="../deep-dive/conversion/helpers/downcast.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Downcast helpers</span>
+                                                                      </div></a></li>
+                                                                  <li><a href="../deep-dive/conversion/helpers/upcast.html">
+                                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Upcast helpers</span>
+                                                                      </div></a></li>
+                                                          </ul>
+                                                        </li>
+                                                </ul>
+                                              </li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">User interface</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list">
+                                                        <li><a href="../deep-dive/ui/focus-tracking.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Focus tracking</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/widget-internals.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Widget internals</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/theme-customization.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/external-ui.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Third–party UI</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/document-editor.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/custom-editor-creator.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Creating custom editor</span>
+                                                            </div></a></li>
+                                                        <li><a href="../deep-dive/ui/localization.html">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Localization</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Contributing</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list">
+                                              <li><a href="../contributing/contributing.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Contributing</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/development-environment.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Development environment</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/testing-environment.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Testing environment</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/code-style.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code style</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/package-metadata.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Package metadata</span>
+                                                  </div></a></li>
+                                              <li><a href="../contributing/git-commit-message-convention.html">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Git commit message convention</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'framework' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'framework' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'framework' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'framework' ] );tags.forEach( function( tag ) {if ( tag !== 'framework' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../../../assets/snippet.js"></script>
+    <script src="../../../snippets/assets.js"></script>
+    <script src="../../../snippets/framework/tutorials/inline-widget/snippet.js"></script>
+    <script src="../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

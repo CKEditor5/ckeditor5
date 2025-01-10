@@ -1,0 +1,5 @@
+/*!
+ * @license Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md.
+ */(()=>{"use strict";ClassicEditor.create(document.querySelector("#snippet-autolink"),{cloudServices:{tokenUrl:"https://33333.cke-cs.com/token/dev/dbIg4Hr2bqf5bSV3wuzN8bW8td7OAStvLjRlJof9ZW13cUXRHRraVJsD8J9J",uploadUrl:"https://33333.cke-cs.com/easyimage/upload/",webSocketUrl:"33333.cke-cs.com/ws"},extraPlugins:[CKEditorPlugins.AutoLink],toolbar:{items:["undo","redo","|","heading","|","bold","italic","|","link","insertImage","insertTable","mediaEmbed","|","bulletedList","numberedList","outdent","indent"]},ckbox:{tokenUrl:"https://api.ckbox.io/token/demo",forceDemoLabel:!0},ui:{viewportOffset:{top:window.getViewportTopOffsetConfig()}},licenseKey:"GPL"}).then((e=>{window.editor=e})).catch((e=>{console.error(e.stack)}))})();
+//# sourceMappingURL=snippet.js.map

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Migration to v29.x - CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Thu Jun 09 2022 06:45:52 GMT+0200 (Central European Summer Time)">
+    <meta property="og:title" content="Migration to v29.x - CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/updating/migration-to-29.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Migration to v29.x - CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/updating/migration-to-29.html">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../assets/2.1.3/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../assets/styles.css" type="text/css">
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	function pageView() {
+      		ga( 'send', 'pageview', location.pathname + location.search + location.hash );
+      	}
+      
+      	(function( i, s, o, g, r, a, m ) {
+      		i[ 'GoogleAnalyticsObject' ] = r;
+      		i[ r ] = i[ r ] || function() {
+      				(i[ r ].q = i[ r ].q || []).push( arguments )
+      			}, i[ r ].l = 1 * new Date();
+      		a = s.createElement( o ),
+      			m = s.getElementsByTagName( o )[ 0 ];
+      		a.async = 1;
+      		a.src = g;
+      		m.parentNode.insertBefore( a, m )
+      	})( window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga' );
+      
+      	ga( 'create', {"trackingId":"UA-271067-19","cookieDomain":"ckeditor5.github.io"} );
+      
+      	pageView();
+      
+      	window.addEventListener( 'hashchange', pageView );
+      }
+    </script>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../assets/2.1.3/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../index.html">CKEditor 5</a></li>
+          <li><a href="../installation/index.html">Installation</a></li>
+          <li><a href="../features/index.html">Features</a></li>
+          <li><a href="../examples/index.html">Examples</a></li>
+          <li><a class="top__menu__item--active" href="index.html">Updating</a></li>
+          <li><a href="../support/index.html">Support</a></li>
+          <li><a href="../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../api/index.html">API</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="installation"><a href="../installation/index.html">Installation</a>
+              </li>
+              <li data-group="features"><a href="../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../examples/index.html">Examples</a>
+              </li>
+              <li data-group="updating"><a href="index.html">Updating</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="updating.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating your editor</span>
+                              </div></a></li>
+                          <li><a href="changelog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Recent release changelog</span>
+                              </div></a></li>
+                          <li><a href="migration-to-34.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v34.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-33.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v33.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-32.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v32.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-31.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v31.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-30.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v30.x</span>
+                              </div></a></li>
+                          <li><a href="">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migration to v29.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-28.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v28.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-27.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v27.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-26.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v26.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-25.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v25.x</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="support"><a href="../support/index.html">Support</a>
+              </li>
+              <li data-group="framework"><a href="../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../api/index.html">API</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/updating/migration-to-29.md" target="_blank" rel="noopener" title="Contribute to this guide"><img src="../../../assets/2.1.3/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="index.html">Updating</a>
+          </div>
+          <h1 class="main__content-title"><img src="../../../assets/2.1.3/img/book.svg" alt="guide">Migration to CKEditor 5 v29.x
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#migration-to-ckeditor-5-v2910">Migration to CKEditor 5 v29.1.0</a><ol><li><a href="#matcher-pattern-api-change">Matcher pattern API change</a></li><li><a href="#link-decorators-api-change">Link decorators API change</a></li></ol></li><li><a href="#migration-to-ckeditor-5-v2900">Migration to CKEditor 5 v29.0.0</a><ol><li><a href="#inline-images">Inline images</a></li><li><a href="#image-caption">Image caption</a></li><li><a href="#image-styles">Image styles</a></li><li><a href="#image-toolbar">Image toolbar</a></li><li><a href="#inserting-images">Inserting images</a></li><li><a href="#image-utilities">Image utilities</a></li><li><a href="#easyimage-plugin">EasyImage plugin</a></li><li><a href="#ckfinder-plugin">CKFinder plugin</a></li></ol></li></ol></nav><div class="info-box notice"><p>When updating your CKEditor 5 installation, make sure <strong>all the packages are the same version</strong> to avoid errors.</p><p>For custom builds, you may try removing the <code>package-lock.json</code> or <code>yarn.lock</code> files (if applicable) and reinstalling all packages before rebuilding the editor. For best results, make sure you use the most recent package versions.</p></div>
+
+<h2 id="migration-to-ckeditor-5-v2910"><a class="headerlink" href="#migration-to-ckeditor-5-v2910">#</a> Migration to CKEditor 5 v29.1.0</h2>
+<p>For the entire list of changes introduced in version 29.1.0, see the <a href="https://github.com/ckeditor/ckeditor5/blob/master/CHANGELOG.md#2910-2021-08-02" target="_blank" rel="noopener">changelog for CKEditor 5 v29.1.0</a>.</p>
+<p>Listed below are the most important changes that require your attention when upgrading to CKEditor 5 v29.1.0.</p>
+<h3 id="matcher-pattern-api-change"><a class="headerlink" href="#matcher-pattern-api-change">#</a> Matcher pattern API change</h3>
+<p>Starting from v29.1.0, the <a href="../api/module_engine_view_matcher-Matcher.html"><code>Matcher</code></a> feature deprecated matching <code>style</code> and <code>class</code> HTML attributes using <code>attributes</code> key-value pairs pattern.</p>
+<p>The <a href="../api/module_engine_view_matcher-Matcher.html"><code>Matcher</code></a> feature allows to match styles and classes by using dedicated <code>styles</code> and <code>classes</code> patterns. Since v29.0.0 it&#x2019;s also possible to match every possible value for these attributes by using Boolean type with <code>true</code> value. Therefore, to avoid confusion which pattern should be used to match classes and styles, we decided to deprecate matching classes and styles using <code>attributes</code> pattern.</p>
+<p>Here is an example of changes you may need for proper integration with the <a href="../api/module_engine_view_matcher-Matcher.html"><code>Matcher</code></a> feature new API:</p>
+<pre class="highlight"><code class="js">// Old code.
+new Matcher( {
+    name: &apos;a&apos;,
+    attributes: {
+        &apos;data-custom-attribute-1&apos;: /.*/,
+        &apos;data-custom-attribute-2&apos;: /.*/,
+        style: true,
+        class: true
+    }
+} );
+
+// New code.
+new Matcher( {
+    name: &apos;a&apos;,
+    attributes: {
+        &apos;data-custom-attribute-1&apos;: /.*/,
+        &apos;data-custom-attribute-2&apos;: /.*/
+    },
+    styles: true,
+    classes: true
+} );
+</code></pre>
+<h3 id="link-decorators-api-change"><a class="headerlink" href="#link-decorators-api-change">#</a> Link decorators API change</h3>
+<p><a href="#matcher-pattern-api-change">Matcher pattern API change</a> also improves how the <a href="../api/module_link_link-LinkDecoratorDefinition.html">link decorators</a> should be defined (both <a href="../api/module_link_link-LinkDecoratorManualDefinition.html">manual decorator</a> and <a href="../api/module_link_link-LinkDecoratorAutomaticDefinition.html">automatic decorator</a>). Similary to the <a href="../api/module_engine_view_matcher-Matcher.html"><code>Matcher</code></a> feature API, <code>style</code> and <code>class</code> HTML attributes should be defined using respectively <code>classes</code> and <code>styles</code> properties.</p>
+<p>Here is an example of changes you may need for proper integration with the <a href="../api/module_link_link-LinkDecoratorDefinition.html">link decorators</a> API change:</p>
+<pre class="highlight"><code class="js">// Old code.
+ClassicEditor
+    .create( ..., {
+        // ...
+        link: {
+            decorators: {
+                addGreenLink: {
+                    mode: &apos;automatic&apos;,
+                    attributes: {
+                        class: &apos;my-green-link&apos;,
+                        style: &apos;color:green;&apos;
+                    }
+                }
+            }
+        }
+    } )
+// New code.
+ClassicEditor
+    .create( ..., {
+        // ...
+        link: {
+            decorators: {
+                addGreenLink: {
+                    mode: &apos;automatic&apos;,
+                    classes: &apos;my-green-link&apos;,
+                    styles: {
+                        color: &apos;green&apos;
+                    }
+                }
+            }
+        }
+    } )
+</code></pre>
+<h2 id="migration-to-ckeditor-5-v2900"><a class="headerlink" href="#migration-to-ckeditor-5-v2900">#</a> Migration to CKEditor 5 v29.0.0</h2>
+<p>This migration guide enumerates the most important changes that require your attention when upgrading to CKEditor 5 v29.0.0 due to changes introduced in the <a href="../api/module_image_image-Image.html"><code>Image</code></a> plugin and some other image-related features.</p>
+<p>For the entire list of changes introduced in version 29.0.0, see the <a href="https://github.com/ckeditor/ckeditor5/blob/master/CHANGELOG.md#2900-2021-07-05" target="_blank" rel="noopener">changelog for CKEditor 5 v29.0.0</a>.</p>
+<p>To get to know the new editor UI for the image features, visit the <a href="../features/images/images-overview.html">image feature guide</a>, especially:</p>
+<ul>
+<li><a href="../features/images/images-styles.html#semantical-styles">Images in the structured content</a></li>
+<li><a href="../features/images/images-styles.html#presentational-styles">Images in the document-like content</a></li>
+</ul>
+<h3 id="inline-images"><a class="headerlink" href="#inline-images">#</a> Inline images</h3>
+<p>Starting from v29.0.0, the existing <a href="../api/module_image_image-Image.html"><code>Image</code></a> plugin loads two independent plugins: <a href="../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> and <a href="../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a>, therefore both of them are included in all of the <a href="../installation/advanced/alternative-setups/predefined-builds.html#available-builds">predefined editor builds</a> by default.</p>
+<ul>
+<li>The <a href="../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> is a newly introduced plugin supporting the inline <code>&lt;img&gt;</code> tag nested in text (e.g. inside a paragraph).</li>
+<li>The <a href="../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a> maintains the functionality of the previous <a href="../api/module_image_image-Image.html"><code>Image</code></a> plugin before v29.0.0. In the model, it uses the <code>imageBlock</code> element (known as <code>image</code> before v29.0.0).</li>
+</ul>
+<div class="info-box notice"><p><strong>Note:</strong> It is possible to load only one of these plugins, but only when <a href="../installation/advanced/alternative-setups/integrating-from-source.html">building the editor from source</a>.</p></div>
+<h3 id="image-caption"><a class="headerlink" href="#image-caption">#</a> Image caption</h3>
+<p>An image caption is no longer automatically shown when selecting the image widget. Its visibility can now be toggled with a <a href="../api/module_image_imagecaption_toggleimagecaptioncommand-ToggleImageCaptionCommand.html"><code>ToggleImageCaptionCommand</code></a> executed by the <code>&apos;toggleImageCaption&apos;</code> toolbar button, both registered by the <a href="../api/module_image_imagecaption-ImageCaption.html"><code>ImageCaption</code></a> plugin. The button is added to the default image toolbar in all of the <a href="../installation/advanced/alternative-setups/predefined-builds.html#available-builds">predefined editor builds</a>.</p>
+<div class="info-box notice"><p>To provide a valid data output, captions can be added to block images only. Adding a caption to an inline image will automatically convert it to a block image (which can be undone by the user).</p></div>
+<h3 id="image-styles"><a class="headerlink" href="#image-styles">#</a> Image styles</h3>
+<p>Since the appearance of the image in the document depends on the image type (block/inline), the <a href="../api/module_image_imagestyle-ImageStyle.html"><code>ImageStyle</code></a> plugin is now in charge of switching between these types. Thus, the following changes have been introduced:</p>
+<ul>
+<li>
+<p><a href="../api/module_image_image-ImageConfig.html#member-styles">A new set of buttons</a> is available to manage the image type and appearance.</p>
+</li>
+<li>
+<p>There is a possibility to group the buttons provided by the <a href="../api/module_image_imagestyle-ImageStyle.html"><code>ImageStyle</code></a> plugin into dropdowns.</p>
+<ul>
+<li>A few <a href="../api/module_image_imagestyle_utils.html#constant-DEFAULT_DROPDOWN_DEFINITIONS">default dropdowns</a> are provided.</li>
+<li>In the editor configuration, <a href="../api/module_image_imagestyle_imagestyleui-ImageStyleDropdownDefinition.html">a custom dropdown</a> can be declared.</li>
+</ul>
+</li>
+<li>
+<p>The name of the default block image style has changed from <code>full</code> to <code>block</code> (as the default style for the inline images is called <code>inline</code>), the default <a href="../installation/advanced/content-styles.html">content styles</a> for these images remain the same. The button label has also changed and now reads <code>Centered image</code> so that it reflects the actual appearance of the image. If you customized the default appearance of the block images, you can change the button label by <a href="../api/module_image_image-ImageConfig.html#member-styles">modifying the existing image style</a>.</p>
+</li>
+<li>
+<p>The format of the <code>config.image.styles</code> has changed. The list of the styles must be wrapped with the <code>options</code> array. Read more about the <a href="../api/module_image_image-ImageConfig.html#member-styles"><code>image.styles</code> configuration</a>.</p>
+<pre class="highlight"><code class="js">// Before v29.0.0
+Editor.create( document.querySelector( &apos;#editor&apos; ), {
+    ...
+    image: {
+        styles: [ &apos;inline&apos;, &apos;full&apos;, &apos;side&apos; ]
+    }
+} );
+
+// Since v29.0.0
+Editor.create( document.querySelector( &apos;#editor&apos; ), {
+    ...
+    image: {
+        styles: {
+            options: [ &apos;inline&apos;, &apos;block&apos;, &apos;side&apos; ]
+        }
+    }
+} );
+</code></pre>
+</li>
+<li>
+<p>The format of the <code>imageStyle</code> has changed. It must now provide information about the image types supporting a particular style. Read more about the <a href="../api/module_image_imagestyle-ImageStyleOptionDefinition.html"><code>ImageStyleOptionDefinition</code></a>.</p>
+<pre class="highlight"><code class="js">// Before v29.0.0
+Editor.create( document.querySelector( &apos;#editor&apos; ), {
+    ...
+    image: {
+        styles: [ {
+            name: &apos;alignLeft&apos;,
+            title: &apos;Left aligned image&apos;,
+            icon: objectLeft,
+            className: &apos;image-style-align-left&apos;
+        } ]
+    }
+} );
+
+// Since v29.0.0
+Editor.create( document.querySelector( &apos;#editor&apos; ), {
+    ...
+    image: {
+        styles: {
+            options: [ {
+                name: &apos;alignLeft&apos;,
+                title: &apos;Left aligned image&apos;,
+                icon: objectLeft,
+                // Image types (names of the model elements) supporting this style.
+                modelElements: [ &apos;imageBlock&apos;, &apos;imageInline&apos; ],
+                className: &apos;image-style-align-left&apos;
+            } ]
+        }
+    }
+} );
+</code></pre>
+</li>
+<li>
+<p>Several changes have been also made to the <a href="../api/module_image_imagestyle-ImageStyle.html"><code>ImageStyle</code></a> plugin API:</p>
+<ul>
+<li>In the <a href="../api/module_image_imagestyle_utils.html">image style utilities</a> module:
+<ul>
+<li>The <code>defaultIcons</code> were renamed to <a href="../api/module_image_imagestyle_utils.html#constant-DEFAULT_ICONS"><code>DEFAULT_ICONS</code></a>.</li>
+<li>The <code>defaultStyles</code> were renamed to <a href="../api/module_image_imagestyle_utils.html#constant-DEFAULT_OPTIONS"><code>DEFAULT_OPTIONS</code></a>.</li>
+<li>The <code>normalizeImageStyles()</code> function was removed from the public API.</li>
+</ul>
+</li>
+<li>The <code>ImageStyleCommand#defaultStyle</code> and <code>ImageStyleCommand#styles</code> were removed from the public API.</li>
+</ul>
+</li>
+</ul>
+<h3 id="image-toolbar"><a class="headerlink" href="#image-toolbar">#</a> Image toolbar</h3>
+<p>Until v29.0.0, custom editor builds without <a href="../api/module_image_imagestyle-ImageStyle.html"><code>ImageStyle</code></a> and <a href="../api/module_image_imagetoolbar-ImageToolbar.html"><code>ImageToolbar</code></a> plugins were possible because only block images were supported and captions were added by the user upon selecting the image.</p>
+<p>Since v29.0.0, <a href="../features/images/images-styles.html">image styles</a> and <a href="../features/images/images-overview.html#image-contextual-toolbar">toolbar</a> allow users to choose the type of image (inline or block) and give them a way to add or remove captions from block images via configurable buttons.</p>
+<p>The user experience will degrade if either of these features is missing and this makes the <a href="../api/module_image_image-ImageConfig.html#member-toolbar">image toolbar</a> configuration essential.</p>
+<div class="info-box notice"><p><a href="../installation/advanced/alternative-setups/predefined-builds.html">Pre-configured editor builds</a> come with <a href="../api/module_image_imagestyle-ImageStyle.html"><code>ImageStyle</code></a> and <a href="../api/module_image_imagetoolbar-ImageToolbar.html"><code>ImageToolbar</code></a> plugins (and configuration) out-of-the-box. This information is mainly for developers who use <a href="../installation/advanced/alternative-setups/predefined-builds.html#build-customization">custom editor builds</a> in their integrations.</p></div>
+<p>We recommended one of the following configurations as the minimum set-up for the image toolbar:</p>
+<ul>
+<li>
+<p>For the purposes of the structured content editing (implemented by default in the classic, balloon, balloon-block, and inline <a href="../installation/advanced/alternative-setups/predefined-builds.html">editor builds</a>):</p>
+<pre class="highlight"><code class="js">Editor.create( document.querySelector( &apos;#editor&apos; ), {
+    ...
+    image: {
+        toolbar: [
+            &apos;imageStyle:inline&apos;,
+            &apos;imageStyle:block&apos;,
+            &apos;imageStyle:side&apos;,
+            &apos;|&apos;,
+            &apos;toggleImageCaption&apos;,
+            &apos;imageTextAlternative&apos;
+        ]
+    }
+} );
+</code></pre>
+</li>
+<li>
+<p>For the purposes of the document-like editing (implemented by default in the <a href="../installation/advanced/alternative-setups/predefined-builds.html#document-editor">decoupled document build</a>).</p>
+<pre class="highlight"><code class="js">Editor.create( document.querySelector( &apos;#editor&apos; ), {
+    ...
+    image: {
+        toolbar: [
+            &apos;toggleImageCaption&apos;,
+            &apos;imageStyle:inline&apos;,
+            // A dropdown containing `alignLeft` and `alignRight` options.
+            &apos;imageStyle:wrapText&apos;,
+            // A dropdown containing `alignBlockLeft`, `block` (default) and  `alignBlockRight` options.
+            &apos;imageStyle:breakText&apos;
+        ]
+    }
+} );
+</code></pre>
+</li>
+</ul>
+<p>See the <a href="../features/images/images-overview.html#image-contextual-toolbar">image feature guide</a> to learn more about the configuration of the image toolbar.</p>
+<h3 id="inserting-images"><a class="headerlink" href="#inserting-images">#</a> Inserting images</h3>
+<p>Since v29.0.0 inserting (also: pasting, dropping) an image in the middle of text will no longer split it if the <a href="../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> plugin is loaded (default). If you prefer the old behavior in your integration, this can be specified in the <a href="../api/module_image_imageinsert-ImageInsertConfig.html"><code>ImageInsert</code> plugin configuration</a>.</p>
+<h3 id="image-utilities"><a class="headerlink" href="#image-utilities">#</a> Image utilities</h3>
+<ul>
+<li>
+<p>The image utilities are now wrapped by the <a href="../api/module_image_imageutils-ImageUtils.html"><code>ImageUtils</code></a> plugin.</p>
+<pre class="highlight"><code class="js">// Before v29.0.0
+import { isImage } from &apos;./utils&apos;;
+
+const selectedElement = editor.model.document.selection.getSelectedElement();
+
+if ( isImage( selectedElement ) ) {
+    // ...
+}
+
+// Since v29.0.0
+// ...
+const imageUtils = this.editor.plugins.get( &apos;ImageUtils&apos; );
+const selectedElement = editor.model.document.selection.getSelectedElement();
+
+if ( imageUtils.isImage( selectedElement ) ) {
+    // ...
+}
+</code></pre>
+</li>
+<li>
+<p>The <a href="../api/module_image_imageutils-ImageUtils.html#function-insertImage"><code>insertImage()</code></a> function:</p>
+<ul>
+<li>No longer requires the <code>model</code> model instance to run.</li>
+<li>Allows <a href="../api/module_engine_model_selection-Selectable.html"><code>Selectable</code></a> as a second argument (previously only <a href="../api/module_engine_model_position-Position.html"><code>Position</code></a> was accepted).</li>
+<li>Supports the optional <code>imageType</code> argument to force the type of the image to be inserted.</li>
+</ul>
+<pre class="highlight"><code class="js">// Before v29.0.0
+import { insertImage } from &apos;./utils&apos;;
+
+const src = &apos;path/to/image.jpg&apos;;
+const model = ths.editor.model;
+const selection = model.document.selection;
+const position = model.createPositionAt( selection.getSelectedElement() );
+
+insertImage( model, { src }, position );
+
+// Since v29.0.0
+const src = &apos;path/to/image.jpg&apos;;
+const selection = this.editor.model.document.selection;
+const imageUtils = this.editor.plugins.get( &apos;ImageUtils&apos; );
+const imageType = &apos;imageBlock&apos;;
+
+imageUtils.insertImage( { src }, selection, imageType );
+</code></pre>
+</li>
+<li>
+<p>The <a href="../api/module_image_imageutils-ImageUtils.html#function-isImage"><code>isImage()</code></a> function recognizes both inline and block images (previously only block images).</p>
+</li>
+<li>
+<p>There are two new helpers: <a href="../api/module_image_imageutils-ImageUtils.html#function-isBlockImageView"><code>isBlockImageView()</code></a> and <a href="../api/module_image_imageutils-ImageUtils.html#function-isInlineImageView"><code>isInlineImageView()</code></a>.</p>
+</li>
+</ul>
+<p>The following helpers were removed from the public API:</p>
+<ul>
+<li><code>getSelectedImageWidget()</code>,</li>
+<li><code>getViewImgFromWidget()</code>,</li>
+<li><code>isImageAllowed()</code>,</li>
+<li><code>isImageWidget()</code>,</li>
+<li><code>toImageWidget()</code></li>
+</ul>
+<h3 id="easyimage-plugin"><a class="headerlink" href="#easyimage-plugin">#</a> <code>EasyImage</code> plugin</h3>
+<p>Please note that the <a href="../api/module_easy-image_easyimage-EasyImage.html"><code>EasyImage</code></a> plugin is no longer automatically importing the <a href="../api/module_image_image-Image.html"><code>Image</code></a> plugin as a dependency. This allows using it alone with either <a href="../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a> or <a href="../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> without loading the other one.</p>
+<p>This decoupling does not have an impact on integrations based on <a href="../installation/advanced/alternative-setups/predefined-builds.html#available-builds">official editor builds</a> or using <a href="https://ckeditor.com/ckeditor-5/online-builder/">the CKEditor 5 online builder</a>.</p>
+<p>However, for integrations that <a href="../installation/advanced/alternative-setups/integrating-from-source.html">build the editor from source</a>, this means that in order to get Easy Image working properly, the <code>Image</code> plugin (or either the <a href="../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a> or <a href="../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> plugin) must be imported separately:</p>
+<pre class="highlight"><code class="js">import EasyImage from &apos;@ckeditor/ckeditor5-easy-image/src/easyimage&apos;;
+import Image from &apos;@ckeditor/ckeditor5-image/src/image&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ EasyImage, Image, ... ],
+        toolbar: [ &apos;uploadImage&apos;, ... ],
+
+        // ...
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<p>Check out the comprehensive <a href="../features/images/images-installation.html">installation guide to images</a> in CKEditor 5 to learn more.</p>
+<h3 id="ckfinder-plugin"><a class="headerlink" href="#ckfinder-plugin">#</a> <code>CKFinder</code> plugin</h3>
+<p>Please note that the <a href="../api/module_ckfinder_ckfinder-CKFinder.html"><code>CKFinder</code></a> plugin is no longer automatically importing the <a href="../api/module_image_image-Image.html"><code>Image</code></a> plugin as a dependency. This allows using it alone with either <a href="../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a> or <a href="../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> without loading the other one.</p>
+<p>This decoupling does not have an impact on integrations based on <a href="../installation/advanced/alternative-setups/predefined-builds.html#available-builds">official editor builds</a> or using <a href="https://ckeditor.com/ckeditor-5/online-builder/">the CKEditor 5 online builder</a>.</p>
+<p>However, for integrations that <a href="../installation/advanced/alternative-setups/integrating-from-source.html">build the editor from source</a>, this means that in order to get CKFinder working properly, the <code>Image</code> plugin (or either the <a href="../api/module_image_imageblock-ImageBlock.html"><code>ImageBlock</code></a> or <a href="../api/module_image_imageinline-ImageInline.html"><code>ImageInline</code></a> plugin) must be imported separately:</p>
+<pre class="highlight"><code class="js">import CKFinder from &apos;@ckeditor/ckeditor5-ckfinder/src/ckfider&apos;;
+import Image from &apos;@ckeditor/ckeditor5-image/src/image&apos;;
+
+ClassicEditor
+    .create( document.querySelector( &apos;#editor&apos; ), {
+        plugins: [ CKFinder, Image, ... ],
+        toolbar: [ &apos;uploadImage&apos;, ... ],
+        ckfinder: {
+            // Feature configuration.
+        }
+    } )
+    .then( ... )
+    .catch( ... );
+</code></pre>
+<p>Check out the comprehensive <a href="../features/images/images-installation.html">installation guide to images</a> in CKEditor 5 to learn more.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted an outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22updating%2Fmigration-to-29.html%22&amp;project-version=34.1.0" target="_blank" rel="noopener" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree">
+                          <li><a href="updating.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating your editor</span>
+                              </div></a></li>
+                          <li><a href="changelog.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Recent release changelog</span>
+                              </div></a></li>
+                          <li><a href="migration-to-34.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v34.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-33.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v33.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-32.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v32.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-31.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v31.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-30.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v30.x</span>
+                              </div></a></li>
+                          <li><a href="">
+                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migration to v29.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-28.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v28.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-27.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v27.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-26.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v26.x</span>
+                              </div></a></li>
+                          <li><a href="migration-to-25.html">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration to v25.x</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2022 <a href="http://cksource.com" target="_blank" rel="noopener">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'installation', 'features', 'examples', 'updating', 'support', 'framework', 'api' ];var hitsGrouped = { api: [] };hitsGrouped[ 'updating' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'updating' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'updating' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'updating' ] );tags.forEach( function( tag ) {if ( tag !== 'updating' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../assets/2.1.3/scripts/app.js"></script>
+    <script src="../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

@@ -1,0 +1,3198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Migrating from predefined builds to new installation methods | CKEditor5 documentation</title>
+    <meta name="description" content="Learn how to upgrade from predefined builds to the new installation methods.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:13:04 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Migrating from predefined builds to new installation methods | CKEditor5 documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/updating/nim-migration/predefined-builds.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Migrating from predefined builds to new installation methods | CKEditor5 documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/updating/nim-migration/predefined-builds.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../getting-started/index.html">Getting started</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../examples/index.html">Examples</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../index.html">Updating</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Migrations from npm to CDN</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="migrations">
+                                  <li><a href="../migrations/vanilla-js.html" title="Vanilla JS">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/testing-suite.html" title="Vanilla JS testing suite">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS testing suite</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/react.html" title="React">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/vuejs-v3.html" title="Vue.js 3+">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                      </div></a></li>
+                                  <li><a href="../migrations/angular.html" title="Angular">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">New installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="nim-migration">
+                                  <li><a href="migration-to-new-installation-methods.html" title="Migrating to new installation methods">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating to new installation methods</span>
+                                      </div></a></li>
+                                  <li><a href="" title="Migrating from predefined builds">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migrating from predefined builds</span>
+                                      </div></a></li>
+                                  <li><a href="online-builder.html" title="Migrating from legacy Online Builder">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from legacy Online Builder</span>
+                                      </div></a></li>
+                                  <li><a href="customized-builds.html" title="Migrating from customized builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from customized builds</span>
+                                      </div></a></li>
+                                  <li><a href="dll-builds.html" title="Migrating from DLL builds">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from DLL builds</span>
+                                      </div></a></li>
+                                  <li><a href="custom-plugins.html" title="Migrating custom plugins">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating custom plugins</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">CKEditor 4 migration</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="ckeditor4-migration">
+                                  <li><a href="../ckeditor4/migration-from-ckeditor-4.html" title="Migration from CKEditor 4">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-plugin-compatibility.html" title="Plugin equivalents">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin equivalents</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-configuration-compatibility.html" title="Configuration options compatibility">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration options compatibility</span>
+                                      </div></a></li>
+                                  <li><a href="../ckeditor4/ckeditor4-troubleshooting.html" title="Troubleshooting">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Troubleshooting</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../maintaining.html" title="Maintaining your editor">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your editor</span>
+                              </div></a></li>
+                          <li><a href="../release-process.html" title="Release process">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Release process</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Update guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="update-guides">
+                                  <li><a href="../guides/updating-ckeditor-5.html" title="Updating CKEditor 5">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating CKEditor 5</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/changelog.html" title="Changelog">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Changelog</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-44.html" title="Update to v44.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v44.x</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-43.html" title="Update to v43.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v43.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-42.html" title="Update to v42.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v42.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-41.html" title="Update to v41.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v41.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-40.html" title="Update to v40.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v40.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-39.html" title="Update to v39.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v39.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-38.html" title="Update to v38.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v38.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-37.html" title="Update to v37.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v37.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-36.html" title="Update to v36.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v36.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-35.html" title="Update to v35.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v35.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-34.html" title="Update to v34.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v34.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-33.html" title="Update to v33.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v33.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-32.html" title="Update to v32.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v32.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-31.html" title="Update to v31.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v31.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-30.html" title="Update to v30.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v30.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-29.html" title="Update to v29.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v29.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-28.html" title="Update to v28.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v28.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-27.html" title="Update to v27.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v27.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-26.html" title="Update to v26.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v26.x</span>
+                                      </div></a></li>
+                                  <li><a href="../guides/update-to-25.html" title="Update to v25.x">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v25.x</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../versioning-policy.html" title="Versioning policy">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Versioning policy</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/updating/nim-migration/predefined-builds.md" title="Contribute to this guide"><img src="../../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Updating</a>
+          </div>
+          <h1 class="main__content-title">Migrating from predefined builds
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#prerequisites" title="Prerequisites">Prerequisites</a></li><li><a href="#migration-steps" title="Migration steps">Migration steps</a><ol><li><a href="#npm" title="npm">npm</a></li><li><a href="#cdn" title="CDN">CDN</a><ol><li><a href="#cdn-with-imports" title="CDN with imports">CDN with imports</a></li><li><a href="#cdn-with-global-variables" title="CDN with global variables">CDN with global variables</a></li></ol></li></ol></li></ol></nav>
+<p>Before version 42.0.0, the predefined builds were the easiest way to get started with CKEditor&nbsp;5. They provided an out-of-the-box editor with a predefined set of plugins and a default configuration. However, they had limitations, such as the inability to customize the editor by adding or removing plugins.</p>
+<p>The new installation methods solve this problem. They allow you to fully customize the editor, whether you use npm packages or browser builds.</p>
+<p>Migrating from the predefined builds to the new installation methods should mostly be a matter of copying and pasting the code below to replace the old code. The code to copy depends on the build and distribution method you used.</p>
+<h2 id="prerequisites"><a class="headerlink" href="#prerequisites">#</a> Prerequisites</h2>
+<p>Before you start, follow the usual upgrade path to update your project to use the latest version of CKEditor&nbsp;5. This will rule out any problems that may be caused by upgrading from an outdated version of CKEditor&nbsp;5.</p>
+<h2 id="migration-steps"><a class="headerlink" href="#migration-steps">#</a> Migration steps</h2>
+<h3 id="npm"><a class="headerlink" href="#npm">#</a> npm</h3>
+<p>If you are using predefined builds from npm, follow the steps below:</p>
+<ol>
+<li>
+<p>Start by uninstalling the old build package. It can be identified by the <code>@ckeditor/ckeditor5-build-</code> prefix. For example, if you were using the <code>@ckeditor/ckeditor5-build-classic</code> package, you should uninstall it. Below is the command to uninstall all predefined builds.</p>
+<pre class="highlight"><code class="bash">npm uninstall \
+    @ckeditor/ckeditor5-build-balloon \
+    @ckeditor/ckeditor5-build-balloon-block \
+    @ckeditor/ckeditor5-build-classic \
+    @ckeditor/ckeditor5-build-decoupled-document \
+    @ckeditor/ckeditor5-build-inline \
+    @ckeditor/ckeditor5-build-multi-root
+</code></pre>
+</li>
+<li>
+<p>Next, install the <code>ckeditor5</code> package. This package contains the editor and all of our open-source plugins.</p>
+<pre class="highlight"><code class="bash">npm install ckeditor5
+</code></pre>
+</li>
+<li>
+<p>(Optional) If you are using premium features from our commercial offer, you should also install the <code>ckeditor5-premium-features</code> package.</p>
+<pre class="highlight"><code class="bash">npm install ckeditor5-premium-features
+</code></pre>
+</li>
+<li>
+<p>Open the file where you initialized the editor. Then replace the import statement and the initialization code depending on the build you are using.</p>
+ <details>
+ <summary>Classic editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="js">import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+ClassicEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="js">import {
+    ClassicEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+import 'ckeditor5/ckeditor5.css';
+
+class Editor extends ClassicEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+ </details>
+ <details>
+ <summary>Inline editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="js">import InlineEditor from '@ckeditor/ckeditor5-build-inline';
+
+InlineEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="js">import {
+    InlineEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+import 'ckeditor5/ckeditor5.css';
+
+class Editor extends InlineEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+ </details>
+ <details>
+ <summary>Balloon editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="js">import BalloonEditor from '@ckeditor/ckeditor5-build-balloon';
+
+BalloonEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="js">import {
+    BalloonEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+import 'ckeditor5/ckeditor5.css';
+
+class Editor extends BalloonEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+ </details>
+ <details>
+ <summary>Balloon block editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="js">import BalloonEditor from '@ckeditor/ckeditor5-build-balloon-block';
+
+BalloonEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="js">import {
+    BalloonEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    BlockToolbar,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+import 'ckeditor5/ckeditor5.css';
+
+/*
+Create an additional stylesheet file with the given content:
+
+.ck.ck-block-toolbar-button {
+    transform: translateX( calc(-1 * var(--ck-spacing-large)) );
+}
+*/
+
+class Editor extends BalloonEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        BlockToolbar,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        blockToolbar: [
+            'undo', 'redo',
+            '|', 'heading',
+            '|', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+            '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+        ],
+        toolbar: {
+            items: [
+                'bold', 'italic', 'link'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+ </details>
+ <details>
+ <summary>Decoupled document editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="js">import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+
+DecoupledEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="js">import {
+    DecoupledEditor,
+    Essentials,
+    Alignment,
+    FontSize,
+    FontFamily,
+    FontColor,
+    FontBackgroundColor,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    Strikethrough,
+    Underline,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageResize,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    IndentBlock,
+    Link,
+    List,
+    ListProperties,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+import 'ckeditor5/ckeditor5.css';
+
+class Editor extends DecoupledEditor {
+    static builtinPlugins = [
+        Essentials,
+        Alignment,
+        FontSize,
+        FontFamily,
+        FontColor,
+        FontBackgroundColor,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        Strikethrough,
+        Underline,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageResize,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        IndentBlock,
+        Link,
+        List,
+        ListProperties,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
+                '|', 'bold', 'italic', 'underline', 'strikethrough',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'alignment',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            resizeUnit: 'px',
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:wrapText',
+                'imageStyle:breakText',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        list: {
+            properties: {
+                styles: true,
+                startIndex: true,
+                reversed: true
+            }
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+ </details>
+ <details>
+ <summary>Multi-root editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="js">import DecoupledEditor from '@ckeditor/ckeditor5-build-multi-root';
+
+MultiRootEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="js">import {
+    MultiRootEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+import 'ckeditor5/ckeditor5.css';
+
+class Editor extends MultiRootEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+ </details>
+</li>
+<li>
+<p>Unlike when using predefined builds, you are now free to customize the editor by adding or removing plugins. However, before you do this, you should test the editor to make sure it works as expected.</p>
+</li>
+</ol>
+<h3 id="cdn"><a class="headerlink" href="#cdn">#</a> CDN</h3>
+<p>If you are using the predefined builds from CDN, follow the steps below depending on whether you want to use JavaScript modules (ESM) with imports or standard (UMD) scripts with global variables.</p>
+<h4 id="cdn-with-imports"><a class="headerlink" href="#cdn-with-imports">#</a> CDN with imports</h4>
+<p>One notable difference between the old build and the new ESM build is that the former uses the <code>&lt;script&gt;</code> tags while the latter uses the <code>&lt;script type="module"&gt;</code> tags, which behave differently in some cases. For more information, see this <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#other_differences_between_modules_and_standard_scripts">MDN page explaining the differences between modules and standard scripts</a>.</p>
+<ol>
+<li>
+<p>Start by removing the <code>&lt;script&gt;</code> tags that contain the old build.</p>
+<pre class="highlight"><code class="html">&lt;script src="https://cdn.ckeditor.com/ckeditor5/&lt;VERSION&gt;/classic/ckeditor.js"&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>
+<p>Add the <code>&lt;link&gt;</code> tags to include the editor’s CSS files and the <code>&lt;script type="importmap"&gt;</code> tag to map the package names to the build URLs.</p>
+<p>2.1 If you only use the open-source features:</p>
+<pre class="highlight"><code class="html">&lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css" /&gt;
+
+&lt;script type="importmap"&gt;
+{
+    "imports": {
+        "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.js",
+        "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/44.1.0/"
+    }
+}
+&lt;/script&gt;
+</code></pre>
+<p>2.2 If you also use premium features from our commercial offer:</p>
+<pre class="highlight"><code class="html">&lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css" /&gt;
+&lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/ckeditor5-premium-features.css" /&gt;
+
+&lt;script type="importmap"&gt;
+{
+    "imports": {
+        "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.js",
+        "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/44.1.0/",
+        "ckeditor5-premium-features": "https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/ckeditor5-premium-features.js",
+        "ckeditor5-premium-features/": "https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/"
+    }
+}
+&lt;/script&gt;
+</code></pre>
+</li>
+<li>
+<p>Replace the old <code>&lt;script&gt;</code> tag, which contains the initialization code, depending on the build you are using.</p>
+ <details>
+ <summary>Classic editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+    .catch( error =&gt; {
+            console.error( error );
+    } );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script type="module"&gt;
+import {
+    ClassicEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+class Editor extends ClassicEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Inline editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+InlineEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script type="module"&gt;
+import {
+    InlineEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+class Editor extends InlineEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Balloon editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+BalloonEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script type="module"&gt;
+import {
+    BalloonEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+class Editor extends BalloonEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Balloon block editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+BalloonEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script type="module"&gt;
+import {
+    BalloonEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    BlockToolbar,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+/*
+Create an additional stylesheet file with the given content:
+
+.ck.ck-block-toolbar-button {
+    transform: translateX( calc(-1 * var(--ck-spacing-large)) );
+}
+*/
+
+class Editor extends BalloonEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        BlockToolbar,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        blockToolbar: [
+            'undo', 'redo',
+            '|', 'heading',
+            '|', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+            '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+        ],
+        toolbar: {
+            items: [
+                'bold', 'italic', 'link'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Decoupled document editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+DecoupledEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script type="module"&gt;
+import {
+    DecoupledEditor,
+    Essentials,
+    Alignment,
+    FontSize,
+    FontFamily,
+    FontColor,
+    FontBackgroundColor,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    Strikethrough,
+    Underline,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageResize,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    IndentBlock,
+    Link,
+    List,
+    ListProperties,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+class Editor extends DecoupledEditor {
+    static builtinPlugins = [
+        Essentials,
+        Alignment,
+        FontSize,
+        FontFamily,
+        FontColor,
+        FontBackgroundColor,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        Strikethrough,
+        Underline,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageResize,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        IndentBlock,
+        Link,
+        List,
+        ListProperties,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
+                '|', 'bold', 'italic', 'underline', 'strikethrough',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'alignment',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            resizeUnit: 'px',
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:wrapText',
+                'imageStyle:breakText',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        list: {
+            properties: {
+                styles: true,
+                startIndex: true,
+                reversed: true
+            }
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Multi-root editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+MultiRootEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script type="module"&gt;
+import {
+    MultiRootEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} from 'ckeditor5';
+
+class Editor extends MultiRootEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Superbuild</summary>
+ <div class="info-box notice notice__warning"><p>Please note that the snippet below does not include plugins for the <a href="../../features/math-equations.html">math equations and chemical formulas</a> and <a href="../../features/spelling-and-grammar-checking.html">spelling, grammar, and punctuation checking</a> features which were part of the old superbuild.</p><p>Please <a href="https://ckeditor.com/contact/">contact us</a> if you require these features in the CDN distribution.</p></div>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+ClassicEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script type="module"&gt;
+import {
+    ClassicEditor as ClassicEditorBase,
+    InlineEditor as InlineEditorBase,
+    BalloonEditor as BalloonEditorBase,
+    DecoupledEditor as DecoupledEditorBase,
+    CKFinderUploadAdapter,
+    Alignment,
+    Autoformat,
+    Bold,
+    Italic,
+    Underline,
+    Strikethrough,
+    Superscript,
+    Subscript,
+    Code,
+    BlockQuote,
+    CKBox,
+    CKBoxImageEdit,
+    CKFinder,
+    CloudServices,
+    CodeBlock,
+    EasyImage,
+    Essentials,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    AutoImage,
+    ImageResize,
+    ImageUpload,
+    ImageInsert,
+    PictureEditing,
+    Indent,
+    IndentBlock,
+    TextPartLanguage,
+    Link,
+    AutoLink,
+    LinkImage,
+    List,
+    ListProperties,
+    TodoList,
+    MediaEmbed,
+    Paragraph,
+    FindAndReplace,
+    FontBackgroundColor,
+    FontColor,
+    FontFamily,
+    FontSize,
+    Highlight,
+    HorizontalLine,
+    HtmlEmbed,
+    GeneralHtmlSupport,
+    HtmlComment,
+    Mention,
+    PageBreak,
+    PasteFromOffice,
+    RemoveFormat,
+    StandardEditingMode,
+    ShowBlocks,
+    Style,
+    SourceEditing,
+    SpecialCharacters,
+    SpecialCharactersEssentials,
+    Table,
+    TableToolbar,
+    TableCellProperties,
+    TableProperties,
+    TableCaption,
+    TableColumnResize,
+    TextTransformation,
+    WordCount,
+    Base64UploadAdapter
+} from 'ckeditor5';
+
+import {
+    AIAssistant,
+    OpenAITextAdapter,
+    CaseChange,
+    Comments,
+    ExportPdf,
+    ExportWord,
+    MultiLevelList,
+    Pagination,
+    RealTimeCollaborativeComments,
+    RealTimeCollaborativeRevisionHistory,
+    RealTimeCollaborativeTrackChanges,
+    RevisionHistory,
+    TrackChanges,
+    TrackChangesData
+} from 'ckeditor5-premium-features';
+
+class ClassicEditor extends ClassicEditorBase {}
+
+class InlineEditor extends InlineEditorBase {}
+
+class BalloonEditor extends BalloonEditorBase {}
+
+class DecoupledEditor extends DecoupledEditorBase {}
+
+for ( const Editor of [ ClassicEditor, InlineEditor, BalloonEditor, DecoupledEditor ] ) {
+    // Plugins to include in the build.
+    Editor.builtinPlugins = [
+        AIAssistant, OpenAITextAdapter,
+        Base64UploadAdapter,
+        Alignment,
+        Autoformat,
+        Bold, Italic, Underline, Strikethrough, Superscript, Subscript, Code,
+        BlockQuote,
+        CKBox, CKBoxImageEdit,
+        CKFinder, CKFinderUploadAdapter,
+        CloudServices,
+        CodeBlock,
+        Comments,
+        EasyImage,
+        Essentials,
+        ExportPdf,
+        ExportWord,
+        Heading,
+        Image, ImageCaption, ImageStyle, ImageToolbar, AutoImage, ImageResize, ImageUpload, ImageInsert, PictureEditing,
+        Indent, IndentBlock,
+        TextPartLanguage,
+        Link, AutoLink, LinkImage,
+        List, ListProperties, TodoList,
+        MultiLevelList,
+        MediaEmbed,
+        Paragraph,
+        FindAndReplace,
+        FontBackgroundColor, FontColor, FontFamily, FontSize,
+        Highlight,
+        HorizontalLine,
+        HtmlEmbed,
+        GeneralHtmlSupport, HtmlComment,
+        Mention,
+        PageBreak,
+        PasteFromOffice,
+        Pagination,
+        RealTimeCollaborativeComments, RealTimeCollaborativeRevisionHistory, RealTimeCollaborativeTrackChanges, PresenceList,
+        RemoveFormat,
+        RevisionHistory,
+        StandardEditingMode,
+        ShowBlocks,
+        Style,
+        SpecialCharacters, SpecialCharactersEssentials,
+        Table, TableToolbar, TableCellProperties, TableProperties, TableCaption, TableColumnResize,
+        TrackChanges, TrackChangesData,
+        TextTransformation,
+        WordCount,
+        DocumentOutline, TableOfContents, FormatPainter, Template, SlashCommand, PasteFromOfficeEnhanced, CaseChange
+    ];
+
+    Editor.defaultConfig = {
+        toolbar: [
+            'aiCommands', 'aiAssistant',
+            '|',
+            'tableOfContents', 'formatPainter', 'insertTemplate', 'caseChange',
+            '|',
+            'pagination',
+            '|',
+            'trackChanges', 'revisionHistory', 'comment',
+            '|',
+            'heading', 'style',
+            '|',
+            'removeFormat', 'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'link',
+            '|',
+            'highlight', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor',
+            '|',
+            'bulletedList', 'numberedList', 'multiLevelList', 'todoList',
+            '|',
+            'blockQuote', 'uploadImage', 'insertTable', 'mediaEmbed', 'codeBlock',
+            '|',
+            'htmlEmbed',
+            '|',
+            'alignment', 'outdent', 'indent',
+            '|',
+            'pageBreak', 'horizontalLine', 'specialCharacters',
+            '|',
+            'textPartLanguage',
+            '|',
+            'showBlocks',
+            '|',
+            'undo', 'redo', 'findAndReplace'
+        ],
+        table: {
+            contentToolbar: [
+                'tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties', 'toggleTableCaption'
+            ]
+        },
+        image: {
+            styles: [
+                'alignCenter',
+                'alignLeft',
+                'alignRight'
+            ],
+            resizeOptions: [
+                {
+                    name: 'resizeImage:original',
+                    label: 'Original size',
+                    value: null
+                },
+                {
+                    name: 'resizeImage:50',
+                    label: '50%',
+                    value: '50'
+                },
+                {
+                    name: 'resizeImage:75',
+                    label: '75%',
+                    value: '75'
+                }
+            ],
+            toolbar: [
+                'imageTextAlternative', 'toggleImageCaption', '|',
+                'imageStyle:inline', 'imageStyle:wrapText', 'imageStyle:breakText', 'imageStyle:side', '|',
+                'resizeImage', '|',
+                'ckboxImageEdit'
+            ],
+            insert: {
+                integrations: [
+                    'insertImageViaUrl'
+                ]
+            }
+        },
+        comments: {
+            editorConfig: {
+                extraPlugins: [ Bold, Italic, Underline, List ]
+            }
+        },
+        placeholder: 'Type the content here!',
+        language: 'en'
+    };
+
+    // Enable the `SourceEditing` plugin for ClassicEditor only.
+    if ( Editor === ClassicEditor ) {
+        Editor.builtinPlugins.push( SourceEditing );
+
+        Editor.defaultConfig.toolbar.push( '|', 'sourceEditing' );
+    }
+
+    // Enable the `Pagination` plugin for DecoupledEditor only.
+    if ( Editor === DecoupledEditor ) {
+        Editor.builtinPlugins.push( Pagination );
+
+        Editor.defaultConfig.toolbar.unshift( 'sourceEditing', '|' );
+
+        Editor.defaultConfig.pagination = {
+            // A4
+            pageWidth: '21cm',
+            pageHeight: '29.7cm',
+
+            pageMargins: {
+                top: '20mm',
+                bottom: '20mm',
+                right: '12mm',
+                left: '12mm'
+            }
+        };
+    }
+}
+
+ClassicEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+</li>
+<li>
+<p>Unlike when using predefined builds, you are now free to customize the editor by adding or removing plugins. However, before you do this, you should test the editor to make sure it works as expected.</p>
+</li>
+</ol>
+<h4 id="cdn-with-global-variables"><a class="headerlink" href="#cdn-with-global-variables">#</a> CDN with global variables</h4>
+<ol>
+<li>
+<p>Start by removing the <code>&lt;script&gt;</code> tags that contain the old build.</p>
+<pre class="highlight"><code class="html">&lt;script src="https://cdn.ckeditor.com/ckeditor5/&lt;VERSION&gt;/classic/ckeditor.js"&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>
+<p>Add the <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags to include the editor’s styles and code.</p>
+<p>2.1 If you only use the open-source features:</p>
+<pre class="highlight"><code class="html">&lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css" /&gt;
+&lt;script src="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.umd.js"&gt;&lt;/script&gt;
+</code></pre>
+<p>2.2 If you also use premium features from our commercial offer:</p>
+<pre class="highlight"><code class="html">&lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css" /&gt;
+&lt;link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/ckeditor5-premium-features.css" /&gt;
+&lt;script src="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.umd.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.ckeditor.com/ckeditor5-premium-features/44.1.0/ckeditor5-premium-features.umd.js"&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>
+<p>Replace the old <code>&lt;script&gt;</code> tag, which contains the initialization code, depending on the build you are using.</p>
+ <details>
+ <summary>Classic editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+    .catch( error =&gt; {
+            console.error( error );
+    } );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+const {
+    ClassicEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} = CKEDITOR;
+
+class Editor extends ClassicEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Inline editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+InlineEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+const {
+    InlineEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} = CKEDITOR;
+
+class Editor extends InlineEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Balloon editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+BalloonEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+const {
+    BalloonEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} = CKEDITOR;
+
+class Editor extends BalloonEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Balloon block editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+BalloonEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+const {
+    BalloonEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    BlockToolbar,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} = CKEDITOR;
+
+/*
+Create an additional stylesheet file with the given content:
+
+.ck.ck-block-toolbar-button {
+    transform: translateX( calc(-1 * var(--ck-spacing-large)) );
+}
+*/
+
+class Editor extends BalloonEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        BlockToolbar,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        blockToolbar: [
+            'undo', 'redo',
+            '|', 'heading',
+            '|', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+            '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+        ],
+        toolbar: {
+            items: [
+                'bold', 'italic', 'link'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Decoupled document editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+DecoupledEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+const {
+    DecoupledEditor,
+    Essentials,
+    Alignment,
+    FontSize,
+    FontFamily,
+    FontColor,
+    FontBackgroundColor,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    Strikethrough,
+    Underline,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageResize,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    IndentBlock,
+    Link,
+    List,
+    ListProperties,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} = CKEDITOR;
+
+class Editor extends DecoupledEditor {
+    static builtinPlugins = [
+        Essentials,
+        Alignment,
+        FontSize,
+        FontFamily,
+        FontColor,
+        FontBackgroundColor,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        Strikethrough,
+        Underline,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageResize,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        IndentBlock,
+        Link,
+        List,
+        ListProperties,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
+                '|', 'bold', 'italic', 'underline', 'strikethrough',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'alignment',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            resizeUnit: 'px',
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:wrapText',
+                'imageStyle:breakText',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        list: {
+            properties: {
+                styles: true,
+                startIndex: true,
+                reversed: true
+            }
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Multi-root editor</summary>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+MultiRootEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+const {
+    MultiRootEditor,
+    Essentials,
+    CKFinderUploadAdapter,
+    Autoformat,
+    Bold,
+    Italic,
+    BlockQuote,
+    CKBox,
+    CKFinder,
+    EasyImage,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    ImageUpload,
+    PictureEditing,
+    Indent,
+    Link,
+    List,
+    MediaEmbed,
+    Paragraph,
+    PasteFromOffice,
+    Table,
+    TableToolbar,
+    TextTransformation,
+    CloudServices
+} = CKEDITOR;
+
+class Editor extends MultiRootEditor {
+    static builtinPlugins = [
+        Essentials,
+        CKFinderUploadAdapter,
+        Autoformat,
+        Bold,
+        Italic,
+        BlockQuote,
+        CKBox,
+        CKFinder,
+        CloudServices,
+        EasyImage,
+        Heading,
+        Image,
+        ImageCaption,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Indent,
+        Link,
+        List,
+        MediaEmbed,
+        Paragraph,
+        PasteFromOffice,
+        PictureEditing,
+        Table,
+        TableToolbar,
+        TextTransformation
+    ];
+
+    static defaultConfig = {
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|', 'heading',
+                '|', 'bold', 'italic',
+                '|', 'link', 'uploadImage', 'insertTable', 'blockQuote', 'mediaEmbed',
+                '|', 'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        image: {
+            toolbar: [
+                'imageStyle:inline',
+                'imageStyle:block',
+                'imageStyle:side',
+                '|',
+                'toggleImageCaption',
+                'imageTextAlternative'
+            ]
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
+        language: 'en'
+    };
+}
+
+Editor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+ <details>
+ <summary>Superbuild</summary>
+ <div class="info-box notice notice__warning"><p>Please note that the snippet below does not include plugins for the <a href="../../features/math-equations.html">math equations and chemical formulas</a> and <a href="../../features/spelling-and-grammar-checking.html">spelling, grammar, and punctuation checking</a> features which were part of the old superbuild.</p><p>Please <a href="https://ckeditor.com/contact/">contact us</a> if you require these features in the CDN distribution.</p></div>
+<p>Before:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+ClassicEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+<p>After:</p>
+<pre class="highlight"><code class="html">&lt;script&gt;
+const {
+    ClassicEditor: ClassicEditorBase,
+    InlineEditor: InlineEditorBase,
+    BalloonEditor: BalloonEditorBase,
+    DecoupledEditor: DecoupledEditorBase,
+    CKFinderUploadAdapter,
+    Alignment,
+    Autoformat,
+    Bold,
+    Italic,
+    Underline,
+    Strikethrough,
+    Superscript,
+    Subscript,
+    Code,
+    BlockQuote,
+    CKBox,
+    CKBoxImageEdit,
+    CKFinder,
+    CloudServices,
+    CodeBlock,
+    EasyImage,
+    Essentials,
+    Heading,
+    Image,
+    ImageCaption,
+    ImageStyle,
+    ImageToolbar,
+    AutoImage,
+    ImageResize,
+    ImageUpload,
+    ImageInsert,
+    PictureEditing,
+    Indent,
+    IndentBlock,
+    TextPartLanguage,
+    Link,
+    AutoLink,
+    LinkImage,
+    List,
+    ListProperties,
+    TodoList,
+    MediaEmbed,
+    Paragraph,
+    FindAndReplace,
+    FontBackgroundColor,
+    FontColor,
+    FontFamily,
+    FontSize,
+    Highlight,
+    HorizontalLine,
+    HtmlEmbed,
+    GeneralHtmlSupport,
+    HtmlComment,
+    Mention,
+    PageBreak,
+    PasteFromOffice,
+    RemoveFormat,
+    StandardEditingMode,
+    ShowBlocks,
+    Style,
+    SourceEditing,
+    SpecialCharacters,
+    SpecialCharactersEssentials,
+    Table,
+    TableToolbar,
+    TableCellProperties,
+    TableProperties,
+    TableCaption,
+    TableColumnResize,
+    TextTransformation,
+    WordCount,
+    Base64UploadAdapter
+} = CKEDITOR;
+
+const {
+    AIAssistant,
+    OpenAITextAdapter,
+    CaseChange,
+    Comments,
+    ExportPdf,
+    ExportWord,
+    MultiLevelList,
+    Pagination,
+    RealTimeCollaborativeComments,
+    RealTimeCollaborativeRevisionHistory,
+    RealTimeCollaborativeTrackChanges,
+    RevisionHistory,
+    TrackChanges,
+    TrackChangesData
+} = CKEDITOR_PREMIUM_FEATURES;
+
+class ClassicEditor extends ClassicEditorBase {}
+
+class InlineEditor extends InlineEditorBase {}
+
+class BalloonEditor extends BalloonEditorBase {}
+
+class DecoupledEditor extends DecoupledEditorBase {}
+
+for ( const Editor of [ ClassicEditor, InlineEditor, BalloonEditor, DecoupledEditor ] ) {
+    // Plugins to include in the build.
+    Editor.builtinPlugins = [
+        AIAssistant, OpenAITextAdapter,
+        Base64UploadAdapter,
+        Alignment,
+        Autoformat,
+        Bold, Italic, Underline, Strikethrough, Superscript, Subscript, Code,
+        BlockQuote,
+        CKBox, CKBoxImageEdit,
+        CKFinder, CKFinderUploadAdapter,
+        CloudServices,
+        CodeBlock,
+        Comments,
+        EasyImage,
+        Essentials,
+        ExportPdf,
+        ExportWord,
+        Heading,
+        Image, ImageCaption, ImageStyle, ImageToolbar, AutoImage, ImageResize, ImageUpload, ImageInsert, PictureEditing,
+        Indent, IndentBlock,
+        TextPartLanguage,
+        Link, AutoLink, LinkImage,
+        List, ListProperties, TodoList,
+        MultiLevelList,
+        MediaEmbed,
+        Paragraph,
+        FindAndReplace,
+        FontBackgroundColor, FontColor, FontFamily, FontSize,
+        Highlight,
+        HorizontalLine,
+        HtmlEmbed,
+        GeneralHtmlSupport, HtmlComment,
+        Mention,
+        PageBreak,
+        PasteFromOffice,
+        Pagination,
+        RealTimeCollaborativeComments, RealTimeCollaborativeRevisionHistory, RealTimeCollaborativeTrackChanges, PresenceList,
+        RemoveFormat,
+        RevisionHistory,
+        StandardEditingMode,
+        ShowBlocks,
+        Style,
+        SpecialCharacters, SpecialCharactersEssentials,
+        Table, TableToolbar, TableCellProperties, TableProperties, TableCaption, TableColumnResize,
+        TrackChanges, TrackChangesData,
+        TextTransformation,
+        WordCount,
+        DocumentOutline, TableOfContents, FormatPainter, Template, SlashCommand, PasteFromOfficeEnhanced, CaseChange
+    ];
+
+    Editor.defaultConfig = {
+        toolbar: [
+            'aiCommands', 'aiAssistant',
+            '|',
+            // Productivity pack.
+            'tableOfContents', 'formatPainter', 'insertTemplate', 'caseChange',
+            '|',
+            'pagination',
+            '|',
+            'trackChanges', 'revisionHistory', 'comment',
+            '|',
+            'heading', 'style',
+            '|',
+            'removeFormat', 'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', 'link',
+            '|',
+            'highlight', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor',
+            '|',
+            'bulletedList', 'numberedList', 'multiLevelList', 'todoList',
+            '|',
+            'blockQuote', 'uploadImage', 'insertTable', 'mediaEmbed', 'codeBlock',
+            '|',
+            'htmlEmbed',
+            '|',
+            'alignment', 'outdent', 'indent',
+            '|',
+            'pageBreak', 'horizontalLine', 'specialCharacters',
+            '|',
+            'textPartLanguage',
+            '|',
+            'showBlocks',
+            '|',
+            'undo', 'redo', 'findAndReplace'
+        ],
+        table: {
+            contentToolbar: [
+                'tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties', 'toggleTableCaption'
+            ]
+        },
+        image: {
+            styles: [
+                'alignCenter',
+                'alignLeft',
+                'alignRight'
+            ],
+            resizeOptions: [
+                {
+                    name: 'resizeImage:original',
+                    label: 'Original size',
+                    value: null
+                },
+                {
+                    name: 'resizeImage:50',
+                    label: '50%',
+                    value: '50'
+                },
+                {
+                    name: 'resizeImage:75',
+                    label: '75%',
+                    value: '75'
+                }
+            ],
+            toolbar: [
+                'imageTextAlternative', 'toggleImageCaption', '|',
+                'imageStyle:inline', 'imageStyle:wrapText', 'imageStyle:breakText', 'imageStyle:side', '|',
+                'resizeImage', '|',
+                'ckboxImageEdit'
+            ],
+            insert: {
+                integrations: [
+                    'insertImageViaUrl'
+                ]
+            }
+        },
+        comments: {
+            editorConfig: {
+                extraPlugins: [ Bold, Italic, Underline, List ]
+            }
+        },
+        placeholder: 'Type the content here!',
+        language: 'en'
+    };
+
+    // Enable the `SourceEditing` plugin for ClassicEditor only.
+    if ( Editor === ClassicEditor ) {
+        Editor.builtinPlugins.push( SourceEditing );
+
+        Editor.defaultConfig.toolbar.push( '|', 'sourceEditing' );
+    }
+
+    // Enable the `Pagination` plugin for DecoupledEditor only.
+    if ( Editor === DecoupledEditor ) {
+        Editor.builtinPlugins.push( Pagination );
+
+        Editor.defaultConfig.toolbar.unshift( 'sourceEditing', '|' );
+
+        Editor.defaultConfig.pagination = {
+            // A4
+            pageWidth: '21cm',
+            pageHeight: '29.7cm',
+
+            pageMargins: {
+                top: '20mm',
+                bottom: '20mm',
+                right: '12mm',
+                left: '12mm'
+            }
+        };
+    }
+}
+
+ClassicEditor
+    .create( /* Configuration */ )
+    .catch( error =&gt; console.error( error ) );
+&lt;/script&gt;
+</code></pre>
+ </details>
+</li>
+<li>
+<p>Unlike when using predefined builds, you are now free to customize the editor by adding or removing plugins. However, before you do this, you should test the editor to make sure it works as expected.</p>
+</li>
+</ol>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22updating%2Fnim-migration%2Fpredefined-builds.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Migrations from npm to CDN</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="migrations">
+                                    <li><a href="../migrations/vanilla-js.html" title="Vanilla JS">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/testing-suite.html" title="Vanilla JS testing suite">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS testing suite</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/react.html" title="React">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/vuejs-v3.html" title="Vue.js 3+">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                        </div></a></li>
+                                    <li><a href="../migrations/angular.html" title="Angular">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">New installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="nim-migration">
+                                    <li><a href="migration-to-new-installation-methods.html" title="Migrating to new installation methods">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating to new installation methods</span>
+                                        </div></a></li>
+                                    <li><a href="" title="Migrating from predefined builds">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Migrating from predefined builds</span>
+                                        </div></a></li>
+                                    <li><a href="online-builder.html" title="Migrating from legacy Online Builder">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from legacy Online Builder</span>
+                                        </div></a></li>
+                                    <li><a href="customized-builds.html" title="Migrating from customized builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from customized builds</span>
+                                        </div></a></li>
+                                    <li><a href="dll-builds.html" title="Migrating from DLL builds">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating from DLL builds</span>
+                                        </div></a></li>
+                                    <li><a href="custom-plugins.html" title="Migrating custom plugins">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migrating custom plugins</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">CKEditor 4 migration</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="ckeditor4-migration">
+                                    <li><a href="../ckeditor4/migration-from-ckeditor-4.html" title="Migration from CKEditor 4">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Migration from CKEditor 4</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-plugin-compatibility.html" title="Plugin equivalents">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Plugin equivalents</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-configuration-compatibility.html" title="Configuration options compatibility">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration options compatibility</span>
+                                        </div></a></li>
+                                    <li><a href="../ckeditor4/ckeditor4-troubleshooting.html" title="Troubleshooting">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Troubleshooting</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../maintaining.html" title="Maintaining your editor">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Maintaining your editor</span>
+                              </div></a></li>
+                          <li><a href="../release-process.html" title="Release process">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Release process</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Update guides</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="update-guides">
+                                    <li><a href="../guides/updating-ckeditor-5.html" title="Updating CKEditor 5">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Updating CKEditor 5</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/changelog.html" title="Changelog">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Changelog</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-44.html" title="Update to v44.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v44.x</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-43.html" title="Update to v43.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v43.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-42.html" title="Update to v42.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v42.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-41.html" title="Update to v41.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v41.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-40.html" title="Update to v40.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v40.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-39.html" title="Update to v39.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v39.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-38.html" title="Update to v38.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v38.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-37.html" title="Update to v37.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v37.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-36.html" title="Update to v36.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v36.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-35.html" title="Update to v35.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v35.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-34.html" title="Update to v34.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v34.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-33.html" title="Update to v33.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v33.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-32.html" title="Update to v32.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v32.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-31.html" title="Update to v31.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v31.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-30.html" title="Update to v30.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v30.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-29.html" title="Update to v29.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v29.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-28.html" title="Update to v28.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v28.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-27.html" title="Update to v27.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v27.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-26.html" title="Update to v26.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v26.x</span>
+                                        </div></a></li>
+                                    <li><a href="../guides/update-to-25.html" title="Update to v25.x">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Update to v25.x</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../versioning-policy.html" title="Versioning policy">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Versioning policy</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'updating' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'updating' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'updating' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'updating' ] );tags.forEach( function( tag ) {if ( tag !== 'updating' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

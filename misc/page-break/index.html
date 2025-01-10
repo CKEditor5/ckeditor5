@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor 5 – Page Break proof of concept</title>
+	<style>
+		body {
+			max-width: 800px;
+			margin: 20px auto;
+
+			font-size: 14px;
+			font-family: Helvetica, Arial, sans-serif;
+		}
+
+		body > .ck-content:not(.ck-focused) {
+			border: 1px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.info {
+			background: rgb(255, 218, 150);
+			border: 3px dashed #000;
+			padding: 1em 2em;
+			margin-top: 2em;
+			margin-bottom: 2em;
+		}
+
+		.ck .ck-content .image {
+			overflow: visible;
+		}
+
+		.visuallyhidden {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			border: 0;
+			padding: 0;
+			white-space: nowrap;
+			clip-path: inset(100%);
+			clip: rect(0 0 0 0);
+			overflow: hidden;
+		}
+	</style>
+	<style id="content-styles">
+		/*
+		 * CKEditor 5 (v12.4.0) content styles.
+		 * Generated on Mon, 23 Sep 2019 12:48:01 GMT.
+		 * For more information, check out https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/content-styles.html
+		 */
+		:root {
+			--ck-image-style-spacing: 1.5em;
+		}
+
+		/* ckeditor5-image/theme/imageresize.css */
+		.ck-content .image.image_resized {
+			max-width: 100%;
+			display: block;
+			box-sizing: border-box
+		}
+		/* ckeditor5-image/theme/imageresize.css */
+		.ck-content .image.image_resized img {
+			width: 100%;
+		}
+		/* ckeditor5-image/theme/imageresize.css */
+		.ck-content .image.image_resized > figcaption {
+			display: block;
+		}
+		/* ckeditor5-image/theme/imagecaption.css */
+		.ck-content .image > figcaption {
+			display: table-caption;
+			caption-side: bottom;
+			word-break: break-word;
+			color: hsl(0, 0%, 20%);
+			background-color: hsl(0, 0%, 97%);
+			padding: .6em;
+			font-size: .75em;
+			outline-offset: -1px;
+		}
+		/* ckeditor5-basic-styles/theme/code.css */
+		.ck-content code {
+			background-color: hsla(0, 0%, 78%, 0.3);
+			padding: .15em;
+			border-radius: 2px;
+		}
+		/* ckeditor5-image/theme/image.css */
+		.ck-content .image {
+			display: table;
+			clear: both;
+			text-align: center;
+			margin: 1em auto
+		}
+		/* ckeditor5-image/theme/image.css */
+		.ck-content .image > img {
+			display: block;
+			margin: 0 auto;
+			max-width: 100%;
+			min-width: 50px;
+		}
+		/* ckeditor5-table/theme/table.css */
+		.ck-content .table {
+			margin: 1em auto;
+			display: table
+		}
+		/* ckeditor5-table/theme/table.css */
+		.ck-content .table table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			border: 1px double hsl(0, 0%, 70%)
+		}
+		/* ckeditor5-table/theme/table.css */
+		.ck-content .table table td,
+		.ck-content .table table th {
+			min-width: 2em;
+			padding: .4em;
+			border-color: hsl(0, 0%, 85%);
+		}
+		/* ckeditor5-table/theme/table.css */
+		.ck-content .table table td,
+		.ck-content .table table th {
+			min-width: 2em;
+			padding: .4em;
+			border-color: hsl(0, 0%, 85%);
+		}
+		/* ckeditor5-table/theme/table.css */
+		.ck-content .table table th {
+			font-weight: bold;
+			background: hsl(0, 0%, 98%);
+		}
+		/* ckeditor5-image/theme/imagestyle.css */
+		.ck-content .image-style-side,
+		.ck-content .image-style-align-left,
+		.ck-content .image-style-align-center,
+		.ck-content .image-style-align-right {
+			max-width: 50%;
+		}
+		/* ckeditor5-image/theme/imagestyle.css */
+		.ck-content .image-style-side,
+		.ck-content .image-style-align-left,
+		.ck-content .image-style-align-center,
+		.ck-content .image-style-align-right {
+			max-width: 50%;
+		}
+		/* ckeditor5-image/theme/imagestyle.css */
+		.ck-content .image-style-side,
+		.ck-content .image-style-align-left,
+		.ck-content .image-style-align-center,
+		.ck-content .image-style-align-right {
+			max-width: 50%;
+		}
+		/* ckeditor5-image/theme/imagestyle.css */
+		.ck-content .image-style-side,
+		.ck-content .image-style-align-left,
+		.ck-content .image-style-align-center,
+		.ck-content .image-style-align-right {
+			max-width: 50%;
+		}
+		/* ckeditor5-image/theme/imagestyle.css */
+		.ck-content .image-style-side {
+			float: right;
+			margin-left: var(--ck-image-style-spacing);
+		}
+		/* ckeditor5-image/theme/imagestyle.css */
+		.ck-content .image-style-align-left {
+			float: left;
+			margin-right: var(--ck-image-style-spacing);
+		}
+		/* ckeditor5-image/theme/imagestyle.css */
+		.ck-content .image-style-align-center {
+			margin-left: auto;
+			margin-right: auto;
+		}
+		/* ckeditor5-image/theme/imagestyle.css */
+		.ck-content .image-style-align-right {
+			float: right;
+			margin-left: var(--ck-image-style-spacing);
+		}
+		/* ckeditor5-block-quote/theme/blockquote.css */
+		.ck-content blockquote {
+			overflow: hidden;
+			padding-right: 1.5em;
+			padding-left: 1.5em;
+			margin-left: 0;
+			margin-right: 0;
+			font-style: italic;
+			border-left: solid 5px hsl(0, 0%, 80%);
+		}
+		/* ckeditor5-block-quote/theme/blockquote.css */
+		.ck-content[dir="rtl"] blockquote {
+			border-left: 0;
+			border-right: solid 5px hsl(0, 0%, 80%);
+		}
+		/* ckeditor5-media-embed/theme/mediaembed.css */
+		.ck-content .media {
+			clear: both;
+			margin: 1em 0;
+			display: block;
+			min-width: 15em;
+		}
+	</style>
+</head>
+<body>
+
+<h1>CKEditor 5 – <a href="https://github.com/ckeditor/ckeditor5/issues/1194">Page Break</a> proof of concept</h1>
+
+<section class="info">
+	<p>⚠️ This demo is an early proof of concept of the page break in <a href="https://ckeditor.com/ckeditor-5/">CKEditor 5</a>.
+	For more details and updates, check out the <a href="https://github.com/ckeditor/ckeditor5/issues/1194">issue</a> on GitHub.</p>
+</section>
+
+<section>
+	<p>Click the button below in order to open a print preview window with the editor's content.</p>
+	<p>
+		<button type="button" id="print-data-action">Print editor data</button>
+	</p>
+</section>
+
+<iframe class="visuallyhidden" id="print-data-container" aria-hidden="true" tabindex="-1"></iframe>
+
+<div id="classic-editor">
+	<h2>The three greatest things you learn from traveling</h2>
+
+	<p>Like all the great things on earth traveling teaches us by example. Here are some of the most precious lessons I’ve learned over the years of traveling.</p>
+
+	<div style="page-break-after:always;"><span style="display:none;">&nbsp;</span></div>
+
+	<h2>Appreciation of diversity</h2>
+
+	<figure class="image image-style-side">
+		<img src="../../img/sample.jpg" alt="Sample image" style="width: 475px">
+	</figure>
+
+	<p>Getting used to an entirely different culture can be challenging. While it’s also nice to learn about cultures online or from books, nothing comes close to experiencing cultural diversity in person. You learn to appreciate each and every single one of the differences while you become more culturally fluid.</p>
+
+	<blockquote>
+		<p>The real voyage of discovery consists not in seeking new landscapes, but having new eyes.</p>
+		<p><strong>Marcel Proust</strong></p>
+	</blockquote>
+
+	<div style="page-break-after:always;"><span style="display:none;">&nbsp;</span></div>
+
+	<h2>Improvisation</h2>
+
+	<p>Life doesn't allow us to execute every single plan perfectly. This especially seems to be the case when you travel. You plan it down to every minute with a big checklist; but when it comes to executing it, something always comes up and you’re left with your improvising skills. You learn to adapt as you go. Here’s how my travel checklist looks now:</p>
+
+	<ul>
+		<li>buy the ticket</li>
+		<li>start your adventure</li>
+	</ul>
+
+	<figure class="image">
+		<img src="../../img/sample.jpg" alt="Sample image" style="width: 275px">
+	</figure>
+
+	<h2>Confidence</h2>
+
+	<p>Going to a new place can be quite terrifying. While change and uncertainty makes us scared, traveling teaches us how ridiculous it is to be afraid of something before it happens. The moment you face your fear and see there was nothing to be afraid of, is the moment you discover bliss.</p>
+
+	<p>Going to a new place can be quite terrifying. While change and uncertainty makes us scared, traveling teaches us how ridiculous it is to be afraid of something before it happens. The moment you face your fear and see there was nothing to be afraid of, is the moment you discover bliss.</p>
+
+	<h2>The three greatest things you learn from traveling</h2>
+
+	<p>Like all the great things on earth traveling teaches us by example. Here are some of the most precious lessons I’ve learned over the years of traveling.</p>
+</div>
+
+<script src="build/ckeditor.js"></script>
+<script>
+	ClassicEditor
+		.create( document.querySelector( '#classic-editor' ) )
+		.then( editor => {
+			window.editor = editor;
+			console.log( 'Created editor. You can use window.editor to access it.', editor );
+
+			document.querySelector( '#print-data-action' ).addEventListener( 'click', () => {
+				const contentStyles = document.querySelector( '#content-styles' );
+				const iframeElement = document.querySelector( '#print-data-container' );
+
+				iframeElement.srcdoc = '<html>' +
+						'<head>' +
+							`<title>${ document.title }</title>` +
+							contentStyles.outerHTML +
+						'</head>' +
+						'<body class="ck-content">' +
+							editor.getData() +
+							'<script>' +
+								'window.addEventListener( \'DOMContentLoaded\', () => { window.print(); } );' +
+							'</' + 'script>' +
+						'</body>' +
+					'</html>';
+				} );
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+
+</body>
+</html>

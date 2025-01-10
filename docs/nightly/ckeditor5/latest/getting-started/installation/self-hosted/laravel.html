@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Compatibility with Laravel using a ZIP archive | CKEditor 5 Documentation</title>
+    <meta name="description" content="Integrate CKEditor 5 with Laravel using a ZIP archive.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:12:57 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Compatibility with Laravel using a ZIP archive | CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/getting-started/installation/self-hosted/laravel.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Compatibility with Laravel using a ZIP archive | CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/getting-started/installation/self-hosted/laravel.html">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../snippets/assets.css" type="text/css" data-cke="true">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../index.html">CKEditor 5</a></li>
+          <li><a class="top__menu__item--active" href="../../index.html">Getting started</a></li>
+          <li><a href="../../../features/index.html">Features</a></li>
+          <li><a href="../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../api/index.html">API</a></li>
+          <li><a href="../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../index.html">Getting started</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../../index.html" title="Quick start">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Installation</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="installation">
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Cloud (CDN)</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list" data-id="cloud">
+                                          <li><a href="../cloud/quick-start.html" title="Vanilla JS">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                              </div></a></li>
+                                          <li><a href="../cloud/angular.html" title="Angular">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">React</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="react-cdn">
+                                                  <li><a href="../cloud/react/react-default-cdn.html" title="Default integration">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Default integration</span>
+                                                      </div></a></li>
+                                                  <li><a href="../cloud/react/react-multiroot-cdn.html" title="Multi-root integration">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-root integration</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                          <li><a href="../cloud/next-js.html" title="Next.js">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Next.js</span>
+                                              </div></a></li>
+                                          <li><a href="../cloud/vuejs-v2.html" title="Vue.js 2.x">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x</span>
+                                              </div></a></li>
+                                          <li><a href="../cloud/vuejs-v3.html" title="Vue.js 3+">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                              </div></a></li>
+                                          <li><a href="../cloud/laravel.html" title="Laravel">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Laravel</span>
+                                              </div></a></li>
+                                          <li><a href="../cloud/dotnet.html" title=".NET">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">.NET</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Self-hosted (npm/ZIP)</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list" data-id="self-hosted">
+                                          <li><a href="quick-start.html" title="Vanilla JS">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                              </div></a></li>
+                                          <li><a href="angular.html" title="Angular">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">React</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="react-npm">
+                                                  <li><a href="react/react-default-npm.html" title="Default integration">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Default integration</span>
+                                                      </div></a></li>
+                                                  <li><a href="react/react-multiroot-npm.html" title="Multi-root integration">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-root integration</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                          <li><a href="next-js.html" title="Next.js">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Next.js</span>
+                                              </div></a></li>
+                                          <li><a href="vuejs-v2.html" title="Vue.js 2.x">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x</span>
+                                              </div></a></li>
+                                          <li><a href="vuejs-v3.html" title="Vue.js 3+">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                              </div></a></li>
+                                          <li><a href="" title="Laravel">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Laravel</span>
+                                              </div></a></li>
+                                          <li><a href="dotnet.html" title=".NET">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">.NET</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../css.html" title="CSS frameworks">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                      </div></a></li>
+                                  <li><a href="../drupal-real-time-collaboration.html" title="Drupal">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drupal</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Setup</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="setup">
+                                  <li><a href="../../setup/getting-and-setting-data.html" title="Getting and setting data">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and setting data</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/editor-lifecycle.html" title="Editor lifecycle">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor lifecycle</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/editor-types.html" title="Editor types">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor types</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/configuration.html" title="Configuring features">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuring features</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/toolbar.html" title="Editor toolbars">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbars</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/menubar.html" title="Menu bar">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Menu bar</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/ui-language.html" title="UI language">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/css.html" title="Editor and content styles">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor and content styles</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/typescript-support.html" title="TypeScript support">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">TypeScript support</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/csp.html" title="Content Security Policy (CSP)">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy (CSP)</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/optimizing-build-size.html" title="Optimizing build size">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Optimizing build size</span>
+                                      </div></a></li>
+                                  <li><a href="../../setup/loading-cdn-resources.html" title="Loading CDN resources">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Loading CDN resources</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Licensing</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="licensing">
+                                  <li><a href="../../licensing/license-key-and-activation.html" title="License key and activation">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">License key and activation</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="../../licensing/usage-based-billing.html" title="Usage-based billing">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Usage-based billing</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="../../licensing/license-and-legal.html" title="Editor license">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor license</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                      </div></a></li>
+                                  <li><a href="../../licensing/managing-ckeditor-logo.html" title="Whitelabelling the editor">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Whitelabelling the editor</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Legacy installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="legacy">
+                                  <li><a href="../../legacy/legacy-imports.html" title="Imports in the legacy setup">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Imports in the legacy setup</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Basics</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list" data-id="installation-methods">
+                                          <li><a href="../../legacy/installation-methods/quick-start.html" title="(Legacy) Quick start">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Quick start</span>
+                                              </div></a></li>
+                                          <li><a href="../../legacy/installation-methods/predefined-builds.html" title="(Legacy) Predefined builds">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Predefined builds</span>
+                                              </div></a></li>
+                                          <li><a href="../../legacy/installation-methods/quick-start-other.html" title="(Legacy) Customized installation">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Customized installation</span>
+                                              </div></a></li>
+                                          <li><a href="../../legacy/installation-methods/api-and-events.html" title="(Legacy) API and events">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) API and events</span>
+                                              </div></a></li>
+                                          <li><a href="../../legacy/installation-methods/extending-features.html" title="(Legacy) Extending features">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Extending features</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced concepts</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list" data-id="advanced">
+                                          <li><a href="../../legacy/advanced/using-two-editors.html" title="(Legacy) Using two different editors">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Using two different editors</span>
+                                              </div></a></li>
+                                          <li><a href="../../legacy/advanced/content-styles.html" title="(Legacy) Content styles">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Content styles</span>
+                                              </div></a></li>
+                                          <li>
+                                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                            </div>
+                                            <ul class="tree__item-nested-list" data-id="alternative-setups">
+                                                  <li><a href="../../legacy/advanced/alternative-setups/integrating-from-source-webpack.html" title="(Legacy) Integrating from source using webpack">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Integrating from source using webpack</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../legacy/advanced/alternative-setups/integrating-from-source-vite.html" title="(Legacy) Integrating from source using Vite">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Integrating from source using Vite</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../legacy/advanced/alternative-setups/dll-builds.html" title="(Legacy) DLL builds">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) DLL builds</span>
+                                                      </div></a></li>
+                                                  <li><a href="../../legacy/advanced/alternative-setups/dll-builds-collaboration-features.html" title="(Legacy) DLL builds for Collaboration Features">
+                                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) DLL builds for Collaboration Features</span>
+                                                      </div></a></li>
+                                            </ul>
+                                          </li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../../legacy/working-with-typescript.html" title="(Legacy) TypeScript support">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) TypeScript support</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Integrations</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list" data-id="legacy-integrations">
+                                          <li><a href="../../legacy/legacy-integrations/angular.html" title="(Legacy) Angular">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Angular</span>
+                                              </div></a></li>
+                                          <li><a href="../../legacy/legacy-integrations/react.html" title="(Legacy) React">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) React</span>
+                                              </div></a></li>
+                                          <li><a href="../../legacy/legacy-integrations/vuejs-v2.html" title="(Legacy) Vue.js 2.x">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Vue.js 2.x</span>
+                                              </div></a></li>
+                                          <li><a href="../../legacy/legacy-integrations/vuejs-v3.html" title="(Legacy) Vue.js 3+">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Vue.js 3+</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="features"><a href="../../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/docs/getting-started/integrations/laravel.md" title="Contribute to this guide"><img src="../../../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Getting started</a>
+          </div>
+          <h1 class="main__content-title">Compatibility with Laravel using ZIP
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#setting-up-the-project" title="Setting up the project">Setting up the project</a></li><li><a href="#integrating-using-zip" title="Integrating using ZIP">Integrating using ZIP</a></li></ol></nav>
+<p>As a pure JavaScript/TypeScript application, CKEditor&nbsp;5 will work inside any environment that supports such components. While we do not offer official integrations for any non-JavaScript frameworks, you can include a custom configuration of CKEditor&nbsp;5 in a non-JS framework of your choice, for example, the PHP-based <a href="https://laravel.com/">Laravel</a>.</p>
+<div class="live-snippet"><div class="builder-cta">
+	<h2 id="ckeditor-5-builder">CKEditor&nbsp;5 Builder</h2>
+
+	<p>
+		In our interactive Builder you can quickly get a taste of CKEditor&nbsp;5. It offers an easy-to-use user interface to help you configure, preview, and download the editor suited to your needs. You can easily select:
+	</p>
+
+	<ul>
+		<li>The editor type.</li>
+		<li>The features you need.</li>
+		<li>Preferred framework (React, Angular, Vue or Vanilla JS).</li>
+		<li>Preferred distribution method.</li>
+	</ul>
+
+	<p>At the end you get ready-to-use code tailored to your needs!</p>
+
+	<p>
+		<a href="https://ckeditor.com/ckeditor-5/builder?redirect=docs" target="_blank">Check out our interactive Builder</a>
+	</p>
+</div>
+
+<style>
+	.builder-cta {
+		border: 1px solid #ECE6F7;
+		border-left: 4px solid #A183D9;
+		padding: 24px;
+		margin: 32px 0 20px;
+	}
+
+	.builder-cta h2 {
+		padding-top: 0;
+		border: 0;
+	}
+
+	.builder-cta ul {
+		margin: 18px 24px;
+	}
+
+	.builder-cta ul li {
+		list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 16" width="18" height="18" fill="none"><path fill="%236A38C1" fill-rule="evenodd" d="M11.041 14.432a.74.74 0 0 0 .24-.182l3.368-3.569a.763.763 0 0 0 .236-.246.816.816 0 0 0 .074-.678.794.794 0 0 0-.175-.297L11.28 5.75a.742.742 0 0 0-.24-.182.705.705 0 0 0-.824.162.824.824 0 0 0 .019 1.128l2.257 2.392H3.75a.75.75 0 0 0 0 1.5h8.742l-2.257 2.392a.823.823 0 0 0-.019 1.128c.071.075.155.133.247.173a.703.703 0 0 0 .578-.01Z" clip-rule="evenodd"/></svg>');
+		padding-inline-start: 4px;
+	}
+
+	.builder-cta ul li+li {
+		margin-top: 4px;
+	}
+
+	.builder-cta a {
+		display: inline-block;
+		background-color: #6A38C1;
+		color: #FFFFFF;
+		font-weight: bold;
+		text-decoration: none;
+		margin-top: 8px;
+		padding: 8px 16px;
+		border-radius: 6px;
+	}
+
+	.builder-cta a:hover,
+	.builder-cta a:focus {
+		background-color: #5C32A4;
+	}
+
+	.builder-cta a::after {
+		content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 15" width="18" height="18" fill="none"><path fill="white" d="M8.765 14.566a.75.75 0 1 1-1.06-1.06l3.005-3.007-3.005-3.005a.75.75 0 1 1 1.06-1.06l3.55 3.55a.75.75 0 0 1-.136 1.168l-3.414 3.414Z"/></svg>');
+		padding-inline-start: 4px;
+	}
+
+	.builder-cta p:last-child {
+		margin-bottom: 0;
+	}
+</style>
+</div>
+<h2 id="setting-up-the-project"><a class="headerlink" href="#setting-up-the-project">#</a> Setting up the project</h2>
+<p>This guide assume you have a Laravel project. You can create a basic Laravel project using <a href="https://getcomposer.org/">Composer</a>. Refer to the <a href="https://laravel.com/docs/10.x/installation">Laravel documentation</a> to learn how to set up a project in the framework.</p>
+<h2 id="integrating-using-zip"><a class="headerlink" href="#integrating-using-zip">#</a> Integrating using ZIP</h2>
+<div class="info-box notice"><p>Our new CKEditor&nbsp;5 Builder does not provide ZIP output yet – but it will in the future. In the meantime, you can use one of the generic ZIP packages provided <a href="https://ckeditor.com/ckeditor-5/download/#zip">on the download page</a>.</p></div>
+<p>After downloading and unpacking the ZIP archive, copy the <code>ckeditor5.js</code> and <code>ckeditor5.css</code> files in the <code>public/assets/vendor/</code> directory. The folder structure of your app should resemble this one.</p>
+<pre class="highlight"><code class="plain">├── app
+├── bootstrap
+├── config
+├── database
+├── public
+│   ├── assets
+|      ├── vendor
+|          ├── ckeditor5.js
+|          └── ckeditor5.css
+│   ├── .htaccess
+│   ├── favicon.ico
+│   ├── index.php
+│   └── robots.txt
+├── resources
+│   ├── views
+|      ├── welcome.blade.php
+|      └── ...
+├── routes
+└── ...
+</code></pre>
+<p>Having all the dependencies of CKEditor&nbsp;5, modify the <code>welcome.blade.php</code> file in the <code>resources/views</code> directory to import them. All the necessary markup is in the <code>index.html</code> file from the ZIP archive. You can copy and paste it into your template. Pay attention to the paths of the import map and CSS link – they should reflect your folder structure. The template should look similar to the one below:</p>
+<div class="info-box notice"><p>Starting from version 44.0.0, the <code>licenseKey</code> property is required to use the editor. If you use a self-hosted editor from ZIP:</p><ul>
+<li>You must either comply with the GPL or</li>
+<li>Obtain a license for <a href="../../licensing/license-key-and-activation.html">self-hosting distribution</a>.</li>
+</ul><p>You can set up <a href="https://portal.ckeditor.com/checkout?plan=free">a free trial</a> to test the editor and evaluate the self-hosting.</p></div>
+<pre class="highlight"><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;CKEditor 5 - Quick start ZIP&lt;/title&gt;
+        &lt;link rel="stylesheet" href="../../assets/vendor/ckeditor5.css"&gt;
+        &lt;style&gt;
+            .main-container {
+                width: 795px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class="main-container"&gt;
+            &lt;div id="editor"&gt;
+                &lt;p&gt;Hello from CKEditor 5!&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;script type="importmap"&gt;
+            {
+                "imports": {
+                    "ckeditor5": "../../assets/vendor/ckeditor5.js",
+                    "ckeditor5/": "../../assets/vendor/"
+                }
+            }
+        &lt;/script&gt;
+        &lt;script type="module"&gt;
+            import {
+                ClassicEditor,
+                Essentials,
+                Paragraph,
+                Bold,
+                Italic,
+                Font
+            } from 'ckeditor5';
+
+            ClassicEditor
+                .create( document.querySelector( '#editor' ), {
+                    licenseKey: '&lt;YOUR_LICENSE_KEY&gt;', // Or 'GPL'.
+                    plugins: [ Essentials, Paragraph, Bold, Italic, Font ],
+                    toolbar: [
+                        'undo', 'redo', '|', 'bold', 'italic', '|',
+                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                    ]
+                } )
+                .then( editor =&gt; {
+                    window.editor = editor;
+                } )
+                .catch( error =&gt; {
+                    console.error( error );
+                } );
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Finally, in the root directory of your Laravel project, run <code>php artisan serve</code> to see the app in action.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22getting-started%2Finstallation%2Fself-hosted%2Flaravel.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../../index.html" title="Quick start">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Quick start</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Installation</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="installation">
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Cloud (CDN)</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list" data-id="cloud">
+                                              <li><a href="../cloud/quick-start.html" title="Vanilla JS">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                                  </div></a></li>
+                                              <li><a href="../cloud/angular.html" title="Angular">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">React</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="react-cdn">
+                                                        <li><a href="../cloud/react/react-default-cdn.html" title="Default integration">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Default integration</span>
+                                                            </div></a></li>
+                                                        <li><a href="../cloud/react/react-multiroot-cdn.html" title="Multi-root integration">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-root integration</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                              <li><a href="../cloud/next-js.html" title="Next.js">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Next.js</span>
+                                                  </div></a></li>
+                                              <li><a href="../cloud/vuejs-v2.html" title="Vue.js 2.x">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x</span>
+                                                  </div></a></li>
+                                              <li><a href="../cloud/vuejs-v3.html" title="Vue.js 3+">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                                  </div></a></li>
+                                              <li><a href="../cloud/laravel.html" title="Laravel">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Laravel</span>
+                                                  </div></a></li>
+                                              <li><a href="../cloud/dotnet.html" title=".NET">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">.NET</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Self-hosted (npm/ZIP)</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list" data-id="self-hosted">
+                                              <li><a href="quick-start.html" title="Vanilla JS">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vanilla JS</span>
+                                                  </div></a></li>
+                                              <li><a href="angular.html" title="Angular">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Angular</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">React</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="react-npm">
+                                                        <li><a href="react/react-default-npm.html" title="Default integration">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Default integration</span>
+                                                            </div></a></li>
+                                                        <li><a href="react/react-multiroot-npm.html" title="Multi-root integration">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-root integration</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                              <li><a href="next-js.html" title="Next.js">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Next.js</span>
+                                                  </div></a></li>
+                                              <li><a href="vuejs-v2.html" title="Vue.js 2.x">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 2.x</span>
+                                                  </div></a></li>
+                                              <li><a href="vuejs-v3.html" title="Vue.js 3+">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Vue.js 3+</span>
+                                                  </div></a></li>
+                                              <li><a href="" title="Laravel">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Laravel</span>
+                                                  </div></a></li>
+                                              <li><a href="dotnet.html" title=".NET">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">.NET</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../css.html" title="CSS frameworks">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CSS frameworks</span>
+                                        </div></a></li>
+                                    <li><a href="../drupal-real-time-collaboration.html" title="Drupal">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drupal</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Setup</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="setup">
+                                    <li><a href="../../setup/getting-and-setting-data.html" title="Getting and setting data">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Getting and setting data</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/editor-lifecycle.html" title="Editor lifecycle">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor lifecycle</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/editor-types.html" title="Editor types">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor types</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/configuration.html" title="Configuring features">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuring features</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/toolbar.html" title="Editor toolbars">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor toolbars</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/menubar.html" title="Menu bar">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Menu bar</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/ui-language.html" title="UI language">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">UI language</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/css.html" title="Editor and content styles">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor and content styles</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/typescript-support.html" title="TypeScript support">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">TypeScript support</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/csp.html" title="Content Security Policy (CSP)">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content Security Policy (CSP)</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/optimizing-build-size.html" title="Optimizing build size">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Optimizing build size</span>
+                                        </div></a></li>
+                                    <li><a href="../../setup/loading-cdn-resources.html" title="Loading CDN resources">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Loading CDN resources</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Licensing</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="licensing">
+                                    <li><a href="../../licensing/license-key-and-activation.html" title="License key and activation">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">License key and activation</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="../../licensing/usage-based-billing.html" title="Usage-based billing">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Usage-based billing</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="../../licensing/license-and-legal.html" title="Editor license">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor license</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                                        </div></a></li>
+                                    <li><a href="../../licensing/managing-ckeditor-logo.html" title="Whitelabelling the editor">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Whitelabelling the editor</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Legacy installation methods</span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="legacy">
+                                    <li><a href="../../legacy/legacy-imports.html" title="Imports in the legacy setup">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Imports in the legacy setup</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Basics</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list" data-id="installation-methods">
+                                              <li><a href="../../legacy/installation-methods/quick-start.html" title="(Legacy) Quick start">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Quick start</span>
+                                                  </div></a></li>
+                                              <li><a href="../../legacy/installation-methods/predefined-builds.html" title="(Legacy) Predefined builds">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Predefined builds</span>
+                                                  </div></a></li>
+                                              <li><a href="../../legacy/installation-methods/quick-start-other.html" title="(Legacy) Customized installation">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Customized installation</span>
+                                                  </div></a></li>
+                                              <li><a href="../../legacy/installation-methods/api-and-events.html" title="(Legacy) API and events">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) API and events</span>
+                                                  </div></a></li>
+                                              <li><a href="../../legacy/installation-methods/extending-features.html" title="(Legacy) Extending features">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Extending features</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced concepts</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list" data-id="advanced">
+                                              <li><a href="../../legacy/advanced/using-two-editors.html" title="(Legacy) Using two different editors">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Using two different editors</span>
+                                                  </div></a></li>
+                                              <li><a href="../../legacy/advanced/content-styles.html" title="(Legacy) Content styles">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Content styles</span>
+                                                  </div></a></li>
+                                              <li>
+                                                <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Alternative setups</span>
+                                                </div>
+                                                <ul class="tree__item-nested-list" data-id="alternative-setups">
+                                                        <li><a href="../../legacy/advanced/alternative-setups/integrating-from-source-webpack.html" title="(Legacy) Integrating from source using webpack">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Integrating from source using webpack</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../legacy/advanced/alternative-setups/integrating-from-source-vite.html" title="(Legacy) Integrating from source using Vite">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Integrating from source using Vite</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../legacy/advanced/alternative-setups/dll-builds.html" title="(Legacy) DLL builds">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) DLL builds</span>
+                                                            </div></a></li>
+                                                        <li><a href="../../legacy/advanced/alternative-setups/dll-builds-collaboration-features.html" title="(Legacy) DLL builds for Collaboration Features">
+                                                            <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) DLL builds for Collaboration Features</span>
+                                                            </div></a></li>
+                                                </ul>
+                                              </li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../../legacy/working-with-typescript.html" title="(Legacy) TypeScript support">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) TypeScript support</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Integrations</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list" data-id="legacy-integrations">
+                                              <li><a href="../../legacy/legacy-integrations/angular.html" title="(Legacy) Angular">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Angular</span>
+                                                  </div></a></li>
+                                              <li><a href="../../legacy/legacy-integrations/react.html" title="(Legacy) React">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) React</span>
+                                                  </div></a></li>
+                                              <li><a href="../../legacy/legacy-integrations/vuejs-v2.html" title="(Legacy) Vue.js 2.x">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Vue.js 2.x</span>
+                                                  </div></a></li>
+                                              <li><a href="../../legacy/legacy-integrations/vuejs-v3.html" title="(Legacy) Vue.js 3+">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">(Legacy) Vue.js 3+</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'getting-started' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'getting-started' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'getting-started' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'getting-started' ] );tags.forEach( function( tag ) {if ( tag !== 'getting-started' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../../assets/snippet.js"></script>
+    <script src="../../../snippets/assets.js"></script>
+    <script src="../../../snippets/getting-started/use-builder/snippet.js"></script>
+    <script src="../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

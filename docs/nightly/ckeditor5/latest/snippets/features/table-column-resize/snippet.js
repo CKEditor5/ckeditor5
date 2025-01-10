@@ -1,0 +1,5 @@
+/*!
+ * @license Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md.
+ */(()=>{"use strict";ClassicEditor.create(document.querySelector("#snippet-table-column-resize"),{extraPlugins:[CKEditorPlugins.TableColumnResize,CKEditorPlugins.TableProperties,CKEditorPlugins.TableCaption,CKEditorPlugins.Superscript],table:{contentToolbar:["toggleTableCaption","tableRow","mergeTableCells","tableProperties"]},image:{toolbar:["imageStyle:block","imageStyle:wrapText","|","imageTextAlternative","|","ckboxImageEdit"]},ui:{viewportOffset:{top:window.getViewportTopOffsetConfig()}},ckbox:{tokenUrl:"https://api.ckbox.io/token/demo",allowExternalImagesEditing:[/^data:/,"origin",/ckbox/],forceDemoLabel:!0},licenseKey:"GPL"}).then((e=>{window.editorCaption=e})).catch((e=>{console.error(e.stack)}))})();
+//# sourceMappingURL=snippet.js.map

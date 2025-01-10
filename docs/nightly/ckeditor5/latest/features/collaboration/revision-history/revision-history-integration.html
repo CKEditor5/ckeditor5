@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Revision history integration | CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:12:44 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Revision history integration | CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/revision-history/revision-history-integration.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Revision history integration | CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/revision-history/revision-history-integration.html">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../../snippets/features/revision-history-build/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../snippets/assets.css" type="text/css" data-cke="true">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../../index.html">CKEditor 5</a></li>
+          <li><a href="../../../getting-started/index.html">Getting started</a></li>
+          <li><a class="top__menu__item--active" href="../../index.html">Features</a></li>
+          <li><a href="../../../examples/index.html">Examples</a></li>
+          <li><a href="../../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../../api/index.html">API</a></li>
+          <li><a href="../../../updating/index.html">Updating</a></li>
+          <li><a href="../../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="../../index.html">Features</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../../index.html" title="CKEditor 5 features overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKEditor 5 features overview</span>
+                              </div></a></li>
+                          <li><a href="../../feature-digest.html" title="Feature digest">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Feature digest</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="../../accessibility.html" title="Accessibility support">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Accessibility support</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">AI Assistant</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-ai-assistant">
+                                  <li><a href="../../ai-assistant/ai-assistant-overview.html" title="Overview">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../../ai-assistant/ai-assistant-integration.html" title="Integration">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../autoformat.html" title="Autoformatting">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="../../text-transformation.html" title="Automatic text transformation">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="../../autosave.html" title="Autosave">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autosave</span>
+                              </div></a></li>
+                          <li><a href="../../basic-styles.html" title="Basic text styles">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="../../indent.html" title="Block indentation">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="../../block-quote.html" title="Block quote">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="../../bookmarks.html" title="Bookmarks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Bookmarks</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="../../case-change.html" title="Case change">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Case change</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../code-blocks.html" title="Code blocks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-collaboration">
+                                  <li><a href="../collaboration.html" title="Overview">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-comments">
+                                          <li><a href="../comments/comments.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-integration.html" title="Integration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-only-mode.html" title="Comments-only mode">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-outside-editor.html" title="Comments outside the editor">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-archive.html" title="Comments archive custom UI">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments archive custom UI</span>
+                                              </div></a></li>
+                                          <li><a href="../comments/comments-walkthrough.html" title="Walkthrough">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Walkthrough</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-track-changes">
+                                          <li><a href="../track-changes/track-changes.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../track-changes/track-changes-integration.html" title="Integration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../track-changes/track-changes-custom-features.html" title="Custom features">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                              </div></a></li>
+                                          <li><a href="../track-changes/track-changes-data.html" title="Saving data without suggestions">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-revision-history">
+                                          <li><a href="revision-history.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="" title="Integration">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-real-time-collaboration">
+                                          <li><a href="../real-time-collaboration/real-time-collaboration.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../real-time-collaboration/real-time-collaboration-integration.html" title="Integration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                              </div></a></li>
+                                          <li><a href="../real-time-collaboration/users-in-real-time-collaboration.html" title="Users in real-time collaboration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                                  <li><a href="../users.html" title="Users">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                      </div></a></li>
+                                  <li><a href="../context-and-collaboration-features.html" title="Context and collaboration features">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-annotations">
+                                          <li><a href="../annotations/annotations.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../annotations/annotations-display-mode.html" title="Display mode">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                              </div></a></li>
+                                          <li><a href="../annotations/annotations-custom-configuration.html" title="Configuration">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                              </div></a></li>
+                                          <li><a href="../annotations/annotations-custom-theme.html" title="Custom theme">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                              </div></a></li>
+                                          <li><a href="../annotations/annotations-custom-template.html" title="Custom template">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                              </div></a></li>
+                                          <li><a href="../annotations/annotations-custom-view.html" title="Custom view">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../minimap.html" title="Content minimap">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Document conversion</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-converters">
+                                  <li><a href="../../converters/export-pdf.html" title="Export to PDF">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                                  <li><a href="../../converters/export-word.html" title="Export to Word">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Import from Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="import-word">
+                                          <li><a href="../../converters/import-word/import-word.html" title="Import from Word">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Import from Word</span>
+                                              </div></a></li>
+                                          <li><a href="../../converters/import-word/features-comparison.html" title="Features comparison">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features comparison</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../document-outline.html" title="Document outline">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document outline</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../title.html" title="Document title">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="../../drag-drop.html" title="Drag and drop">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                              </div></a></li>
+                          <li><a href="../../editor-placeholder.html" title="Editor placeholder">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">File management</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-file-management">
+                                  <li><a href="../../file-management/ckbox.html" title="CKBox">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKBox</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                                  <li><a href="../../file-management/ckfinder.html" title="CKFinder">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../find-and-replace.html" title="Find and replace">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="../../font.html" title="Font family, size, and color">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font family, size, and color</span>
+                              </div></a></li>
+                          <li><a href="../../format-painter.html" title="Format painter">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Format painter</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../headings.html" title="Headings">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="../../highlight.html" title="Highlight">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="../../horizontal-line.html" title="Horizontal line">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">HTML advanced support</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-html">
+                                  <li><a href="../../html/general-html-support.html" title="General HTML Support">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                                      </div></a></li>
+                                  <li><a href="../../html/html-comments.html" title="HTML comment element">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML comment element</span>
+                                      </div></a></li>
+                                  <li><a href="../../html/html-embed.html" title="HTML embed">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                                      </div></a></li>
+                                  <li><a href="../../html/full-page-html.html" title="Full page HTML">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Full page HTML</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-images">
+                                  <li><a href="../../images/images-overview.html" title="Basics">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basics</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-installation.html" title="Installation">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-text-alternative.html" title="Text alternative">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-captions.html" title="Image captions">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-resizing.html" title="Resizing images">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-responsive.html" title="Responsive images">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Responsive images</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-styles.html" title="Image styles">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-linking.html" title="Linking images">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                      </div></a></li>
+                                  <li><a href="../../images/images-inserting.html" title="Inserting images via URL">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                      </div></a></li>
+                                  <li>
+                                    <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                    </div>
+                                    <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-image-upload">
+                                          <li><a href="../../images/image-upload/image-upload.html" title="Overview">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/using-file-managers.html" title="Using file managers">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using file managers</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/base64-upload-adapter.html" title="Base64 upload adapter">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                              </div></a></li>
+                                          <li><a href="../../images/image-upload/simple-upload-adapter.html" title="Simple upload adapter">
+                                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                              </div></a></li>
+                                    </ul>
+                                  </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../link.html" title="Link">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-lists">
+                                  <li><a href="../../lists/lists.html" title="Ordered and unordered lists">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                      </div></a></li>
+                                  <li><a href="../../lists/todo-lists.html" title="To-do lists">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                      </div></a></li>
+                                  <li><a href="../../lists/multi-level-lists.html" title="Multi-level lists">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-level lists</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                                  <li><a href="../../lists/lists-editing.html" title="Lists editing behavior">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Lists editing behavior</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../markdown.html" title="Markdown output">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="../../math-equations.html" title="Math and chemical formulas">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../media-embed.html" title="Media embed">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="../../mentions.html" title="Mentions">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="../../merge-fields.html" title="Merge fields">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Merge fields</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../mermaid.html" title="Mermaid flowcharts and diagrams">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mermaid flowcharts and diagrams</span>
+                              </div></a></li>
+                          <li><a href="../../page-break.html" title="Page break">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-pagination">
+                                  <li><a href="../../pagination/pagination.html" title="Overview">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                      </div></a></li>
+                                  <li><a href="../../pagination/pagination-integration.html" title="Integration with Export to PDF/Word">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-pasting">
+                                  <li><a href="../../pasting/paste-from-office-enhanced.html" title="Paste from Office enhanced">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Office enhanced</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div></a></li>
+                                  <li><a href="../../pasting/paste-from-office.html" title="Paste from Office">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Office</span>
+                                      </div></a></li>
+                                  <li><a href="../../pasting/paste-from-google-docs.html" title="Paste from Google Docs">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                      </div></a></li>
+                                  <li><a href="../../pasting/paste-plain-text.html" title="Paste plain text">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                      </div></a></li>
+                                  <li><a href="../../pasting/paste-markdown.html" title="Paste Markdown">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste Markdown</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../read-only.html" title="Read-only support">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="../../remove-format.html" title="Remove formatting">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="../../restricted-editing.html" title="Restricted editing">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li><a href="../../select-all.html" title="Select all">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="../../show-blocks.html" title="Show blocks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Show blocks</span>
+                              </div></a></li>
+                          <li><a href="../../slash-commands.html" title="Slash commands">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Slash commands</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../source-editing.html" title="Source editing">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="../../special-characters.html" title="Special characters">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="../../spelling-and-grammar-checking.html" title="Spell and grammar checker">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spell and grammar checker</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../style.html" title="Styles">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Styles</span>
+                              </div></a></li>
+                          <li><a href="../../table-of-contents.html" title="Table of contents">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table of contents</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Tables</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="tables">
+                                  <li><a href="../../tables/tables.html" title="Basics">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basics</span>
+                                      </div></a></li>
+                                  <li><a href="../../tables/tables-styling.html" title="Styling tables">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Styling tables</span>
+                                      </div></a></li>
+                                  <li><a href="../../tables/tables-resize.html" title="Table column resizing">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table column resizing</span>
+                                      </div></a></li>
+                                  <li><a href="../../tables/tables-caption.html" title="Table caption">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table caption</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../template.html" title="Templates">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Templates</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../text-alignment.html" title="Text alignment">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="../../language.html" title="Text part language">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li><a href="../../undo-redo.html" title="Undo/Redo">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Undo/Redo</span>
+                              </div></a></li>
+                          <li><a href="../../watchdog.html" title="Watchdog">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="../../word-count.html" title="Word and character count">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+                </ul>
+              </li>
+              <li data-group="examples"><a href="../../../examples/index.html">Examples</a>
+              </li>
+              <li data-group="framework"><a href="../../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/issues/new" title="Report an issue"><img src="../../../../../assets/4.4.2/img/exclamation-circle.svg" alt="Report an issue"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Features</a>
+          </div>
+          <h1 class="main__content-title">Integrating revision history with your application
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#integration-methods" title="Integration methods">Integration methods</a></li><li><a href="#before-you-start" title="Before you start">Before you start</a><ol><li><a href="#preparing-a-custom-editor-setup" title="Preparing a custom editor setup">Preparing a custom editor setup</a></li><li><a href="#setting-up-a-sample-project" title="Setting up a sample project">Setting up a sample project</a></li><li><a href="#activating-the-feature" title="Activating the feature">Activating the feature</a></li><li><a href="#building-the-project" title="Building the project">Building the project</a></li><li><a href="#basic-setups-anatomy" title="Basic setup’s anatomy">Basic setup’s anatomy</a><ol><li><a href="#html-structure" title="HTML structure">HTML structure</a></li><li><a href="#javascript" title="JavaScript">JavaScript</a></li></ol></li><li><a href="#revision-history-api" title="Revision history API">Revision history API</a></li><li><a href="#next-steps" title="Next steps">Next steps</a></li></ol></li><li><a href="#a-simple-load-and-save-integration" title="A simple “load and save” integration">A simple “load and save” integration</a><ol><li><a href="#loading-the-data" title="Loading the data">Loading the data</a></li><li><a href="#saving-the-data" title="Saving the data">Saving the data</a></li><li><a href="#demo" title="Demo">Demo</a></li></ol></li><li><a href="#adapter-integration" title="Adapter integration">Adapter integration</a><ol><li><a href="#saving-document-data-and-revisions-data" title="Saving document data and revisions data">Saving document data and revisions data</a></li><li><a href="#implementation" title="Implementation">Implementation</a></li><li><a href="#demo-2" title="Demo">Demo</a></li></ol></li><li><a href="#learn-more" title="Learn more">Learn more</a><ol><li><a href="#pending-actions" title="Pending actions">Pending actions</a></li><li><a href="#editor-initial-data-and-revision-data" title="Editor initial data and revision data">Editor initial data and revision data</a></li><li><a href="#autosave-integration" title="Autosave integration">Autosave integration</a><ol><li><a href="#autosave-and-load-save-integration" title="Autosave and “load &amp; save” integration">Autosave and “load &amp; save” integration</a></li><li><a href="#autosave-and-adapter-integration" title="Autosave and adapter integration">Autosave and adapter integration</a></li><li><a href="#advanced-autosave-strategies" title="Advanced autosave strategies">Advanced autosave strategies</a></li></ol></li><li><a href="#how-revisions-are-updated-and-saved" title="How revisions are updated and saved">How revisions are updated and saved</a><ol><li><a href="#save-or-update-revision-using-the-feature-api" title="Save or update revision using the feature API">Save or update revision using the feature API</a></li></ol></li></ol></li><li><a href="#revision-history-samples" title="Revision history samples">Revision history samples</a></li></ol></nav>
+
+<p>The revision history plugin <a href="../../../api/revision-history.html">provides an API</a> that lets you create and manage named revisions of your document. To save and access revisions in your database, you first need to integrate this feature.</p>
+<div class="info-box notice notice__info"><p>This guide describes integrating the revision history feature as a standalone (asynchronous) plugin.</p><p>If you are using the real-time collaboration feature, refer to the <a href="../real-time-collaboration/real-time-collaboration-integration.html">Real-time collaboration features integration</a> guide.</p></div>
+<h2 id="integration-methods"><a class="headerlink" href="#integration-methods">#</a> Integration methods</h2>
+<p>This guide will discuss two ways to integrate CKEditor&nbsp;5 with the revision history plugin:</p>
+<ul>
+<li><a href="#a-simple-load-and-save-integration">A simple “load and save” integration</a> using the <code>RevisionHistory</code> plugin API.</li>
+<li><a href="#adapter-integration">An adapter integration</a> which saves the revision data immediately in the database.</li>
+</ul>
+<p>The adapter integration is the recommended approach for two reasons:</p>
+<ul>
+<li>It gives you better control over the data.</li>
+<li>It is more efficient and provides a better user experience, as the revisions’ data is loaded on demand rather than upfront before the editor is initialized.</li>
+</ul>
+<h2 id="before-you-start"><a class="headerlink" href="#before-you-start">#</a> Before you start</h2>
+<div class="info-box notice notice__info"><p>Complementary to this guide, we provide <a href="https://github.com/ckeditor/ckeditor5-collaboration-samples/tree/master/collaboration-editor-classic">ready-to-use <strong>samples</strong> available for download</a>. You may use the samples as an example or as a starting point for your own integration.</p></div>
+<h3 id="preparing-a-custom-editor-setup"><a class="headerlink" href="#preparing-a-custom-editor-setup">#</a> Preparing a custom editor setup</h3>
+<p>To use the revision history plugin, you need to prepare a custom editor setup with the asynchronous version of the revision history feature included.</p>
+<p>The easiest way to do that is by using the <a href="https://ckeditor.com/ckeditor-5/builder/?redirect=docs">Builder</a>. Pick a preset and start customizing your editor.</p>
+<div class="info-box notice notice__info"><p>The Builder allows you to pick your preferred distribution method and framework. For this guide, we will use the “Vanilla JS” option with “npm” and a simple setup based on the “Classic Editor (basic)” preset, with the revision history feature enabled.</p></div>
+<p><strong>In the “Features” section</strong> of the Builder (2nd step), make sure to:</p>
+<ul>
+<li>enable the “Collaboration&nbsp;→&nbsp;Revision History” feature,</li>
+<li>turn off the “real-time” toggle next to the “Collaboration” group.</li>
+</ul>
+<div class="info-box notice notice__info"><p>For better demo experience, we suggest to enable additional features - entire “Text Formatting” group and “Images&nbsp;→&nbsp;Block Images” feature.</p></div>
+<p>Once you finish the setup, the Builder will provide you with the necessary HTML, CSS, and JavaScript code snippets. We will use those code snippets in the next step.</p>
+<h3 id="setting-up-a-sample-project"><a class="headerlink" href="#setting-up-a-sample-project">#</a> Setting up a sample project</h3>
+<p>Once we have a custom editor setup we need a simple JavaScript project to run it. For this, we recommend cloning the basic project template from our repository:</p>
+<pre class="highlight"><code class="bash">npx -y degit ckeditor/ckeditor5-tutorials-examples/sample-project sample-project
+cd sample-project
+npm install
+</code></pre>
+<p>Then, install the necessary dependencies:</p>
+<pre class="highlight"><code class="bash">npm install ckeditor5
+npm install ckeditor5-premium-features
+</code></pre>
+<p>This project template uses <a href="https://vitejs.dev/">Vite</a> under the hood and contains 3 source files that we will use: <code>index.html</code>, <code>style.css</code>, and <code>main.js</code>.</p>
+<p>It is now the time to use our custom editor setup. <strong>Go to the “Installation” section</strong> of the Builder and copy the generated code snippets to those 3 files.</p>
+<h3 id="activating-the-feature"><a class="headerlink" href="#activating-the-feature">#</a> Activating the feature</h3>
+<p>To use this premium feature, you need to activate it with a license key. Refer to the <a href="../../../getting-started/licensing/license-key-and-activation.html">License key and activation</a> guide for details.</p>
+<p>After you have successfully obtained the license key open the <code>index.js</code> file and update the <code>your-license-key</code> string with your license key.</p>
+<h3 id="building-the-project"><a class="headerlink" href="#building-the-project">#</a> Building the project</h3>
+<p>Finally, build the project by running:</p>
+<pre class="highlight"><code class="bash">npm run dev
+</code></pre>
+<p>When you open the sample in the browser you should see the WYSIWYG editor with the revision history plugin. However, it still does not load or save any data. You will learn how to add data to the comments plugin later in this guide.</p>
+<p>Let’s now dive deeper into the structure of this setup.</p>
+<h3 id="basic-setups-anatomy"><a class="headerlink" href="#basic-setups-anatomy">#</a> Basic setup’s anatomy</h3>
+<p>Let’s now go through the key fragments of this basic setup.</p>
+<h4 id="html-structure"><a class="headerlink" href="#html-structure">#</a> HTML structure</h4>
+<p>The HTML and CSS structure of the page creates two main containers:</p>
+<ul>
+<li><code>&lt;div class="editor-container__editor"&gt;</code> is the main container used by the editor.</li>
+<li><code>&lt;div class="revision-history"&gt;</code> is the main container used by revision history.</li>
+<li><code>&lt;div class="revision-history__editor"&gt;</code> is the container used by revision history that shows selected revision content.</li>
+<li><code>&lt;div class="revision-history__sidebar"&gt;</code> is the container used by revision history sidebar that holds revision list.</li>
+</ul>
+<h4 id="javascript"><a class="headerlink" href="#javascript">#</a> JavaScript</h4>
+<p>The <code>main.js</code> file sets up the editor instance:</p>
+<ul>
+<li>Adds the <code>revisionHistory</code> button to the editor toolbar.</li>
+<li>Loads all necessary editor plugins (including the <a href="../../../api/module_revision-history_revisionhistory-RevisionHistory.html"><code>RevisionHistory</code></a> plugin).</li>
+<li>Sets the <code>licenseKey</code> configuration option.</li>
+<li>Sets the <code>revisionHistory</code> configuration option to point to containers mentioned above.</li>
+<li>Defines the templates for the <code>RevisionHistoryIntegration</code> and <code>UsersIntegrations</code> plugins that we will use in the next steps of this tutorial.</li>
+</ul>
+<h3 id="revision-history-api"><a class="headerlink" href="#revision-history-api">#</a> Revision history API</h3>
+<p>The integration below uses the revision history API. Making yourself familiar with the API may help you understand the code snippets. In case of any problems, refer to the <a href="../../../api/revision-history.html">revision history API documentation</a>.</p>
+<h3 id="next-steps"><a class="headerlink" href="#next-steps">#</a> Next steps</h3>
+<p>We have set up a simple JavaScript project that runs a basic CKEditor instance with the asynchronous version of the Revision history feature. It does not yet handle loading or saving data, though. The next two sections cover the two available integration methods.</p>
+<h2 id="a-simple-load-and-save-integration"><a class="headerlink" href="#a-simple-load-and-save-integration">#</a> A simple “load and save” integration</h2>
+<p>In this solution, you load the user and revision data during the editor initialization. You save the revision data after you finish working with the editor (for example, when you submit the form containing the WYSIWYG editor).</p>
+<h3 id="loading-the-data"><a class="headerlink" href="#loading-the-data">#</a> Loading the data</h3>
+<p>After you include the revision history plugin in the editor, you need to create a plugin that will initialize users and existing revisions.</p>
+<div class="info-box notice notice__info"><p>You should load the revisions data during the plugin initialization step, that is, using the <code>init()</code> method of the integration plugin that you will provide (as in the example below).</p></div>
+<p>First, store the users and the revisions data into a variable that will be available for your plugin.</p>
+<pre class="highlight"><code class="js">// Revisions data will be available under a global variable `revisions`.
+const revisions = [
+    {
+        "id": "initial",
+        "name": "Initial revision",
+        "creatorId": "user-1",
+        "authorsIds": [ "user-1" ],
+        "diffData": {
+            "main": {
+                "insertions": '[{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of ………… by and between The Lower Shelf, the “Publisher”, and …………, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him/herself and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]},{"name":"p","attributes":[],"children":["Publishing formats are enumerated in Appendix A."]}]',
+                "deletions": '[{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of ………… by and between The Lower Shelf, the “Publisher”, and …………, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him/herself and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]},{"name":"p","attributes":[],"children":["Publishing formats are enumerated in Appendix A."]}]'
+            }
+        },
+        "createdAt": "2024-05-27T13:22:59.077Z",
+        "attributes": {},
+        "fromVersion": 1,
+        "toVersion": 1
+    },
+    {
+        "id": "e6f80e6be6ee6057fd5a449ab13fba25d",
+        "name": "Updated with the actual data",
+        "creatorId": "user-1",
+        "authorsIds": [ "user-1" ],
+        "diffData": {
+            "main": {
+                "insertions": '[{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of ",{"name":"revision-start","attributes":[["name","insertion:user-1:0"]],"children":[]},"1st",{"name":"revision-end","attributes":[["name","insertion:user-1:0"]],"children":[]}," ",{"name":"revision-start","attributes":[["name","insertion:user-1:1"]],"children":[]},"June 2020 ",{"name":"revision-end","attributes":[["name","insertion:user-1:1"]],"children":[]},"by and between The Lower Shelf, the “Publisher”, and ",{"name":"revision-start","attributes":[["name","insertion:user-1:2"]],"children":[]},"John Smith",{"name":"revision-end","attributes":[["name","insertion:user-1:2"]],"children":[]},", the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]}]',
+                "deletions": '[{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of ",{"name":"revision-start","attributes":[["name","deletion:user-1:0"]],"children":[]},"…………",{"name":"revision-end","attributes":[["name","deletion:user-1:0"]],"children":[]}," by and between The Lower Shelf, the “Publisher”, and ",{"name":"revision-start","attributes":[["name","deletion:user-1:1"]],"children":[]},"…………",{"name":"revision-end","attributes":[["name","deletion:user-1:1"]],"children":[]},", the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him",{"name":"revision-start","attributes":[["name","deletion:user-1:2"]],"children":[]},"/herself",{"name":"revision-end","attributes":[["name","deletion:user-1:2"]],"children":[]}," and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature.",{"name":"revision-start","attributes":[["name","deletion:user-1:3"]],"children":[]}]},{"name":"p","attributes":[],"children":["Publishing formats are enumerated in Appendix A.",{"name":"revision-end","attributes":[["name","deletion:user-1:3"]],"children":[]}]}]'
+            }
+        },
+        "createdAt": "2024-05-27T13:23:52.553Z",
+        "attributes": {},
+        "fromVersion": 1,
+        "toVersion": 20
+    },
+    {
+        "id": "e6590c50ccbc86acacb7d27231ad32064",
+        "name": "Inserted logo",
+        "creatorId": "user-1",
+        "authorsIds": [ "user-1" ],
+        "diffData": {
+            "main": {
+                "insertions": '[{"name":"figure","attributes":[["data-revision-start-before","insertion:user-1:0"],["class","image"]],"children":[{"name":"img","attributes":[["src","https://ckeditor.com/docs/ckeditor5/latest/assets/img/revision-history-demo.png"]],"children":[]}]},{"name":"h1","attributes":[],"children":[{"name":"revision-end","attributes":[["name","insertion:user-1:0"]],"children":[]},"PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of 1st June 2020 by and between The Lower Shelf, the “Publisher”, and John Smith, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]}]',
+                "deletions": '[{"name":"h1","attributes":[["data-revision-start-before","deletion:user-1:0"]],"children":[{"name":"revision-end","attributes":[["name","deletion:user-1:0"]],"children":[]},"PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of 1st June 2020 by and between The Lower Shelf, the “Publisher”, and John Smith, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]}]'
+            }
+        },
+        "createdAt": "2024-05-27T13:26:39.252Z",
+        "attributes": {},
+        "fromVersion": 20,
+        "toVersion": 24
+    },
+    // An empty current revision.
+    {
+        "id": "egh91t5jccbi894cacxx7dz7t36aj3k021",
+        "name": null,
+        "creatorId": null,
+        "authorsIds": [],
+        "diffData": {
+            "main": {
+                "insertions": '[{"name":"figure","attributes":[["class","image"]],"children":[{"name":"img","attributes":[["src","https://ckeditor.com/docs/ckeditor5/latest/assets/img/revision-history-demo.png"]],"children":[]}]},{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of 1st June 2020 by and between The Lower Shelf, the “Publisher”, and John Smith, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]}]',
+                "deletions": '[{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of 1st June 2020 by and between The Lower Shelf, the “Publisher”, and John Smith, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]}]'
+            }
+        },
+        "createdAt": "2024-05-27T13:26:39.252Z",
+        "attributes": {},
+        "fromVersion": 24,
+        "toVersion": 24
+    }
+];
+</code></pre>
+<p>Then, modify <code>RevisionHistoryIntegration</code> plugin to read the data from <code>revisions</code> array and load it to editor using <code>RevisionsRepository</code> API.</p>
+<div class="info-box notice notice__info"><p>If your application needs to request the revisions data from the server asynchronously, you can create a plugin that will fetch the data from the database instead of putting the data in the HTML source. In such a case, your plugin should <a href="../../../api/module_core_plugin-PluginInterface.html#function-init">return a <code>Promise</code> from the <code>Plugin.init</code> method</a> to make sure that the editor initialization waits for your data.</p><p>You can also refer to an example shown in the <a href="#adapter-integration">adapter integration</a> section.</p></div>
+<pre class="highlight"><code class="js">class RevisionHistoryIntegration extends Plugin {
+    static get pluginName() {
+        return 'RevisionHistoryIntegration';
+    }
+
+    static get requires() {
+        return [ 'RevisionHistory' ];
+    }
+
+    init() {
+        const revisionHistory = this.editor.plugins.get( 'RevisionHistory' );
+
+        for ( const revisionData of revisions ) {
+            revisionHistory.addRevisionData( revisionData );
+        }
+    }
+}
+</code></pre>
+<p>Since revision data will be used, <code>editorConfig.initialData</code> is no longer needed and you can remove it as described in <a href="#editor-initial-data-and-revision-data">Editor initial data and revision data</a>.</p>
+<h3 id="saving-the-data"><a class="headerlink" href="#saving-the-data">#</a> Saving the data</h3>
+<div class="info-box notice notice__info"><p>You must keep the document data and revisions data in sync for the feature to work correctly.</p><p>You must always save revisions data and document data together.</p></div>
+<p>To save the revisions data, you need to get it from the <code>RevisionsRepository</code> plugin first. To do this, use the <code>getRevisions()</code> method.</p>
+<p>Then, use the data to save it in your database in a selected way. See the example below. Remember to update your HTML structure to contain a button with the <code>get-data</code> ID, for example, <code>&lt;button id="get-data"&gt;Get editor data&lt;/button&gt;</code>.</p>
+<pre class="highlight"><code class="js">ClassicEditor
+    .create(document.querySelector('#editor'), editorConfig)
+    .then( editor =&gt; {
+        // After the editor is initialized, add an action to be performed after a button is clicked.
+        document.querySelector( '#get-data' ).addEventListener( 'click', () =&gt; {
+            const revisionHistory = editor.plugins.get( 'RevisionHistory' );
+
+            // Get the document data and the revisions data (in JSON format, so it is easier to save).
+            const editorData = editor.data.get();
+            const revisionsData = revisionHistory.getRevisions( { toJSON: true } );
+
+            // Now, use `editorData` and `revisionsData` to save the data in your application.
+            //
+            // Note: it is a good idea to verify the revision `creatorId` parameter when saving
+            // a revision in the database. However, do not overwrite the value if it was set to `null`!
+            console.log( editorData );
+            console.log( revisionsData );
+        } );
+    } )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+<div class="info-box notice notice__info"><p>It is recommended to stringify the revisions’ <code>attributes</code> property value to JSON and save it as a string in your database. Then, parse the value from JSON when loading revisions.</p></div>
+<p>The integration is now ready to use with your rich text editor.</p>
+<h3 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h3>
+<div class="live-snippet"><script src="https://cdn.ckbox.io/ckbox/latest/ckbox.js"></script>
+<div class="live-snippet__container loaded revision-integration">
+	<div class="row">
+        <div class="revision-integration editors-holder">
+            <div id="editor-container">
+                <div class="editor-container">
+                    <div id="editor"></div>
+                    <div class="sidebar-container" id="sidebar-container"></div>
+                </div>
+            </div>
+        
+			<div id="revision-viewer-container">
+				<div class="editor-container">
+					<div id="revision-viewer-editor"></div>
+					<div class="sidebar-container" id="revision-viewer-sidebar"></div>
+				</div>
+			</div>
+        </div>
+	</div>
+
+    <button id="revision-integration-save">Save revisions</button>
+</div>
+
+<h3>Console:</h3>
+<pre class="highlight language-json" id="revision-integration-console">// Use the `Save revisions` button to see the result...</pre>
+
+<style>
+    .editor-container {
+        display: flex;
+    }
+    .sidebar-container {
+        min-width: 300px;
+        font-size: 20px;
+        border: 1px solid var(--ck-color-toolbar-border);
+        margin-left: -1px;
+        background: var(--ck-color-toolbar-background);
+    }
+    .revision-integration > button {
+		margin-right: 10px;
+		color: #333;
+		background: hsl(0, 0%, 87%);
+		padding: 4px 20px;
+		display: inline-block;
+		border-radius: 2px;
+		font-weight: bold;
+		outline: none;
+		transition: 300ms ease background;
+	}
+
+	.revision-integration > button:hover{
+		background: hsl(0, 0%, 82%);
+	}
+
+	.revision-integration > button[ disabled ] {
+		opacity: 0.2;
+		cursor: no-drop;
+	}
+
+	#revision-integration-console {
+		max-height: 300px;
+		overflow: auto;
+		white-space: normal;
+		background: #2b2c26;
+		color: #fff;
+		margin-top: 20px;
+		transition: background-color 500ms;
+	}
+
+	#revision-integration-console.updated {
+		background: green;
+	}
+
+	.revision-integration-console__suggestions {
+		margin-bottom: 10px;
+	}
+
+	.revision-integration-console__suggestions::before,
+	.revision-integration-console__data::before {
+		display: inline-block;
+		margin-right: 5px;
+		opacity: 0.5;
+	}
+
+	.revision-integration-console__suggestions::before {
+		content: 'Revisions:'
+	}
+
+	.revision-integration-console__data::before {
+		content: 'Data:';
+	}
+	.ck.ck-revision-history-sidebar {
+		height: 100%;
+	}
+	.ck-sidebar-item {
+        margin-left: 10px;
+        max-width: 275px;
+    }
+
+    .live-snippet .ck.ck-editor {
+        width: 550px;
+    }
+</style></div>
+<h2 id="adapter-integration"><a class="headerlink" href="#adapter-integration">#</a> Adapter integration</h2>
+<p>Adapter integration uses an adapter object – provided by you – to immediately save revisions data in your data store.</p>
+<p>This is the recommended way of integrating revision history with your application as it lets you handle the client-server communication more securely. For example, you can check user permissions, validate sent data, or update the data with information obtained on the server side.</p>
+<p>Additionally, revisions may include a significant amount of data. Loading multiple revisions of a big document may adversely impact the loading time of your application. When using an adapter, the revision data is loaded on demand, when needed. This improves the overall user experience.</p>
+<p>It is important to load the revisions data during the plugin initialization step, that is, using the <code>init()</code> method of the integration plugin that you will provide (as in the example below).</p>
+<div class="info-box notice notice__info"><p>This sample does not contain the comments and track change adapters. Check the <a href="../comments/comments-integration.html#adapter-integration">comments integration</a> guide and <a href="../track-changes/track-changes-integration.html#adapter-integration">track changes integration</a> guide to learn how to build a complete solution. Also, these snippets define the same list of users. Make sure to deduplicate this code and define the list of users once to avoid errors.</p></div>
+<h3 id="saving-document-data-and-revisions-data"><a class="headerlink" href="#saving-document-data-and-revisions-data">#</a> Saving document data and revisions data</h3>
+<p>Before you move to the actual implementation remember that you should <strong>always keep the document data and revisions data in sync</strong>. This means that whenever you save one, you should save the other as well. This is natural for the “load &amp; save” integration but for adapter integration, you need to keep that in mind. A mismatch in the data will result in the feature not working correctly.</p>
+<p>Additionally, the document data should not be further post-processed after it is saved. To be precise, it should not be changed in a way that would result in a different model after you load the document data.</p>
+<h3 id="implementation"><a class="headerlink" href="#implementation">#</a> Implementation</h3>
+<p>First, define the adapter using the <a href="../../../api/module_revision-history_revisionhistory-RevisionHistory.html#member-adapter"><code>RevisionHistory#adapter</code></a> property. The adapter methods allow you to load and save changes in your database. Read the API reference for <a href="../../../api/module_revision-history_revisionhistoryadapter-RevisionHistoryAdapter.html"><code>RevisionHistoryAdapter</code></a> carefully to make sure that you integrate the feature with your application correctly.</p>
+<p>Each change in revisions is performed immediately on the UI side. However, all adapter actions are asynchronous and are performed in the background. Because of this, all adapter methods need to return a <code>Promise</code>. When the promise is resolved, it means that everything went fine and a local change was successfully saved in the data store. When the promise is rejected, the editor throws a <a href="../../../api/module_utils_ckeditorerror-CKEditorError.html"><code>CKEditorError</code></a> error, which works nicely together with the <a href="../../watchdog.html">watchdog</a> feature. When you handle the server response, you can decide if the promise should be resolved or rejected.</p>
+<p>While the adapter is saving the revision’s data, a pending action is automatically added to the editor <a href="../../../api/module_core_pendingactions-PendingActions.html"><code>PendingActions</code></a> plugin. Thanks to this, you do not have to worry that the editor will be destroyed before the adapter action has finished.</p>
+<p>Now you are ready to create the adapter. Let’s start with mocking revisions data. In real-life scenario this will be the data stored in your data storage.</p>
+<pre class="highlight"><code class="js">// Revisions data will be available under a global variable `revisions`.
+const revisions = [
+    {
+        "id": "initial",
+        "name": "Initial revision",
+        "creatorId": "user-1",
+        "authorsIds": [ "user-1" ],
+        "diffData": {
+            "main": {
+                "insertions": '[{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of ………… by and between The Lower Shelf, the “Publisher”, and …………, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him/herself and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]},{"name":"p","attributes":[],"children":["Publishing formats are enumerated in Appendix A."]}]',
+                "deletions": '[{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of ………… by and between The Lower Shelf, the “Publisher”, and …………, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him/herself and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]},{"name":"p","attributes":[],"children":["Publishing formats are enumerated in Appendix A."]}]'
+            }
+        },
+        "createdAt": "2024-05-27T13:22:59.077Z",
+        "attributes": {},
+        "fromVersion": 1,
+        "toVersion": 1
+    },
+    {
+        "id": "e6f80e6be6ee6057fd5a449ab13fba25d",
+        "name": "Updated with the actual data",
+        "creatorId": "user-1",
+        "authorsIds": [ "user-1" ],
+        "diffData": {
+            "main": {
+                "insertions": '[{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of ",{"name":"revision-start","attributes":[["name","insertion:user-1:0"]],"children":[]},"1st",{"name":"revision-end","attributes":[["name","insertion:user-1:0"]],"children":[]}," ",{"name":"revision-start","attributes":[["name","insertion:user-1:1"]],"children":[]},"June 2020 ",{"name":"revision-end","attributes":[["name","insertion:user-1:1"]],"children":[]},"by and between The Lower Shelf, the “Publisher”, and ",{"name":"revision-start","attributes":[["name","insertion:user-1:2"]],"children":[]},"John Smith",{"name":"revision-end","attributes":[["name","insertion:user-1:2"]],"children":[]},", the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]}]',
+                "deletions": '[{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of ",{"name":"revision-start","attributes":[["name","deletion:user-1:0"]],"children":[]},"…………",{"name":"revision-end","attributes":[["name","deletion:user-1:0"]],"children":[]}," by and between The Lower Shelf, the “Publisher”, and ",{"name":"revision-start","attributes":[["name","deletion:user-1:1"]],"children":[]},"…………",{"name":"revision-end","attributes":[["name","deletion:user-1:1"]],"children":[]},", the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him",{"name":"revision-start","attributes":[["name","deletion:user-1:2"]],"children":[]},"/herself",{"name":"revision-end","attributes":[["name","deletion:user-1:2"]],"children":[]}," and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature.",{"name":"revision-start","attributes":[["name","deletion:user-1:3"]],"children":[]}]},{"name":"p","attributes":[],"children":["Publishing formats are enumerated in Appendix A.",{"name":"revision-end","attributes":[["name","deletion:user-1:3"]],"children":[]}]}]'
+            }
+        },
+        "createdAt": "2024-05-27T13:23:52.553Z",
+        "attributes": {},
+        "fromVersion": 1,
+        "toVersion": 20
+    },
+    {
+        "id": "e6590c50ccbc86acacb7d27231ad32064",
+        "name": "Inserted logo",
+        "creatorId": "user-1",
+        "authorsIds": [ "user-1" ],
+        "diffData": {
+            "main": {
+                "insertions": '[{"name":"figure","attributes":[["data-revision-start-before","insertion:user-1:0"],["class","image"]],"children":[{"name":"img","attributes":[["src","https://ckeditor.com/docs/ckeditor5/latest/assets/img/revision-history-demo.png"]],"children":[]}]},{"name":"h1","attributes":[],"children":[{"name":"revision-end","attributes":[["name","insertion:user-1:0"]],"children":[]},"PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of 1st June 2020 by and between The Lower Shelf, the “Publisher”, and John Smith, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]}]',
+                "deletions": '[{"name":"h1","attributes":[["data-revision-start-before","deletion:user-1:0"]],"children":[{"name":"revision-end","attributes":[["name","deletion:user-1:0"]],"children":[]},"PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of 1st June 2020 by and between The Lower Shelf, the “Publisher”, and John Smith, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]}]'
+            }
+        },
+        "createdAt": "2024-05-27T13:26:39.252Z",
+        "attributes": {},
+        "fromVersion": 20,
+        "toVersion": 24
+    },
+    // An empty current revision.
+    {
+        "id": "egh91t5jccbi894cacxx7dz7t36aj3k021",
+        "name": null,
+        "creatorId": null,
+        "authorsIds": [],
+        "diffData": {
+            "main": {
+                "insertions": '[{"name":"figure","attributes":[["class","image"]],"children":[{"name":"img","attributes":[["src","https://ckeditor.com/docs/ckeditor5/latest/assets/img/revision-history-demo.png"]],"children":[]}]},{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of 1st June 2020 by and between The Lower Shelf, the “Publisher”, and John Smith, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]}]',
+                "deletions": '[{"name":"h1","attributes":[],"children":["PUBLISHING AGREEMENT"]},{"name":"h3","attributes":[],"children":["Introduction"]},{"name":"p","attributes":[],"children":["This publishing contract, the “contract”, is entered into as of 1st June 2020 by and between The Lower Shelf, the “Publisher”, and John Smith, the “Author”."]},{"name":"h3","attributes":[],"children":["Grant of Rights"]},{"name":"p","attributes":[],"children":["The Author grants the Publisher full right and title to the following, in perpetuity:"]},{"name":"ul","attributes":[],"children":[{"name":"li","attributes":[],"children":["To publish, sell, and profit from the listed works in all languages and formats in existence today and at any point in the future."]},{"name":"li","attributes":[],"children":["To create or devise modified, abridged, or derivative works based on the works listed."]},{"name":"li","attributes":[],"children":["To allow others to use the listed works at their discretion, without providing additional compensation to the Author."]}]},{"name":"p","attributes":[],"children":["These rights are granted by the Author on behalf of him and their successors, heirs, executors, and any other party who may attempt to lay claim to these rights at any point now or in the future."]},{"name":"p","attributes":[],"children":["Any rights not granted to the Publisher above remain with the Author."]},{"name":"p","attributes":[],"children":["The rights granted to the Publisher by the Author shall not be constrained by geographic territories and are considered global in nature."]}]'
+            }
+        },
+        "createdAt": "2024-05-27T13:26:39.252Z",
+        "attributes": {},
+        "fromVersion": 24,
+        "toVersion": 24
+    }
+];
+</code></pre>
+<p>Next, create adapter plugin based on <code>RevisionHistoryIntegration</code> plugin template to fetch revisions data asynchronously.</p>
+<pre class="highlight"><code class="js">// A plugin that introduces the adapter.
+class RevisionHistoryIntegration extends Plugin {
+    static get pluginName() {
+        return 'RevisionHistoryIntegration';
+    }
+
+    static get requires() {
+        return [ 'RevisionHistory' ];
+    }
+
+    async init() {
+        const revisionHistory = this.editor.plugins.get( 'RevisionHistory' );
+
+        revisionHistory.adapter = {
+            getRevision: ( { revisionId } ) =&gt; {
+                return this._findRevision( revisionId );
+            },
+            updateRevisions: revisionsData =&gt; {
+                const documentData = this.editor.getData();
+
+                // This should be an asynchronous request to your database
+                // that saves `revisionsData` and `documentData`.
+                //
+                // The document data should be saved each time a revision is saved.
+                //
+                // `revisionsData` is an array with objects,
+                // where each object contains updated and new revisions.
+                //
+                // See the API reference for `RevisionHistoryAdapter` to learn
+                // how to correctly integrate the feature with your application.
+                //
+                return Promise.resolve();
+            }
+        };
+
+        // Add the revisions data for existing revisions.
+        const revisionsData = await this._fetchRevisionsData();
+
+        for ( const revisionData of revisionsData ) {
+            revisionHistory.addRevisionData( revisionData );
+        }
+    }
+
+    async _findRevision( revisionId ) {
+        // Get the revision data based on its ID.
+        // This should be an asynchronous request to your database.
+        return Promise.resolve( revisions.find( revision =&gt; revision.id === revisionId ) );
+    }
+
+    async _fetchRevisionsData() {
+        // Get a list of all revisions.
+        // This should be an asynchronous call to your database.
+        //
+        // Note that the revision list should not contain the `diffData` property.
+        // The `diffData` property may be big and will be fetched on demand by `adapter.getRevision()`.
+        return Promise.resolve(revisions.map(revision =&gt; ({ ...revision, diffData: undefined })));
+    }
+}
+</code></pre>
+<p>Since revision data will be used, <code>editorConfig.initialData</code> is no longer needed and you can remove it as described in <a href="#editor-initial-data-and-revision-data">Editor initial data and revision data</a>.</p>
+<div class="info-box notice notice__info"><p>It is recommended to stringify the revisions’ <code>attributes</code> property value to JSON and save it as a string in your database. Then, parse the value from JSON when loading revisions.</p></div>
+<p>The adapter is now ready to use with your rich text editor.</p>
+<h3 id="demo-2"><a class="headerlink" href="#demo-2">#</a> Demo</h3>
+<div class="live-snippet"><script src="https://cdn.ckbox.io/ckbox/latest/ckbox.js"></script>
+<div class="live-snippet__container loaded revision-integration">
+	<div class="row">
+        <div class="revision-adapter editors-holder">
+            <div id="editor-container">
+                <div class="editor-container">
+                    <div id="editor"></div>
+                    <div class="sidebar-container" id="sidebar-container"></div>
+                </div>
+            </div>
+        
+			<div id="revision-viewer-container">
+				<div class="editor-container">
+					<div id="revision-viewer-editor"></div>
+					<div class="sidebar-container" id="revision-viewer-sidebar"></div>
+				</div>
+			</div>
+        </div>
+	</div>
+</div>
+<h3>Revision history adapter actions console:</h3>
+
+<pre class="highlight language-json" id="revision-adapter-console">// Create new version to see the result...</pre>
+
+<style>
+    .editor-container {
+        display: flex;
+    }
+    .sidebar-container {
+        min-width: 300px;
+        font-size: 20px;
+        border: 1px solid var(--ck-color-toolbar-border);
+        margin-left: -1px;
+        background: var(--ck-color-toolbar-background);
+    }
+    #revision-adapter-console {
+		padding: 20px;
+		overflow: auto;
+		white-space: normal;
+		background: #2b2c26;
+		color: #fff;
+		word-break: break-all;
+		transition: background-color 500ms;
+	}
+
+	#revision-viewer-container {
+        display: none;
+    }
+	
+	#revision-adapter-console.updated {
+		background: green;
+	}
+
+	.revision-adapter-console__action::before,
+	.revision-adapter-console__data::before {
+		display: inline-block;
+		margin-right: 5px;
+		opacity: 0.5;
+	}
+
+	.revision-adapter-console__action::before {
+		content: 'Action:'
+	}
+
+	.revision-adapter-console__data::before {
+		content: 'Versions data:';
+	}
+	.ck.ck-revision-history-sidebar {
+		height: 100%;
+	}
+    .ck-sidebar-item {
+        margin-left: 10px;
+        max-width: 275px;
+    }
+
+    .live-snippet .ck.ck-editor {
+        width: 550px;
+    }
+	@media only screen and (min-width: 1600px) {
+        .main .main__content-inner {
+            width: 905px;
+        }
+    }
+</style></div>
+<h2 id="learn-more"><a class="headerlink" href="#learn-more">#</a> Learn more</h2>
+<h3 id="pending-actions"><a class="headerlink" href="#pending-actions">#</a> Pending actions</h3>
+<p>Revision history uses the <a href="../../../api/module_core_pendingactions-PendingActions.html">pending actions</a> feature. Pending actions are added when the revisions data is being updated through the revision history adapter, to prevent closing the editor before the update finishes.</p>
+<h3 id="editor-initial-data-and-revision-data"><a class="headerlink" href="#editor-initial-data-and-revision-data">#</a> Editor initial data and revision data</h3>
+<p>When the revision history feature is used, it is crucial to keep the revisions state in synchronization with the document data. Because of that, if there are any revisions saved for a document, the editor initial data will be discarded. The data saved with the most recent revision will be used instead.</p>
+<div class="info-box notice notice__info"><p>Since the editor’s initial data is discarded, you can lower the data load by setting the document’s initial data to empty. This applies to documents for which at least one revision was created.</p></div>
+<p>If the editor’s initial data was set and it was different from the revision data, a warning will be logged in the console.</p>
+<h3 id="autosave-integration"><a class="headerlink" href="#autosave-integration">#</a> Autosave integration</h3>
+<div class="info-box notice notice__info"><p>If you are using the real-time collaboration feature, refer to the <a href="../real-time-collaboration/real-time-collaboration-integration.html#autosave-for-revision-history">Autosave for revision history</a> section in the <a href="../real-time-collaboration/real-time-collaboration-integration.html">Real-time collaboration features integration</a> guide.</p></div>
+<p>This section describes how to integrate revision history with the autosave plugin. This way, you can frequently save your document and revision data to keep them in sync.</p>
+<div class="info-box notice notice__info"><p>Although this guide provides ready-to-use snippets, we encourage you to also read the <a href="#how-revisions-are-updated-and-saved">How revisions are saved and updated</a> section to get a better understanding of this subject.</p></div>
+<div class="info-box notice notice__info"><p>The autosave callback is called with the autosave plugin enabled and revision history opened.</p></div>
+<p>The integration differs a bit whether you use the adapter or not.</p>
+<h4 id="autosave-and-load-save-integration"><a class="headerlink" href="#autosave-and-load-save-integration">#</a> Autosave and “load &amp; save” integration</h4>
+<p>Update the revision and make sure that the updated or created revision is saved together with the editor data:</p>
+<pre class="highlight"><code class="js">autosave: {
+    save: async editor =&gt; {
+        const revisionTracker = editor.plugins.get( 'RevisionTracker' );
+
+        await revisionTracker.update();
+
+        const revisionData = revisionTracker.currentRevision.toJSON();
+        const documentData = editor.getData();
+
+        // `saveData()` should save the document and revision data in your database
+        // and return a `Promise` that resolves when the save is completed.
+        return saveData( documentData, revisionData );
+    }
+}
+</code></pre>
+<h4 id="autosave-and-adapter-integration"><a class="headerlink" href="#autosave-and-adapter-integration">#</a> Autosave and adapter integration</h4>
+<p>Integration when using the adapter is easier. Your revision adapter should save the document data as well, as was already shown in the earlier examples.</p>
+<p>Since the adapter already takes care of saving both revision data and the document data, all that needs to be done in the autosave integration is to update the revision:</p>
+<pre class="highlight"><code class="js">autosave: {
+    save: editor =&gt; {
+        const revisionTracker = editor.plugins.get( 'RevisionTracker' );
+
+        return revisionTracker.update();
+    }
+}
+</code></pre>
+<h4 id="advanced-autosave-strategies"><a class="headerlink" href="#advanced-autosave-strategies">#</a> Advanced autosave strategies</h4>
+<p>Presented integrations will keep on updating the same revision until the user explicitly saves or names the current revision, or closes the editor.</p>
+<p>This may result in creating a big revision, containing a lot of changes. To prevent that, autosave integration could create new revisions based on your custom strategy.</p>
+<p>For example, you may decide to save the current revision (unsaved changes) after a chosen number of autosave callbacks since the last saved revision:</p>
+<pre class="highlight"><code class="js">// Create a new plugin that will handle the autosave logic.
+class RevisionHistoryAutosaveIntegration extends Plugin {
+    init() {
+        this._saveAfter = 100; // Create a new revision after 100 saves.
+        this._autosaveCount = 1; // Current autosave counter.
+        this._lastCreatedAt = null; // Revision `createdAt` value, when the revision was last autosaved.
+    }
+
+    async autosave() {
+        const revisionTracker = this.editor.plugins.get( 'RevisionTracker' );
+        const currentRevision = revisionTracker.currentRevision;
+
+        if ( currentRevision.createdAt &gt; this._lastCreatedAt ) {
+            // Revision was saved or updated in the meantime by a different source (not autosave).
+            // Reset the counter.
+            this._autosaveCount = 1;
+        }
+
+        if ( this._autosaveCount === this._saveAfter ) {
+            // We reached the count. Save all changes as a new revision. Reset the counter.
+            await revisionTracker.saveRevision();
+
+            this._autosaveCount = 1;
+            this._lastCreatedAt = currentRevision.createdAt;
+        } else {
+            // Try updating the "current revision" with the new document changes.
+            // If there are any new changes, the `createdAt` property will change its value.
+            // Do not raise the counter, if the revision has not been updated!
+            await revisionTracker.update();
+
+            if ( currentRevision.createdAt &gt; this._lastCreatedAt ) {
+                this._autosaveCount++;
+                this._lastCreatedAt = currentRevision.createdAt;
+            }
+        }
+
+        return true;
+    }
+}
+
+ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        extraPlugins: [
+            // ...
+            // Add the new plugin to the editor configuration:
+            RevisionHistoryAutosaveIntegration
+        ],
+        // ...
+        // Add the autosave configuration -- call the plugin method:
+        autosave: {
+            save: editor =&gt; {
+                return editor.plugins.get( RevisionHistoryAutosaveIntegration ).autosave();
+            }
+        }
+    } )
+    .catch( error =&gt; console.error( error ) );
+</code></pre>
+<p>Similarly, you can implement a saving strategy that would include time since the last saved revision, number of operations, or multiple variables used together to decide if a new revision should be saved.</p>
+<h3 id="how-revisions-are-updated-and-saved"><a class="headerlink" href="#how-revisions-are-updated-and-saved">#</a> How revisions are updated and saved</h3>
+<p>Understanding how and when revisions are updated and saved is important when it comes to writing custom code that integrates with revision history, including autosave integration.</p>
+<p>There are always at least two revisions available for a document: the initial revision and the current revision. If the document is new and no revisions have been created for it yet, the two revisions are created when the editor is initialized.</p>
+<p>The <strong>initial revision</strong> contains the editor data from when the document was initialized for the first time. It can be empty or contain some content. The initial revision’s ID will equal to document ID or to <code>'initial'</code> if the document ID is not specified.</p>
+<p>The <strong>current revision</strong> is a revision that stores all unsaved document changes, that is, changes that have not been saved in earlier revisions. It is always at the top of the revisions list. If a new revision is created, it will contain all unsaved changes and will be added below the current revision. Then, the current revision will be empty, until again updated with new, unsaved document changes. An empty current revision is not shown on the revisions list.</p>
+<p>The current revision is not updated automatically when the document changes. The update can be done using the revisions feature API. It is enough to update the current revision when you need to save it, for example, in the autosave callback. The update is also triggered when the revision history view is opened. In this case, either the autosave callback is called, or the current revision is updated (if the autosave plugin is not used).</p>
+<p>A new revision can be saved using the revisions feature API. Also, a new revision will be created when:</p>
+<ul>
+<li>A user saves a revision using the dropdown in the editor toolbar.</li>
+<li>A user gives a name to the current revision (in the revision history view).</li>
+<li>Each time the editor is initialized (a new current revision will be created, while the old current revision will become a regular revision).</li>
+</ul>
+<h4 id="save-or-update-revision-using-the-feature-api"><a class="headerlink" href="#save-or-update-revision-using-the-feature-api">#</a> Save or update revision using the feature API</h4>
+<pre class="highlight"><code class="js">const revisionTrackerPlugin = this.editor.plugins.get( 'RevisionTracker' );
+
+// Updates the "current revision", that is, the revision containing unsaved changes.
+revisionTrackerPlugin.update();
+
+// Creates a new revision that will contain all the unsaved changes.
+// See the API reference to learn more.
+revisionTrackerPlugin.saveRevision();
+revisionTrackerPlugin.saveRevision( { name: 'My revision' } );
+</code></pre>
+<h2 id="revision-history-samples"><a class="headerlink" href="#revision-history-samples">#</a> Revision history samples</h2>
+<p>Please visit the <a href="https://github.com/ckeditor/ckeditor5-collaboration-samples/tree/master"><code>ckeditor5-collaboration-samples</code></a> GitHub repository to find several sample integrations of the revision history feature.</p>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22features%2Fcollaboration%2Frevision-history%2Frevision-history-integration.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../../index.html" title="CKEditor 5 features overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKEditor 5 features overview</span>
+                              </div></a></li>
+                          <li><a href="../../feature-digest.html" title="Feature digest">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Feature digest</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="../../accessibility.html" title="Accessibility support">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Accessibility support</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">AI Assistant</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-ai-assistant">
+                                    <li><a href="../../ai-assistant/ai-assistant-overview.html" title="Overview">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../../ai-assistant/ai-assistant-integration.html" title="Integration">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../autoformat.html" title="Autoformatting">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autoformatting</span>
+                              </div></a></li>
+                          <li><a href="../../text-transformation.html" title="Automatic text transformation">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Automatic text transformation</span>
+                              </div></a></li>
+                          <li><a href="../../autosave.html" title="Autosave">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Autosave</span>
+                              </div></a></li>
+                          <li><a href="../../basic-styles.html" title="Basic text styles">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basic text styles</span>
+                              </div></a></li>
+                          <li><a href="../../indent.html" title="Block indentation">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block indentation</span>
+                              </div></a></li>
+                          <li><a href="../../block-quote.html" title="Block quote">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Block quote</span>
+                              </div></a></li>
+                          <li><a href="../../bookmarks.html" title="Bookmarks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Bookmarks</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
+                              </div></a></li>
+                          <li><a href="../../case-change.html" title="Case change">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Case change</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../code-blocks.html" title="Code blocks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Code blocks</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-collaboration">
+                                    <li><a href="../collaboration.html" title="Overview">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Comments</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-comments">
+                                              <li><a href="../comments/comments.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-integration.html" title="Integration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-only-mode.html" title="Comments-only mode">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments-only mode</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-outside-editor.html" title="Comments outside the editor">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments outside the editor</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-archive.html" title="Comments archive custom UI">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Comments archive custom UI</span>
+                                                  </div></a></li>
+                                              <li><a href="../comments/comments-walkthrough.html" title="Walkthrough">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Walkthrough</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Track changes</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-track-changes">
+                                              <li><a href="../track-changes/track-changes.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../track-changes/track-changes-integration.html" title="Integration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../track-changes/track-changes-custom-features.html" title="Custom features">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom features</span>
+                                                  </div></a></li>
+                                              <li><a href="../track-changes/track-changes-data.html" title="Saving data without suggestions">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Revision history</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-revision-history">
+                                              <li><a href="revision-history.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="" title="Integration">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Real-time collaboration</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-real-time-collaboration">
+                                              <li><a href="../real-time-collaboration/real-time-collaboration.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../real-time-collaboration/real-time-collaboration-integration.html" title="Integration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration</span>
+                                                  </div></a></li>
+                                              <li><a href="../real-time-collaboration/users-in-real-time-collaboration.html" title="Users in real-time collaboration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users in real-time collaboration</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                                    <li><a href="../users.html" title="Users">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Users</span>
+                                        </div></a></li>
+                                    <li><a href="../context-and-collaboration-features.html" title="Context and collaboration features">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Context and collaboration features</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Annotations</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-annotations">
+                                              <li><a href="../annotations/annotations.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../annotations/annotations-display-mode.html" title="Display mode">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Display mode</span>
+                                                  </div></a></li>
+                                              <li><a href="../annotations/annotations-custom-configuration.html" title="Configuration">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Configuration</span>
+                                                  </div></a></li>
+                                              <li><a href="../annotations/annotations-custom-theme.html" title="Custom theme">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom theme</span>
+                                                  </div></a></li>
+                                              <li><a href="../annotations/annotations-custom-template.html" title="Custom template">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom template</span>
+                                                  </div></a></li>
+                                              <li><a href="../annotations/annotations-custom-view.html" title="Custom view">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom view</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../minimap.html" title="Content minimap">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Content minimap</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Document conversion</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-converters">
+                                    <li><a href="../../converters/export-pdf.html" title="Export to PDF">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to PDF</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                                    <li><a href="../../converters/export-word.html" title="Export to Word">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Export to Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Import from Word</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="import-word">
+                                              <li><a href="../../converters/import-word/import-word.html" title="Import from Word">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Import from Word</span>
+                                                  </div></a></li>
+                                              <li><a href="../../converters/import-word/features-comparison.html" title="Features comparison">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Features comparison</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../document-outline.html" title="Document outline">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document outline</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../title.html" title="Document title">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document title</span>
+                              </div></a></li>
+                          <li><a href="../../drag-drop.html" title="Drag and drop">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Drag and drop</span>
+                              </div></a></li>
+                          <li><a href="../../editor-placeholder.html" title="Editor placeholder">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Editor placeholder</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">File management</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-file-management">
+                                    <li><a href="../../file-management/ckbox.html" title="CKBox">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKBox</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                                    <li><a href="../../file-management/ckfinder.html" title="CKFinder">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">CKFinder</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../find-and-replace.html" title="Find and replace">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Find and replace</span>
+                              </div></a></li>
+                          <li><a href="../../font.html" title="Font family, size, and color">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Font family, size, and color</span>
+                              </div></a></li>
+                          <li><a href="../../format-painter.html" title="Format painter">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Format painter</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../headings.html" title="Headings">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Headings</span>
+                              </div></a></li>
+                          <li><a href="../../highlight.html" title="Highlight">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Highlight</span>
+                              </div></a></li>
+                          <li><a href="../../horizontal-line.html" title="Horizontal line">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Horizontal line</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">HTML advanced support</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-html">
+                                    <li><a href="../../html/general-html-support.html" title="General HTML Support">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">General HTML Support</span>
+                                        </div></a></li>
+                                    <li><a href="../../html/html-comments.html" title="HTML comment element">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML comment element</span>
+                                        </div></a></li>
+                                    <li><a href="../../html/html-embed.html" title="HTML embed">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">HTML embed</span>
+                                        </div></a></li>
+                                    <li><a href="../../html/full-page-html.html" title="Full page HTML">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Full page HTML</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Images</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-images">
+                                    <li><a href="../../images/images-overview.html" title="Basics">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basics</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-installation.html" title="Installation">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Installation</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-text-alternative.html" title="Text alternative">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alternative</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-captions.html" title="Image captions">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image captions</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-resizing.html" title="Resizing images">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Resizing images</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-responsive.html" title="Responsive images">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Responsive images</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-styles.html" title="Image styles">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Image styles</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-linking.html" title="Linking images">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Linking images</span>
+                                        </div></a></li>
+                                    <li><a href="../../images/images-inserting.html" title="Inserting images via URL">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inserting images via URL</span>
+                                        </div></a></li>
+                                    <li>
+                                      <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Image upload</span>
+                                      </div>
+                                      <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-image-upload">
+                                              <li><a href="../../images/image-upload/image-upload.html" title="Overview">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/using-file-managers.html" title="Using file managers">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Using file managers</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/base64-upload-adapter.html" title="Base64 upload adapter">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Base64 upload adapter</span>
+                                                  </div></a></li>
+                                              <li><a href="../../images/image-upload/simple-upload-adapter.html" title="Simple upload adapter">
+                                                  <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Simple upload adapter</span>
+                                                  </div></a></li>
+                                      </ul>
+                                    </li>
+                            </ul>
+                          </li>
+                          <li><a href="../../link.html" title="Link">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Link</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Lists</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-lists">
+                                    <li><a href="../../lists/lists.html" title="Ordered and unordered lists">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Ordered and unordered lists</span>
+                                        </div></a></li>
+                                    <li><a href="../../lists/todo-lists.html" title="To-do lists">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">To-do lists</span>
+                                        </div></a></li>
+                                    <li><a href="../../lists/multi-level-lists.html" title="Multi-level lists">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-level lists</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                                    <li><a href="../../lists/lists-editing.html" title="Lists editing behavior">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Lists editing behavior</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../markdown.html" title="Markdown output">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Markdown output</span>
+                              </div></a></li>
+                          <li><a href="../../math-equations.html" title="Math and chemical formulas">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Math and chemical formulas</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../media-embed.html" title="Media embed">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Media embed</span>
+                              </div></a></li>
+                          <li><a href="../../mentions.html" title="Mentions">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mentions</span>
+                              </div></a></li>
+                          <li><a href="../../merge-fields.html" title="Merge fields">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Merge fields</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../mermaid.html" title="Mermaid flowcharts and diagrams">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Mermaid flowcharts and diagrams</span>
+                              </div></a></li>
+                          <li><a href="../../page-break.html" title="Page break">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Page break</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pagination</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                            </div>
+                            <ul class="tree__item-nested-list tree__item-nested-list--hidden" data-id="features-pagination">
+                                    <li><a href="../../pagination/pagination.html" title="Overview">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                                        </div></a></li>
+                                    <li><a href="../../pagination/pagination-integration.html" title="Integration with Export to PDF/Word">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Integration with Export to PDF/Word</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Pasting</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="features-pasting">
+                                    <li><a href="../../pasting/paste-from-office-enhanced.html" title="Paste from Office enhanced">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Office enhanced</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                                        </div></a></li>
+                                    <li><a href="../../pasting/paste-from-office.html" title="Paste from Office">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Office</span>
+                                        </div></a></li>
+                                    <li><a href="../../pasting/paste-from-google-docs.html" title="Paste from Google Docs">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste from Google Docs</span>
+                                        </div></a></li>
+                                    <li><a href="../../pasting/paste-plain-text.html" title="Paste plain text">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste plain text</span>
+                                        </div></a></li>
+                                    <li><a href="../../pasting/paste-markdown.html" title="Paste Markdown">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Paste Markdown</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../read-only.html" title="Read-only support">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Read-only support</span>
+                              </div></a></li>
+                          <li><a href="../../remove-format.html" title="Remove formatting">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Remove formatting</span>
+                              </div></a></li>
+                          <li><a href="../../restricted-editing.html" title="Restricted editing">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Restricted editing</span>
+                              </div></a></li>
+                          <li><a href="../../select-all.html" title="Select all">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Select all</span>
+                              </div></a></li>
+                          <li><a href="../../show-blocks.html" title="Show blocks">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Show blocks</span>
+                              </div></a></li>
+                          <li><a href="../../slash-commands.html" title="Slash commands">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Slash commands</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../source-editing.html" title="Source editing">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Source editing</span>
+                              </div></a></li>
+                          <li><a href="../../special-characters.html" title="Special characters">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Special characters</span>
+                              </div></a></li>
+                          <li><a href="../../spelling-and-grammar-checking.html" title="Spell and grammar checker">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Spell and grammar checker</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../style.html" title="Styles">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Styles</span>
+                              </div></a></li>
+                          <li><a href="../../table-of-contents.html" title="Table of contents">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table of contents</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Tables</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="tables">
+                                    <li><a href="../../tables/tables.html" title="Basics">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Basics</span>
+                                        </div></a></li>
+                                    <li><a href="../../tables/tables-styling.html" title="Styling tables">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Styling tables</span>
+                                        </div></a></li>
+                                    <li><a href="../../tables/tables-resize.html" title="Table column resizing">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table column resizing</span>
+                                        </div></a></li>
+                                    <li><a href="../../tables/tables-caption.html" title="Table caption">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Table caption</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li><a href="../../template.html" title="Templates">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Templates</span><span class="tree__item__badge tree__item__badge_premium" data-badge-tooltip="Premium feature"><span class="tree__item__badge__text">Premium feature</span></span>
+                              </div></a></li>
+                          <li><a href="../../text-alignment.html" title="Text alignment">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text alignment</span>
+                              </div></a></li>
+                          <li><a href="../../language.html" title="Text part language">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Text part language</span>
+                              </div></a></li>
+                          <li><a href="../../undo-redo.html" title="Undo/Redo">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Undo/Redo</span>
+                              </div></a></li>
+                          <li><a href="../../watchdog.html" title="Watchdog">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Watchdog</span>
+                              </div></a></li>
+                          <li><a href="../../word-count.html" title="Word and character count">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Word and character count</span>
+                              </div></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer--bordered">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'features' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'features' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'features' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'features' ] );tags.forEach( function( tag ) {if ( tag !== 'features' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../../assets/snippet.js"></script>
+    <script src="../../../snippets/assets.js"></script>
+    <script src="../../../snippets/features/revision-history-build/snippet.js"></script>
+    <script src="../../../snippets/features/revision-history-load-save-integration/snippet.js"></script>
+    <script src="../../../snippets/features/revision-history-adapter/snippet.js"></script>
+    <script src="../../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

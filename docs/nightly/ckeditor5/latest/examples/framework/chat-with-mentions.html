@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat with mentions | CKEditor 5 Documentation</title>
+    <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta name="twitter:site" content="@ckeditor">
+    <meta name="x-generated-at" content="Mon Jan 06 2025 02:12:25 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Chat with mentions | CKEditor 5 Documentation">
+    <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/examples/framework/chat-with-mentions.html">
+    <meta property="DC.language" content="en">
+    <meta property="DC.publisher" content="CKSource">
+    <meta property="DC.creator" content="CKEditor">
+    <meta property="DC.title" content="Chat with mentions | CKEditor 5 Documentation">
+    <meta property="DC.format" content="text/html">
+    <meta property="DC.type" content="Text">
+    <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
+    <link rel="canonical" href="https://ckeditor.com/docs/ckeditor5/latest/examples/framework/chat-with-mentions.html">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/img/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="../../assets/img/favicons/200x200.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+    <link rel="stylesheet" href="../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../snippets/examples/chat-with-mentions/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../snippets/assets.css" type="text/css" data-cke="true">
+    <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
+    <script id="vwoCode" type="text/javascript">
+      window._vwo_code || (function() {
+      var account_id='854367',
+      version=2.1,
+      settings_tolerance=2000,
+      hide_element='body',
+      hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+      f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){if(performance.getEntriesByName('first-contentful-paint')[0]){return''}return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(e){if(!f){f=true;var t=d.getElementById('_vis_opt_path_hides');if(t)t.parentNode.removeChild(t);if(e)(new Image).src='https://dev.visualwebsiteoptimizer.com/ee.gif?a='+account_id+e}},finished:function(){return f},addScript:function(e){var t=d.createElement('script');t.type='text/javascript';if(e.src){t.src=e.src}else{t.text=e.text}d.getElementsByTagName('head')[0].appendChild(t)},load:function(e,t){var i=this.getSettings(),n=d.createElement('script'),r=this;t=t||{};if(i){n.textContent=i;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);r.load(e)}}else{var o=new XMLHttpRequest;o.open('GET',e,true);o.withCredentials=!t.dSC;o.responseType=t.responseType||'text';o.onload=function(){if(t.onloadCb){return t.onloadCb(o,e)}if(o.status===200){_vwo_code.addScript({text:o.responseText})}else{_vwo_code.finish('&e=loading_failure:'+e)}};o.onerror=function(){if(t.onerrorCb){return t.onerrorCb(e)}_vwo_code.finish('&e=loading_failure:'+e)};o.send()}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var i=this.hide_element(),n=i?i+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=n;else t.appendChild(d.createTextNode(n));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var n=d.createElement('div');n.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';n.setAttribute('id','_vis_opt_path_hides');n.classList.add('_vis_hide_layer');t.parentNode.insertBefore(n,t.nextSibling)}var o='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:o})}else{this.load(o+'&x=true')}}};w._vwo_code=code;code.init();})();
+    </script>
+    <script>if ( ["ckeditor5.github.io"].indexOf( location.hostname ) !== -1 ) {
+      	( function ( w, d, e, u, a, b ) {
+      		a = d.createElement( e );
+      		b = d.getElementsByTagName( e )[ 0 ];
+      		a.async = 1;
+      		a.src = u;
+      		b.parentNode.insertBefore( a, b )
+      	} )( window, document, 'script', 'https://www.googletagmanager.com/gtag/js?id=G-H2PK3PSE3F' );
+      	window.dataLayer = window.dataLayer || [];
+      
+      	function gtag() {
+      		dataLayer.push( arguments );
+      	}
+      
+      	gtag( 'js', new Date() );
+      	gtag( 'config', 'G-H2PK3PSE3F' );
+      }
+    </script>
+    <meta name="permalink-disable-domains" content="ckeditor5.github.io,fake.ckeditor.com,localhost,127.0.0.1">
+    <meta name="project-version" content="44.1.0">
+    <meta name="project-slug" content="ckeditor5">
+  <meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header class="top" data-project="ckeditor5">
+      <div class="header__main">
+        <div class="header__main-rwd-button"><a href="#"><span></span><span></span><span></span></a></div>
+        <div class="header__main-title"><a class="header__main-title-home" href="../../../../index.html">CKEditor Ecosystem Documentation</a></div>
+        <div class="top__search">
+          <input class="top__search__box" type="text" id="docsearch_input" placeholder="Search in CKEditor 5">
+          <div class="top__search__button"><img src="../../../../assets/4.4.2/img/loupe.svg" alt="Search"></div>
+        </div>
+      </div>
+      <div class="header__sub">
+        <ul class="top__menu">
+          <li class="top__menu-project-logo"><a href="../../index.html">CKEditor 5</a></li>
+          <li><a href="../../getting-started/index.html">Getting started</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a class="top__menu__item--active" href="../index.html">Examples</a></li>
+          <li><a href="../../framework/index.html">Framework</a></li>
+          <li><a class="top__menu__api" href="../../api/index.html">API</a></li>
+          <li><a href="../../updating/index.html">Updating</a></li>
+          <li><a href="../../support/index.html">Support</a></li>
+          <li><a class="top__menu-github-link" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub."><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="header__menu-rwd">
+        <ul class="header__menu-rwd__projects">
+          <li data-project="ckeditor5"><a href="../../../latest/index.html">CKEditor 5</a>
+            <ul class="tree header__menu-rwd__projects-pages">
+              <li data-group="getting-started"><a href="../../getting-started/index.html">Getting started</a>
+              </li>
+              <li data-group="features"><a href="../../features/index.html">Features</a>
+              </li>
+              <li data-group="examples"><a href="../index.html">Examples</a>
+                <ul class="header__menu-rwd__projects-subpages">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Editor types</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="examples-builds">
+                                  <li><a href="../builds/classic-editor.html" title="Classic editor">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Classic editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds/inline-editor.html" title="Inline editor">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inline editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds/balloon-editor.html" title="Balloon editor">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Balloon editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds/balloon-block-editor.html" title="Balloon block editor">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Balloon block editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds/document-editor.html" title="Document editor">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds/multi-root-editor.html" title="Multi-root editor">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-root editor</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Presets</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="examples-builds-custom">
+                                  <li><a href="../builds-custom/full-featured-editor.html" title="Feature-rich editor">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Feature-rich editor</span>
+                                      </div></a></li>
+                                  <li><a href="../builds-custom/collaborative-document-editor.html" title="Collaborative document editor">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Collaborative document editor</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced configurations</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="examples-framework">
+                                  <li><a href="bottom-toolbar-editor.html" title="Bottom toolbar with button grouping">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Bottom toolbar with button grouping</span>
+                                      </div></a></li>
+                                  <li><a href="" title="Chat with mentions">
+                                      <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Chat with mentions</span>
+                                      </div></a></li>
+                                  <li><a href="theme-customization.html" title="Theme customization">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                      </div></a></li>
+                                  <li><a href="custom-ui.html" title="Custom UI (with Bootstrap)">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom UI (with Bootstrap)</span>
+                                      </div></a></li>
+                                  <li><a href="data-from-external-source.html" title="Data from an external source">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data from an external source</span>
+                                      </div></a></li>
+                                  <li><a href="using-react-in-a-widget.html" title="React components in an editor">
+                                      <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React components in an editor</span>
+                                      </div></a></li>
+                            </ul>
+                          </li>
+                </ul>
+              </li>
+              <li data-group="framework"><a href="../../framework/index.html">Framework</a>
+              </li>
+              <li data-group="api-reference"><a href="../../api/index.html">API</a>
+              </li>
+              <li data-group="updating"><a href="../../updating/index.html">Updating</a>
+              </li>
+              <li data-group="support"><a href="../../support/index.html">Support</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="main__content formatted main__content--no-toc">
+        <div class="main__content-inner">
+          <div class="github-contrib"><a href="https://github.com/ckeditor/ckeditor5/blob/master/packages/ckeditor5-mention/docs/examples/chat-with-mentions.md" title="Contribute to this guide"><img src="../../../../assets/4.4.2/img/edit.svg" alt="Contribute to this guide"></a>
+          </div>
+          <div class="rwd-breadcrumbs"><a href="../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../index.html">Examples</a>
+          </div>
+          <h1 class="main__content-title">Chat with mentions
+          </h1>
+<p>The <a href="../../features/mentions.html">mention</a> feature allows developing rich–text applications (like chats) with autocomplete suggestions displayed in a dedicated panel as the user types a pre-configured marker. For instance, in the editor below, type <strong>“@”</strong> to mention users and <strong>“#”</strong> to select from the list of available tags.</p>
+<div class="live-snippet"><div class="chat">
+	<ul class="chat__posts">
+		<li>
+			<img src="../../assets/img/m_1.jpg" alt="avatar" class="photo">
+			<div class="chat__posts__post__message">
+				<strong>Charles Flores</strong>
+				<a class="chat__posts__post__mailto-user" href="mailto:cflores@example.com">@cflores</a>
+				<span class="chat__posts__post__time">2 hours ago</span>
+				<p class="chat__posts__post__content">
+					Thanks for another <a class="mention" data-mention="#yummy" href="https://example.com/social/yummy">#yummy</a> recipe,
+					<a class="mention" data-mention="@dwilliams" href="mailto:dwilliams@example.com">@dwilliams</a>!
+					Makes me <a class="mention" data-mention="#hungry" href="https://example.com/social/hungry">#hungry</a>
+					just looking at the photos 😋. Definitely adding it to my TODO list for our next
+					<a class="mention" data-mention="#mediterranean" href="https://example.com/social/mediterranean">#mediterranean</a> potluck.
+				</p>
+			</div>
+		</li>
+		<li>
+			<img src="../../assets/img/w_1.jpg" alt="avatar" class="photo">
+			<div class="chat__posts__post__message">
+				<strong>Mildred Wilson</strong>
+				<a class="chat__posts__post__mailto-user" href="mailto:mwilson@example.com">@mwilson</a>
+				<span class="chat__posts__post__time">4 hours ago</span>
+				<p class="chat__posts__post__content">
+					Really appreciate the <a class="mention" data-mention="#vegetarian" href="https://example.com/social/vegetarian">#vegetarian</a>
+					and <a class="mention" data-mention="#vegan" href="https://example.com/social/vegan">#vegan</a> variations of your recipes.
+					So thoughtful of you! 🌱
+				</p>
+			</div>
+		</li>
+	</ul>
+	<div class="chat__editor">
+		<p>
+			I agree with <a href="mailto:mwilson@example.com" class="mention" data-mention="@mwilson">@mwilson</a> 👍.
+			It’s so nice of you to always be providing a few options to try! I love
+			<a href="https://example.com/social/greek" class="mention" data-mention="#greek">#greek</a> cuisine with a modern twist,
+			this one will be perfect to try.
+		</p>
+	</div>
+
+	<button class="chat-send" type="button">Send</button>
+</div>
+
+<style>
+	/* ---- General layout ---------------------------------------------------------------------- */
+
+	.chat {
+		margin-bottom: 1em
+	}
+
+	/* ---- Chat posts -------------------------------------------------------------------------- */
+
+	.chat ul.chat__posts {
+		border: 1px solid var(--ck-color-base-border);
+		border-top-left-radius: var(--ck-border-radius);
+		border-top-right-radius: var(--ck-border-radius);
+		border-bottom: none;
+		margin: 1em 0 0;
+		padding: 1em;
+		list-style-position: inside;
+	}
+
+	.chat ul.chat__posts li {
+		display: flex;
+	}
+
+	.chat ul.chat__posts li.new-post {
+		/* Highlight a new post in the chat. */
+		animation: highlight 600ms ease-out;
+	}
+
+	.chat ul.chat__posts li + li {
+		margin-top: 1em;
+	}
+
+	.chat .chat__posts li .photo {
+		border-radius: 100%;
+		height: 40px;
+		margin-right: 1.5em;
+	}
+
+	.chat .chat__posts li .time {
+		color: hsl(0, 0%, 72%);
+		font-size: .9em;
+	}
+
+	.chat .chat__posts .chat__posts__post__message > strong::after,
+	.chat__posts__post__mailto-user::after {
+		content: "•";
+		padding-left: 5px;
+		padding-right: 5px;
+		color: hsl(0, 0%, 72%);
+	}
+
+	@keyframes highlight {
+		0% {
+			background-color: yellow;
+		}
+
+		100% {
+			background-color: white;
+		}
+	}
+
+	/* ---- Chat editor ------------------------------------------------------------------------- */
+
+	.chat .chat__editor {
+		/* Anti–FOUC (flash of unstyled content). */
+		padding: 1em;
+		border: 1px solid var(--ck-color-base-border);
+	}
+
+	.chat .chat__editor + .ck.ck-editor {
+		margin-top: 0;
+	}
+
+	.chat .chat__editor + .ck.ck-editor .ck.ck-toolbar {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+
+	.chat .chat__editor + .ck.ck-editor .ck-content.highlighted {
+		animation: highlight 600ms ease-out;
+	}
+
+	/* ---- In–editor mention list --------------------------------------------------------------- */
+
+	.ck-mentions .mention__item {
+		display: block;
+	}
+
+	.ck-mentions .mention__item img {
+		border-radius: 100%;
+		height: 30px;
+	}
+
+	.ck-mentions .mention__item span {
+		margin-left: .5em;
+	}
+
+	.ck-mentions .mention__item.ck-on span {
+		color: var(--ck-color-base-background);
+	}
+
+	.ck-mentions .mention__item .mention__item__full-name {
+		color: hsl(0, 0%, 45%);
+	}
+
+	.ck-mentions .mention__item:hover:not(.ck-on) .mention__item__full-name {
+		color: hsl(0, 0%, 40%);
+	}
+
+	/* ---- Chat editor content styles ----------------------------------------------------------- */
+
+	.chat .ck-content .mention {
+		background: unset;
+	}
+
+	.chat .ck.ck-content a,
+	.chat .chat__posts a {
+		color: hsl(231, 89%, 53%);
+	}
+</style>
+</div>
+<p>Learn how to <a href="../../features/mentions.html#configuration">configure mention feeds</a> in the dedicated guide and check out the full source code of this example below if you want to implement your own chat using CKEditor&nbsp;5 WYSIWYG editor.</p>
+<h2 id="editor-example-configuration"><a class="headerlink" href="#editor-example-configuration">#</a> Editor example configuration</h2>
+<p>The following code will let you run the editor inside a chat application like in the example above.</p>
+<details>
+<summary>View editor configuration script</summary>
+<pre class="highlight"><code class="js">import {
+    ClassicEditor,
+    Bold,
+    Italic,
+    Strikethrough,
+    Underline,
+    Essentials,
+    Link,
+    Mention,
+    Paragraph
+} from 'ckeditor5';
+
+ClassicEditor
+    .create( document.querySelector( '.chat__editor' ), {
+        licenseKey: 'GPL', // Or '&lt;YOUR_LICENSE_KEY&gt;'.
+        extraPlugins: [ Essentials, Paragraph, Mention, MentionLinks, Bold, Italic, Underline, Strikethrough, Link ],
+        toolbar: {
+            items: [
+                'undo', 'redo',
+                '|',
+                'heading',
+                '|',
+                'bold', 'italic', 'underline', 'strikethrough',
+                '|',
+                'link', 'uploadImage', 'insertTable', 'mediaEmbed',
+                '|',
+                'bulletedList', 'numberedList', 'outdent', 'indent'
+            ]
+        },
+        mention: {
+            feeds: [
+                {
+                    marker: '@',
+                    feed: [
+                        { id: '@cflores', avatar: 'm_1', name: 'Charles Flores' },
+                        { id: '@gjackson', avatar: 'm_2', name: 'Gerald Jackson' },
+                        { id: '@wreed', avatar: 'm_3', name: 'Wayne Reed' },
+                        { id: '@lgarcia', avatar: 'm_4', name: 'Louis Garcia' },
+                        { id: '@rwilson', avatar: 'm_5', name: 'Roy Wilson' },
+                        { id: '@mnelson', avatar: 'm_6', name: 'Matthew Nelson' },
+                        { id: '@rwilliams', avatar: 'm_7', name: 'Randy Williams' },
+                        { id: '@ajohnson', avatar: 'm_8', name: 'Albert Johnson' },
+                        { id: '@sroberts', avatar: 'm_9', name: 'Steve Roberts' },
+                        { id: '@kevans', avatar: 'm_10', name: 'Kevin Evans' },
+                        { id: '@mwilson', avatar: 'w_1', name: 'Mildred Wilson' },
+                        { id: '@mnelson', avatar: 'w_2', name: 'Melissa Nelson' },
+                        { id: '@kallen', avatar: 'w_3', name: 'Kathleen Allen' },
+                        { id: '@myoung', avatar: 'w_4', name: 'Mary Young' },
+                        { id: '@arogers', avatar: 'w_5', name: 'Ashley Rogers' },
+                        { id: '@dgriffin', avatar: 'w_6', name: 'Debra Griffin' },
+                        { id: '@dwilliams', avatar: 'w_7', name: 'Denise Williams' },
+                        { id: '@ajames', avatar: 'w_8', name: 'Amy James' },
+                        { id: '@randerson', avatar: 'w_9', name: 'Ruby Anderson' },
+                        { id: '@wlee', avatar: 'w_10', name: 'Wanda Lee' }
+                    ],
+                    itemRenderer: customItemRenderer
+                },
+                {
+                    marker: '#',
+                    feed: [
+                        '#american', '#asian', '#baking', '#breakfast', '#cake', '#caribbean',
+                        '#chinese', '#chocolate', '#cooking', '#dairy', '#delicious', '#delish',
+                        '#dessert', '#desserts', '#dinner', '#eat', '#eating', '#eggs', '#fish',
+                        '#food', '#foodgasm', '#foodie', '#foodporn', '#foods', '#french', '#fresh',
+                        '#fusion', '#glutenfree', '#greek', '#grilling', '#halal', '#homemade',
+                        '#hot', '#hungry', '#icecream', '#indian', '#italian', '#japanese', '#keto',
+                        '#korean', '#lactosefree', '#lunch', '#meat', '#mediterranean', '#mexican',
+                        '#moroccan', '#nom', '#nomnom', '#paleo', '#poultry', '#snack', '#spanish',
+                        '#sugarfree', '#sweet', '#sweettooth', '#tasty', '#thai', '#vegan',
+                        '#vegetarian', '#vietnamese', '#yum', '#yummy'
+                    ]
+                }
+            ]
+        }
+    } )
+    .then( editor =&gt; {
+        const editingView = editor.editing.view;
+        const rootElement = editingView.document.getRoot();
+
+        window.editor = editor;
+
+        // Clone the first message in the chat when "Send" is clicked, fill it with new data
+        // and append to the chat list.
+        document.querySelector( '.chat-send' ).addEventListener( 'click', () =&gt; {
+            const message = editor.getData();
+
+            if ( !message ) {
+                editingView.change( writer =&gt; {
+                    writer.addClass( 'highlighted', rootElement );
+                    editingView.focus();
+                } );
+
+                setTimeout( () =&gt; {
+                    editingView.change( writer =&gt; {
+                        writer.removeClass( 'highlighted', rootElement );
+                    } );
+                }, 650 );
+
+                return;
+            }
+
+            const clone = document.querySelector( '.chat__posts li' ).cloneNode( true );
+
+            clone.classList.add( 'new-post' );
+            clone.querySelector( 'img' ).src = 'https://ckeditor.com/docs/ckeditor5/latest/assets/img/m_0.jpg';
+            clone.querySelector( 'strong' ).textContent = 'CKEditor User';
+
+            const mailtoUser = clone.querySelector( '.chat__posts__post__mailto-user' );
+
+            mailtoUser.textContent = '@ckeditor';
+            mailtoUser.href = 'mailto:info@cksource.com';
+
+            clone.querySelector( '.chat__posts__post__time' ).textContent = 'just now';
+            clone.querySelector( '.chat__posts__post__content' ).innerHTML = message;
+
+            document.querySelector( '.chat__posts' ).appendChild( clone );
+
+            editor.setData( '' );
+            editingView.focus();
+        } );
+    } )
+    .catch( err =&gt; {
+        console.error( err.stack );
+    } );
+
+/*
+ * This plugin customizes the way mentions are handled in the editor model and data.
+ * Instead of a classic &lt;span class="mention"&gt;&lt;/span&gt;,
+ */
+function MentionLinks( editor ) {
+    // The upcast converter will convert a view
+    //
+    //		&lt;a href="..." class="mention" data-mention="..."&gt;...&lt;/a&gt;
+    //
+    // element to the model "mention" text attribute.
+    editor.conversion.for( 'upcast' ).elementToAttribute( {
+        view: {
+            name: 'a',
+            key: 'data-mention',
+            classes: 'mention',
+            attributes: {
+                href: true
+            }
+        },
+        model: {
+            key: 'mention',
+            value: viewItem =&gt; editor.plugins.get( 'Mention' ).toMentionAttribute( viewItem )
+        },
+        converterPriority: 'high'
+    } );
+
+    // Downcast the model "mention" text attribute to a view
+    //
+    //		&lt;a href="..." class="mention" data-mention="..."&gt;...&lt;/a&gt;
+    //
+    // element.
+    editor.conversion.for( 'downcast' ).attributeToElement( {
+        model: 'mention',
+        view: ( modelAttributeValue, { writer } ) =&gt; {
+            // Do not convert empty attributes (lack of value means no mention).
+            if ( !modelAttributeValue ) {
+                return;
+            }
+
+            let href;
+
+            // User mentions are downcasted as mailto: links. Tags become normal URLs.
+            if ( modelAttributeValue.id[ 0 ] === '@' ) {
+                href = `mailto:${ modelAttributeValue.id.slice( 1 ) }@example.com`;
+            } else {
+                href = `https://example.com/social/${ modelAttributeValue.id.slice( 1 ) }`;
+            }
+
+            return writer.createAttributeElement( 'a', {
+                class: 'mention',
+                'data-mention': modelAttributeValue.id,
+                href
+            }, {
+                // Make mention attribute to be wrapped by other attribute elements.
+                priority: 20,
+                // Prevent merging mentions together.
+                id: modelAttributeValue.uid
+            } );
+        },
+        converterPriority: 'high'
+    } );
+}
+
+/*
+ * Customizes the way the list of user suggestions is displayed.
+ * Each user has an @id, a name and an avatar.
+ */
+function customItemRenderer( item ) {
+    const itemElement = document.createElement( 'span' );
+    const avatar = document.createElement( 'img' );
+    const userNameElement = document.createElement( 'span' );
+    const fullNameElement = document.createElement( 'span' );
+
+    itemElement.classList.add( 'mention__item' );
+
+    avatar.src = `https://ckeditor.com/docs/ckeditor5/latest/assets/img/${ item.avatar }.jpg`;
+
+    userNameElement.classList.add( 'mention__item__user-name' );
+    userNameElement.textContent = item.id;
+
+    fullNameElement.classList.add( 'mention__item__full-name' );
+    fullNameElement.textContent = item.name;
+
+    itemElement.appendChild( avatar );
+    itemElement.appendChild( userNameElement );
+    itemElement.appendChild( fullNameElement );
+
+    return itemElement;
+}
+</code></pre>
+</details>
+<details>
+<summary>View editor content listing</summary>
+<pre class="highlight"><code class="html">&lt;div class="chat"&gt;
+    &lt;ul class="chat__posts"&gt;
+        &lt;li&gt;
+            &lt;img src="https://ckeditor.com/docs/ckeditor5/latest/assets/img/m_1.jpg" alt="avatar" class="photo"&gt;
+            &lt;div class="chat__posts__post__message"&gt;
+                &lt;strong&gt;Charles Flores&lt;/strong&gt;
+                &lt;a class="chat__posts__post__mailto-user" href="mailto:cflores@example.com"&gt;@cflores&lt;/a&gt;
+                &lt;span class="chat__posts__post__time"&gt;2 hours ago&lt;/span&gt;
+                &lt;p class="chat__posts__post__content"&gt;
+                    Thanks for another &lt;a class="mention" data-mention="#yummy" href="https://example.com/social/yummy"&gt;#yummy&lt;/a&gt; recipe,
+                    &lt;a class="mention" data-mention="@dwilliams" href="mailto:dwilliams@example.com"&gt;@dwilliams&lt;/a&gt;!
+                    Makes me &lt;a class="mention" data-mention="#hungry" href="https://example.com/social/hungry"&gt;#hungry&lt;/a&gt;
+                    just looking at the photos 😋. Definitely adding it to my TODO list for our next
+                    &lt;a class="mention" data-mention="#mediterranean" href="https://example.com/social/mediterranean"&gt;#mediterranean&lt;/a&gt; potluck.
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;img src="https://ckeditor.com/docs/ckeditor5/latest/assets/img/w_1.jpg" alt="avatar" class="photo"&gt;
+            &lt;div class="chat__posts__post__message"&gt;
+                &lt;strong&gt;Mildred Wilson&lt;/strong&gt;
+                &lt;a class="chat__posts__post__mailto-user" href="mailto:mwilson@example.com"&gt;@mwilson&lt;/a&gt;
+                &lt;span class="chat__posts__post__time"&gt;4 hours ago&lt;/span&gt;
+                &lt;p class="chat__posts__post__content"&gt;
+                    Really appreciate the &lt;a class="mention" data-mention="#vegetarian" href="https://example.com/social/vegetarian"&gt;#vegetarian&lt;/a&gt;
+                    and &lt;a class="mention" data-mention="#vegan" href="https://example.com/social/vegan"&gt;#vegan&lt;/a&gt; variations of your recipes.
+                    So thoughtful of you! 🌱
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="chat__editor"&gt;
+        &lt;p&gt;
+            I agree with &lt;a href="mailto:mwilson@example.com" class="mention" data-mention="@mwilson"&gt;@mwilson&lt;/a&gt; 👍.
+            It’s so nice of you to always be providing a few options to try! I love
+            &lt;a href="https://example.com/social/greek" class="mention" data-mention="#greek"&gt;#greek&lt;/a&gt; cuisine with a modern twist,
+            this one will be perfect to try.
+        &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;button class="chat-send" type="button"&gt;Send&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    /* ---- General layout ---------------------------------------------------------------------- */
+
+    .chat {
+        margin-bottom: 1em
+    }
+
+    /* ---- Chat posts -------------------------------------------------------------------------- */
+
+    .chat ul.chat__posts {
+        border: 1px solid var(--ck-color-base-border);
+        border-top-left-radius: var(--ck-border-radius);
+        border-top-right-radius: var(--ck-border-radius);
+        border-bottom: none;
+        margin: 1em 0 0;
+        padding: 1em;
+        list-style-position: inside;
+    }
+
+    .chat ul.chat__posts li {
+        display: flex;
+    }
+
+    .chat ul.chat__posts li.new-post {
+        /* Highlight a new post in the chat. */
+        animation: highlight 600ms ease-out;
+    }
+
+    .chat ul.chat__posts li + li {
+        margin-top: 1em;
+    }
+
+    .chat .chat__posts li .photo {
+        border-radius: 100%;
+        height: 40px;
+        margin-right: 1.5em;
+    }
+
+    .chat .chat__posts li .time {
+        color: hsl(0, 0%, 72%);
+        font-size: .9em;
+    }
+
+    .chat .chat__posts .chat__posts__post__message &gt; strong::after,
+    .chat__posts__post__mailto-user::after {
+        content: "•";
+        padding-left: 5px;
+        padding-right: 5px;
+        color: hsl(0, 0%, 72%);
+    }
+
+    @keyframes highlight {
+        0% {
+            background-color: yellow;
+        }
+
+        100% {
+            background-color: white;
+        }
+    }
+
+    /* ---- Chat editor ------------------------------------------------------------------------- */
+
+    .chat .chat__editor {
+        /* Anti–FOUC (flash of unstyled content). */
+        padding: 1em;
+        border: 1px solid var(--ck-color-base-border);
+    }
+
+    .chat .chat__editor + .ck.ck-editor {
+        margin-top: 0;
+    }
+
+    .chat .chat__editor + .ck.ck-editor .ck.ck-toolbar {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .chat .chat__editor + .ck.ck-editor .ck-content.highlighted {
+        animation: highlight 600ms ease-out;
+    }
+
+    /* ---- In–editor mention list --------------------------------------------------------------- */
+
+    .ck-mentions .mention__item {
+        display: block;
+    }
+
+    .ck-mentions .mention__item img {
+        border-radius: 100%;
+        height: 30px;
+    }
+
+    .ck-mentions .mention__item span {
+        margin-left: .5em;
+    }
+
+    .ck-mentions .mention__item.ck-on span {
+        color: var(--ck-color-base-background);
+    }
+
+    .ck-mentions .mention__item .mention__item__full-name {
+        color: hsl(0, 0%, 45%);
+    }
+
+    .ck-mentions .mention__item:hover:not(.ck-on) .mention__item__full-name {
+        color: hsl(0, 0%, 40%);
+    }
+
+    /* ---- Chat editor content styles ----------------------------------------------------------- */
+
+    .chat .ck-content .mention {
+        background: unset;
+    }
+
+    .chat .ck.ck-content a,
+    .chat .chat__posts a {
+        color: hsl(231, 89%, 53%);
+    }
+&lt;/style&gt;
+</code></pre>
+</details>
+
+          <div class="info-box notice notice__feedback">
+            <p>
+              Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
+              Please report it via our <a href="https://github.com/ckeditor/ckeditor5/issues/new?labels=squad%3Accx%2Ctype%3Adocs&amp;template=7-docs-issue-community.yml&amp;title=Docs+issue+report+from+%22examples%2Fframework%2Fchat-with-mentions.html%22&amp;project-version=44.1.0" id="report-widget-issue-tracker">issue tracker</a>.
+            </p>
+            <p>
+              With the release of version 42.0.0, we have rewritten much of our documentation to reflect the new import paths and features.
+              We appreciate your feedback to help us ensure its accuracy and completeness.
+            </p>
+          </div>
+          <script>
+            ( () => {
+                const issueTracker = document.getElementById( 'report-widget-issue-tracker' );
+                const hrefUrl = new URL( issueTracker.href );
+                hrefUrl.searchParams.set( 'user-agent', navigator.userAgent )
+                hrefUrl.searchParams.set( 'origin-url', location.href )
+                issueTracker.href = hrefUrl.toString();
+            } )();
+          </script>
+        </div>
+      </section>
+      <div class="side-navigation">
+        <div class="side-navigation__wrapper">
+          <nav class="side-navigation__inner">
+            <ul class="tree guide-tree" id="guidetree">
+                          <li><a href="../index.html" title="Overview">
+                              <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Overview</span>
+                              </div></a></li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Editor types</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="examples-builds">
+                                    <li><a href="../builds/classic-editor.html" title="Classic editor">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Classic editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds/inline-editor.html" title="Inline editor">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Inline editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds/balloon-editor.html" title="Balloon editor">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Balloon editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds/balloon-block-editor.html" title="Balloon block editor">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Balloon block editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds/document-editor.html" title="Document editor">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Document editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds/multi-root-editor.html" title="Multi-root editor">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Multi-root editor</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Presets</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="examples-builds-custom">
+                                    <li><a href="../builds-custom/full-featured-editor.html" title="Feature-rich editor">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Feature-rich editor</span>
+                                        </div></a></li>
+                                    <li><a href="../builds-custom/collaborative-document-editor.html" title="Collaborative document editor">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Collaborative document editor</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <div class="tree__item__wrapper"><span class="tree__item--folder tree__item__text">Advanced configurations</span>
+                            </div>
+                            <ul class="tree__item-nested-list" data-id="examples-framework">
+                                    <li><a href="bottom-toolbar-editor.html" title="Bottom toolbar with button grouping">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Bottom toolbar with button grouping</span>
+                                        </div></a></li>
+                                    <li><a href="" title="Chat with mentions">
+                                        <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Chat with mentions</span>
+                                        </div></a></li>
+                                    <li><a href="theme-customization.html" title="Theme customization">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Theme customization</span>
+                                        </div></a></li>
+                                    <li><a href="custom-ui.html" title="Custom UI (with Bootstrap)">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Custom UI (with Bootstrap)</span>
+                                        </div></a></li>
+                                    <li><a href="data-from-external-source.html" title="Data from an external source">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Data from an external source</span>
+                                        </div></a></li>
+                                    <li><a href="using-react-in-a-widget.html" title="React components in an editor">
+                                        <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">React components in an editor</span>
+                                        </div></a></li>
+                            </ul>
+                          </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2003-2025 <a href="http://cksource.com">CKSource</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script><script type="text/javascript">
+docsearch({
+apiKey:'fc463c26455365ad403d5ec51796cd73',indexName:'ckeditor_nightly',inputSelector:'#docsearch_input',algoliaOptions:{hitsPerPage:250,attributesToRetrieve:'*'},
+transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_ranking = a.custom_ranking || 0;b.custom_ranking = b.custom_ranking || 0;if ( a.custom_ranking === b.custom_ranking ) return a.index - b.index;if ( a.custom_ranking > b.custom_ranking ) return -1;if ( a.custom_ranking < b.custom_ranking ) return 1;};var result = [];var tags = [ 'getting-started', 'features', 'examples', 'framework', 'api', 'updating', 'support' ];var hitsGrouped = { api: [] };hitsGrouped[ 'examples' ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( 'examples' );} ).slice( 0, 7 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn );tags.forEach( function( tag ) {if ( tag !== 'examples' ) {hitsGrouped[ tag ] = hits.filter( function( h ) {return h.tags.includes( 'ckeditor5' ) && h.tags.includes( tag );} ).slice( 0, 10 ).map( function( item, idx ) {item.index = idx;return item;} ).sort( sortingFn ).slice( 0, 3 );}} );var apiSearchHits = [];if ( window.apiSearch ) apiSearchHits = window.apiSearch();hitsGrouped.api = hitsGrouped.api.filter( function( h ) {var isDuplicated = false;for ( var i = 0; i < apiSearchHits.length; i++ ) {if ( h.url.includes( apiSearchHits[ i ].urlShort ) ) {isDuplicated = true;break;}}return !isDuplicated;} );hitsGrouped.api = ( apiSearchHits || [] ).concat( hitsGrouped.api );result = result.concat( hitsGrouped[ 'examples' ] );tags.forEach( function( tag ) {if ( tag !== 'examples' ) result = result.concat( hitsGrouped[ tag ].slice( 0, 4 ) );} );return result;}
+});
+</script>
+    <script src="../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../assets/snippet.js"></script>
+    <script src="../../snippets/assets.js"></script>
+    <script src="../../snippets/examples/chat-with-mentions/snippet.js"></script>
+    <script src="../../assets/buildwarningbanner.js" async></script>
+  </body>
+</html>

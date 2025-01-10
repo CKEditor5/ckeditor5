@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor 5 – RTL support proof of concept</title>
+	<style>
+		body {
+			max-width: 800px;
+			margin: 20px auto;
+
+			font-size: 14px;
+			font-family: Helvetica, Arial, sans-serif;
+		}
+
+		body > h2 {
+			border-bottom: 1px solid #ccc;
+			margin-top: 2em;
+			margin-bottom: 2em;
+		}
+
+		body > .ck-content:not(.ck-focused) {
+			border: 1px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.info {
+			background: rgb(255, 218, 150);
+			border: 3px dashed #000;
+			padding: 1em 2em;
+			margin-top: 2em;
+		}
+
+		.ck.ck-block-toolbar-button {
+			transform: translateX( -10px );
+		}
+
+		.ck[dir="rtl"] .ck-block-toolbar-button {
+			transform: translateX( 10px );
+		}
+
+		.decoupled-editable-container,
+		.decoupled-toolbar-container {
+			position: relative;
+			border: 1px solid #ddd;
+			background: #eee;
+		}
+
+		.decoupled-toolbar-container {
+			padding: 1em;
+			margin-bottom: 1em;
+		}
+
+		.decoupled-editable-container {
+			padding: 3em;
+			overflow-y: scroll;
+			max-height: 500px;
+		}
+
+		.decoupled-editable-container .ck.ck-editor__editable_inline {
+			min-height: 21cm;
+			padding: 3em;
+			border: 1px #D3D3D3 solid;
+			border-radius: var(--ck-border-radius);
+			background: white;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		}		
+	</style>
+</head>
+<body>
+
+<h1>CKEditor 5 – <a href="https://github.com/ckeditor/ckeditor5/issues/1151">RTL support</a> proof of concept</h1>
+
+<section class="info">
+	<p>⚠️ This demo is an early proof of concept of the RTL (right–to–left) language support in <a href="https://ckeditor.com/ckeditor-5/">CKEditor 5</a>. 
+	For more details and updates, check out the <a href="https://github.com/ckeditor/ckeditor5/issues/1151">issue</a> on GitHub.</p>
+</section>
+
+<h2>ClassicEditor</h2>
+<div id="classic-editor"></div>
+
+<h2>InlineEditor</h2>
+<div id="inline-editor"></div>
+
+<h2>BalloonEditor (with the <a href="https://ckeditor.com/docs/ckeditor5/latest/features/blocktoolbar.html">BlockToolbar</a>)</h2>
+<div id="balloon-editor"></div>
+
+<h2>DecoupledEditor</h2>
+<div class="decoupled-toolbar-container" dir="rtl"></div>
+<div class="decoupled-editable-container" dir="rtl"></div>
+
+<script src="build/ckeditor.js"></script>
+<script src="build/translations/ar.js"></script>
+<script>
+	const data = `
+		<h2>ما تراه هو ما تحصل عليه</h2>
+		<p><strong>ما تراه هو ما تحصل عليه</strong> (إنجليزية: WYSIWYG وتلفظ ‎<a href=\"https://ar.wikipedia.org/wiki/%D9%88%D9%8A%D9%83%D9%8A%D8%A8%D9%8A%D8%AF%D9%8A%D8%A7:%D8%A3%D8%B5%D8%AF\">[ˈwɪz.iˌwɪɡ]</a>‏) تعبير عن بعض المحررات (Editors) ويوجد أمثلة كثيرة على هذا النوع من <a href=\"https://ar.wikipedia.org/wiki/%D9%85%D8%AD%D8%B1%D8%B1_%D9%86%D8%B5%D9%88%D8%B5\">محررات النصوص</a> أو بعض <a href=\"https://ar.wikipedia.org/w/index.php?title=%D9%85%D8%AD%D8%B1%D8%B1_%D8%A3%D9%88%D8%A7%D9%85%D8%B1&amp;action=edit&amp;redlink=1\">محررات الأوامر البرمجية</a> مثل <a href=\"https://ar.wikipedia.org/wiki/%D9%84%D8%BA%D8%A9_%D8%AA%D8%B1%D9%85%D9%8A%D8%B2_%D8%A7%D9%84%D9%86%D8%B5_%D8%A7%D9%84%D9%81%D8%A7%D8%A6%D9%82\">HTML</a>.<a href=\"https://ar.wikipedia.org/wiki/%D9%85%D8%A7_%D8%AA%D8%B1%D8%A7%D9%87_%D9%87%D9%88_%D9%85%D8%A7_%D8%AA%D8%AD%D8%B5%D9%84_%D8%B9%D9%84%D9%8A%D9%87#cite_note-1\">[1]</a><a href=\"https://ar.wikipedia.org/wiki/%D9%85%D8%A7_%D8%AA%D8%B1%D8%A7%D9%87_%D9%87%D9%88_%D9%85%D8%A7_%D8%AA%D8%AD%D8%B5%D9%84_%D8%B9%D9%84%D9%8A%D9%87#cite_note-2\">[2]</a><a href=\"https://ar.wikipedia.org/wiki/%D9%85%D8%A7_%D8%AA%D8%B1%D8%A7%D9%87_%D9%87%D9%88_%D9%85%D8%A7_%D8%AA%D8%AD%D8%B5%D9%84_%D8%B9%D9%84%D9%8A%D9%87#cite_note-3\">[3]</a></p>
+		<figure class=\"image image-style-side\">
+			<img src=\"./sample.jpg\" alt=\"RTL\">
+			<figcaption>CKEditor</figcaption>
+		</figure>
+		<h2>عملها</h2>
+		<p>إن هذه البرامج باختصار واجهات مستخدم تسمح لك رؤية شيء يشبه كثيرًا ما ستراه عندما تنتهي من إنشاء المستند أو الصورة أو أي نوع آخر من الملفات، مثلاً&nbsp;: سيرى المستخدم في نافذة بعض <a href=\"https://ar.wikipedia.org/wiki/%D9%85%D8%AD%D8%B1%D8%B1_%D9%86%D8%B5%D9%88%D8%B5\">محررات النصوص</a> شكلاً يشبه تمامًا ما سيحصل عليه عند طباعته، أو حتى بعد نشره على الإنترنت واستعراضه من قبل أحد <a href=\"https://ar.wikipedia.org/wiki/%D9%85%D8%AA%D8%B5%D9%81%D8%AD\">متصفحات الويب</a>. كما ويستعمل هذا الاختصار للدلالة على فئة من البرامج ذات الواجهة الرسومية البسيطة والسهلة الاستعمال، أي أنها لا تحتاج إلى خبرة لاستعمالها لنأخذ على سبيل المثال برامج إنشاء مواقع الإنترنت وهي خير مثال لأن عبارة WYSIWYG تستعمل كثيرا في هذه النوعية من البرامج فمن المعروف أن إنشاء مواقع الإنترنت بحاجة إلى دراية بإحدى لغات برمجة المواقع وتكوينها ولعل أبرزها لغة <a href=\"https://ar.wikipedia.org/wiki/%D9%84%D8%BA%D8%A9_%D8%AA%D8%B1%D9%85%D9%8A%D8%B2_%D8%A7%D9%84%D9%86%D8%B5_%D8%A7%D9%84%D9%81%D8%A7%D8%A6%D9%82\">HTML</a>.</p>
+		<h2>مثال</h2>
+		<p>مثلا لإنشاء زر أو صورة أو أي مكون من مكونات صفحة موقعك عليك أن تكتب الكود الخاص به أما إذا كنت تستعمل برنامج لإنشاء المواقع يدعم مبدأ ما تراه هو ما تحصل عليه كل ما عليك فعله هو انتقاء الأداة التي تريد إدراجها في صفحتك ووضعها في مكانها في الصفحة. وبهذا تكون قد طبقت مبدأ ما تراه هو ما تحصل عليه أي أنك أردت زر أو مربع صورة فتختارها من شريط الأدوات لتجدها أصبحت داخل صفحتك (في هذا المثال رأيت الزر انتقيته فحصلت على الزر دون كتابة كود واحد من البرمجة التي تعتبر صعبة وتحتاج إلى دراسة طويلة وتركيز عالي).</p>
+		<figure class=\"table\">
+		<table>
+			<tbody>
+				<tr>
+					<td>CKEditor</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>CKEditor</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>CKEditor</td>
+					<td>&nbsp;</td>
+					<td>CKEditor</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>CKEditor</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+		</figure>
+		<p>وحاليا تستعمل معظم مواقع الإنترنت ومنتدياته تطبيقات تعتمد على هذه التقنية، لتسهيل كتابة الموضوعات على المستخدمين ممن ليست لهم دراية كافية باستخدام التطبيقات البرمجية بشكل مباشر ، ومن أشهر المواقع الخدمية التي تقدم هذه الإمكانية موقع <a href=\"https://ar.wikipedia.org/wiki/%D8%A8%D9%84%D9%88%D8%AC%D8%B1\">بلوجر</a> العالمي للتدوين وتطبيقات <a href=\"https://ar.wikipedia.org/wiki/%D9%88%D9%88%D8%B1%D8%AF_%D8%A8%D8%B1%D9%8A%D8%B3\">وورد بريس</a> لإنشاء مواقع الويب ومدوناته</p>
+	`;
+
+	CKEDITOR.ClassicEditor
+		.create( document.querySelector( '#classic-editor' ), {
+			placeholder: 'ما تراه هو ما تحصل عليه'
+		} )
+		.then( editor => {
+			editor.setData( data );
+			console.log( 'Created editor', editor );
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+
+	CKEDITOR.InlineEditor
+		.create( document.querySelector( '#inline-editor' ), {
+			placeholder: 'ما تراه هو ما تحصل عليه'
+		} )
+		.then( editor => {
+			editor.setData( data );
+			console.log( 'Created editor', editor );
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+
+	CKEDITOR.BalloonEditor
+		.create( document.querySelector( '#balloon-editor' ), {
+			placeholder: 'ما تراه هو ما تحصل عليه'
+		} )
+		.then( editor => {
+			editor.setData( data );
+			console.log( 'Created editor', editor );
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+
+	CKEDITOR.DecoupledEditor
+		.create( data, {
+			placeholder: 'ما تراه هو ما تحصل عليه'
+		} )
+		.then( editor => {
+			document.querySelector( '.decoupled-toolbar-container' ).appendChild( editor.ui.view.toolbar.element );
+			document.querySelector( '.decoupled-editable-container' ).appendChild( editor.ui.view.editable.element );
+
+			console.log( 'Created editor', editor );
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+
+</body>
+</html>

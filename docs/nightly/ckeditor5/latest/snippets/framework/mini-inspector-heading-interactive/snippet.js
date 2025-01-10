@@ -1,0 +1,5 @@
+/*!
+ * @license Copyright (c) 2003-2025, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md.
+ */DecoupledEditor.create(document.querySelector("#mini-inspector-heading-interactive"),{plugins:[Essentials,function(e){e.model.schema.register("heading",{allowAttributes:["level"],inheritAllFrom:"$block"}),e.conversion.for("upcast").elementToElement({view:"h1",model:(e,{writer:t})=>t.createElement("heading",{level:"1"})}),e.conversion.for("downcast").elementToElement({model:{name:"heading",attributes:["level"]},view:(e,{writer:t})=>t.createContainerElement("h"+e.getAttribute("level"))}),document.getElementById("mini-inspector-heading-interactive-dropdown").addEventListener("change",(t=>{e.model.change((n=>{n.setAttribute("level",t.target.value,e.model.document.getRoot().getChild(0))}))}))}],toolbar:[],licenseKey:"GPL"}).then((e=>{window.editor=e,MiniCKEditorInspector.attach(e,document.querySelector("#mini-inspector-heading-interactive-container"))})).catch((e=>{console.error(e.stack)}));
+//# sourceMappingURL=snippet.js.map

@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self' https://cksource.com http://*.cke-cs.com; script-src 'self' https://cksource.com; img-src * data:; style-src 'self' 'unsafe-inline'; frame-src *">
+	<title>Manual Test</title>
+	<style>
+		:root {
+			--ck-manual-test-sidebar-width: 390px;
+			--ck-manual-test-container-padding: 40px;
+			--ck-manual-test-transition-time: .2s;
+		}
+
+		.manual-test-list-container,
+		.manual-test-sidebar {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			font-style: normal;
+			font-variant: normal;
+			line-height: 26px;
+		}
+
+		.manual-test-list-container {
+			padding: 2em;
+			margin: 0;
+		}
+
+		.manual-test-container {
+			padding: var(--ck-manual-test-container-padding);
+			transition: padding .2s ease-in-out;
+		}
+
+		/*
+		 * Disable all transitions until the DOM is fully loaded. This prevents
+		 * annoying unnecessary animations on page load
+		 */
+		.manual-test-container.manual-test-container_no-transitions,
+		.manual-test-container.manual-test-container_no-transitions > .manual-test-sidebar,
+		.manual-test-container.manual-test-container_no-transitions > .manual-test-sidebar__toggle,
+		.manual-test-container.manual-test-container_no-transitions > .manual-test-sidebar__toggle > * {
+			transition: none !important;
+		}
+
+		.manual-test-container_pinned-sidebar {
+			padding-left: calc( var(--ck-manual-test-sidebar-width) + var(--ck-manual-test-container-padding));
+		}
+
+		/* ------------ Sidebar ----------------------------------------------------------------- */
+
+		.manual-test-sidebar {
+			line-height: 18px;
+			box-sizing: border-box;
+			position: fixed;
+			top: 0;
+			left: calc( -1 * var(--ck-manual-test-sidebar-width) );
+			bottom: 0;
+			width: min(100vw, var(--ck-manual-test-sidebar-width));
+			background-color: #f7f7f7;
+			border-right: 1px solid #bfbfbf;
+			color: #333;
+			padding: 15px;
+			overflow-x: hidden;
+			overflow-y: auto;
+			z-index: 9999;
+			transition: left var(--ck-manual-test-transition-time) ease-in-out;
+		}
+
+		.manual-test-container_pinned-sidebar .manual-test-sidebar {
+			left: 0;
+			box-shadow: 0 0 8px rgba(0,0,0,.15);
+		}
+
+		.manual-test-sidebar h1 {
+			font-size: 22px;
+		}
+
+		.manual-test-sidebar h2 {
+			font-size: 18px;
+		}
+
+		.manual-test-sidebar h3 {
+			font-size: 16px;
+		}
+
+		.manual-test-sidebar h4 {
+			font-size: 14px;
+		}
+
+		/* ------------ Sidebar toggle button ----------------------------------------------------------------- */
+
+		.manual-test-sidebar__toggle {
+			background: none;
+			width: 24px;
+			height: 24px;
+			display: block;
+			overflow: hidden;
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			border: none;
+			padding: 0;
+			margin: 0;
+			outline: none;
+			transition: left var(--ck-manual-test-transition-time) ease-in-out;
+			opacity: .5;
+			z-index: 10000;
+		}
+
+		.manual-test-sidebar__toggle:hover {
+			opacity: 1;
+		}
+
+		.manual-test-sidebar__toggle span {
+			display: block;
+			width: 20px;
+			height: 3px;
+			background: black;
+			border-radius: 3px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transition: transform var(--ck-manual-test-transition-time) ease-in-out, opacity var(--ck-manual-test-transition-time) ease-in-out;
+		}
+
+		.manual-test-sidebar__toggle span:nth-child(1) {
+			transform: translate(-50%, calc(-50% - 5px));
+		}
+
+		.manual-test-sidebar__toggle span:nth-child(3) {
+			transform: translate(-50%, calc(-50% + 5px));
+		}
+
+		.manual-test-container_pinned-sidebar .manual-test-sidebar__toggle {
+			left: min(calc(100vw - 35px), 350px);
+		}
+
+		.manual-test-container_pinned-sidebar .manual-test-sidebar__toggle span:nth-child(1) {
+			transform: translate(-50%, -50%) rotate(-45deg);
+		}
+
+		.manual-test-container_pinned-sidebar .manual-test-sidebar__toggle span:nth-child(2) {
+			opacity: 0;
+		}
+
+		.manual-test-container_pinned-sidebar .manual-test-sidebar__toggle span:nth-child(3) {
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+
+		/* ------------ "Back to the list" button styles ----------------------------------------------------------------- */
+
+		.manual-test-sidebar__root-link {
+			display: inline-block;
+			padding: 8px 0;
+			text-align: center;
+			border-radius: 2px;
+			line-height: 15px;
+			text-decoration: none;
+		}
+
+		.manual-test-sidebar__root-link:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body class="manual-test-container manual-test-container_no-transitions">
+<h2 style="max-width: 800px; margin-left: auto; margin-right: auto;">Alignments in separate dropdown</h2>
+<div id="editor-formatting">
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+	<figure class="image image-style-align-center">
+		<img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg" alt="">
+	</figure>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+	<p></p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Run.svg/100px-Run.svg.png" alt="Example image" style="width: 20px;"> in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<script src="imagestyle.js"></script></body></html>
