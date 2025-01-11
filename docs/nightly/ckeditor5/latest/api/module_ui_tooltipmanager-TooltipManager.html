@@ -7,7 +7,7 @@
     <meta name="description" content="CKEditor 5 API Documentation. The Class TooltipManager. A tooltip manager class for the UI of the editor. Note: Most likely you do not have to use the TooltipManager API listed below in order to display tooltips.">
     <meta name="twitter:card" content="CKEditor 5 API Documentation. The Class TooltipManager. A tooltip manager class for the UI of the editor. Note: Most likely you do not have to use the TooltipManager API listed below in order to display tooltips. Popular UI components support tooltips out-of-the-box via observable properties (see tooltip and tooltipPosition). Displaying tooltips To display a tooltip, set data-cke-tooltip-text attribute on any DOM element: The tooltip will show up whenever the user moves the mouse over the element or the element gets focus in DOM.">
     <meta name="twitter:site" content="@ckeditor">
-    <meta name="x-generated-at" content="Fri Jan 10 2025 02:12:24 GMT+0000 (Coordinated Universal Time)">
+    <meta name="x-generated-at" content="Sat Jan 11 2025 02:13:46 GMT+0000 (Coordinated Universal Time)">
     <meta property="og:title" content="Class TooltipManager (ui/tooltipmanager~TooltipManager) | CKEditor 5 API docs">
     <meta property="og:description" content="CKEditor 5 API Documentation. The Class TooltipManager. A tooltip manager class for the UI of the editor. Note: Most likely you do not have to use the TooltipManager API listed below in order to display tooltips. Popular UI components support tooltips out-of-the-box via observable properties (see tooltip and tooltipPosition). Displaying tooltips To display a tooltip, set data-cke-tooltip-text attribute on any DOM element: The tooltip will show up whenever the user moves the mouse over the element or the element gets focus in DOM.">
     <meta property="og:type" content="website">
@@ -146,7 +146,7 @@
             </dl>
           </nav>
           <div class="main-description__outer hidden-loading">
-                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L85" target="_blank" rel="noopener noreferrer">
+                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L93" target="_blank" rel="noopener noreferrer">
                           <svg viewBox="0 0 1024 1024">
                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                           </svg>See source</a></div>
@@ -165,9 +165,13 @@
 domElement.dataset.ckeTooltipPosition = 'n';
 </code></pre>
 <h4>Disabling tooltips</h4>
-<p>In order to disable the tooltip  temporarily, use the <code>data-cke-tooltip-disabled</code> attribute:</p>
+<p>In order to disable the tooltip temporarily, use the <code>data-cke-tooltip-disabled</code> attribute:</p>
 <pre><code class="language-ts">domElement.dataset.ckeTooltipText = 'Disabled. For now.';
 domElement.dataset.ckeTooltipDisabled = 'true';
+</code></pre>
+<h4>Instant tooltips</h4>
+<p>To remove the delay before showing or hiding the tooltip, use the <code>data-cke-tooltip-instant</code> attribute:</p>
+<pre><code class="language-ts">domElement.dataset.ckeTooltipInstant = 'true';
 </code></pre>
 <h4>Styling tooltips</h4>
 <p>By default, the tooltip has <code>.ck-tooltip</code> class and its text inner <code>.ck-tooltip__text</code>.</p>
@@ -224,7 +228,7 @@ domElement.dataset.ckeTooltipClass = 'my-class';
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L94" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L102" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>The instance of the balloon panel that renders and positions the tooltip.</p>
@@ -241,7 +245,7 @@ domElement.dataset.ckeTooltipClass = 'my-class';
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L89" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L97" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>The view rendering text of the tooltip.</p>
@@ -258,7 +262,7 @@ domElement.dataset.ckeTooltipClass = 'my-class';
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L109" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L117" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Stores the reference to the DOM element the tooltip is attached to. <code>null</code> when there's no tooltip
@@ -276,7 +280,7 @@ in the UI.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L114" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L122" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Stores the current tooltip position. <code>null</code> when there's no tooltip in the UI.</p>
@@ -293,7 +297,7 @@ in the UI.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L119" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L127" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>An instance of the mutation observer that keeps track on target element attributes changes.</p>
@@ -310,7 +314,7 @@ in the UI.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L125" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L133" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>A debounced version of <a href="module_ui_tooltipmanager-TooltipManager.html#function-_pinTooltip"><code>_pinTooltip</code></a>. Tooltips show with a delay to avoid flashing and
@@ -328,7 +332,7 @@ to improve the UX.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L130" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L138" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>A debounced version of <a href="module_ui_tooltipmanager-TooltipManager.html#function-_unpinTooltip"><code>_unpinTooltip</code></a>. Tooltips hide with a delay to allow hovering of their titles.</p>
@@ -346,7 +350,7 @@ to improve the UX.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L132" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L140" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div>
@@ -366,7 +370,7 @@ to improve the UX.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L100" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L108" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>A set of default <a href="module_utils_dom_position-PositioningFunction.html">positioning functions</a> used by the <code>TooltipManager</code>
@@ -385,7 +389,7 @@ to pin tooltips in different positions.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L138" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L146" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>A set of editors the single tooltip manager instance must listen to.
@@ -404,7 +408,7 @@ This is mostly to handle <code>EditorUI#update</code> listeners from individual 
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L144" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L152" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>A reference to the <code>TooltipManager</code> instance. The class is a singleton and as such,
@@ -422,7 +426,7 @@ successive attempts at creating instances should return this instance.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L149" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L157" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Creates an instance of the tooltip manager.</p>
@@ -447,7 +451,7 @@ successive attempts at creating instances should return this instance.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-utils/src/emittermixin.ts#L535" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-utils/src/emittermixin.ts#L535" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Delegates selected events to another <a href="module_utils_emittermixin-Emitter.html"><code>Emitter</code></a>. For instance:</p>
@@ -484,7 +488,7 @@ emitterA.delegate( 'eventX', 'eventY' ).to( emitterC );
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L214" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L222" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Destroys the tooltip manager.</p>
@@ -516,7 +520,7 @@ emitterA.delegate( 'eventX', 'eventY' ).to( emitterC );
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-utils/src/emittermixin.ts#L508" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-utils/src/emittermixin.ts#L508" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Fires an event, executing all callbacks registered for it.</p>
@@ -561,7 +565,7 @@ is the first param of every callback).</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-utils/src/dom/emittermixin.ts#L445" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-utils/src/dom/emittermixin.ts#L445" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Registers a callback function to be executed when an event is fired in a specific (emitter) object.</p>
@@ -627,7 +631,7 @@ set the <a href="module_utils_eventinfo-EventInfo.html#member-return">return val
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-utils/src/dom/emittermixin.ts#L409" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-utils/src/dom/emittermixin.ts#L409" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Registers a callback function to be executed when an event is fired in a specific Emitter or DOM Node.
@@ -678,7 +682,7 @@ It is backwards compatible with <a href="module_utils_emittermixin-Emitter.html#
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-utils/src/emittermixin.ts#L440" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-utils/src/emittermixin.ts#L440" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Stops executing the callback on the given event.
@@ -715,7 +719,7 @@ Shorthand for <a href="module_ui_tooltipmanager-TooltipManager.html#function-sto
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-utils/src/emittermixin.ts#L412" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-utils/src/emittermixin.ts#L412" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Registers a callback function to be executed when an event is fired.</p>
@@ -763,7 +767,7 @@ listen on itself).</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-utils/src/emittermixin.ts#L427" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-utils/src/emittermixin.ts#L427" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Registers a callback function to be executed on the next time the event is fired only. This is similar to
@@ -810,7 +814,7 @@ calling <a href="module_ui_tooltipmanager-TooltipManager.html#function-on"><code
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-utils/src/emittermixin.ts#L548" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-utils/src/emittermixin.ts#L548" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Stops delegating events. It can be used at different levels:</p>
@@ -852,7 +856,7 @@ If omitted, stops delegation of <code>event</code> to all emitters.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-utils/src/dom/emittermixin.ts#L469" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-utils/src/dom/emittermixin.ts#L469" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Stops listening for events. It can be used at different levels:
@@ -903,7 +907,7 @@ for all events from <code>emitter</code>.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L279" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L287" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Handles displaying tooltips on <code>mouseenter</code> and <code>focus</code> in DOM.</p>
@@ -939,7 +943,7 @@ for all events from <code>emitter</code>.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L266" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L274" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Handles hiding tooltips on <code>keydown</code> in DOM.</p>
@@ -975,7 +979,7 @@ for all events from <code>emitter</code>.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L318" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L334" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Handles hiding tooltips on <code>mouseleave</code> and <code>blur</code> in DOM.</p>
@@ -1011,7 +1015,7 @@ for all events from <code>emitter</code>.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L371" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L399" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Handles hiding tooltips on <code>scroll</code> in DOM.</p>
@@ -1047,7 +1051,7 @@ for all events from <code>emitter</code>.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L394" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L422" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Pins the tooltip to a specific DOM element.</p>
@@ -1083,7 +1087,7 @@ for all events from <code>emitter</code>.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L438" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L466" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Unpins the tooltip and cancels all queued pinning.</p>
@@ -1106,7 +1110,7 @@ for all events from <code>emitter</code>.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L460" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L488" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Updates the position of the tooltip so it stays in sync with the element it is pinned to.</p>
@@ -1133,7 +1137,7 @@ for all events from <code>emitter</code>.</p>
                         </div>
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content">
-                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/55ed74df/packages/ckeditor5-ui/src/tooltipmanager.ts#L242" target="_blank" rel="noopener noreferrer">
+                                      <div class="see-source"><a href="https://github.com/ckeditor/ckeditor5/blob/06cf625f/packages/ckeditor5-ui/src/tooltipmanager.ts#L250" target="_blank" rel="noopener noreferrer">
                                           <svg viewBox="0 0 1024 1024">
                                             <path d="M512 0C229.12 0 0 229.12 0 512c0 226.56 146.56 417.92 350.08 485.76 25.6 4.48 35.2-10.88 35.2-24.32 0-12.16-.64-52.48-.64-95.36-128.64 23.68-161.92-31.36-172.16-60.16-5.76-14.72-30.72-60.16-52.48-72.32-17.92-9.6-43.52-33.28-.64-33.92 40.32-.64 69.12 37.12 78.72 52.48 46.08 77.44 119.68 55.68 149.12 42.24 4.48-33.28 17.92-55.68 32.64-68.48-113.92-12.8-232.96-56.96-232.96-252.8 0-55.68 19.84-101.76 52.48-137.6-5.12-12.8-23.04-65.28 5.12-135.68 0 0 42.88-13.44 140.8 52.48 40.96-11.52 84.48-17.28 128-17.28 43.52 0 87.04 5.76 128 17.28 97.92-66.56 140.8-52.48 140.8-52.48 28.16 70.4 10.24 122.88 5.12 135.68 32.64 35.84 52.48 81.28 52.48 137.6 0 196.48-119.68 240-233.6 252.8 18.56 16 34.56 46.72 34.56 94.72 0 68.48-.64 123.52-.64 140.8 0 13.44 9.6 29.44 35.2 24.32C877.44 929.92 1024 737.92 1024 512 1024 229.12 794.88 0 512 0z"></path>
                                           </svg>See source</a></div><p>Returns <a href="module_ui_tooltipmanager-TooltipManager.html#member-balloonPanelView"><code>balloonPanelView</code></a> <a href="module_utils_dom_position-PositioningFunction.html">positioning functions</a> for a given position
