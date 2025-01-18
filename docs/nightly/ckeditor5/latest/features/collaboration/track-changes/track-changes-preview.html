@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Track changes - Previewing final document | CKEditor 5 Documentation</title>
+    <title>Track changes - Preview final content | CKEditor 5 Documentation</title>
     <meta name="description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
     <meta name="twitter:card" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
     <meta name="twitter:site" content="@ckeditor">
-    <meta name="x-generated-at" content="Fri Jan 17 2025 02:13:55 GMT+0000 (Coordinated Universal Time)">
-    <meta property="og:title" content="Track changes - Previewing final document | CKEditor 5 Documentation">
+    <meta name="x-generated-at" content="Sat Jan 18 2025 02:13:00 GMT+0000 (Coordinated Universal Time)">
+    <meta property="og:title" content="Track changes - Preview final content | CKEditor 5 Documentation">
     <meta property="og:description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ckeditor.com/docs/ckeditor5/latest/features/collaboration/track-changes/track-changes-preview.html">
     <meta property="DC.language" content="en">
     <meta property="DC.publisher" content="CKSource">
     <meta property="DC.creator" content="CKEditor">
-    <meta property="DC.title" content="Track changes - Previewing final document | CKEditor 5 Documentation">
+    <meta property="DC.title" content="Track changes - Preview final content | CKEditor 5 Documentation">
     <meta property="DC.format" content="text/html">
     <meta property="DC.type" content="Text">
     <meta property="DC.description" content="Learn how to install, integrate and configure CKEditor 5 Builds and how to work with CKEditor 5 Framework, customize it, create your own plugins and custom editors, change the UI or even bring your own UI to the editor. API reference and examples included.">
@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
     <link rel="stylesheet" href="../../../../../assets/4.4.2/css/styles.css" type="text/css" media="all">
     <link rel="stylesheet" href="../../../assets/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../../snippets/features/editor-with-track-changes-build/snippet.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../assets/snippet-styles.css" type="text/css" data-cke="true">
+    <link rel="stylesheet" href="../../../snippets/assets.css" type="text/css" data-cke="true">
     <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com">
     <script id="vwoCode" type="text/javascript">
       window._vwo_code || (function() {
@@ -185,8 +188,8 @@
                                           <li><a href="track-changes-data.html" title="Saving data without suggestions">
                                               <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
                                               </div></a></li>
-                                          <li><a href="" title="Previewing final document">
-                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Previewing final document</span>
+                                          <li><a href="" title="Preview final content">
+                                              <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Preview final content</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
                                               </div></a></li>
                                     </ul>
                                   </li>
@@ -555,8 +558,124 @@
           </div>
           <div class="rwd-breadcrumbs"><a href="../../../../../index.html">Home</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../../index.html">CKEditor 5</a><span class="rwd-breadcrumbs__separator">/</span><a href="../../index.html">Features</a>
           </div>
-          <h1 class="main__content-title">Previewing final document
-          </h1>
+          <h1 class="main__content-title">Preview final content
+          </h1><nav class="secondary-navigation"><h3>Table of contents</h3><ol><li><a href="#demo" title="Demo">Demo</a></li><li><a href="#installation" title="Installation">Installation</a></li><li><a href="#configuration" title="Configuration">Configuration</a></li></ol></nav>
+
+<p>The content you work on may become heavily edited, including lots of suggestions, possibly coming from different authors. At some point, it may become difficult to understand what the final content will look like, after all suggestions are accepted. When this happens, you may use the track changes preview feature. When used, it will display a modal window with a preview of the content with all the suggestions accepted.</p>
+<h2 id="demo"><a class="headerlink" href="#demo">#</a> Demo</h2>
+<p>Use the “Preview final content” button in the track changes toolbar dropdown <span class="editor-icon"><img src="../../../assets/icons/806eff75c2.svg" class="editor-icon__image" alt="Track changes"></span> (you can find it in the menu bar, in “Tools -&gt; Track changes” menu). The editor will display a modal window with the preview. Add more suggestions to the document to see how the final content changes.</p>
+<div class="live-snippet"><script src="https://cdn.ckbox.io/ckbox/latest/ckbox.js"></script>
+<div class="live-snippet__container loaded tc-adapter">
+	<div class="row">
+		<div class="editor"></div>
+		<div class="sidebar"></div>
+	</div>
+</div>
+
+<style>
+	.live-snippet .ck-heading-dropdown {
+		width: 95px;
+	}
+
+	.ck-sidebar-item {
+		max-width: 275px;
+	}
+
+	.live-snippet .ck.ck-editor {
+		overflow: hidden;
+	}
+</style>
+</div>
+<div class="info-box notice notice__info"><p>This demo presents a limited set of features. Visit the <a href="../../../examples/builds-custom/full-featured-editor.html">feature-rich editor example</a> to see more in action.</p></div>
+<h2 id="installation"><a class="headerlink" href="#installation">#</a> Installation</h2>
+<p>To enable the track changes preview feature, add the <code>TrackChangesPreview</code> plugin to your editor setup:</p>
+<div class="code-switcher selfhosted"><div class="code-switcher__toolbar"></div><pre class="highlight"><code class="js">import { ClassicEditor } from 'ckeditor5';
+import { TrackChangesPreview } from 'ckeditor5-premium-features';
+
+ClassicEditor
+	.create( document.querySelector( '#editor' ), {
+		licenseKey: '&lt;YOUR_LICENSE_KEY&gt;', // Or 'GPL'.
+		plugins: [ TrackChangesPreview, /* ... */ ]
+	} )
+	.then( /* ... */ )
+	.catch( /* ... */ );
+</code></pre></div>
+<p>The plugin will add a new “Preview final content” button in the track changes toolbar dropdown and in the “Tools -&gt; Track changes” menu in the menu bar.</p>
+<p>You can also execute <code>previewFinalContent</code> command to show the modal window with the preview:</p>
+<pre class="highlight"><code class="js">editor.commands.get( 'previewFinalContent' );
+</code></pre>
+<h2 id="configuration"><a class="headerlink" href="#configuration">#</a> Configuration</h2>
+<p>When the preview is opened, the editor content is put inside a container element, which has the same CSS classes as the editor’s editable element. In most cases this is sufficient to replicate the styling of editor content.</p>
+<p>If you see that your custom CSS styles are not applied in the preview, make sure that your CSS rules also apply to the HTML in the preview modal. You may need to adjust selectors in your CSS rules to match the preview dialog structure.</p>
+<p>By default, the editor content is put into a following DOM structure:</p>
+<pre class="highlight"><code class="html">&lt;div class="ck ck-track-changes-preview" ...&gt;
+    &lt;div class="ck ck-content ck-editor__editable ck-track-changes-preview__root-container ..." data-ck-root-name="main"&gt;
+        &lt;!-- Editor content goes here. !--&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>You can target the <code>ck-track-changes-preview</code> and <code>ck-track-changes-preview__root-container</code> classes, as well as <code>data-ck-root-name</code> attribute.</p>
+<p>However, some integrations may require a custom DOM structure, for example due to complex CSS rules, or if you use <a href="../../../api/module_editor-multi-root_multirooteditor-MultiRootEditor.html"><code>MultiRootEditor</code></a>. To provide a custom DOM structure inside the preview modal dialog, use the <code>trackChanges.preview.renderFunction</code> configuration option.</p>
+<pre class="highlight"><code class="js">{
+    trackChanges: {
+        preview: {
+            renderFunction: ( container, elements ) =&gt; {
+                // Custom callback inserting the `elements` into `container`.
+                // ...
+            }
+        }
+    }
+}
+</code></pre>
+<p>Two parameters are passed to the callback:</p>
+<ul>
+<li><code>container</code> – the main container element that will be inserted into the modal window (this is the element with the <code>ck-track-changes-preview</code> CSS class).</li>
+<li><code>elements</code> – an array of elements, each holding the contents of one of the editor roots. Unless you are using <a href="../../../api/module_editor-multi-root_multirooteditor-MultiRootEditor.html"><code>MultiRootEditor</code></a>, there will be only one element available. They are sorted according to their DOM order. Each element has the <code>data-ck-root-name</code> attribute set to the corresponding editor’s root name. You can use them for styling purposes, or to recognize a particular root and handle it in some custom way.</li>
+</ul>
+<p>Use <code>renderFunction</code> to process the <code>elements</code> array, wrap them in a DOM structure that will fit your needs, and insert them into <code>container</code> element.</p>
+<p>Below is an example of how <code>renderFunction</code> could be used together with a multi-root editor:</p>
+<pre class="highlight"><code class="js">ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        // ... Other configuration options ...
+        trackChanges: {
+            preview: {
+                renderFunction: ( container, elements ) =&gt; {
+                    for ( const element of elements ) {
+                        // Wrap each root into an additional container.
+                        const dataContainer = document.createElement( 'div' );
+
+                        dataContainer.classList.add( 'additional-container' );
+                        dataContainer.appendChild( element );
+
+                        container.appendChild( dataContainer );
+                    }
+                }
+            }
+        }
+    } )
+    .then( /* ... */ )
+    .catch( /* ... */ );
+</code></pre>
+<p>This will result in the following structure inside the preview modal window:</p>
+<pre class="highlight"><code class="html">&lt;div class="ck ck-track-changes-preview" ...&gt;
+    &lt;div class="additional-container"&gt;
+        &lt;div class="ck ck-content ck-editor__editable ck-track-changes-preview__root-container ..." data-ck-root-name="root-a"&gt;
+            &lt;!-- Editor content for "root-a" goes here. !--&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="additional-container"&gt;
+        &lt;div class="ck ck-content ck-editor__editable ck-track-changes-preview__root-container ..." data-ck-root-name="root-b"&gt;
+            &lt;!-- Editor content for "root-b" goes here. !--&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="additional-container"&gt;
+        &lt;div class="ck ck-content ck-editor__editable ck-track-changes-preview__root-container ..." data-ck-root-name="root-c"&gt;
+            &lt;!-- Editor content for "root-c" goes here. !--&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
           <div class="info-box notice notice__feedback">
             <p>
               Every day, we work hard to keep our documentation complete. Have you spotted outdated information? Is something missing?
@@ -677,8 +796,8 @@
                                               <li><a href="track-changes-data.html" title="Saving data without suggestions">
                                                   <div class="tree__item__wrapper"><span class="tree__item--guide tree__item__text">Saving data without suggestions</span>
                                                   </div></a></li>
-                                              <li><a href="" title="Previewing final document">
-                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Previewing final document</span>
+                                              <li><a href="" title="Preview final content">
+                                                  <div class="tree__item__wrapper tree__item__wrapper--active"><span class="tree__item--guide tree__item__text">Preview final content</span><span class="tree__item__badge tree__item__badge_new" data-badge-tooltip="New or updated content">New</span>
                                                   </div></a></li>
                                       </ul>
                                     </li>
@@ -1038,6 +1157,10 @@ transformData: function( hits ) {var sortingFn = function( a, b ) {a.custom_rank
 });
 </script>
     <script src="../../../../../assets/4.4.2/scripts/app.js"></script>
+    <script src="../../../assets/snippet.js"></script>
+    <script src="../../../snippets/assets.js"></script>
+    <script src="../../../snippets/features/editor-with-track-changes-build/snippet.js"></script>
+    <script src="../../../snippets/features/track-changes-preview/snippet.js"></script>
     <script src="../../../assets/buildwarningbanner.js" async></script>
   </body>
 </html>

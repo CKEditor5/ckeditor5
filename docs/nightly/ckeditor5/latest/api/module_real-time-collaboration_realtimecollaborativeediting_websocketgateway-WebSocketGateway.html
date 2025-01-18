@@ -7,7 +7,7 @@
     <meta name="description" content="CKEditor 5 API Documentation. The Class WebSocketGateway. The base class for Context plugin classes. A context plugin can either be initialized for an editor or for a context.">
     <meta name="twitter:card" content="CKEditor 5 API Documentation. The Class WebSocketGateway. The base class for Context plugin classes. A context plugin can either be initialized for an editor or for a context. In other words, it can either work within one editor instance or with one or more editor instances that use a single context. It is the context plugin's role to implement handling for both modes. There are a few rules for interaction between the editor plugins and context plugins: A context plugin can require another context plugin. An editor plugin can require a context plugin.">
     <meta name="twitter:site" content="@ckeditor">
-    <meta name="x-generated-at" content="Fri Jan 17 2025 02:13:15 GMT+0000 (Coordinated Universal Time)">
+    <meta name="x-generated-at" content="Sat Jan 18 2025 02:12:15 GMT+0000 (Coordinated Universal Time)">
     <meta property="og:title" content="Class WebSocketGateway (real-time-collaboration/realtimecollaborativeediting/websocketgateway~WebSocketGateway) | CKEditor 5 API docs">
     <meta property="og:description" content="CKEditor 5 API Documentation. The Class WebSocketGateway. The base class for Context plugin classes. A context plugin can either be initialized for an editor or for a context. In other words, it can either work within one editor instance or with one or more editor instances that use a single context. It is the context plugin's role to implement handling for both modes. There are a few rules for interaction between the editor plugins and context plugins: A context plugin can require another context plugin. An editor plugin can require a context plugin.">
     <meta property="og:type" content="website">
@@ -426,7 +426,7 @@ must be enabled for the button to become enabled, use the following code:</p>
                                       <dl>
                                         <dt><code>bindProperties
                                             :
- Array&lt;<span>'off'</span> | <span>'on'</span> | <span>'once'</span> | <span>'listenTo'</span> | <span>'stopListening'</span> | <span>'fire'</span> | <span>'delegate'</span> | <span>'stopDelegating'</span> | <span>'set'</span> | <span>'bind'</span> | <span>'unbind'</span> | <span>'decorate'</span> | <span>'destroy'</span> | <span>'context'</span> | <span>'init'</span> | <span>'state'</span> | <span>'connection'</span> | <span>'_isBrowserOffline'</span> | <span>'addToReconnectionStack'</span> | <span>'removeFromReconnectionStack'</span> | <span>'isInReconnectionStack'</span>&gt;</code></dt>
+ Array&lt;<span>'off'</span> | <span>'on'</span> | <span>'once'</span> | <span>'listenTo'</span> | <span>'stopListening'</span> | <span>'fire'</span> | <span>'delegate'</span> | <span>'stopDelegating'</span> | <span>'set'</span> | <span>'bind'</span> | <span>'unbind'</span> | <span>'decorate'</span> | <span>'destroy'</span> | <span>'context'</span> | <span>'init'</span> | <span>'state'</span> | <span>'connection'</span> | <span>'_isBrowserOffline'</span> | <span>'addToReconnectionStack'</span> | <span>'removeFromReconnectionStack'</span> | <span>'isInReconnectionStack'</span> | <span>'disconnect'</span>&gt;</code></dt>
                                         <dd><p>Observable properties that will be bound to other observable(s).</p>
                                         </dd>
                                       </dl>
@@ -648,7 +648,7 @@ foo.method( 1, 2 ); // -&gt; '3, 2'
                                       <dl>
                                         <dt><code>methodName
                                             :
- <span>'off'</span> | <span>'on'</span> | <span>'once'</span> | <span>'listenTo'</span> | <span>'stopListening'</span> | <span>'fire'</span> | <span>'delegate'</span> | <span>'stopDelegating'</span> | <span>'set'</span> | <span>'bind'</span> | <span>'unbind'</span> | <span>'decorate'</span> | <span>'destroy'</span> | <span>'context'</span> | <span>'init'</span> | <span>'state'</span> | <span>'connection'</span> | <span>'_isBrowserOffline'</span> | <span>'addToReconnectionStack'</span> | <span>'removeFromReconnectionStack'</span> | <span>'isInReconnectionStack'</span></code></dt>
+ <span>'off'</span> | <span>'on'</span> | <span>'once'</span> | <span>'listenTo'</span> | <span>'stopListening'</span> | <span>'fire'</span> | <span>'delegate'</span> | <span>'stopDelegating'</span> | <span>'set'</span> | <span>'bind'</span> | <span>'unbind'</span> | <span>'decorate'</span> | <span>'destroy'</span> | <span>'context'</span> | <span>'init'</span> | <span>'state'</span> | <span>'connection'</span> | <span>'_isBrowserOffline'</span> | <span>'addToReconnectionStack'</span> | <span>'removeFromReconnectionStack'</span> | <span>'isInReconnectionStack'</span> | <span>'disconnect'</span></code></dt>
                                         <dd><p>Name of the method to decorate.</p>
                                         </dd>
                                       </dl>
@@ -705,6 +705,22 @@ emitterA.delegate( 'eventX', 'eventY' ).to( emitterC );
                         <div class="collapsing-list__description">
                           <div class="collapsing-list__content"><p>Destroys the plugin.</p>
 <p><strong>Note:</strong> This method is optional. A plugin instance does not need to have it defined.</p>
+                            <h4>Returns</h4>
+                            <dl>
+                                        <dt><code><span>void</span></code></dt>
+                                        <dd>
+                                        </dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="collapsing-list__item collapsing-list__item--visible" data-public="true">
+                        <div class="collapsing-list__term toggler--collapsed" id="function-disconnect">
+                          <h3><code><a class="member-name" href="#function-disconnect">disconnect</a>() &rarr;  <span>void</span></code><span class="collapsing-list__dev-names" aria-hidden="true" title="module:real-time-collaboration/realtimecollaborativeediting/websocketgateway~WebSocketGateway#disconnect"><code>module:real-time-collaboration/realtimecollaborativeediting/websocketgateway~WebSocketGateway#disconnect</code></span>
+                          </h3>
+                        </div>
+                        <div class="collapsing-list__description">
+                          <div class="collapsing-list__content"><p>Disconnects the client from the WebSocket server and also stops the DOM emitter listeners to prevent reconnect process.</p>
                             <h4>Returns</h4>
                             <dl>
                                         <dt><code><span>void</span></code></dt>
@@ -1194,7 +1210,7 @@ A.unbind();
                                       <dl>
                                         <dt><code>unbindProperties
                                             :
- Array&lt;<span>'off'</span> | <span>'on'</span> | <span>'once'</span> | <span>'listenTo'</span> | <span>'stopListening'</span> | <span>'fire'</span> | <span>'delegate'</span> | <span>'stopDelegating'</span> | <span>'set'</span> | <span>'bind'</span> | <span>'unbind'</span> | <span>'decorate'</span> | <span>'destroy'</span> | <span>'context'</span> | <span>'init'</span> | <span>'state'</span> | <span>'connection'</span> | <span>'_isBrowserOffline'</span> | <span>'addToReconnectionStack'</span> | <span>'removeFromReconnectionStack'</span> | <span>'isInReconnectionStack'</span>&gt;</code></dt>
+ Array&lt;<span>'off'</span> | <span>'on'</span> | <span>'once'</span> | <span>'listenTo'</span> | <span>'stopListening'</span> | <span>'fire'</span> | <span>'delegate'</span> | <span>'stopDelegating'</span> | <span>'set'</span> | <span>'bind'</span> | <span>'unbind'</span> | <span>'decorate'</span> | <span>'destroy'</span> | <span>'context'</span> | <span>'init'</span> | <span>'state'</span> | <span>'connection'</span> | <span>'_isBrowserOffline'</span> | <span>'addToReconnectionStack'</span> | <span>'removeFromReconnectionStack'</span> | <span>'isInReconnectionStack'</span> | <span>'disconnect'</span>&gt;</code></dt>
                                         <dd><p>Observable properties to be unbound. All the bindings will
 be released if no properties are provided.</p>
                                         </dd>
@@ -10029,20 +10045,20 @@ observable.prop = 2; // -&gt; 'Value is going to be changed from 1 to 2'
                   </ul>
                 </li>
                 <li class="toggler--collapsed">
+                  <div class="tree__item__wrapper" data-ln="module:track-changes/commands/previewfinalcontentcommand"><a class="tree__item--module tree__item__text" href="module_track-changes_commands_previewfinalcontentcommand.html">previewfinalcontentcommand</a>
+                  </div>
+                  <ul>
+                    <li data-public="true"><a href="module_track-changes_commands_previewfinalcontentcommand-PreviewFinalContentCommand.html">
+                        <div class="tree__item__wrapper" data-ln="module:track-changes/commands/previewfinalcontentcommand~PreviewFinalContentCommand"><span class="tree__item--class tree__item__text">PreviewFinalContentCommand</span></div></a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="toggler--collapsed">
                   <div class="tree__item__wrapper" data-ln="module:track-changes/commands/trackchangescommand"><a class="tree__item--module tree__item__text" href="module_track-changes_commands_trackchangescommand.html">trackchangescommand</a>
                   </div>
                   <ul>
                     <li data-public="true"><a href="module_track-changes_commands_trackchangescommand-TrackChangesCommand.html">
                         <div class="tree__item__wrapper" data-ln="module:track-changes/commands/trackchangescommand~TrackChangesCommand"><span class="tree__item--class tree__item__text">TrackChangesCommand</span></div></a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="toggler--collapsed">
-                  <div class="tree__item__wrapper" data-ln="module:track-changes/commands/viewfinaldocumentcommand"><a class="tree__item--module tree__item__text" href="module_track-changes_commands_viewfinaldocumentcommand.html">viewfinaldocumentcommand</a>
-                  </div>
-                  <ul>
-                    <li data-public="true"><a href="module_track-changes_commands_viewfinaldocumentcommand-ViewFinalDocumentCommand.html">
-                        <div class="tree__item__wrapper" data-ln="module:track-changes/commands/viewfinaldocumentcommand~ViewFinalDocumentCommand"><span class="tree__item--class tree__item__text">ViewFinalDocumentCommand</span></div></a>
                     </li>
                   </ul>
                 </li>
@@ -12207,6 +12223,9 @@ observable.prop = 2; // -&gt; 'Value is going to be changed from 1 to 2'
                     <div class="tree__item__wrapper" data-ln="module:utils/collection~CollectionRemoveEvent"><span class="tree__item--typedef tree__item__text">CollectionRemoveEvent</span></div></a>
                 </li>
               </ul>
+            </li>
+            <li><a href="module_utils_collectstylesheets.html">
+                <div class="tree__item__wrapper" data-ln="module:utils/collectstylesheets"><span class="tree__item--module tree__item__text">collectstylesheets</span></div></a>
             </li>
             <li class="toggler--collapsed">
               <div class="tree__item__wrapper" data-ln="module:utils/comparearrays"><a class="tree__item--module tree__item__text" href="module_utils_comparearrays.html">comparearrays</a>
